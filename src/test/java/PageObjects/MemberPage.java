@@ -81,7 +81,7 @@ public class MemberPage extends PageObject {
     }
 
     @Step("Verify that Email address is populated to email field")
-    public void EmailAdressPopulated() {
+    public void EmailAdresPopulated() {
 
 
         Assert.assertTrue(Email.isDisplayed());

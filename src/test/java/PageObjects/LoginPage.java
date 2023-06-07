@@ -8,16 +8,13 @@ import org.openqa.selenium.WebElement;
 public class LoginPage extends PageObject {
 
 
-
-//   private final WebElement x = $(By.xpath("//input[@name='username']"));
+    String x = "//input[@name='username']";
 
 
 
     @Step("Enter Username")
     public void inputUserName(String userName) {
-
-        $(By.xpath("//input[@name='username']")).sendKeys(userName);
-        //x.sendKeys((userName));
+        $(By.xpath(x)).sendKeys(userName);
     }
 
     @Step("Enter Password")
