@@ -9,13 +9,15 @@ public class LoginPage extends PageObject {
 
 
 
-    WebElement x = $(By.xpath("//input[@name='username']"));
+//   private final WebElement x = $(By.xpath("//input[@name='username']"));
 
 
 
     @Step("Enter Username")
     public void inputUserName(String userName) {
-        x.sendKeys((userName));
+
+        $(By.xpath("//input[@name='username']")).sendKeys(userName);
+        //x.sendKeys((userName));
     }
 
     @Step("Enter Password")

@@ -1,9 +1,14 @@
 package stepsDefinition;
 
+import PageObjects.MemberPage;
 import io.cucumber.java.en.*;
+import net.thucydides.core.annotations.Steps;
 
 public class funeralDignityPlan {
 
+
+    @Steps
+    MemberPage memberPage;
 
     @Given("User is on the dignity plan page")
     public void user_is_on_the_dignity_plan_page() {
