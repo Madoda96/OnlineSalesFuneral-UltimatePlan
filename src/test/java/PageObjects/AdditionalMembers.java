@@ -15,6 +15,16 @@ public class AdditionalMembers extends PageObject {
   // Add spouse Webelements
   String AddSpouseCheckbxXpath = "//*[@id=\"onlineSaleForm\"]/div/div[2]/div[1]/div[7]/fieldset/div[1]/div[1]/label/span";
 
+  String AddChildrenCheckBoxXpath = "//*[@id=\"onlineSaleForm\"]/div/div[2]/div[1]/div[8]/fieldset/div[1]/div[1]/label/span";
+
+  String AddExtendedMemberCheckBoxXpath = "//*[@id=\"onlineSaleForm\"]/div/div[2]/div[1]/div[9]/fieldset/div[1]/div[1]/label/span";
+
+
+  // Non insurance Web Element
+  String AddOptionalClienteleBlueRewardsXpath = "//*[@id=\"onlineSaleForm\"]/div/div[2]/div[1]/div[10]/fieldset/div[2]/div[1]/label/span";
+
+  String AddOptionalClienteleSilverRewardXpath = "//*[@id=\"onlineSaleForm\"]/div/div[2]/div[1]/div[11]/fieldset/div[2]/div[1]/label/span";
+
   String TitleXpath = "//select[@id=\"onTtlSp\"]";
 
   String Spouse_NameXpath = "//input[@name=\"onNameSp\"]";
@@ -41,6 +51,16 @@ public class AdditionalMembers extends PageObject {
   String BackBtnXpath = "//div[@onclick=\"stepback('0');\"]";
 
 
+  String ChildNameXpath = "//input[@id=\"onNameCh1\"]";
+  String ChildSurnameNameXpath = "//input[@id=\"onSurnameCh1\"]";
+  String ChildGenderXpath = "//select[@id=\"onGenderCh1\"]";
+  String ChildIsStudenteXpath = "//select[@id=\"onChIsStudent1\"]";
+  String ChildIDnumXpath = "//input[@id=\"onIdNumCh1\"]";
+  String ChildDOBXpath = "//input[@name=\"onDobCh\"]";
+  String AddAnotherChild = "//button[@id=\"AddChild\"]";
+  String ChildSaveDetails = "//div[@id=\"SaveChild\"]";
+
+
   @Step("Check checkbox to add a spouse ")
   public void addSpouse() {
     $(By.xpath(AddSpouseCheckbxXpath)).click();
@@ -49,7 +69,9 @@ public class AdditionalMembers extends PageObject {
 
   @Step("select spouse Title")
   public void selectTitle(String title) {
-    $(By.xpath(TitleXpath)).sendKeys(title);
+    Select tit = $(By.xpath(TitleXpath));
+    tit.selectByVisibleText(title);
+
   }
 
   @Step("Enter spouse name")
@@ -65,7 +87,7 @@ public class AdditionalMembers extends PageObject {
   }
 
   @Step("Select spouse gender")
-  public void selectGender(String Gender) {
+  public void selectSpouseGender(String Gender) {
     Select gender = $(By.xpath(Spouse_GenderXpath));
     gender.selectByValue(Gender);
 
@@ -77,7 +99,7 @@ public class AdditionalMembers extends PageObject {
   }
 
   @Step("enter spouse date of birth")
-  public void enterDateOfBirth(String Year, String Month, String day) {
+  public void enterSpouseDateOfBirth(String Year, String Month, String day) {
 
     String activedatesXpath = "//*[@id=\"ui-datepicker-div\"]/table";
 
@@ -134,6 +156,86 @@ public void clickBackBtn(){
     $(By.xpath(BackBtnXpath)).click();
 
 }
-
+@Step("Add a child name")
+  public void EnterChildName (String Childname){
+    $(By.xpath(ChildNameXpath)).sendKeys(Childname);
+}
+@Step("Add a child surname")
+  public void EnterChildSurname(String childSurname){
+    $(By.xpath(ChildSurnameNameXpath)).sendKeys(childSurname);
 
 }
+@Step("Select child gender")
+  public void selectChildGender(String gender){
+    Select g = $(By.xpath(ChildGenderXpath));
+    g.selectByVisibleText(gender);
+
+}
+@Step("Select if  the child  is a student or not ")
+  public void IsChildStudentOrNot(String isStudent_or_Not){
+    Select isStudent = $(By.xpath(ChildIsStudenteXpath));
+    isStudent.selectByVisibleText(isStudent_or_Not);
+}
+@Step("Enter the child ID number")
+  public void childIDNUM (String childIDNo){
+    $(By.xpath(ChildIDnumXpath)).sendKeys(childIDNo);
+
+}
+@Step("Enter the child date of birth")
+  public void childDateOfBirth(String year,String month, String day){
+
+    String calenderMonthXpath = "//select[@class=\"ui-datepicker-month\"]";
+    String calenderYear = "//select[@class=\"ui-datepicker-year\"]";
+    String dates = "//*[@id=\"ui-datepicker-div\"]/table";
+
+
+    $(By.xpath(ChildDOBXpath)).click();
+
+    Select mnth = $(By.xpath(calenderMonthXpath));
+    Select yer = $(By.xpath(calenderYear));
+    yer.selectByVisibleText(year);
+    mnth.selectByVisibleText(month);
+
+  List<WebElement> activedates = $(By.xpath(dates));
+
+  for (WebElement datess : activedates) {
+    String date = datess.getText();
+//      System.out.println(date);
+    if (date.equals(day)) {
+      datess.click();
+      break;
+    }
+  }
+
+}
+
+@Step("Click add another child button to add multiple children")
+  public  void addAnotherCh(){
+    $(By.xpath(AddAnotherChild)).click();
+
+}
+@Step("Click save details button to save captured child details")
+  public void SaveChildDetails(){
+    $(By.xpath(ChildSaveDetails)).click();
+}
+@Step("Check the add child(ren) checkbox")
+  public void addChildrencheckBox(){
+    $(By.xpath(AddChildrenCheckBoxXpath)).click();
+}
+@Step("select add optional clientele blue rewards")
+  public void SelectBlueRewards(){
+    $(By.xpath(AddOptionalClienteleBlueRewardsXpath)).click();
+
+}
+@Step("select add optional silver rewards")
+    public void SelectSilverRewards(){
+      $(By.xpath(AddOptionalClienteleSilverRewardXpath)).click();
+  }
+
+}
+
+
+
+
+
+
