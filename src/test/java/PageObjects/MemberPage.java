@@ -12,77 +12,84 @@ public class MemberPage extends PageObject {
 
     //member page webElements
 
-    WebElement EnterEmail = $(By.xpath("//input[@id=\"introEmail\"]")); // element will be used when intro email is required
+
+    String EmailXpath = "//input[@id=\"introEmail\"]";
+    // element will be used when intro email is required
 
 //     WebElement selectTitle = $(By.xpath("//select[@id=\"onTtl\"]"));
 
-    WebElement Name = $(By.xpath("//input[@name=\"onName\"]"));
+    String TitleXpath = "//select[@name=\"onTtl\"]";
 
-    WebElement Surname = $(By.xpath("//input[@name=\"onSurname\"]"));
+    String NameXpath = "//input[@name=\"onName\"]";
 
-    WebElement IDnum = $(By.xpath("//input[@name=\"onID\"]"));
+    String SurnameXpath = "//input[@name=\"onSurname\"]";
 
-
-    WebElement Email = $(By.xpath("//*[@id=\"onEmail\"]"));
-    WebElement MobileNu = $(By.xpath("//input[@name=\"onMobile\"]"));
+    String IDnumXpath = "//input[@name=\"onID\"]";
 
 
-    WebElement PostalAddress = $(By.xpath("//input[@name=\"onAddress1\"]"));
+    String EmailXPATH ="//*[@id=\"onEmail\"]";  // Email field on the members page
+    String MobileNuXpath = "//input[@name=\"onMobile\"]";
 
-    WebElement PostalCode = $(By.xpath("//*[@id=\"onPostal\"]"));
-    WebElement MonthlIncome = $(By.xpath("//select[@name=\"onIncome\" ]"));
-    WebElement Occupation = $(By.xpath("//select[@name=\"onOccupation\" ]"));
-    WebElement education = $(By.xpath("//select[@name=\"onEducation\"]"));
-    WebElement FicDecl01 = $(By.xpath("//select[@name=\"fica01\" ]"));
-    WebElement FicDecl02 = $(By.xpath("//select[@name=\"fica02\" ]"));
+
+    String PostalAddressXpath = "//input[@name=\"onAddress1\"]";
+    String PostalCodeXpath = "//*[@id=\"onPostal\"]";
+
+
+    String MonthlIncomeXpath = "//select[@name=\"onIncome\" ]";
+    String OccupationXpath = "//select[@name=\"onOccupation\" ]";
+    String educationXpath = "//select[@name=\"onEducation\"]";
+    String FicDecl01Xpath = "//select[@name=\"fica01\" ]";
+    String FicDecl02Xpath = "//select[@name=\"fica02\" ]";
 
 
     @Step("Enter email ")
     public void EnterEmail(String email){
-        EnterEmail.sendKeys(email);
+
+        $(By.xpath(EmailXpath)).sendKeys(email);
+
 
     }
     @Step("Select Title")
     public void SelectTitle(String Title) {
-        Select select = $(By.xpath("//select[@id=\"onTtl\"]"));
+        Select select = $(By.xpath(TitleXpath));
         select.selectByVisibleText(Title);
 
     }
 
     @Step("Enter name")
     public void EnterName(String name) {
-        Name.sendKeys(name);
+        $(By.xpath(NameXpath)).sendKeys(name);
 
     }
 
     @Step("enter surname")
     public void Entersurname(String surname) {
 
-        Surname.sendKeys(surname);
+        $(By.xpath(SurnameXpath)).sendKeys(surname);
 
     }
 
     @Step("Enter mobile Number")
     public void enterMobileNum(String MOBNo) {
-        MobileNu.sendKeys(MOBNo);
+        $(By.xpath(MobileNuXpath)).sendKeys(MOBNo);
 
     }
 
     @Step("Enter postal address")
     public void enterPostalAddress(String postadress) {
-        PostalAddress.sendKeys(postadress);
+        $(By.xpath(PostalAddressXpath)).sendKeys(postadress);
 
     }
 
     @Step("Enter postal code")
     public void EnterPostalCode(String postcode) {
-        PostalCode.sendKeys(postcode);
+        $(By.xpath(PostalCodeXpath)).sendKeys(postcode);
 
     }
 
     @Step("Verify that Email address is populated to email field")
     public void EmailAdresPopulated() {
-
+        WebElement Email = $(By.xpath(EmailXPATH));
 
         Assert.assertTrue(Email.isDisplayed());
         String emailTxt = Email.getText();
@@ -98,7 +105,7 @@ public class MemberPage extends PageObject {
 
     @Step(" Select Monthly income")
     public void selectIncome(String value) {
-        Select select = $(By.xpath("//select[@name=\"onIncome\" ]"));
+        Select select = $(By.xpath(MonthlIncomeXpath));
         select.selectByValue(value);
 
     }
@@ -106,7 +113,7 @@ public class MemberPage extends PageObject {
     @Step(" Select occupation")
     public void selectOccupation(String occupation) {
 
-        Select select = $(By.xpath("//select[@name=\"onOccupation\" ]"));
+        Select select = $(By.xpath(OccupationXpath));
         select.selectByValue(occupation);
 
     }
@@ -114,7 +121,7 @@ public class MemberPage extends PageObject {
     @Step("Select education")
     public void selectEducation(String edu) {
 
-        Select select = $(By.xpath("//select[@name=\"onEducation\"]"));
+        Select select = $(By.xpath(educationXpath));
         select.selectByValue(edu);
 
     }
@@ -122,14 +129,14 @@ public class MemberPage extends PageObject {
     @Step("Accept FICA declaration ")
     public void acceptFICAdecl(String Yes_No) {
 
-        Select select = $(By.xpath("//select[@name=\"fica01\" ]"));
+        Select select = $(By.xpath(FicDecl01Xpath));
         select.selectByValue(Yes_No);
 
     }
 
     @Step("Accept FICA declaration ")
     public void acceptFicaDeclaration2(String YES_NO) {
-        Select select = $(By.xpath("//select[@name=\"fica01\" ]"));
+        Select select = $(By.xpath(FicDecl02Xpath));
         select.selectByValue(YES_NO);
     }
 }
