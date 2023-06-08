@@ -1,8 +1,10 @@
 package stepsDefinition;
 
+import PageObjects.AdditionalMembers;
 import PageObjects.HomePage;
 import PageObjects.MemberPage;
 import io.cucumber.java.en.*;
+import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.Steps;
 
 public class funeralDignityPlan {
@@ -12,6 +14,8 @@ public class funeralDignityPlan {
     MemberPage memberPage;
     @Steps
     HomePage homePage;
+    @Steps
+    AdditionalMembers additionalMembers;
 
     @Given("User is on the dignity plan page")
     public void user_is_on_the_dignity_plan_page() {
@@ -39,6 +43,28 @@ public class funeralDignityPlan {
     }
     @When("User adds two additional members, a spouse and child to the policy")
     public void user_adds_two_additional_members_a_spouse_and_child_to_the_policy() {
+           additionalMembers.addSpouse();
+           additionalMembers.selectTitle("Dr");
+           additionalMembers.enterSpouseName("David");
+           additionalMembers.EnterChildSurname("Clemont");
+           additionalMembers.selectSpouseGender("Male");
+           additionalMembers.enterSpouseDateOfBirth("1989","Oct","20");
+           // add implementation to add ID number
+
+           additionalMembers.saveSpousedtls();
+
+           // adding child
+           additionalMembers.addChildrencheckBox();
+           additionalMembers.EnterChildName("Ismael");
+           additionalMembers.EnterChildSurname("Nkosi");
+           additionalMembers.selectChildGender("Male");
+           additionalMembers.IsChildStudentOrNot("Yes");
+           additionalMembers.childDateOfBirth("1996","Dec","18");
+
+           //add implementation for ID Number
+
+           additionalMembers.saveSpousedtls();
+
 
     }
     @When("User adds two beneficiaries for the policy by allocating percentage")
