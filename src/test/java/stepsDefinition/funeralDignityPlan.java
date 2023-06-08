@@ -1,5 +1,6 @@
 package stepsDefinition;
 
+import PageObjects.HomePage;
 import PageObjects.MemberPage;
 import io.cucumber.java.en.*;
 import net.thucydides.core.annotations.Steps;
@@ -9,21 +10,36 @@ public class funeralDignityPlan {
 
     @Steps
     MemberPage memberPage;
+    @Steps
+    HomePage homePage;
 
     @Given("User is on the dignity plan page")
     public void user_is_on_the_dignity_plan_page() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        homePage.open();
+        homePage.ClickBuyNowFuneralPlans();
+        memberPage.EnterEmail("Test@gmail.com");
+        homePage.clickContinueBtn();
+
+
     }
     @When("User completes the required  Member details .")
     public void user_completes_the_required_member_details() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        memberPage.SelectTitle("Mr");
+        memberPage.EnterName("Thomas");
+        memberPage.Entersurname("Peters");
+        memberPage.enterMobileNum("0854122350");
+        memberPage.enterPostalAddress("1196 elves street");
+        memberPage.EnterPostalCode("1205");
+        memberPage.selectIncome("15,000 - 18,000");
+        memberPage.selectOccupation("Skilled agriculture");
+        memberPage.selectEducation("Post-graduate (Honours, Masters etc)");
+        memberPage.acceptFICAdecl("Yes");
+        memberPage.acceptFicaDeclaration2("Yes");
+
     }
     @When("User adds two additional members, a spouse and child to the policy")
     public void user_adds_two_additional_members_a_spouse_and_child_to_the_policy() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+
     }
     @When("User adds two beneficiaries for the policy by allocating percentage")
     public void user_adds_two_beneficiaries_for_the_policy_by_allocating_percentage() {
