@@ -31,6 +31,7 @@ public class funeralDignityPlan {
         memberPage.SelectTitle("Mr");
         memberPage.EnterName("Thomas");
         memberPage.Entersurname("Peters");
+        memberPage.enterMemberIDnum("7501145741088i");
         memberPage.enterMobileNum("0854122350");
         memberPage.enterPostalAddress("1196 elves street");
         memberPage.EnterPostalCode("1205");
@@ -39,6 +40,7 @@ public class funeralDignityPlan {
         memberPage.selectEducation("Post-graduate (Honours, Masters etc)");
         memberPage.acceptFICAdecl("Yes");
         memberPage.acceptFicaDeclaration2("Yes");
+        memberPage.clickContinueBtn();
 
     }
     @When("User adds two additional members, a spouse and child to the policy")
@@ -49,7 +51,8 @@ public class funeralDignityPlan {
            additionalMembers.EnterChildSurname("Clemont");
            additionalMembers.selectSpouseGender("Male");
            additionalMembers.enterSpouseDateOfBirth("1989","Oct","20");
-           // add implementation to add ID number
+           // add implementation to add ID
+
 
            additionalMembers.saveSpousedtls();
 
