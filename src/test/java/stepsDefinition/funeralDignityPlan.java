@@ -1,6 +1,7 @@
 package stepsDefinition;
 
 import PageObjects.AdditionalMembers;
+import PageObjects.BeneficiaryDetails;
 import PageObjects.HomePage;
 import PageObjects.MemberPage;
 import io.cucumber.java.en.*;
@@ -16,6 +17,8 @@ public class funeralDignityPlan {
     HomePage homePage;
     @Steps
     AdditionalMembers additionalMembers;
+    @Steps
+    BeneficiaryDetails beneficiaryDetails;
 
     @Given("User is on the dignity plan page")
     public void user_is_on_the_dignity_plan_page() {
@@ -71,9 +74,25 @@ public class funeralDignityPlan {
 
     }
     @When("User adds two beneficiaries for the policy by allocating percentage")
-    public void user_adds_two_beneficiaries_for_the_policy_by_allocating_percentage() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void user_adds_two_beneficiaries_for_the_policy_by_allocating_percentage() throws InterruptedException {
+       beneficiaryDetails.SelectBeneficiaryTite("Mr");
+       beneficiaryDetails.EnterBeneficiaryName("Thabo");
+       beneficiaryDetails.EnterBeneficiarySurname("Duma");
+       beneficiaryDetails.EnterDateOfBirth("20", "Dec", "1990");
+       beneficiaryDetails.SelectBeneficiaryRelationship("Father-in-Law");
+       beneficiaryDetails.SelectPercentageAllocation("50");
+        Thread.sleep(5000);
+
+        // second beneficiary
+        beneficiaryDetails.EnterBeneficiaryName("Thami");
+        beneficiaryDetails.EnterBeneficiarySurname("Close");
+        beneficiaryDetails.EnterDateOfBirth("25", "Dec", "1980");
+        beneficiaryDetails.SelectBeneficiaryRelationship("Father-in-Law");
+        beneficiaryDetails.SelectPercentageAllocation("50");
+
+        beneficiaryDetails.clickSaveDetails();
+
+
     }
     @When("User completes the Payer details by completing required information")
     public void user_completes_the_payer_details_by_completing_required_information() {
