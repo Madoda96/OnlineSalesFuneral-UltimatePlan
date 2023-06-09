@@ -2,6 +2,7 @@ package PageObjects;
 
 import net.serenitybdd.core.pages.PageObject;
 import net.thucydides.core.annotations.Step;
+import net.thucydides.core.annotations.Steps;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -9,44 +10,27 @@ import org.openqa.selenium.support.ui.Select;
 
 public class MemberPage extends PageObject {
 
-
-    //member page webElements
-
-
     String EmailXpath = "//input[@id=\"introEmail\"]";
     // element will be used when intro email is required
-
-//     WebElement selectTitle = $(By.xpath("//select[@id=\"onTtl\"]"));
-
+    // WebElement selectTitle = $(By.xpath("//select[@id=\"onTtl\"]"));
     String TitleXpath = "//select[@name=\"onTtl\"]";
-
     String NameXpath = "//input[@name=\"onName\"]";
-
     String SurnameXpath = "//input[@name=\"onSurname\"]";
-
-    String IDnumXpath = "//input[@name=\"onID\"]";
-
-
-    String EmailXPATH ="//*[@id=\"onEmail\"]";  // Email field on the members page
+    String OnIDXpath = "//input[@name=\"onID\"]";
     String MobileNuXpath = "//input[@name=\"onMobile\"]";
-
-
     String PostalAddressXpath = "//input[@name=\"onAddress1\"]";
     String PostalCodeXpath = "//*[@id=\"onPostal\"]";
-
-
-    String MonthlIncomeXpath = "//select[@name=\"onIncome\" ]";
+    String MonthlyIncomeXpath = "//select[@name=\"onIncome\" ]";
     String OccupationXpath = "//select[@name=\"onOccupation\" ]";
     String educationXpath = "//select[@name=\"onEducation\"]";
     String FicDecl01Xpath = "//select[@name=\"fica01\" ]";
     String FicDecl02Xpath = "//select[@name=\"fica02\" ]";
+    String ContinueBtnXpath = "//*[@id=\"onlineSaleForm\"]/div/div[1]/div[2]/div[2]";
 
 
     @Step("Enter email ")
-    public void EnterEmail(String email){
-
+    public void EnterEmail(String email) {
         $(By.xpath(EmailXpath)).sendKeys(email);
-
 
     }
     @Step("Select Title")
@@ -64,8 +48,14 @@ public class MemberPage extends PageObject {
 
     @Step("enter surname")
     public void Entersurname(String surname) {
-
         $(By.xpath(SurnameXpath)).sendKeys(surname);
+
+    }
+
+    @Step("Enter OnID")
+    public void enterOnId(String OnID) {
+        $(By.xpath(OnIDXpath)).sendKeys(OnID);
+
 
     }
 
@@ -74,6 +64,7 @@ public class MemberPage extends PageObject {
         $(By.xpath(MobileNuXpath)).sendKeys(MOBNo);
 
     }
+
 
     @Step("Enter postal address")
     public void enterPostalAddress(String postadress) {
@@ -88,8 +79,8 @@ public class MemberPage extends PageObject {
     }
 
     @Step("Verify that Email address is populated to email field")
-    public void EmailAdresPopulated() {
-        WebElement Email = $(By.xpath(EmailXPATH));
+    public void EmailAddressPopulated() {
+        WebElement Email = $(By.xpath(EmailXpath));
 
         Assert.assertTrue(Email.isDisplayed());
         String emailTxt = Email.getText();
@@ -105,7 +96,7 @@ public class MemberPage extends PageObject {
 
     @Step(" Select Monthly income")
     public void selectIncome(String value) {
-        Select select = $(By.xpath(MonthlIncomeXpath));
+        Select select = $(By.xpath(MonthlyIncomeXpath));
         select.selectByValue(value);
 
     }
@@ -138,5 +129,16 @@ public class MemberPage extends PageObject {
     public void acceptFicaDeclaration2(String YES_NO) {
         Select select = $(By.xpath(FicDecl02Xpath));
         select.selectByValue(YES_NO);
+    }
+
+    @Step("Click the continue button")
+    public void clickContinueBtn() {
+        $(By.xpath(ContinueBtnXpath)).click();
+
+
+
+        {
+
+        }
     }
 }

@@ -1,6 +1,6 @@
 package stepsDefinition;
 
-import PageObjects.AdditionalMembers;
+
 import PageObjects.HomePage;
 import PageObjects.MemberPage;
 import io.cucumber.java.en.*;
@@ -14,8 +14,8 @@ public class funeralDignityPlan {
     MemberPage memberPage;
     @Steps
     HomePage homePage;
-    @Steps
-    AdditionalMembers additionalMembers;
+   // @Steps
+    //AdditionalMembers additionalMembers;
 
     @Given("User is on the dignity plan page")
     public void user_is_on_the_dignity_plan_page() {
@@ -39,34 +39,35 @@ public class funeralDignityPlan {
         memberPage.selectEducation("Post-graduate (Honours, Masters etc)");
         memberPage.acceptFICAdecl("Yes");
         memberPage.acceptFicaDeclaration2("Yes");
+        memberPage.clickContinueBtn();
 
     }
-    @When("User adds two additional members, a spouse and child to the policy")
-    public void user_adds_two_additional_members_a_spouse_and_child_to_the_policy() {
-           additionalMembers.addSpouse();
-           additionalMembers.selectTitle("Dr");
-           additionalMembers.enterSpouseName("David");
-           additionalMembers.EnterChildSurname("Clemont");
-           additionalMembers.selectSpouseGender("Male");
-           additionalMembers.enterSpouseDateOfBirth("1989","Oct","20");
-           // add implementation to add ID number
+//    @When("User adds two additional members, a spouse and child to the policy")
+//    public void user_adds_two_additional_members_a_spouse_and_child_to_the_policy() {
+//           additionalMembers.addSpouse();
+//           additionalMembers.selectTitle("Dr");
+//           additionalMembers.enterSpouseName("David");
+//           additionalMembers.EnterChildSurname("Clemont");
+//           additionalMembers.selectSpouseGender("Male");
+//           additionalMembers.enterSpouseDateOfBirth("1989","Oct","20");
+//           // add implementation to add ID number
+//
+//           additionalMembers.saveSpousedtls();
+//
+//           // adding child
+//           additionalMembers.addChildrencheckBox();
+//           additionalMembers.EnterChildName("Ismael");
+//           additionalMembers.EnterChildSurname("Nkosi");
+//           additionalMembers.selectChildGender("Male");
+//           additionalMembers.IsChildStudentOrNot("Yes");
+//           additionalMembers.childDateOfBirth("1996","Dec","18");
+//
+//           //add implementation for ID Number
+//
+//           additionalMembers.saveSpousedtls();
 
-           additionalMembers.saveSpousedtls();
-
-           // adding child
-           additionalMembers.addChildrencheckBox();
-           additionalMembers.EnterChildName("Ismael");
-           additionalMembers.EnterChildSurname("Nkosi");
-           additionalMembers.selectChildGender("Male");
-           additionalMembers.IsChildStudentOrNot("Yes");
-           additionalMembers.childDateOfBirth("1996","Dec","18");
-
-           //add implementation for ID Number
-
-           additionalMembers.saveSpousedtls();
 
 
-    }
     @When("User adds two beneficiaries for the policy by allocating percentage")
     public void user_adds_two_beneficiaries_for_the_policy_by_allocating_percentage() {
         // Write code here that turns the phrase above into concrete actions
