@@ -20,7 +20,7 @@ public class HomePage extends PageObject {
     String HospitalPlanBuyNowXpath = "//a[@class=\"btn hospital\"]";
     String HospitalPlanGetQuoteXpath = "//a[@class=\"btn hospital call-me-quote cboxElement\"]";
 
-    String ContinueBtnXpath = "//div[@id=\"onlinego\"]";
+    String ContinueBtnXpath = "//*[@id=\"onlinego\"]";
 
 
 
