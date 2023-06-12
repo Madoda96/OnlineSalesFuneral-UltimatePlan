@@ -120,7 +120,7 @@ public class BeneficiaryDetails extends PageObject {
     public void clickBackButton() {
         $(By.xpath(backBtnXpath)).click();
 
-        ///
+
     }
 
     @Step("Click to add another beneficiary")
