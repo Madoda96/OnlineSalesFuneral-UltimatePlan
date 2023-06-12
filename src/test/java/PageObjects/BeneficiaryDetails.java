@@ -29,6 +29,23 @@ public class BeneficiaryDetails extends PageObject {
     String AddAnotherBeneficiaryXpath = "//button[@id=\"AddBeneficiary\"]";
 
 
+    @Step("Select beneficial relationship")
+    public void SelectBeneficiaryRelationship(String BeneficiaryRelationship){
+
+        WebElement benefiTitle = $(By.xpath(BeneficiaryRelationshipXpath));
+        selectFromDropdown(benefiTitle, BeneficiaryRelationship);
+
+    }
+
+    @Step("Select percentage allocation")
+    public void SelectPercentageAllocation(String PercentageAllocation){
+
+        WebElement Allocation = $(By.xpath(AllocatedPercentageXpath));
+        selectFromDropdown(Allocation, AllocatedPercentageXpath);
+
+
+
+    }
     @Step("Select beneficiary Title")
     public void SelectBeneficiaryTite(String Title) {
         WebElement benefiTitle = $(By.xpath(TitleXpath));
