@@ -1,6 +1,7 @@
 package PageObjects;
 
 import net.serenitybdd.core.pages.PageObject;
+import net.thucydides.core.annotations.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -43,30 +44,78 @@ public class PayerDetails extends PageObject {
 
 
 
+    @Step("Select payer title")
     public void SelectPayerTitle (String PayerTitle){
         WebElement e = $(By.xpath(PayerTitleXpath));
         selectFromDropdown(e, PayerTitle);
 
     }
 
+    @Step("Enter payer name")
     public void EnterPayerName(String PayerName){
         $(By.xpath(PayerNameXpath)).sendKeys(PayerName);
 
     }
+    @Step("Enter payer surname")
     public void EnterPayerSurname(String PayerSurname){
         $(By.xpath(PayerSurnameXpath)).sendKeys(PayerSurname);
     }
 
+    @Step("Enter Payer ID number")
     public void EnterPayIDNumber (String PayerIDnum){
         $(By.xpath(PayerIDXpath)).sendKeys(PayerIDnum);
 
 
     }
+    @Step("Enter payer mobile number")
     public void EnterPayerMobileNumber(String PayerMobileNum){
         $(By.xpath(PayerMobileNumberXpath)).sendKeys(PayerMobileNum);
     }
+    @Step("Select bank name")
     public void SelectBankName (String bankName){
-
+        WebElement e = $(By.xpath(PayerBankNameXpath));
+        selectFromDropdown(e, bankName);
 
     }
+    @Step("Select branch name")
+    public void selectBranchName (String BranchName){
+        WebElement e = $(By.xpath(PayerBranchNameXpath));
+        selectFromDropdown(e, BranchName);
+
+    }
+    @Step("Select payer account number")
+    public void SelectAccountType(String AccountType){
+
+        WebElement e = $(By.xpath(PayerAccountTypeXpath));
+        selectFromDropdown(e, AccountType);
+
+    }
+
+    @Step("Enter account number")
+    public void EnterAccNumber (String AccountNumber){
+        $(By.xpath(PayerAccountNumberXpath)).sendKeys(AccountNumber);
+    }
+    @Step("Select debit date")
+    public void EnterDebitDate (String DebitDate){
+        WebElement e = $(By.xpath(PayerDebitDateXpath));
+        selectFromDropdown(e, DebitDate);
+    }
+
+    @Step("Select Yes or No on cellphone on hand")
+    public void Cellphone_on_hand(String Yes_No){
+        WebElement e = $(By.xpath(PayerCellphoneInHandXpath));
+        selectFromDropdown(e, Yes_No);
+    }
+    @Step("Authorize clientele to debit bank account")
+    public void debitBankAcc (){
+
+        $(By.xpath(PayerDebitBankAccountXpath)).click();
+
+    }
+
+    @Step("Click continue to see navigate to payer details page")
+    public void clickContinueBtn(){
+        $(By.xpath(PayerContinueButtonXpath)).click();
+    }
+
 }
