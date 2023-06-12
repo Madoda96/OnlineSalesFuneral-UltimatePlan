@@ -30,47 +30,49 @@ public class BeneficiaryDetails extends PageObject {
 
 
     @Step("Select beneficiary Title")
-    public void SelectBeneficiaryTite(String Title  ){
+    public void SelectBeneficiaryTite(String Title) {
         WebElement benefiTitle = $(By.xpath(TitleXpath));
         selectFromDropdown(benefiTitle, Title);
 
 
- //        Select select = $(By.xpath(TitleXpath));
+        //        Select select = $(By.xpath(TitleXpath));
 //        select.selectByValue(Title);
 
 
     }
+
     @Step(" Enter the name of the beneficiary")
-    public void EnterBeneficiaryName(String name){
+    public void EnterBeneficiaryName(String name) {
         $(By.xpath(BeneficiaryNameXpath)).sendKeys(name);
     }
 
     @Step("Enter the surname of the beneficiary")
-    public void EnterBeneficiarySurname(String Bsurname){
+    public void EnterBeneficiarySurname(String Bsurname) {
         $(By.xpath(BeneficiarySurnameXpath)).sendKeys(Bsurname);
     }
 
     @Step("Enter the beneficiary ID number")
-    public void EnterBenefiaryIDnum(String IDnum ){
+    public void EnterBenefiaryIDnum(String IDnum) {
         $(By.xpath(BeneficiaryIDnumberXpath)).sendKeys(IDnum);
     }
 
+
     @Step(" Enter beneficiary date of birth")
-    public void EnterDateOfBirth(String day, String month, String year){
+    public void EnterDateOfBirth(String day, String month, String year) {
 
         String activedatesXpath = "//*[@id=\"ui-datepicker-div\"]/table/tbody";
 
         $(By.xpath(BeneficiaryDOBXpath)).click();
         WebElement Year = $(By.xpath(YearXpath));
-        WebElement months= $(By.xpath(MonthXPATH));
+        WebElement months = $(By.xpath(MonthXPATH));
 
 
         //  enter the year eg 1990,1991,1992. etc
-        selectFromDropdown(Year,year);
+        selectFromDropdown(Year, year);
 //    yr.selectByVisibleText(Year);
 
         // enter the month eg Jan,Feb,Mar,April,etc
-        selectFromDropdown(months,month);
+        selectFromDropdown(months, month);
 //    mnth.selectByVisibleText(Month);
 
         List<WebElement> activedates = $(By.xpath(activedatesXpath));
@@ -83,48 +85,33 @@ public class BeneficiaryDetails extends PageObject {
                 break;
             }
         }
-
-
-
-
     }
 
-
-    @Step("Select beneficiary relationship")
-    public void SelectBeneficiaryRelationship(String Relationship){
-           WebElement BeneRel = $(By.xpath(BeneficiaryRelationshipXpath));
-           selectFromDropdown(BeneRel,Relationship);
-    }
-
-    @Step(" Select beneficiary percentage allocation")
-    public void SelectPercentageAllocation(String PercentageAllocation){
-        WebElement BenePercentAllocation = $(By.xpath(AllocatedPercentageXpath));
-        selectFromDropdown(BenePercentAllocation,PercentageAllocation);
-
-
-    }
 
     @Step("Save captured beneficiary details")
-    public void clickSaveDetails(){
+    public void clickSaveDetails() {
         $(By.xpath(saveBtnXpath)).click();
     }
 
     @Step("Click continue button to land on the Payer details page ")
-    public void clickContinueButtn(){
+    public void clickContinueButtn() {
         $(By.xpath(continueBtnXpath)).click();
 
     }
+
     @Step("click back button to land on the additional members page")
-    public void clickBackButton (){
+    public void clickBackButton() {
         $(By.xpath(backBtnXpath)).click();
     }
 
     @Step("Click to add another beneficiary")
-    public void clickToaddBeneficiary(){
+    public void clickToaddBeneficiary() {
         $(By.xpath(AddAnotherBeneficiaryXpath)).click();
 
     }
-
-
-
 }
+
+
+
+
+

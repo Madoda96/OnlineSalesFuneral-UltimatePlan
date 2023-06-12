@@ -75,7 +75,7 @@ public class funeralDignityPlan {
     }
     @When("User adds two beneficiaries for the policy by allocating percentage")
     public void user_adds_two_beneficiaries_for_the_policy_by_allocating_percentage() throws InterruptedException {
-       beneficiaryDetails.selectBenefiaryTitle("Mr");
+       beneficiaryDetails.SelectBeneficiaryTite("Mr");
        beneficiaryDetails.EnterBeneficiaryName("Thabo");
        beneficiaryDetails.EnterBeneficiarySurname("Duma");
        beneficiaryDetails.EnterDateOfBirth("20", "Dec", "1990");
