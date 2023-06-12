@@ -124,7 +124,7 @@ public class BeneficiaryDetails extends PageObject {
     @Step("Click to add another beneficiary")
     public void clickToaddBeneficiary() {
         $(By.xpath(AddAnotherBeneficiaryXpath)).click();
-
+   ////////
     }
 }
 
