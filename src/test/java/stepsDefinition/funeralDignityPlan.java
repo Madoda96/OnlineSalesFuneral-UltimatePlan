@@ -1,9 +1,6 @@
 package stepsDefinition;
 
-import PageObjects.AdditionalMembers;
-import PageObjects.BeneficiaryDetails;
-import PageObjects.HomePage;
-import PageObjects.MemberPage;
+import PageObjects.*;
 import io.cucumber.java.en.*;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.Steps;
@@ -19,7 +16,8 @@ public class funeralDignityPlan {
     AdditionalMembers additionalMembers;
     @Steps
     BeneficiaryDetails beneficiaryDetails;
-
+    @Steps
+    PayerDetails payerDetails;
     @Given("User is on the dignity plan page")
     public void user_is_on_the_dignity_plan_page() {
         homePage.open();
@@ -69,6 +67,7 @@ public class funeralDignityPlan {
 
            //add implementation for ID Number
 
+
            additionalMembers.saveSpousedtls();
 
 
@@ -96,8 +95,21 @@ public class funeralDignityPlan {
     }
     @When("User completes the Payer details by completing required information")
     public void user_completes_the_payer_details_by_completing_required_information() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+
+        payerDetails.SelectPayerTitle("Mr");
+        payerDetails.EnterPayerName("Ismael");
+        payerDetails.EnterPayerSurname("Direro");
+        payerDetails.EnterPayIDNumber("7011254071087");
+        payerDetails.EnterPayerMobileNumber("0745862021");
+        payerDetails.SelectBankName("STANDARD BANK OF S.A. LTD");
+        payerDetails.SelectAccountType("Savings Account");
+        payerDetails.EnterAccNumber("1234");
+        payerDetails.EnterDebitDate("20");
+        payerDetails.Cellphone_on_hand("No");
+        payerDetails.debitBankAcc();
+        payerDetails.clickContinueBtn();
+
+
     }
     @When("user confirms the captured information on policy confirmation page")
     public void user_confirms_the_captured_information_on_policy_confirmation_page() {
