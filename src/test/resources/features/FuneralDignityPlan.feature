@@ -1,4 +1,6 @@
 Feature: Funeral dignity plan
+
+ @PositiveTest
   Scenario: User completing funeral dignity plan application with two additional member
     Given User is on the dignity plan page
     When User completes the required  Member details .

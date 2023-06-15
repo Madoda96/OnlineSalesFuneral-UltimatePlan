@@ -1,8 +1,9 @@
 package stepsDefinition;
 
 import PageObjects.*;
-import io.cucumber.java.en.*;
-import net.thucydides.core.annotations.Step;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import net.thucydides.core.annotations.Steps;
 
 public class funeralDignityPlan {
@@ -18,6 +19,9 @@ public class funeralDignityPlan {
     BeneficiaryDetails beneficiaryDetails;
     @Steps
     PayerDetails payerDetails;
+
+    @Steps
+    confirmationPage confirmationPage;
     @Given("User is on the dignity plan page")
     public void user_is_on_the_dignity_plan_page() {
         homePage.open();
@@ -113,18 +117,29 @@ public class funeralDignityPlan {
     }
     @When("user confirms the captured information on policy confirmation page")
     public void user_confirms_the_captured_information_on_policy_confirmation_page() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+
+        confirmationPage.viewPremium();
+        confirmationPage.ViewWhoIsCovered();
+        confirmationPage.ViewBenefits();
+        confirmationPage.AnnualIncrease();
+        confirmationPage.disclaimer();
+
+
     }
     @When("user accepts the terms and condition")
     public void user_accepts_the_terms_and_condition() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        confirmationPage.clickTermsAndConditions();
+        confirmationPage.ClickConfirmBtn();
     }
     @Then("user should be able to see the policy number, correct monthly premium")
     public void user_should_be_able_to_see_the_policy_number_correct_monthly_premium() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+
+        confirmationPage.ViewThankYouMessage();
+        confirmationPage.finalPremiumMnth();
+        confirmationPage.PolicyNumber();
+
+
+
     }
 
 
