@@ -27,7 +27,7 @@ public class confirmationPage extends PageObject {
     String ConfirmBtn = "//div[@onclick=\"loader();step('5','no');\"]";
 
 
-    //Policy page that contain Policy number and Monthly premium.
+    //Policy page that contain Policy number and Monthly premium.Will be doing confirmations
 
     String ThankYouMsgXpath = "//span[@id=\"ThankYouMain\"]";
     String FinalMonthlyPremiumXpath = "//span[@id=\"Amount\"]";
