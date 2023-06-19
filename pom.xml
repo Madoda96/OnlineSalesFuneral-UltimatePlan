@@ -14,7 +14,7 @@
         <serenity.version>3.6.21</serenity.version>
         <encoding>UTF-8</encoding>
         <tags></tags>
-        <webdriver.base.url>https://portals.freshive.co.za/clienteleonlinesales/?sale=OR</webdriver.base.url>
+        <webdriver.base.url>https://portals.freshive.co.za/clienteleonlinesales/</webdriver.base.url>
     </properties>
     <dependencies>
 

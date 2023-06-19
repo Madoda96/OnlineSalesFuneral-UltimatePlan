@@ -1,5 +1,6 @@
 package PageObjects;
 
+import net.serenitybdd.core.pages.ListOfWebElementFacades;
 import net.serenitybdd.core.pages.PageObject;
 import net.thucydides.core.annotations.Step;
 import org.junit.Assert;
@@ -116,19 +117,22 @@ public class AdditionalMembers extends PageObject {
     WebElement months = $(By.xpath(CalenderMonth));
 
 
-    Select yr = $(By.xpath(CalenderYear));
-    Select mnth = $(By.xpath(CalenderMonth));
     //  enter the year eg 1990,1991,1992. etc
     selectFromDropdown(YRR,Year);
 //    yr.selectByVisibleText(Year);
 
     // enter the month eg Jan,Feb,Mar,April,etc
     selectFromDropdown(months,Month);
-//    mnth.selectByVisibleText(Month);
 
-    List<WebElement> activedates = $(By.xpath(activedatesXpath));
+
+    WebElement S = $(By.xpath(activedatesXpath));
+
+    List<WebElement> activedates = S.findElements(By.tagName("td"));
+
+    //   ListOfWebElementFacades activedates = findAll((By.tagName("td")));
 
     for (WebElement dates : activedates) {
+      System.out.println(dates.getSize());
       String date = dates.getText();
 //      System.out.println(date);
       if (date.equals(day)) {
@@ -220,16 +224,17 @@ public void clickBackBtn(){
 //      return;
 //    }
 
+  selectFromDropdown(calendeYr,year);
     selectFromDropdown(calenderMn, month);
-    selectFromDropdown(calendeYr,year);
+
 
 
 //    Select mnth = $(By.xpath(calenderMonthXpath));
 //    Select yer = $(By.xpath(calenderYear));
 //    yer.selectByVisibleText(year);
 //    mnth.selectByVisibleText(month);
-
-  List<WebElement> activedates = $(By.xpath(dates));
+  WebElement dats = $(By.xpath(dates));
+  List<WebElement> activedates = dats.findElements(By.tagName("td"));
 
   for (WebElement datess : activedates) {
     String date = datess.getText();

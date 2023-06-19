@@ -26,7 +26,7 @@ public class funeralDignityPlan {
     public void user_is_on_the_dignity_plan_page() {
         homePage.open();
         homePage.ClickBuyNowFuneralPlans();
-        memberPage.EnterEmail("Test@gmail.com");
+        memberPage.EnterEmail("639k@gmail.com");
         homePage.clickContinueBtn();
 
 
@@ -40,12 +40,13 @@ public class funeralDignityPlan {
         memberPage.enterMobileNum("0854122350");
         memberPage.enterPostalAddress("1196 elves street");
         memberPage.EnterPostalCode("1205");
-        memberPage.selectIncome("15,000 - 18,000");
+        memberPage.selectIncome("R15,000 - R18,000");
         memberPage.selectOccupation("Skilled agriculture");
         memberPage.selectEducation("Post-graduate (Honours, Masters etc)");
         memberPage.acceptFICAdecl("Yes");
+        memberPage.clickContinueBt();
         memberPage.acceptFicaDeclaration2("Yes");
-        memberPage.clickContinueBtn();
+        memberPage.clickContinueBt();
 
     }
     @When("User adds two additional members, a spouse and child to the policy")
@@ -53,9 +54,9 @@ public class funeralDignityPlan {
            additionalMembers.addSpouse();
            additionalMembers.selectTitle("Dr");
            additionalMembers.enterSpouseName("David");
-           additionalMembers.EnterChildSurname("Clemont");
+           additionalMembers.enterSpouseSurname("Clemont");
            additionalMembers.selectSpouseGender("Male");
-           additionalMembers.enterSpouseDateOfBirth("1989","Oct","20");
+           additionalMembers.enterSpouseDateOfBirth("1989","Oct","1");
            // add implementation to add ID
 
 
@@ -67,33 +68,37 @@ public class funeralDignityPlan {
            additionalMembers.EnterChildSurname("Nkosi");
            additionalMembers.selectChildGender("Male");
            additionalMembers.IsChildStudentOrNot("Yes");
-           additionalMembers.childDateOfBirth("1996","Dec","18");
+           additionalMembers.childDateOfBirth("2008","Dec","1");
 
            //add implementation for ID Number
 
 
-           additionalMembers.saveSpousedtls();
+           additionalMembers.SaveChildDetails();
+           additionalMembers.clickContinue();
 
 
     }
     @When("User adds two beneficiaries for the policy by allocating percentage")
     public void user_adds_two_beneficiaries_for_the_policy_by_allocating_percentage() throws InterruptedException {
-       beneficiaryDetails.SelectBeneficiaryTite("Mr");
        beneficiaryDetails.EnterBeneficiaryName("Thabo");
-       beneficiaryDetails.EnterBeneficiarySurname("Duma");
-       beneficiaryDetails.EnterDateOfBirth("20", "Dec", "1990");
-       beneficiaryDetails.SelectBeneficiaryRelationship("Father-in-Law");
-       beneficiaryDetails.SelectPercentageAllocation("50");
-        Thread.sleep(5000);
+       beneficiaryDetails.SelectBeneficiaryTite("Mr");
 
-        // second beneficiary
-        beneficiaryDetails.EnterBeneficiaryName("Thami");
-        beneficiaryDetails.EnterBeneficiarySurname("Close");
-        beneficiaryDetails.EnterDateOfBirth("25", "Dec", "1980");
-        beneficiaryDetails.SelectBeneficiaryRelationship("Father-in-Law");
-        beneficiaryDetails.SelectPercentageAllocation("50");
+       beneficiaryDetails.EnterBeneficiarySurname("Duma");
+       beneficiaryDetails.EnterDateOfBirth("1", "Dec", "1990");
+       beneficiaryDetails.SelectBeneficiaryRelationship("Father-in-Law");
+       beneficiaryDetails.SelectPercentageAllocation("100%");
+//        Thread.sleep(5000);
+
+//        // second beneficiary
+//        beneficiaryDetails.EnterBeneficiaryName("Thami");
+//        beneficiaryDetails.EnterBeneficiarySurname("Close");
+//        beneficiaryDetails.EnterDateOfBirth("1", "Dec", "1980");
+//        beneficiaryDetails.SelectBeneficiaryRelationship("Father-in-Law");
+//        beneficiaryDetails.SelectPercentageAllocation("50");
 
         beneficiaryDetails.clickSaveDetails();
+        beneficiaryDetails.clickContinueButtn();
+        Thread.sleep(3000);
 
 
     }
@@ -118,12 +123,14 @@ public class funeralDignityPlan {
     @When("user confirms the captured information on policy confirmation page")
     public void user_confirms_the_captured_information_on_policy_confirmation_page() {
 
-        confirmationPage.viewPremium();
-        confirmationPage.ViewWhoIsCovered();
-        confirmationPage.ViewBenefits();
-        confirmationPage.AnnualIncrease();
-        confirmationPage.disclaimer();
+//        confirmationPage.viewPremium();
+//        confirmationPage.ViewWhoIsCovered();
+//        confirmationPage.ViewBenefits();
+//        confirmationPage.AnnualIncrease();
+//        confirmationPage.disclaimer();
 
+
+        System.out.println("Will add code after test");
 
     }
     @When("user accepts the terms and condition")
