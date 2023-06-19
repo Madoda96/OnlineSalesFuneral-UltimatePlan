@@ -55,10 +55,18 @@ public class funeralDignityPlan {
            additionalMembers.enterSpouseName("David");
            additionalMembers.enterSpouseSurname("Dlamin");
            additionalMembers.selectSpouseGender("Male");
+
            additionalMembers.enterSpouseDateOfBirth("1990","Oct","1");
            // add implementation to add ID
+=======
 
 
+           additionalMembers.enterSpouseDateOfBirth("1989","Oct","1");
+=======
+           additionalMembers.EnterSpouseIDNo("6806118090988");
+           additionalMembers.enterSpouseDateOfBirth("1989","Oct","20");
+
+           // add implementation to add ID
            additionalMembers.saveSpousedtls();
 
            // adding child
