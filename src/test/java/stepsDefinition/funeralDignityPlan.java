@@ -26,7 +26,7 @@ public class funeralDignityPlan {
     public void user_is_on_the_dignity_plan_page() {
         homePage.open();
         homePage.ClickBuyNowFuneralPlans();
-        memberPage.EnterEmail("639k@gmail.com");
+        memberPage.EnterEmail("8lk00@gmail.com");
         homePage.clickContinueBtn();
 
 
@@ -35,8 +35,8 @@ public class funeralDignityPlan {
     public void user_completes_the_required_member_details() {
         memberPage.SelectTitle("Mr");
         memberPage.EnterName("Thomas");
-        memberPage.Entersurname("Peters");
-        memberPage.enterMemberIDnum("7501145741088i");
+        memberPage.Entersurname("Month");
+        memberPage.enterMemberIDnum("9512126920086");
         memberPage.enterMobileNum("0854122350");
         memberPage.enterPostalAddress("1196 elves street");
         memberPage.EnterPostalCode("1205");
@@ -44,7 +44,6 @@ public class funeralDignityPlan {
         memberPage.selectOccupation("Skilled agriculture");
         memberPage.selectEducation("Post-graduate (Honours, Masters etc)");
         memberPage.acceptFICAdecl("Yes");
-        memberPage.clickContinueBt();
         memberPage.acceptFicaDeclaration2("Yes");
         memberPage.clickContinueBt();
 
@@ -54,7 +53,7 @@ public class funeralDignityPlan {
            additionalMembers.addSpouse();
            additionalMembers.selectTitle("Dr");
            additionalMembers.enterSpouseName("David");
-           additionalMembers.enterSpouseSurname("Clemont");
+           additionalMembers.enterSpouseSurname("Mont");
            additionalMembers.selectSpouseGender("Male");
 
            additionalMembers.enterSpouseDateOfBirth("1989","Oct","1");
@@ -68,7 +67,7 @@ public class funeralDignityPlan {
            // adding child
            additionalMembers.addChildrencheckBox();
            additionalMembers.EnterChildName("Ismael");
-           additionalMembers.EnterChildSurname("Nkosi");
+           additionalMembers.EnterChildSurname("Mont");
            additionalMembers.selectChildGender("Male");
            additionalMembers.IsChildStudentOrNot("Yes");
            additionalMembers.childDateOfBirth("2008","Dec","1");
