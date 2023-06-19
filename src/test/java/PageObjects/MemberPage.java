@@ -27,7 +27,7 @@ public class MemberPage extends PageObject {
     String IDnumXpath = "//input[@name=\"onID\"]";
 
 
-    String EmailXPATH ="//*[@id=\"onEmail\"]";  // Email field on the members page
+    String EmailXPATH = "//*[@id=\"onEmail\"]";  // Email field on the members page
     String MobileNuXpath = "//input[@name=\"onMobile\"]";
 
 
@@ -43,19 +43,29 @@ public class MemberPage extends PageObject {
     String ContinueBtnXpath = "//div[@onclick=\"loader();step('1','no');\"]";
 
     @Step("Enter email ")
-    public void EnterEmail(String email){
+    public void EnterEmail(String email) {
 
         $(By.xpath(EmailXpath)).sendKeys(email);
 
 
     }
+
     @Step("Select Title")
     public void SelectTitle(String Title) {
-       WebElement e = $(By.xpath(TitleXpath));
-       selectFromDropdown(e, Title);
+
+        if ($(By.xpath("//*[@id=\"inline-cont\"]")).isDisplayed()) {
+
+            $(By.xpath("//*[@id=\"contsale\"]")).click();
+
+
 
 //        Select select = $(By.xpath(TitleXpath));
 //        select.selectByVisibleText(Title);
+
+        }
+
+        WebElement e = $(By.xpath(TitleXpath));
+        selectFromDropdown(e, Title);
 
     }
 
@@ -73,7 +83,7 @@ public class MemberPage extends PageObject {
     }
 
     @Step("enter member ID number ")
-    public void enterMemberIDnum(String IDNUMBER){
+    public void enterMemberIDnum(String IDNUMBER) {
 
         $(By.xpath(IDnumXpath)).sendKeys(IDNUMBER);
 
@@ -117,6 +127,7 @@ public class MemberPage extends PageObject {
     @Step(" Select Monthly income")
     public void selectIncome(String value) {
         WebElement INC = $(By.xpath(MonthlIncomeXpath));
+        INC.click();
         selectFromDropdown(INC, value);
 
 //        Select select = $(By.xpath(MonthlIncomeXpath));
@@ -128,7 +139,7 @@ public class MemberPage extends PageObject {
     public void selectOccupation(String occupation) {
         WebElement occu = $(By.xpath(OccupationXpath));
         selectFromDropdown(occu, occupation);
- //        Select select = $(By.xpath(OccupationXpath));
+        //        Select select = $(By.xpath(OccupationXpath));
 //        select.selectByValue(occupation);
 
     }
@@ -136,7 +147,7 @@ public class MemberPage extends PageObject {
     @Step("Select education")
     public void selectEducation(String edu) {
         WebElement educ = $(By.xpath(educationXpath));
-        selectFromDropdown(educ,edu);
+        selectFromDropdown(educ, edu);
 
 
 //        Select select = $(By.xpath(educationXpath));
@@ -147,7 +158,7 @@ public class MemberPage extends PageObject {
     @Step("Accept FICA declaration ")
     public void acceptFICAdecl(String Yes_No) {
         WebElement FD1 = $(By.xpath(FicDecl01Xpath));
-        selectFromDropdown(FD1,Yes_No);
+        selectFromDropdown(FD1, Yes_No);
 
 //        Select select = $(By.xpath(FicDecl01Xpath));
 //        select.selectByValue(Yes_No);
@@ -156,7 +167,7 @@ public class MemberPage extends PageObject {
 
     @Step("Accept FICA declaration ")
     public void acceptFicaDeclaration2(String YES_NO) {
-       WebElement FD2 = $(By.xpath(FicDecl02Xpath));
+        WebElement FD2 = $(By.xpath(FicDecl02Xpath));
         selectFromDropdown(FD2, YES_NO);
 
 //        Select select = $(By.xpath(FicDecl02Xpath));
@@ -164,7 +175,11 @@ public class MemberPage extends PageObject {
     }
 
     @Step("Click the continue button")
-    public void clickContinueBtn(){
-        $(By.xpath(ContinueBtnXpath)).click();
+    public void clickContinueBt() {
+        if ($(By.xpath(ContinueBtnXpath)).isClickable()) {
+            $(By.xpath(ContinueBtnXpath)).click();
+        } else {
+            System.out.println("Button not clickable");
+        }
     }
 }

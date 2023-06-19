@@ -19,7 +19,7 @@ public class BeneficiaryDetails extends PageObject {
 
     String YearXpath = "//select[@class=\"ui-datepicker-year\"]";
     String BeneficiaryRelationshipXpath = "//select[@id=\"onRelationB1\"]";
-    String AllocatedPercentageXpath = "//span[@id=\"dispAmount\"]";
+    String AllocatedPercentageXpath = "//select[@id=\"allocationSlider1\"]";
 
     String saveBtnXpath = "//div[@id=\"SaveBeneficiary\"]";
 
@@ -41,7 +41,7 @@ public class BeneficiaryDetails extends PageObject {
     public void SelectPercentageAllocation(String PercentageAllocation){
 
         WebElement Allocation = $(By.xpath(AllocatedPercentageXpath));
-        selectFromDropdown(Allocation, AllocatedPercentageXpath);
+        selectFromDropdown(Allocation,PercentageAllocation);
 
 
 
@@ -91,8 +91,8 @@ public class BeneficiaryDetails extends PageObject {
         // enter the month eg Jan,Feb,Mar,April,etc
         selectFromDropdown(months, month);
 //    mnth.selectByVisibleText(Month);
-
-        List<WebElement> activedates = $(By.xpath(activedatesXpath));
+        WebElement dts = $(By.xpath(activedatesXpath));
+        List<WebElement> activedates = dts.findElements(By.tagName("td"));
 
         for (WebElement dates : activedates) {
             String date = dates.getText();

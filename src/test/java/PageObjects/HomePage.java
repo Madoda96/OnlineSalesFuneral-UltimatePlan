@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 public class HomePage extends PageObject {
 
     //Funeral Plan WebElements
-    String FuneralBuyNowXpath = "\"//a[@class=\"btn funeral\"]";
+    String FuneralBuyNowXpath = "//a[@class=\"btn funeral\"]";
     String GetQuoteFuneralXpath = "//a[@class=\"btn funeral call-me-quote cboxElement\"]";
 
     // Legal Plan WebElements

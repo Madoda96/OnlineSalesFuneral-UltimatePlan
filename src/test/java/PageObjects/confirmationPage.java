@@ -4,6 +4,7 @@ import net.thucydides.core.annotations.Step;
 import net.thucydides.core.pages.PageObject;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 
 public class confirmationPage extends PageObject {
 
@@ -27,7 +28,7 @@ public class confirmationPage extends PageObject {
     String ConfirmBtn = "//div[@onclick=\"loader();step('5','no');\"]";
 
 
-    //Policy page that contain Policy number and Monthly premium.
+    //Policy page that contain Policy number and Monthly premium.Will be doing confirmations
 
     String ThankYouMsgXpath = "//span[@id=\"ThankYouMain\"]";
     String FinalMonthlyPremiumXpath = "//span[@id=\"Amount\"]";
@@ -39,28 +40,41 @@ public class confirmationPage extends PageObject {
 
     @Step("view total premium and first premium debit date")
     public void viewPremium(){
-        Assert.assertTrue($(By.xpath(PremiumXpath)).isDisplayed());
+        boolean isPremiumVisibile = $(By.xpath(PremiumXpath)).isDisplayed();
+
+        Assert.assertTrue((isPremiumVisibile));
+
 
     }
     @Step("View who is covered as per additional members added and main member")
     public void ViewWhoIsCovered(){
-        Assert.assertTrue($(By.xpath(WhoIsCoveredXpath)).isDisplayed());
+        boolean isWhoIsCoveredVisible = $(By.xpath(WhoIsCoveredXpath)).isDisplayed();
+        Assert.assertTrue(isWhoIsCoveredVisible);
     }
 
     @Step("View if the list of benefits is visible for the applicant")
     public void ViewBenefits(){
-        Assert.assertTrue($(By.xpath(BenefitsXpath)).isDisplayed());
+        boolean BenefitsVisible = $(By.xpath(BenefitsXpath)).isDisplayed();
+        Assert.assertTrue(BenefitsVisible);
 
     }
     @Step("View if the Annual increase note is visible for the applicant")
     public void AnnualIncrease(){
-        Assert.assertTrue($(By.xpath(AnnualIncreasesXpath)).isDisplayed());
+        boolean isAnnualIncreaseVisible = $(By.xpath(AnnualIncreasesXpath)).isDisplayed();
+        Assert.assertTrue(isAnnualIncreaseVisible);
+
+
 
     }
     @Step("View if disclaimer is available for applicant to read ")
     public void disclaimer(){
-        Assert.assertTrue($(By.xpath(DisclosureXpath)).isDisplayed());
+        WebDriver driver = getDriver();
+        driver.switchTo().frame("Disclaimer");
 
+        boolean isDisclosure = $(By.xpath(DisclosureXpath)).isDisplayed();
+        Assert.assertTrue(isDisclosure);
+
+        driver.switchTo().parentFrame();
     }
     @Step("Click the checkbox to agree to terms and conditions")
     public void clickTermsAndConditions (){
@@ -80,17 +94,22 @@ public class confirmationPage extends PageObject {
 
     @Step("View thank you message ")
     public void ViewThankYouMessage (){
-        Assert.assertTrue($(By.xpath(ThankYouMsgXpath)).isDisplayed());
+        boolean ThankYouMsgVisible = $(By.xpath(ThankYouMsgXpath)).isDisplayed();
+        Assert.assertTrue(ThankYouMsgVisible);
 
     }
     @Step("View final monthly premium")
     public void finalPremiumMnth(){
-        Assert.assertTrue($(By.xpath(FinalMonthlyPremiumXpath)).isDisplayed());
+
+        boolean isFinalMonth = $(By.xpath(FinalMonthlyPremiumXpath)).isDisplayed();
+
+        Assert.assertTrue(isFinalMonth);
 
     }
     @Step("View and confirm if the applicants can see generated policy number ")
     public void PolicyNumber (){
-        Assert.assertTrue($(By.xpath(PolicyNumXpath)).isDisplayed());
+        boolean isPolicyNUM = $(By.xpath(PolicyNumXpath)).isDisplayed();
+        Assert.assertTrue(isPolicyNUM);
 
     }
 
