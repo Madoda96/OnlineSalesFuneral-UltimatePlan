@@ -26,7 +26,7 @@ public class funeralDignityPlan {
     public void user_is_on_the_dignity_plan_page() {
         homePage.open();
         homePage.ClickBuyNowFuneralPlans();
-        memberPage.EnterEmail("06@gmail.com");
+        memberPage.EnterEmail("0688@gmail.com");
         homePage.clickContinueBtn();
 
 
@@ -35,8 +35,8 @@ public class funeralDignityPlan {
     public void user_completes_the_required_member_details() {
         memberPage.SelectTitle("Mr");
         memberPage.EnterName("Thomas");
-        memberPage.Entersurname("Dlamin");
-        memberPage.enterMemberIDnum("9512129220088");
+        memberPage.Entersurname("Dlamina");
+        memberPage.enterMemberIDnum("9512129348087");
         memberPage.enterMobileNum("0854122350");
         memberPage.enterPostalAddress("1196 elves street");
         memberPage.EnterPostalCode("1205");
@@ -53,7 +53,7 @@ public class funeralDignityPlan {
            additionalMembers.addSpouse();
            additionalMembers.selectTitle("Dr");
            additionalMembers.enterSpouseName("David");
-           additionalMembers.enterSpouseSurname("Dlamin");
+           additionalMembers.enterSpouseSurname("Dlamina");
            additionalMembers.selectSpouseGender("Male");
            additionalMembers.enterSpouseDateOfBirth("1990","Oct","1");
            // add implementation to add ID
@@ -64,7 +64,7 @@ public class funeralDignityPlan {
            // adding child
            additionalMembers.addChildrencheckBox();
            additionalMembers.EnterChildName("Ismael");
-           additionalMembers.EnterChildSurname("Dlamin");
+           additionalMembers.EnterChildSurname("Dlamina");
            additionalMembers.selectChildGender("Male");
            additionalMembers.IsChildStudentOrNot("Yes");
            additionalMembers.childDateOfBirth("2009","Dec","1");
