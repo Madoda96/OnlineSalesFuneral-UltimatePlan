@@ -5,7 +5,6 @@ import net.thucydides.core.annotations.Step;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 
 public class MemberPage extends PageObject {
 
@@ -130,8 +129,7 @@ public class MemberPage extends PageObject {
         INC.click();
         selectFromDropdown(INC, value);
 
-//        Select select = $(By.xpath(MonthlIncomeXpath));
-//        select.selectByValue(value);
+
 
     }
 
@@ -139,39 +137,25 @@ public class MemberPage extends PageObject {
     public void selectOccupation(String occupation) {
         WebElement occu = $(By.xpath(OccupationXpath));
         selectFromDropdown(occu, occupation);
-        //        Select select = $(By.xpath(OccupationXpath));
-//        select.selectByValue(occupation);
 
     }
 
     @Step("Select education")
     public void selectEducation(String edu) {
         WebElement educ = $(By.xpath(educationXpath));
-        selectFromDropdown(educ, edu);
-
-
-//        Select select = $(By.xpath(educationXpath));
-//        select.selectByValue(edu);
-
+       selectFromDropdown(educ, edu);
     }
 
     @Step("Accept FICA declaration ")
     public void acceptFICAdecl(String Yes_No) {
         WebElement FD1 = $(By.xpath(FicDecl01Xpath));
         selectFromDropdown(FD1, Yes_No);
-
-//        Select select = $(By.xpath(FicDecl01Xpath));
-//        select.selectByValue(Yes_No);
-
     }
 
     @Step("Accept FICA declaration ")
     public void acceptFicaDeclaration2(String YES_NO) {
         WebElement FD2 = $(By.xpath(FicDecl02Xpath));
         selectFromDropdown(FD2, YES_NO);
-
-//        Select select = $(By.xpath(FicDecl02Xpath));
-//        select.selectByValue(YES_NO);
     }
 
     @Step("Click the continue button")

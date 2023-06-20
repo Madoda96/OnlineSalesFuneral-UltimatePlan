@@ -145,9 +145,24 @@ public class funeralDignityPlan {
         confirmationPage.finalPremiumMnth();
         confirmationPage.PolicyNumber();
 
-
-
     }
+    @Then("User shouldn't be able to proceed with application if allocated percentage is less than {int} percent.")
+    public void user_shouldn_t_be_able_to_proceed_with_application_if_allocated_percentage_is_less_than_percent(Integer Percentage) {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
+    @When("user selects member estate as as a relationship to the beneficiary.")
+    public void user_selects_member_estate_as_as_a_relationship_to_the_beneficiary() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+    @Then("the percentage allocation should default to {int} percent.")
+    public void the_percentage_allocation_should_default_to_percent(Integer percentage) {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
 
 
 
