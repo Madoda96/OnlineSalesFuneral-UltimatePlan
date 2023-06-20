@@ -1,12 +1,10 @@
 package PageObjects;
 
-import net.serenitybdd.core.pages.ListOfWebElementFacades;
 import net.serenitybdd.core.pages.PageObject;
 import net.thucydides.core.annotations.Step;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 
@@ -116,22 +114,15 @@ public class AdditionalMembers extends PageObject {
 
     //  enter the year eg 1990,1991,1992. etc
     selectFromDropdown(YRR,Year);
-//    yr.selectByVisibleText(Year);
-
     // enter the month eg Jan,Feb,Mar,April,etc
     selectFromDropdown(months,Month);
-
-
     WebElement S = $(By.xpath(activedatesXpath));
 
     List<WebElement> activedates = S.findElements(By.tagName("td"));
 
-    //   ListOfWebElementFacades activedates = findAll((By.tagName("td")));
-
     for (WebElement dates : activedates) {
       System.out.println(dates.getSize());
       String date = dates.getText();
-//      System.out.println(date);
       if (date.equals(day)) {
         dates.click();
         break;
@@ -184,18 +175,12 @@ public void clickBackBtn(){
   public void selectChildGender(String gender){
     WebElement g = $(By.xpath(ChildGenderXpath));
     selectFromDropdown(g, gender);
-
-    //    Select g = $(By.xpath(ChildGenderXpath));
-//    g.selectByVisibleText(gender);
-
 }
 @Step("Select if  the child  is a student or not ")
   public void IsChildStudentOrNot(String isStudent_or_Not){
     WebElement isStudent = $(By.xpath(ChildIsStudenteXpath));
     selectFromDropdown(isStudent,isStudent_or_Not);
 
-//    Select isStudent = $(By.xpath(ChildIsStudenteXpath));
-//    isStudent.selectByVisibleText(isStudent_or_Not);
 }
 @Step("Enter the child ID number")
   public void childIDNUM (String childIDNo){
@@ -204,38 +189,24 @@ public void clickBackBtn(){
 
 }
 @Step("Enter the child date of birth")
-  public void childDateOfBirth(String year, String month, String day){
+  public void childDateOfBirth(String year, String month, String day) {
 
-    String calenderMonthXpath = "//select[@class=\"ui-datepicker-month\"]";
-    String calenderYear = "//select[@class=\"ui-datepicker-year\"]";
-    String dates = "//*[@id=\"ui-datepicker-div\"]/table";
+  String calenderMonthXpath = "//select[@class=\"ui-datepicker-month\"]";
+  String calenderYear = "//select[@class=\"ui-datepicker-year\"]";
+  String dates = "//*[@id=\"ui-datepicker-div\"]/table";
 
-    WebElement calenderMn = $(By.xpath(calenderMonthXpath));
-    WebElement calendeYr = $(By.xpath(calenderYear));
+  WebElement calenderMn = $(By.xpath(calenderMonthXpath));
+  WebElement calendeYr = $(By.xpath(calenderYear));
 
-    $(By.xpath(ChildDOBXpath)).click();
+  $(By.xpath(ChildDOBXpath)).click();
+  selectFromDropdown(calendeYr, year);
+  selectFromDropdown(calenderMn, month);
 
-//    String IDnumValues = $(By.xpath(Spouse_IDXpath)).getText();
-
-//    if ($(By.xpath(Spouse_IDXpath)).containsText(IDnumValues)){
-//      return;
-//    }
-
-  selectFromDropdown(calendeYr,year);
-    selectFromDropdown(calenderMn, month);
-
-
-
-//    Select mnth = $(By.xpath(calenderMonthXpath));
-//    Select yer = $(By.xpath(calenderYear));
-//    yer.selectByVisibleText(year);
-//    mnth.selectByVisibleText(month);
   WebElement dats = $(By.xpath(dates));
   List<WebElement> activedates = dats.findElements(By.tagName("td"));
 
   for (WebElement datess : activedates) {
     String date = datess.getText();
-//      System.out.println(date);
     if (date.equals(day)) {
       datess.click();
       break;
@@ -243,7 +214,6 @@ public void clickBackBtn(){
   }
 
 }
-
 @Step("Click add another child button to add multiple children")
   public  void addAnotherCh(){
     $(By.xpath(AddAnotherChild)).click();
@@ -266,11 +236,7 @@ public void clickBackBtn(){
     public void SelectSilverRewards(){
       $(By.xpath(AddOptionalClienteleSilverRewardXpath)).click();
   }
-//@Step("Check total premium for cover selected")
-//String checkPremium(){
-//  final String text = $(By.xpath(TotalPremiumXpath)).getText();
-//  return text;
-//}
+
 }
 
 

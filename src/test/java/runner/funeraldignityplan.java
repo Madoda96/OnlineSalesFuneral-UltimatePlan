@@ -8,6 +8,8 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(plugin = {"pretty"},
         features = "src/test/resources/features/FuneralDignityPlan.feature",
-        glue = "stepsDefinition")
+        glue = "stepsDefinition",
+        dryRun = true )
+
 public class funeraldignityplan {
 }
