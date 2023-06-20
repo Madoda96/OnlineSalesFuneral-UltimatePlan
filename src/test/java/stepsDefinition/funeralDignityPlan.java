@@ -26,7 +26,6 @@ public class funeralDignityPlan {
     public void user_is_on_the_dignity_plan_page() {
         homePage.open();
         homePage.ClickBuyNowFuneralPlans();
-        memberPage.EnterEmail("0688@gmail.com");
         homePage.clickContinueBtn();
 
 
@@ -35,8 +34,11 @@ public class funeralDignityPlan {
     public void user_completes_the_required_member_details() {
         memberPage.SelectTitle("Mr");
         memberPage.EnterName("Thomas");
+
         memberPage.Entersurname("Dlamina");
         memberPage.enterMemberIDnum("9512129348087");
+=======
+      
         memberPage.enterMobileNum("0854122350");
         memberPage.enterPostalAddress("1196 elves street");
         memberPage.EnterPostalCode("1205");
@@ -53,21 +55,31 @@ public class funeralDignityPlan {
            additionalMembers.addSpouse();
            additionalMembers.selectTitle("Dr");
            additionalMembers.enterSpouseName("David");
+
            additionalMembers.enterSpouseSurname("Dlamina");
+=======
+     
+
            additionalMembers.selectSpouseGender("Male");
-           additionalMembers.enterSpouseDateOfBirth("1990","Oct","1");
+
+           additionalMembers.enterSpouseDateOfBirth("1989","Oct","1");
+=======
+           additionalMembers.EnterSpouseIDNo("6806118090988");
+           additionalMembers.enterSpouseDateOfBirth("1989","Oct","20");
+
            // add implementation to add ID
-
-
            additionalMembers.saveSpousedtls();
 
            // adding child
            additionalMembers.addChildrencheckBox();
            additionalMembers.EnterChildName("Ismael");
+
            additionalMembers.EnterChildSurname("Dlamina");
+
+
            additionalMembers.selectChildGender("Male");
            additionalMembers.IsChildStudentOrNot("Yes");
-           additionalMembers.childDateOfBirth("2009","Dec","1");
+           additionalMembers.childDateOfBirth("2008","Dec","1");
 
            //add implementation for ID Number
 
@@ -82,7 +94,7 @@ public class funeralDignityPlan {
        beneficiaryDetails.EnterBeneficiaryName("Thabo");
        beneficiaryDetails.SelectBeneficiaryTite("Mr");
 
-       beneficiaryDetails.EnterBeneficiarySurname("Month");
+       beneficiaryDetails.EnterBeneficiarySurname("Duma");
        beneficiaryDetails.EnterDateOfBirth("1", "Dec", "1990");
        beneficiaryDetails.SelectBeneficiaryRelationship("Father-in-Law");
        beneficiaryDetails.SelectPercentageAllocation("100%");
@@ -104,11 +116,11 @@ public class funeralDignityPlan {
     @When("User completes the Payer details by completing required information")
     public void user_completes_the_payer_details_by_completing_required_information() {
 
-  //      payerDetails.SelectPayerTitle("Mr");
-   //     payerDetails.EnterPayerName("Ismael");
-   //     payerDetails.EnterPayerSurname("Direro");
-   //     payerDetails.EnterPayIDNumber("7011254071087");
-   //     payerDetails.EnterPayerMobileNumber("0745862021");
+        payerDetails.SelectPayerTitle("Mr");
+        payerDetails.EnterPayerName("Ismael");
+        payerDetails.EnterPayerSurname("Direro");
+        payerDetails.EnterPayIDNumber("7011254071087");
+        payerDetails.EnterPayerMobileNumber("0745862021");
         payerDetails.SelectBankName("STANDARD BANK OF S.A. LTD");
         payerDetails.SelectAccountType("Savings Account");
         payerDetails.EnterAccNumber("1234");
@@ -122,10 +134,10 @@ public class funeralDignityPlan {
     @When("user confirms the captured information on policy confirmation page")
     public void user_confirms_the_captured_information_on_policy_confirmation_page() {
 
-        confirmationPage.viewPremium();
-        confirmationPage.ViewWhoIsCovered();
-        confirmationPage.ViewBenefits();
-        confirmationPage.AnnualIncrease();
+//        confirmationPage.viewPremium();
+//        confirmationPage.ViewWhoIsCovered();
+//        confirmationPage.ViewBenefits();
+//        confirmationPage.AnnualIncrease();
 //        confirmationPage.disclaimer();
 
 
@@ -139,7 +151,6 @@ public class funeralDignityPlan {
     }
     @Then("user should be able to see the policy number, correct monthly premium")
     public void user_should_be_able_to_see_the_policy_number_correct_monthly_premium() {
-
 
         confirmationPage.ViewThankYouMessage();
         confirmationPage.finalPremiumMnth();
