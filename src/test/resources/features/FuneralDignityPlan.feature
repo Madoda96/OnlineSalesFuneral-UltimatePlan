@@ -13,7 +13,7 @@ Feature: Funeral dignity plan
 
 
   @NegativeTest
-  Scenario: User completing funeral dignity plan application with two additional member
+  Scenario: User completing funeral dignity plan application with  additional member
     Given User is on the dignity plan page
     When User completes the required  Member details .
     And User adds two additional members, a spouse and child to the policy
@@ -21,7 +21,7 @@ Feature: Funeral dignity plan
     Then User shouldn't be able to proceed with application if allocated percentage is less than 100 percent.
 
   @ValidationTest
-  Scenario: User completing funeral dignity plan application with two additional member
+  Scenario: User completing funeral dignity plan application with  additional members
     Given User is on the dignity plan page
     When User completes the required  Member details .
     And User adds two additional members, a spouse and child to the policy
