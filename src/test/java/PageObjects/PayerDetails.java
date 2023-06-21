@@ -2,6 +2,7 @@ package PageObjects;
 
 import net.serenitybdd.core.pages.PageObject;
 import net.thucydides.core.annotations.Step;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -116,6 +117,15 @@ public class PayerDetails extends PageObject {
     @Step("Click continue to see navigate to payer details page")
     public void clickContinueBtn(){
         $(By.xpath(PayerContinueButtonXpath)).click();
+    }
+
+    @Step("Verify that page is Payer details")
+    public void payerdetailsPage (){
+        String  pageTitle = getTitle();
+        Assert.assertEquals("Payer details",pageTitle);
+
+
+
     }
 
 }

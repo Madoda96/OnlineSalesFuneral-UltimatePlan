@@ -9,7 +9,7 @@ import java.util.List;
 
 public class BeneficiaryDetails extends PageObject {
 
-    String TitleXpath = "//select[@name=\"onTtlB\"]";
+    String TitleXpath = "//select[@id=\"onTtlB1\"]";
     String BeneficiaryNameXpath = "//input[@id=\"onNameB1\"]";
     String BeneficiarySurnameXpath = "//input[@id=\"onSurnameB1\"]";
     String BeneficiaryIDnumberXpath = "id=\"onIdB1\"";
@@ -19,6 +19,22 @@ public class BeneficiaryDetails extends PageObject {
     String YearXpath = "//select[@class=\"ui-datepicker-year\"]";
     String BeneficiaryRelationshipXpath = "//select[@id=\"onRelationB1\"]";
     String AllocatedPercentageXpath = "//select[@id=\"allocationSlider1\"]";
+
+
+    String TitleXpath2 = "//select[@id=\"onTtlB2\"]";
+    String BeneficiaryNameXpath2 = "//input[@id=\"onNameB2\"]";
+    String BeneficiarySurnameXpath2 = "//input[@id=\"onSurnameB2\"]";
+    String BeneficiaryIDnumberXpath2 = "id=\"onIdB2\"";
+    String BeneficiaryDOBXpath2 = "//input[@id=\"onDobB2\" ]";
+    String MonthXPATH2 = "//select[@class=\"ui-datepicker-month\"]";
+
+    String YearXpath2 = "//select[@class=\"ui-datepicker-year\"]";
+    String BeneficiaryRelationshipXpath2 = "//select[@id=\"onRelationB2\"]";
+    String AllocatedPercentageXpath2 = "//select[@id=\"allocationSlider2\"]";
+
+
+
+
 
     String saveBtnXpath = "//div[@id=\"SaveBeneficiary\"]";
 
@@ -115,6 +131,44 @@ public class BeneficiaryDetails extends PageObject {
         $(By.xpath(AddAnotherBeneficiaryXpath)).click();
 
     }
+
+    @Step("Select beneficial relationship")
+    public void SelectBeneficiaryRelationship2(String BeneficiaryRelationship) {
+
+        WebElement benefiTitle = $(By.xpath(BeneficiaryRelationshipXpath2));
+        selectFromDropdown(benefiTitle, BeneficiaryRelationship);
+
+    }
+
+    @Step("Select percentage allocation")
+    public void SelectPercentageAllocation2(String PercentageAllocation) {
+
+        WebElement Allocation = $(By.xpath(AllocatedPercentageXpath2));
+        selectFromDropdown(Allocation, PercentageAllocation);
+    }
+
+    @Step("Select beneficiary Title")
+    public void SelectBeneficiaryTite2(String Title) {
+        WebElement benefiTitle = $(By.xpath(TitleXpath2));
+        selectFromDropdown(benefiTitle, Title);
+    }
+
+    @Step(" Enter the name of the beneficiary")
+    public void EnterBeneficiaryName2(String name) {
+        $(By.xpath(BeneficiaryNameXpath2)).sendKeys(name);
+    }
+
+    @Step("Enter the surname of the beneficiary")
+    public void EnterBeneficiarySurname2(String Bsurname) {
+        $(By.xpath(BeneficiarySurnameXpath2)).sendKeys(Bsurname);
+    }
+
+
+
+
+
+
+
 }
 
 
