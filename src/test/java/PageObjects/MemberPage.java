@@ -55,12 +55,6 @@ public class MemberPage extends PageObject {
         if ($(By.xpath("//*[@id=\"inline-cont\"]")).isDisplayed()) {
 
             $(By.xpath("//*[@id=\"contsale\"]")).click();
-
-
-
-//        Select select = $(By.xpath(TitleXpath));
-//        select.selectByVisibleText(Title);
-
         }
 
         WebElement e = $(By.xpath(TitleXpath));

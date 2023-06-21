@@ -237,8 +237,16 @@ public void clickBackBtn(){
       $(By.xpath(AddOptionalClienteleSilverRewardXpath)).click();
   }
 
-}
 
+  @Step(" verify that Main member can see the total premium amount")
+public String GetTotalPremium (){
+
+  Assert.assertTrue($(By.xpath(TotalPremiumXpath)).isDisplayed());
+  return $(By.xpath(TotalPremiumXpath)).getText();
+
+
+}
+}
 
 
 
