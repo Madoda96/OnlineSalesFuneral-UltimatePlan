@@ -55,7 +55,17 @@ public class AdditionalMembers extends PageObject {
   String ChildGenderXpath = "//select[@id=\"onGenderCh1\"]";
   String ChildIsStudenteXpath = "//select[@id=\"onChIsStudent1\"]";
   String ChildIDnumXpath = "//input[@id=\"onIdNumCh1\"]";
-  String ChildDOBXpath = "//input[@name=\"onDobCh\"]";
+  String ChildDOBXpath = "//input[@id=\"onDobCh1\"]";
+
+  String Child2NameXpath = "//input[@id=\"onNameCh2\"]";
+  String Child2SurnameNameXpath = "//input[@id=\"onSurnameCh2\"]";
+  String Child2GenderXpath = "//select[@id=\"onGenderCh2\"]";
+  String Child2IsStudenteXpath = "//select[@id=\"onChIsStudent2\"]";
+  String ChildID2numXpath = "//input[@id=\"onIdNumCh2\"]";
+  String Child2DOBXpath = "//input[@id=\"onDobCh2\"]";
+
+
+
   String AddAnotherChild = "//button[@id=\"AddChild\"]";
   String ChildSaveDetails = "//div[@id=\"SaveChild\"]";
   
@@ -73,8 +83,7 @@ public class AdditionalMembers extends PageObject {
     WebElement STitle = $(By.xpath(TitleXpath));
     selectFromDropdown(STitle,title);
 
-//    Select tit = $(By.xpath(TitleXpath));
-//    tit.selectByVisibleText(title);
+
 
   }
 
@@ -124,7 +133,7 @@ public class AdditionalMembers extends PageObject {
     List<WebElement> activedates = S.findElements(By.tagName("td"));
 
     for (WebElement dates : activedates) {
-      System.out.println(dates.getSize());
+
       String date = dates.getText();
       if (date.equals(day)) {
         dates.click();
@@ -166,29 +175,29 @@ public void clickBackBtn(){
 
 }
 @Step("Add a child name")
-  public void EnterChildName (String Childname){
-    $(By.xpath(ChildNameXpath)).sendKeys(Childname);
+  public void EnterChild2Name (String Childname){
+    $(By.xpath(Child2NameXpath)).sendKeys(Childname);
 }
 @Step("Add a child surname")
-  public void EnterChildSurname(String childSurname){
-    $(By.xpath(ChildSurnameNameXpath)).sendKeys(childSurname);
+  public void EnterChild2Surname(String childSurname){
+    $(By.xpath(Child2SurnameNameXpath)).sendKeys(childSurname);
 
 }
 @Step("Select child gender")
-  public void selectChildGender(String gender){
-    WebElement g = $(By.xpath(ChildGenderXpath));
+  public void selectChild2Gender(String gender){
+    WebElement g = $(By.xpath(Child2GenderXpath));
     selectFromDropdown(g, gender);
 }
 @Step("Select if  the child  is a student or not ")
-  public void IsChildStudentOrNot(String isStudent_or_Not){
-    WebElement isStudent = $(By.xpath(ChildIsStudenteXpath));
+  public void IsChild2StudentOrNot(String isStudent_or_Not){
+    WebElement isStudent = $(By.xpath(Child2IsStudenteXpath));
     selectFromDropdown(isStudent,isStudent_or_Not);
 
 }
 @Step("Enter the child ID number")
-  public void childIDNUM (String childIDNo){
+  public void child2IDNUM (String childIDNo){
 
-    $(By.xpath(ChildIDnumXpath)).sendKeys(childIDNo);
+    $(By.xpath(ChildID2numXpath)).sendKeys(childIDNo);
 
 }
 @Step("Enter the child date of birth")
@@ -217,6 +226,66 @@ public void clickBackBtn(){
   }
 
 }
+
+
+  @Step("Add a child name")
+  public void EnterChildName (String Childname){
+    $(By.xpath(ChildNameXpath)).sendKeys(Childname);
+  }
+  @Step("Add a child surname")
+  public void EnterChildSurname(String childSurname){
+    $(By.xpath(ChildSurnameNameXpath)).sendKeys(childSurname);
+
+  }
+  @Step("Select child gender")
+  public void selectChildGender(String gender){
+    WebElement g = $(By.xpath(ChildGenderXpath));
+    selectFromDropdown(g, gender);
+  }
+  @Step("Select if  the child  is a student or not ")
+  public void IsChildStudentOrNot(String isStudent_or_Not){
+    WebElement isStudent = $(By.xpath(ChildIsStudenteXpath));
+    selectFromDropdown(isStudent,isStudent_or_Not);
+
+  }
+  @Step("Enter the child ID number")
+  public void childIDNUM (String childIDNo){
+
+    $(By.xpath(ChildIDnumXpath)).sendKeys(childIDNo);
+
+  }
+  @Step("Enter the child date of birth")
+  public void child2DateOfBirth(String year, String month, String day) {
+
+    String calenderMonthXpath = "//select[@class=\"ui-datepicker-month\"]";
+    String calenderYear = "//select[@class=\"ui-datepicker-year\"]";
+    String dates = "//*[@id=\"ui-datepicker-div\"]/table";
+
+    WebElement calenderMn = $(By.xpath(calenderMonthXpath));
+    WebElement calendeYr = $(By.xpath(calenderYear));
+
+    $(By.xpath(Child2DOBXpath)).click();
+    selectFromDropdown(calendeYr, year);
+    selectFromDropdown(calenderMn, month);
+
+    WebElement dats = $(By.xpath(dates));
+    List<WebElement> activedates = dats.findElements(By.tagName("td"));
+
+    for (WebElement datess : activedates) {
+      String date = datess.getText();
+      if (date.equals(day)) {
+        datess.click();
+        break;
+      }
+    }
+
+  }
+
+
+
+
+
+
 @Step("Click add another child button to add multiple children")
   public  void addAnotherCh(){
     $(By.xpath(AddAnotherChild)).click();

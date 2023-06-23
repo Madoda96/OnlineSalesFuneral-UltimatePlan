@@ -35,6 +35,10 @@ public class confirmationPage extends PageObject {
 
     String PolicyNumXpath = "//span[@id=\"PolicyNumber\"]";
 
+    // error message
+
+    String AgeErrorMessageXpath = "//*[@id=\"onlineSaleForm\"]/div/div[5]/div[2]/div[5]/ul/li";
+
 
 
 
@@ -110,6 +114,22 @@ public class confirmationPage extends PageObject {
     public void PolicyNumber (){
         boolean isPolicyNUM = $(By.xpath(PolicyNumXpath)).isDisplayed();
         Assert.assertTrue(isPolicyNUM);
+
+    }
+
+    @Step("Check Age error message ")
+    public void AgeErrorMessage (){
+        String errorMessage = $(By.xpath(AgeErrorMessageXpath)).getText();
+        String ExpectedErrorMessage ="The child (David Zulu) age of 20 is above the maximum allowed age of 18. The child (Mlandeli Zulu) age of 20 is above the maximum allowed age of 18.";
+
+        Assert.assertTrue($(By.xpath(AgeErrorMessageXpath)).isDisplayed());
+        if (errorMessage.equalsIgnoreCase(ExpectedErrorMessage)){
+            System.out.println(" Test Passed");
+        }else {
+            System.out.println("Test Failed, The error message is: " + errorMessage);
+
+        }
+
 
     }
 
