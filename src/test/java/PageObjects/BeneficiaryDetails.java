@@ -124,6 +124,8 @@ public class BeneficiaryDetails extends PageObject {
     @Step("click back button to land on the additional members page")
     public void clickBackButton() {
         $(By.xpath(backBtnXpath)).click();
+
+
     }
 
     @Step("Click to add another beneficiary")
