@@ -110,6 +110,8 @@ public class BeneficiaryDetails extends PageObject {
     }
 
 
+
+    //Just a capture
     @Step("Save captured beneficiary details")
     public void clickSaveDetails() {
         $(By.xpath(saveBtnXpath)).click();
