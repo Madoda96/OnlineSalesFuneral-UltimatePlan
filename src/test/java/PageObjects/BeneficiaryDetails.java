@@ -110,6 +110,8 @@ public class BeneficiaryDetails extends PageObject {
     }
 
 
+
+    //Just a capture
     @Step("Save captured beneficiary details")
     public void clickSaveDetails() {
         $(By.xpath(saveBtnXpath)).click();
@@ -124,6 +126,8 @@ public class BeneficiaryDetails extends PageObject {
     @Step("click back button to land on the additional members page")
     public void clickBackButton() {
         $(By.xpath(backBtnXpath)).click();
+
+
     }
 
     @Step("Click to add another beneficiary")
