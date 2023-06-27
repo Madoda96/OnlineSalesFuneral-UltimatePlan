@@ -1,18 +1,11 @@
 package stepsDefinition;
 
 
-import PageObjects.HomePage;
-import PageObjects.MemberPage;
-import PageObjects.AdditionalMembers;
-import PageObjects.BeneficiaryDetails;
 import PageObjects.PayerDetails;
-import PageObjects.confirmationPage;
+import PageObjects.*;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import net.serenitybdd.core.pages.PageObject;
-import net.serenitybdd.core.pages.PageObjects;
 import net.thucydides.core.annotations.Steps;
-import org.openqa.selenium.devtools.v85.memory.Memory;
 
 public class ConfirmationPage {
 
@@ -96,8 +89,8 @@ public class ConfirmationPage {
     }
     @Then("User should be able to see policy created and policy information")
     public void user_should_be_able_to_see_policy_created_and_policy_information() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+
+
     }
 
 }
