@@ -24,7 +24,7 @@ public class AdditionalMembers extends PageObject {
 
   String AddOptionalClienteleSilverRewardXpath = "//*[@id=\"onlineSaleForm\"]/div/div[2]/div[1]/div[11]/fieldset/div[2]/div[1]/label/span";
 
-  String TitleXpath = "//select[@id=\"onTtlSp\"]";
+  String TitleXpath = "//select[@id=\"onTtlSp\"]"; //select[@id="onTtlSp"]
 
   String Spouse_NameXpath = "//input[@name=\"onNameSp\"]";
 
@@ -87,6 +87,7 @@ public class AdditionalMembers extends PageObject {
   @Step("Enter spouse name")
   public void enterSpouseName(String spouse_Name) {
     $(By.xpath(Spouse_NameXpath)).sendKeys(spouse_Name);
+    // //*[@id="onTtlSp"]/option[2]
 
   }
 
