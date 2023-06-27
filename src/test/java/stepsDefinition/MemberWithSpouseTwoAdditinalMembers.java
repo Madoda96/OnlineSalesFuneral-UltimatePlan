@@ -67,6 +67,7 @@ public class MemberWithSpouseTwoAdditinalMembers {
         additionalMembers.selectSpouseGender(spousegender);
         additionalMembers.enterSpouseDateOfBirth("2002", "Oct", "1");
         additionalMembers.saveSpousedtls();
+
         additionalMembers.clickContinue();
 
     }

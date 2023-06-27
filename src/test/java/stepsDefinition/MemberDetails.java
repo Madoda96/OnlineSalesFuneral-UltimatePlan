@@ -44,7 +44,7 @@ public class MemberDetails {
         memberDetailsPage.selectEducation("University, Technikon, Degree, Diploma");
         memberDetailsPage.acceptFICAdecl("Yes");
         memberDetailsPage.acceptFicaDeclaration2("Yes");
-        memberDetailsPage.clickContinueBtn();
+        memberDetailsPage.clickContinueBt();
 
 
     }
