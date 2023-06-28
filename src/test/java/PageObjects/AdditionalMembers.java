@@ -309,12 +309,15 @@ public void clickBackBtn(){
 
   @Step(" verify that Main member can see the total premium amount")
 public String GetTotalPremium (){
+    String TotalPremium = "";
 
-  Assert.assertTrue($(By.xpath(TotalPremiumXpath)).isDisplayed());
-  return $(By.xpath(TotalPremiumXpath)).getText();
+    Assert.assertTrue($(By.xpath(TotalPremiumXpath)).isDisplayed());
 
+    TotalPremium = $(By.xpath(TotalPremiumXpath)).getText();
 
-}
+    return TotalPremium;
+
+  }
 }
 
 

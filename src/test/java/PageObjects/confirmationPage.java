@@ -40,18 +40,28 @@ public class confirmationPage extends PageObject {
     String AgeErrorMessageXpath = "//*[@id=\"onlineSaleForm\"]/div/div[5]/div[2]/div[5]/ul/li";
 
 
+    @Step("Check final premium amount")
+    public String FinalAmount() {
+        return $(By.xpath(FinalMonthlyPremiumXpath)).getText();
 
+    }
 
     @Step("view total premium and first premium debit date")
-    public void viewPremium(){
+    public void viewPremium() {
         boolean isPremiumVisibile = $(By.xpath(PremiumXpath)).isDisplayed();
 
         Assert.assertTrue((isPremiumVisibile));
+    }
 
+    @Step(" Check Total initial premium amount")
+    public String premiumAmount() {
+
+        return $(By.xpath(PremiumXpath)).getText();
 
     }
+
     @Step("View who is covered as per additional members added and main member")
-    public void ViewWhoIsCovered(){
+    public void ViewWhoIsCovered() {
         boolean isWhoIsCoveredVisible = $(By.xpath(WhoIsCoveredXpath)).isDisplayed();
         Assert.assertTrue(isWhoIsCoveredVisible);
     }
