@@ -14,7 +14,7 @@ Feature: Funeral dignity plan
     Then user should land on the Payer details page
 
 
-    Examples:   #Member details
+    Examples:
       | email                   | Title | Names  | Surname | IDnumber      | mobileNumber |  | PostalAddress | PostalCode | MonthlyIncome     | Occupation          | education                            | FicaDeclaration1 | FicaDeclaration2 |  | spouseTitle | spouseNames | spouseSurname | spouseDOB | spouseGender | Beneficiary1Title | Beneficiary1Name | Beneficiary1Relationship | Beneficiary1PercantageAllocation | Beneficiary1Surname |  | Beneficiary2Title | Beneficiary2Name | Beneficiary2Relationship | Beneficiary2PercantageAllocation |  | Beneficiary2Surname |
       | mwelaseNzima1@gmail.com | Mr    | Mandla | Dumas   | 9101017798080 | 0832002639   |  | 12345 Test    | 1205       | R15,000 - R18,000 | Skilled agriculture | Post-graduate (Honours, Masters etc) | Yes              | Yes              |  | Dr          | David       | Dlamina       |           | Male         | Thami             | Mr               | Child                    | 50%                              | Xuma                |  | Thuli             | Mr               | Child                    | 50%                              |  | Xuma                |
 

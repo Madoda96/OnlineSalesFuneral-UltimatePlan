@@ -19,7 +19,7 @@ public class MemberWithTwoChildrenAbove18AndAreStudents {
         confirmationPage.AnnualIncrease();
         confirmationPage.clickTermsAndConditions();
         confirmationPage.ClickConfirmBtn();
-        Thread.sleep(5000);
+        Thread.sleep(3000);
         confirmationPage.ViewThankYouMessage();
         confirmationPage.finalPremiumMnth();
         confirmationPage.PolicyNumber();

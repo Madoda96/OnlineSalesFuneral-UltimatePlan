@@ -17,6 +17,7 @@ public class AdditionalMembers extends PageObject {
   String AddChildrenCheckBoxXpath = "//*[@id=\"onlineSaleForm\"]/div/div[2]/div[1]/div[8]/fieldset/div[1]/div[1]/label/span";
 
   String AddExtendedMemberCheckBoxXpath = "//*[@id=\"onlineSaleForm\"]/div/div[2]/div[1]/div[9]/fieldset/div[1]/div[1]/label/span";
+  String dsds = "";
 
 
   // Non insurance Web Element
@@ -307,7 +308,7 @@ public void clickBackBtn(){
 
 
   @Step(" verify that Main member can see the total premium amount")
-public String GetTotalPremium (){
+  public String GetTotalPremium() {
     String TotalPremium = "";
 
     Assert.assertTrue($(By.xpath(TotalPremiumXpath)).isDisplayed());
@@ -316,6 +317,14 @@ public String GetTotalPremium (){
 
     return TotalPremium;
 
+  }
+
+  @Step("Verify that page is additional members page")
+  public void VerifyadditionalMembersPage() {
+    String pageTitle = getTitle();
+    String ExpectedTitle = "Online Sales";
+
+    Assert.assertEquals(ExpectedTitle, pageTitle);
   }
 }
 

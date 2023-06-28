@@ -59,7 +59,7 @@ public class MemberWithSpouseTwoAdditinalMembers {
 
     @Given("User adds a spouse {string},{string},{string},{string},{string}.")
     public void user_adds_a_spouse(String SpouseTitle, String spouseName, String spouseSurname, String spousegender, String spouseDOB) throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(3000);
         additionalMembers.addSpouse();
         additionalMembers.selectTitle(SpouseTitle);
         additionalMembers.enterSpouseName(spouseName);
@@ -74,7 +74,7 @@ public class MemberWithSpouseTwoAdditinalMembers {
 
     @Given("User adds first beneficiary {string}, {string}, {string},{string}, {string}")
     public void user_adds_first_beneficiary(String Benef1Name, String Benef1Title, String Benef1Surname, String Benef1Relatiomship, String Benef1Allocation) throws InterruptedException {
-       Thread.sleep(5000);
+        Thread.sleep(3000);
         beneficiaryDetails.SelectBeneficiaryTite(Benef1Title);
         beneficiaryDetails.EnterBeneficiaryName(Benef1Name);
 
@@ -82,7 +82,7 @@ public class MemberWithSpouseTwoAdditinalMembers {
 //        beneficiaryDetails.EnterDateOfBirth("1", "Dec", "2003");
         beneficiaryDetails.SelectBeneficiaryRelationship(Benef1Relatiomship);
         beneficiaryDetails.SelectPercentageAllocation(Benef1Allocation);
-        Thread.sleep(5000);
+        Thread.sleep(3000);
     }
 
     @Given("User adds second beneficiary {string}, {string}, {string},{string}, {string}")
