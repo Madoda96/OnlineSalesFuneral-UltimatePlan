@@ -68,7 +68,7 @@ public class MemberWithTwoChildrenAbove18ButNotStudents {
         beneficiaryDetails.clickContinueButtn();
         Thread.sleep(3000);
     }
-
+//
     @Given("user enters payer details {string},{string},{string},{string},{string}.")
     public void user_enters_payer_details(String bankName, String accountType, String accountNumber, String debitDate, String Debicheck) throws InterruptedException {
 
