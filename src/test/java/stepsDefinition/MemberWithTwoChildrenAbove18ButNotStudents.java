@@ -64,6 +64,7 @@ public class MemberWithTwoChildrenAbove18ButNotStudents {
         beneficiaryDetails.SelectPercentageAllocation(Allocation);
 //        beneficiaryDetails.clickSaveDetails();
         Thread.sleep(3000);
+
         beneficiaryDetails.clickContinueButtn();
         Thread.sleep(3000);
     }

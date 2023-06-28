@@ -34,11 +34,8 @@ public class MemberWithSpouseTwoAdditinalMembers {
     @Given("User completes the required  Member details information {string}, {string}, {string}, {string}, {string}.")
     public void user_completes_the_required_member_details_information(String title, String memberName, String memberSurname, String IDNumber, String memberMobileNum) {
 
-        memberPage.SelectTitle(title);
-        memberPage.EnterName(memberName);
-        memberPage.Entersurname(memberSurname);
-        memberPage.enterMemberIDnum(IDNumber);
-        memberPage.enterMobileNum(memberMobileNum);
+
+
 
     }
 

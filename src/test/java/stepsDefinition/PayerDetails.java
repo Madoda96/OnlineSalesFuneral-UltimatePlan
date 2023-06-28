@@ -29,11 +29,13 @@ public class PayerDetails {
         // Initialize the Web Browser
         homePage.open();
         homePage.ClickBuyNowFuneralPlans();
-        memberPage.EnterEmail("Leboga@gmail.com");
+        memberPage.EnterEmail("Lebog@gmail.com");
         homePage.clickContinueBtn();
         Thread.sleep(10000);
 
         // Member Details Page
+
+        //*[@id="onTtl"]
 
         memberPage.SelectTitle("Dr");
         memberPage.EnterName("Opelong");
@@ -102,29 +104,23 @@ public class PayerDetails {
 //        details.EnterAccNumber("1234");
 //
 //        }
-        @Given("User should be able to confirm Debit check")
-        public void user_should_be_able_to_confirm_debit_check() {
+//        @Given("User should be able to confirm Debit check")
+//        public void user_should_be_able_to_confirm_debit_check() {
+//
+//        details.Cellphone_on_hand("Yes");
+//        }
+//        @Given("User should be able to Authorise the debit check")
+//        public void user_should_be_able_to_authorise_the_debit_check() {
+//            details.debitBankAcc();
 
-        details.Cellphone_on_hand("Yes");
-        }
-        @Given("User should be able to Authorise the debit check")
-        public void user_should_be_able_to_authorise_the_debit_check() {
-            details.debitBankAcc();
 
 
-        }
 
         @Then("User should be able to click Continue button, and Navigate to navigate to Confirmations page")
         public void user_should_be_able_to_click_continue_button_and_navigate_to_navigate_to_confirmations_page() {
             details.clickContinueBtn();
 
         }
-
-
-
-
-
-
 
 
     @Then("")

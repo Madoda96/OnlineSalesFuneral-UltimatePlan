@@ -10,6 +10,7 @@ public class PayerDetails extends PageObject {
 
 
     String PayerTitleXpath = "//select[@name=\"onTtlP\"]";
+
     String PayerNameXpath = "//input[@name=\"onNameP\"]";
     String PayerSurnameXpath = "//input[@name=\"onSurnameP\"]";
     String PayerIDXpath = "//input[@name=\"onIDP\"]";
