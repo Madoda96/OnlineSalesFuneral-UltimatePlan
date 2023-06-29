@@ -934,7 +934,7 @@ public class AdditionalMembers extends PageObject {
   }
 
   @Step("Add another member ")
-  public void AddAnotherMember() {
+  public void AddAnotherExtendedMember() {
 
     Assert.assertTrue($(By.xpath(AddAnotherExtendedMmeberBtnXpath)).isClickable());
     $(By.xpath(AddAnotherExtendedMmeberBtnXpath)).click();
