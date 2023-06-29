@@ -36,9 +36,6 @@ public class BeneficiaryDetails extends PageObject {
     String AllocatedPercentageXpath2 = "//select[@id=\"allocationSlider2\"]";
 
 
-
-
-
     String saveBtnXpath = "//div[@id=\"SaveBeneficiary\"]";
 
     String continueBtnXpath = "//div[@onclick=\"loader();step('3','no');\"]";

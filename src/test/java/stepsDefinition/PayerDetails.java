@@ -1,10 +1,11 @@
 package stepsDefinition;
 
-import PageObjects.*;
-import io.cucumber.java.en.And;
+import PageObjects.AdditionalMembers;
+import PageObjects.BeneficiaryDetails;
+import PageObjects.HomePage;
+import PageObjects.MemberPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.Steps;
 
 public class PayerDetails {
@@ -18,9 +19,8 @@ public class PayerDetails {
     BeneficiaryDetails beneficiaryDetails;
 
     @Steps
-     PageObjects.PayerDetails details;
+    PageObjects.PayerDetails details;
     //PayerDetails payerDetails;
-
 
 
     @Given("User complete Member detail, Additional details and Beneficiary details")
@@ -81,19 +81,17 @@ public class PayerDetails {
     // Capture and Confirm Payer Details
 
 
-
     @Given("User should be able to capture Payer Banking Details")
     public void user_should_be_able_to_capture_payer_banking_details() {
-       details.SelectBankName("ABSA BANK");
-       details.selectBranchName("Universal Branch");
-       details.SelectAccountType("Cheque Account");
-       details.EnterAccNumber("1234");
+        details.SelectBankName("ABSA BANK");
+        details.selectBranchName("Universal Branch");
+        details.SelectAccountType("Cheque Account");
+        details.EnterAccNumber("1234");
 
     }
 
 
-
-//        @Given("User shoould be able to capture Payer Banking Details")
+    //        @Given("User shoould be able to capture Payer Banking Details")
 //        public void user_shoould_be_able_to_capture_payer_banking_details() {
 //
 //        details.SelectBankName("ABSA BANK");
@@ -102,29 +100,24 @@ public class PayerDetails {
 //        details.EnterAccNumber("1234");
 //
 //        }
-        @Given("User should be able to confirm Debit check")
-        public void user_should_be_able_to_confirm_debit_check() {
+    @Given("User should be able to confirm Debit check")
+    public void user_should_be_able_to_confirm_debit_check() {
 
         details.Cellphone_on_hand("Yes");
-        }
-        @Given("User should be able to Authorise the debit check")
-        public void user_should_be_able_to_authorise_the_debit_check() {
-            details.debitBankAcc();
+    }
+
+    @Given("User should be able to Authorise the debit check")
+    public void user_should_be_able_to_authorise_the_debit_check() {
+        details.debitBankAcc();
 
 
-        }
+    }
 
-        @Then("User should be able to click Continue button, and Navigate to navigate to Confirmations page")
-        public void user_should_be_able_to_click_continue_button_and_navigate_to_navigate_to_confirmations_page() {
-            details.clickContinueBtn();
+    @Then("User should be able to click Continue button, and Navigate to navigate to Confirmations page")
+    public void user_should_be_able_to_click_continue_button_and_navigate_to_navigate_to_confirmations_page() {
+        details.clickContinueBtn();
 
-        }
-
-
-
-
-
-
+    }
 
 
     @Then("")

@@ -16,7 +16,74 @@ public class AdditionalMembers extends PageObject {
 
   String AddChildrenCheckBoxXpath = "//*[@id=\"onlineSaleForm\"]/div/div[2]/div[1]/div[8]/fieldset/div[1]/div[1]/label/span";
 
+
   String AddExtendedMemberCheckBoxXpath = "//*[@id=\"onlineSaleForm\"]/div/div[2]/div[1]/div[9]/fieldset/div[1]/div[1]/label/span";
+
+
+  // additional member webelements
+  String ExtendedMemberTitleXpath1 = "//select[@id=\"onTtlMem1\"]";
+  String ExtendedMemberNameXpath1 = "//input[@id=\"onNameMem1\"]";
+  String ExtendedMemberSurnameXpath1 = "//input[@id=\"onSurnameMem1\"]";
+  String ExtendedMemberGenderXpath1 = "//select[@id=\"onGenderMem1\"]";
+  String ExtendedMemberDOBpath1 = "//input[@id=\"onDobMem1\"]";
+  String ExtendedMemberRelationXpath1 = "//select[@id=\"onRelationMem1\"]";
+
+
+  String ExtendedMemberTitleXpath2 = "//select[@id=\"onTtlMem2\"]";
+  String ExtendedMemberNameXpath2 = "//input[@id=\"onNameMem2\"]";
+  String ExtendedMemberSurnameXpath2 = "//input[@id=\"onSurnameMem2\"]";
+  String ExtendedMemberGenderXpath2 = "//select[@id=\"onGenderMem2\"]";
+  String ExtendedMemberDOBpath2 = "//input[@id=\"onDobMem2\"]";
+  String ExtendedMemberRelationXpath2 = "//select[@id=\"onRelationMem2\"]";
+
+  String ExtendedMemberTitleXpath3 = "//select[@id=\"onTtlMem3\"]";
+  String ExtendedMemberNameXpath3 = "//input[@id=\"onNameMem3\"]";
+  String ExtendedMemberSurnameXpath3 = "//input[@id=\"onSurnameMem3\"]";
+  String ExtendedMemberGenderXpath3 = "//select[@id=\"onGenderMem3\"]";
+  String ExtendedMemberDOBpath3 = "//input[@id=\"onDobMem3\"]";
+  String ExtendedMemberRelationXpath3 = "//select[@id=\"onRelationMem3\"]";
+
+  String ExtendedMemberTitleXpath4 = "//select[@id=\"onTtlMem4\"]";
+  String ExtendedMemberNameXpath4 = "//input[@id=\"onNameMem4\"]";
+  String ExtendedMemberSurnameXpath4 = "//input[@id=\"onSurnameMem4\"]";
+  String ExtendedMemberGenderXpath4 = "//select[@id=\"onGenderMem4\"]";
+  String ExtendedMemberDOBpath4 = "//input[@id=\"onDobMem4\"]";
+  String ExtendedMemberRelationXpath4 = "//select[@id=\"onRelationMem4\"]";
+
+  String ExtendedMemberTitleXpath5 = "//select[@id=\"onTtlMem5\"]";
+  String ExtendedMemberNameXpath5 = "//input[@id=\"onNameMem5\"]";
+  String ExtendedMemberSurnameXpath5 = "//input[@id=\"onSurnameMem5\"]";
+  String ExtendedMemberGenderXpath5 = "//select[@id=\"onGenderMem5\"]";
+  String ExtendedMemberDOBpath5 = "//input[@id=\"onDobMem5\"]";
+  String ExtendedMemberRelationXpath5 = "//select[@id=\"onRelationMem5\"]";
+
+  String ExtendedMemberTitleXpath6 = "//select[@id=\"onTtlMem6\"]";
+  String ExtendedMemberNameXpath6 = "//input[@id=\"onNameMem6\"]";
+  String ExtendedMemberSurnameXpath6 = "//input[@id=\"onSurnameMem6\"]";
+  String ExtendedMemberGenderXpath6 = "//select[@id=\"onGenderMem6\"]";
+  String ExtendedMemberDOBpath6 = "//input[@id=\"onDobMem6\"]";
+  String ExtendedMemberRelationXpath6 = "//select[@id=\"onRelationMem6\"]";
+
+
+  String ExtendedMemberTitleXpath7 = "//select[@id=\"onTtlMem7\"]";
+  String ExtendedMemberNameXpath7 = "//input[@id=\"onNameMem7\"]";
+  String ExtendedMemberSurnameXpath7 = "//input[@id=\"onSurnameMem7\"]";
+  String ExtendedMemberGenderXpath7 = "//select[@id=\"onGenderMem7\"]";
+  String ExtendedMemberDOBpath7 = "//input[@id=\"onDobMem7\"]";
+  String ExtendedMemberRelationXpath7 = "//select[@id=\"onRelationMem7\"]";
+
+  String ExtendedMemberTitleXpath8 = "//select[@id=\"onTtlMem8\"]";
+  String ExtendedMemberNameXpath8 = "//input[@id=\"onNameMem8\"]";
+  String ExtendedMemberSurnameXpath8 = "//input[@id=\"onSurnameMem8\"]";
+  String ExtendedMemberGenderXpath8 = "//select[@id=\"onGenderMem8\"]";
+  String ExtendedMemberDOBpath8 = "//input[@id=\"onDobMem8\"]";
+  String ExtendedMemberRelationXpath8 = "//select[@id=\"onRelationMem8\"]";
+
+  String SaveExtendedMemberBtnXpath = "//div[@id=\"SaveMember\"]";
+
+  String AddAnotherExtendedMmeberBtnXpath = "//button[@id=\"AddMember\"]";
+
+  String RemoveExtendedMmemberXpath = "//button[@id=\"RemoveMember\"]";
 
 
   // Non insurance Web Element
@@ -62,11 +129,529 @@ public class AdditionalMembers extends PageObject {
   String Child2DOBXpath = "//input[@id=\"onDobCh2\"]";
 
 
-
   String AddAnotherChild = "//button[@id=\"AddChild\"]";
   String ChildSaveDetails = "//div[@id=\"SaveChild\"]";
-  
+
   String TotalPremiumXpath = "//div[@id=\"AllSumtotasl\"]";
+
+
+  @Step("Click additional member checkbox")
+  public void clickExtendedMemberCheckbx() {
+
+    Assert.assertTrue($(By.xpath(AddExtendedMemberCheckBoxXpath)).isVisible());
+    $(By.xpath(AddExtendedMemberCheckBoxXpath)).click();
+
+
+  }
+
+  @Step("Select extended member title")
+  public void selectExtMemberTitle1(String ExtendedMemberTitle) {
+
+    WebElement ExtmemeberTitle1 = $(By.xpath(ExtendedMemberTitleXpath1));
+    selectFromDropdown(ExtmemeberTitle1, ExtendedMemberTitle);
+
+  }
+
+  @Step("Select extended member title")
+  public void selectExtMemberTitle2(String ExtendedMemberTitle2) {
+
+    WebElement ExtmemeberTitle2 = $(By.xpath(ExtendedMemberTitleXpath2));
+    selectFromDropdown(ExtmemeberTitle2, ExtendedMemberTitle2);
+
+  }
+
+  @Step("Select extended member title")
+  public void selectExtMemberTitl3(String ExtendedMemberTitle3) {
+
+    WebElement ExtmemeberTitle3 = $(By.xpath(ExtendedMemberTitleXpath3));
+    selectFromDropdown(ExtmemeberTitle3, ExtendedMemberTitle3);
+
+  }
+
+  @Step("Select extended member title")
+  public void selectExtMemberTitle4(String ExtendedMemberTitle4) {
+
+    WebElement ExtmemeberTitle4 = $(By.xpath(ExtendedMemberTitleXpath4));
+    selectFromDropdown(ExtmemeberTitle4, ExtendedMemberTitle4);
+
+  }
+
+  @Step("Select extended member title")
+  public void selectExtMemberTitle5(String ExtendedMemberTitle5) {
+
+    WebElement ExtmemeberTitle5 = $(By.xpath(ExtendedMemberTitleXpath5));
+    selectFromDropdown(ExtmemeberTitle5, ExtendedMemberTitle5);
+
+  }
+
+  @Step("Select extended member title")
+  public void selectExtMemberTitle6(String ExtendedMemberTitle6) {
+
+    WebElement ExtmemeberTitle6 = $(By.xpath(ExtendedMemberTitleXpath6));
+    selectFromDropdown(ExtmemeberTitle6, ExtendedMemberTitle6);
+
+  }
+
+  @Step("Select extended member title")
+  public void selectExtMemberTitle7(String ExtendedMemberTitle7) {
+
+    WebElement ExtmemeberTitle7 = $(By.xpath(ExtendedMemberTitleXpath7));
+    selectFromDropdown(ExtmemeberTitle7, ExtendedMemberTitle7);
+
+  }
+
+  @Step("Select extended member title")
+  public void selectExtMemberTitle8(String ExtendedMemberTitle8) {
+
+    WebElement ExtmemeberTitle8 = $(By.xpath(ExtendedMemberTitleXpath8));
+    selectFromDropdown(ExtmemeberTitle8, ExtendedMemberTitle8);
+
+  }
+
+  @Step("Enter extended member Name")
+  public void EnterExtendedMemberName1(String ExtendedMemberName1) {
+    $(By.xpath(ExtendedMemberNameXpath1)).sendKeys(ExtendedMemberName1);
+  }
+
+  @Step("Enter extended member Name")
+  public void EnterExtendedMemberName2(String ExtendedMemberName2) {
+    $(By.xpath(ExtendedMemberNameXpath2)).sendKeys(ExtendedMemberName2);
+  }
+
+  @Step("Enter extended member Name")
+  public void EnterExtendedMemberName3(String ExtendedMemberName3) {
+    $(By.xpath(ExtendedMemberNameXpath3)).sendKeys(ExtendedMemberName3);
+  }
+
+  @Step("Enter extended member Name")
+  public void EnterExtendedMemberName4(String ExtendedMemberName4) {
+    $(By.xpath(ExtendedMemberNameXpath4)).sendKeys(ExtendedMemberName4);
+  }
+
+  @Step("Enter extended member Name")
+  public void EnterExtendedMemberName5(String ExtendedMemberName5) {
+    $(By.xpath(ExtendedMemberNameXpath5)).sendKeys(ExtendedMemberName5);
+  }
+
+  @Step("Enter extended member Name")
+  public void EnterExtendedMemberName6(String ExtendedMemberName6) {
+    $(By.xpath(ExtendedMemberNameXpath6)).sendKeys(ExtendedMemberName6);
+  }
+
+  @Step("Enter extended member Name")
+  public void EnterExtendedMemberName7(String ExtendedMemberName7) {
+    $(By.xpath(ExtendedMemberNameXpath7)).sendKeys(ExtendedMemberName7);
+  }
+
+  @Step("Enter extended member Name")
+  public void EnterExtendedMemberName8(String ExtendedMemberName8) {
+    $(By.xpath(ExtendedMemberNameXpath8)).sendKeys(ExtendedMemberName8);
+  }
+
+
+  @Step("Enter extended member surname ")
+  public void EnterExtendedMemberSurname(String ExtendedMenberSurname) {
+    $(By.xpath(ExtendedMemberSurnameXpath1)).sendKeys(ExtendedMenberSurname);
+
+  }
+
+  @Step("Enter extended member surname ")
+  public void EnterExtendedMemberSurname2(String ExtendedMenberSurname2) {
+    $(By.xpath(ExtendedMemberSurnameXpath2)).sendKeys(ExtendedMenberSurname2);
+
+  }
+
+  @Step("Enter extended member surname ")
+  public void EnterExtendedMemberSurname3(String ExtendedMenberSurname3) {
+    $(By.xpath(ExtendedMemberSurnameXpath3)).sendKeys(ExtendedMenberSurname3);
+
+  }
+
+  @Step("Enter extended member surname ")
+  public void EnterExtendedMemberSurname4(String ExtendedMenberSurname4) {
+    $(By.xpath(ExtendedMemberSurnameXpath4)).sendKeys(ExtendedMenberSurname4);
+
+  }
+
+  @Step("Enter extended member surname ")
+  public void EnterExtendedMemberSurname5(String ExtendedMenberSurname5) {
+    $(By.xpath(ExtendedMemberSurnameXpath5)).sendKeys(ExtendedMenberSurname5);
+
+  }
+
+  @Step("Enter extended member surname ")
+  public void EnterExtendedMemberSurname6(String ExtendedMenberSurname6) {
+    $(By.xpath(ExtendedMemberSurnameXpath6)).sendKeys(ExtendedMenberSurname6);
+
+  }
+
+  @Step("Enter extended member surname ")
+  public void EnterExtendedMemberSurname7(String ExtendedMenberSurname7) {
+    $(By.xpath(ExtendedMemberSurnameXpath7)).sendKeys(ExtendedMenberSurname7);
+
+  }
+
+  @Step("Enter extended member surname ")
+  public void EnterExtendedMemberSurname8(String ExtendedMenberSurname8) {
+    $(By.xpath(ExtendedMemberSurnameXpath8)).sendKeys(ExtendedMenberSurname8);
+
+  }
+
+  @Step("Select extended member gender")
+  public void SelectExtendedMemberGender1(String ExtendedMemberGender1) {
+    WebElement ExtMemberGender1 = $(By.xpath(ExtendedMemberGenderXpath1));
+    selectFromDropdown(ExtMemberGender1, ExtendedMemberGender1);
+
+  }
+
+
+  @Step("Select extended member gender")
+  public void SelectExtendedMemberGender2(String ExtendedMemberGender2) {
+    WebElement ExtMemberGender2 = $(By.xpath(ExtendedMemberGenderXpath2));
+    selectFromDropdown(ExtMemberGender2, ExtendedMemberGender2);
+
+  }
+
+  @Step("Select extended member gender")
+  public void SelectExtendedMemberGender3(String ExtendedMemberGender3) {
+    WebElement ExtMemberGender3 = $(By.xpath(ExtendedMemberGenderXpath3));
+    selectFromDropdown(ExtMemberGender3, ExtendedMemberGender3);
+
+  }
+
+  @Step("Select extended member gender")
+  public void SelectExtendedMemberGender4(String ExtendedMemberGender4) {
+    WebElement ExtMemberGender4 = $(By.xpath(ExtendedMemberGenderXpath4));
+    selectFromDropdown(ExtMemberGender4, ExtendedMemberGender4);
+
+  }
+
+  @Step("Select extended member gender")
+  public void SelectExtendedMemberGender5(String ExtendedMemberGender5) {
+    WebElement ExtMemberGender5 = $(By.xpath(ExtendedMemberGenderXpath5));
+    selectFromDropdown(ExtMemberGender5, ExtendedMemberGender5);
+
+  }
+
+  @Step("Select extended member gender")
+  public void SelectExtendedMemberGender6(String ExtendedMemberGender6) {
+    WebElement ExtMemberGender6 = $(By.xpath(ExtendedMemberGenderXpath6));
+    selectFromDropdown(ExtMemberGender6, ExtendedMemberGender6);
+
+  }
+
+  @Step("Select extended member gender")
+  public void SelectExtendedMemberGender7(String ExtendedMemberGender7) {
+    WebElement ExtMemberGender7 = $(By.xpath(ExtendedMemberGenderXpath7));
+    selectFromDropdown(ExtMemberGender7, ExtendedMemberGender7);
+
+  }
+
+  @Step("Select extended member gender")
+  public void SelectExtendedMemberGender8(String ExtendedMemberGender8) {
+    WebElement ExtMemberGender8 = $(By.xpath(ExtendedMemberGenderXpath8));
+    selectFromDropdown(ExtMemberGender8, ExtendedMemberGender8);
+
+  }
+
+  @Step("Select extended member relation")
+  public void SelectExtendedMemberRelation1(String ExtendedMemberRelation1) {
+    WebElement ExtMemberRelation1 = $(By.xpath(ExtendedMemberRelationXpath1));
+    selectFromDropdown(ExtMemberRelation1, ExtendedMemberRelation1);
+
+  }
+
+  @Step("Select extended member relation")
+  public void SelectExtendedMemberRelation2(String ExtendedMemberRelation2) {
+    WebElement ExtMemberRelation2 = $(By.xpath(ExtendedMemberRelationXpath2));
+    selectFromDropdown(ExtMemberRelation2, ExtendedMemberRelation2);
+
+  }
+
+  @Step("Select extended member relation")
+  public void SelectExtendedMemberRelation3(String ExtendedMemberRelation3) {
+    WebElement ExtMemberRelation3 = $(By.xpath(ExtendedMemberRelationXpath3));
+    selectFromDropdown(ExtMemberRelation3, ExtendedMemberRelation3);
+
+  }
+
+  @Step("Select extended member relation")
+  public void SelectExtendedMemberRelation4(String ExtendedMemberRelation4) {
+    WebElement ExtMemberRelation4 = $(By.xpath(ExtendedMemberRelationXpath4));
+    selectFromDropdown(ExtMemberRelation4, ExtendedMemberRelation4);
+
+  }
+
+  @Step("Select extended member relation")
+  public void SelectExtendedMemberRelation5(String ExtendedMemberRelation5) {
+    WebElement ExtMemberRelation5 = $(By.xpath(ExtendedMemberRelationXpath5));
+    selectFromDropdown(ExtMemberRelation5, ExtendedMemberRelation5);
+
+  }
+
+  @Step("Select extended member relation")
+  public void SelectExtendedMemberRelation6(String ExtendedMemberRelation6) {
+    WebElement ExtMemberRelation6 = $(By.xpath(ExtendedMemberRelationXpath6));
+    selectFromDropdown(ExtMemberRelation6, ExtendedMemberRelation6);
+
+  }
+
+  @Step("Select extended member relation")
+  public void SelectExtendedMemberRelation7(String ExtendedMemberRelation7) {
+    WebElement ExtMemberRelation7 = $(By.xpath(ExtendedMemberRelationXpath7));
+    selectFromDropdown(ExtMemberRelation7, ExtendedMemberRelation7);
+
+  }
+
+
+  @Step("Select extended member relation")
+  public void SelectExtendedMemberRelation8(String ExtendedMemberRelation8) {
+    WebElement ExtMemberRelation8 = $(By.xpath(ExtendedMemberRelationXpath8));
+    selectFromDropdown(ExtMemberRelation8, ExtendedMemberRelation8);
+
+  }
+
+  @Step("Enter date of birth for extended member")
+  public void EnterExtendedMmemberDOB1(String Year, String Month, String day) {
+
+    String activedatesXpath = "//*[@id=\"ui-datepicker-div\"]/table";
+
+    $(By.xpath(ExtendedMemberDOBpath1)).click();
+    WebElement YRR = $(By.xpath(CalenderYear));
+    WebElement months = $(By.xpath(CalenderMonth));
+
+
+    //  enter the year eg 1990,1991,1992. etc
+    selectFromDropdown(YRR, Year);
+    // enter the month eg Jan,Feb,Mar,April,etc
+    selectFromDropdown(months, Month);
+    WebElement S = $(By.xpath(activedatesXpath));
+
+    List<WebElement> activedates = S.findElements(By.tagName("td"));
+
+    for (WebElement dates : activedates) {
+
+      String date = dates.getText();
+      if (date.equals(day)) {
+        dates.click();
+        break;
+      }
+    }
+
+
+  }
+
+
+  @Step("Enter date of birth for extended member")
+  public void EnterExtendedMmemberDOB2(String Year, String Month, String day) {
+
+    String activedatesXpath = "//*[@id=\"ui-datepicker-div\"]/table";
+
+    $(By.xpath(ExtendedMemberDOBpath2)).click();
+    WebElement YRR = $(By.xpath(CalenderYear));
+    WebElement months = $(By.xpath(CalenderMonth));
+
+
+    //  enter the year eg 1990,1991,1992. etc
+    selectFromDropdown(YRR, Year);
+    // enter the month eg Jan,Feb,Mar,April,etc
+    selectFromDropdown(months, Month);
+    WebElement S = $(By.xpath(activedatesXpath));
+
+    List<WebElement> activedates = S.findElements(By.tagName("td"));
+
+    for (WebElement dates : activedates) {
+
+      String date = dates.getText();
+      if (date.equals(day)) {
+        dates.click();
+        break;
+      }
+    }
+
+
+  }
+
+  @Step("Enter date of birth for extended member")
+  public void EnterExtendedMmemberDOB3(String Year, String Month, String day) {
+
+    String activedatesXpath = "//*[@id=\"ui-datepicker-div\"]/table";
+
+    $(By.xpath(ExtendedMemberDOBpath3)).click();
+    WebElement YRR = $(By.xpath(CalenderYear));
+    WebElement months = $(By.xpath(CalenderMonth));
+
+
+    //  enter the year eg 1990,1991,1992. etc
+    selectFromDropdown(YRR, Year);
+    // enter the month eg Jan,Feb,Mar,April,etc
+    selectFromDropdown(months, Month);
+    WebElement S = $(By.xpath(activedatesXpath));
+
+    List<WebElement> activedates = S.findElements(By.tagName("td"));
+
+    for (WebElement dates : activedates) {
+
+      String date = dates.getText();
+      if (date.equals(day)) {
+        dates.click();
+        break;
+      }
+    }
+
+
+  }
+
+  @Step("Enter date of birth for extended member")
+  public void EnterExtendedMmemberDOB4(String Year, String Month, String day) {
+
+    String activedatesXpath = "//*[@id=\"ui-datepicker-div\"]/table";
+
+    $(By.xpath(ExtendedMemberDOBpath4)).click();
+    WebElement YRR = $(By.xpath(CalenderYear));
+    WebElement months = $(By.xpath(CalenderMonth));
+
+
+    //  enter the year eg 1990,1991,1992. etc
+    selectFromDropdown(YRR, Year);
+    // enter the month eg Jan,Feb,Mar,April,etc
+    selectFromDropdown(months, Month);
+    WebElement S = $(By.xpath(activedatesXpath));
+
+    List<WebElement> activedates = S.findElements(By.tagName("td"));
+
+    for (WebElement dates : activedates) {
+
+      String date = dates.getText();
+      if (date.equals(day)) {
+        dates.click();
+        break;
+      }
+    }
+
+
+  }
+
+  @Step("Enter date of birth for extended member")
+  public void EnterExtendedMmemberDOB5(String Year, String Month, String day) {
+
+    String activedatesXpath = "//*[@id=\"ui-datepicker-div\"]/table";
+
+    $(By.xpath(ExtendedMemberDOBpath5)).click();
+    WebElement YRR = $(By.xpath(CalenderYear));
+    WebElement months = $(By.xpath(CalenderMonth));
+
+
+    //  enter the year eg 1990,1991,1992. etc
+    selectFromDropdown(YRR, Year);
+    // enter the month eg Jan,Feb,Mar,April,etc
+    selectFromDropdown(months, Month);
+    WebElement S = $(By.xpath(activedatesXpath));
+
+    List<WebElement> activedates = S.findElements(By.tagName("td"));
+
+    for (WebElement dates : activedates) {
+
+      String date = dates.getText();
+      if (date.equals(day)) {
+        dates.click();
+        break;
+      }
+    }
+
+
+  }
+
+  @Step("Enter date of birth for extended member")
+  public void EnterExtendedMmemberDOB6(String Year, String Month, String day) {
+
+    String activedatesXpath = "//*[@id=\"ui-datepicker-div\"]/table";
+
+    $(By.xpath(ExtendedMemberDOBpath6)).click();
+    WebElement YRR = $(By.xpath(CalenderYear));
+    WebElement months = $(By.xpath(CalenderMonth));
+
+
+    //  enter the year eg 1990,1991,1992. etc
+    selectFromDropdown(YRR, Year);
+    // enter the month eg Jan,Feb,Mar,April,etc
+    selectFromDropdown(months, Month);
+    WebElement S = $(By.xpath(activedatesXpath));
+
+    List<WebElement> activedates = S.findElements(By.tagName("td"));
+
+    for (WebElement dates : activedates) {
+
+      String date = dates.getText();
+      if (date.equals(day)) {
+        dates.click();
+        break;
+      }
+    }
+
+
+  }
+
+  @Step("Enter date of birth for extended member")
+  public void EnterExtendedMmemberDOB7(String Year, String Month, String day) {
+
+    String activedatesXpath = "//*[@id=\"ui-datepicker-div\"]/table";
+
+    $(By.xpath(ExtendedMemberDOBpath7)).click();
+    WebElement YRR = $(By.xpath(CalenderYear));
+    WebElement months = $(By.xpath(CalenderMonth));
+
+
+    //  enter the year eg 1990,1991,1992. etc
+    selectFromDropdown(YRR, Year);
+    // enter the month eg Jan,Feb,Mar,April,etc
+    selectFromDropdown(months, Month);
+    WebElement S = $(By.xpath(activedatesXpath));
+
+    List<WebElement> activedates = S.findElements(By.tagName("td"));
+
+    for (WebElement dates : activedates) {
+
+      String date = dates.getText();
+      if (date.equals(day)) {
+        dates.click();
+        break;
+      }
+    }
+
+
+  }
+
+
+  @Step("Enter date of birth for extended member")
+  public void EnterExtendedMmemberDOB8(String Year, String Month, String day) {
+
+    String activedatesXpath = "//*[@id=\"ui-datepicker-div\"]/table";
+
+    $(By.xpath(ExtendedMemberDOBpath8)).click();
+    WebElement YRR = $(By.xpath(CalenderYear));
+    WebElement months = $(By.xpath(CalenderMonth));
+
+
+    //  enter the year eg 1990,1991,1992. etc
+    selectFromDropdown(YRR, Year);
+    // enter the month eg Jan,Feb,Mar,April,etc
+    selectFromDropdown(months, Month);
+    WebElement S = $(By.xpath(activedatesXpath));
+
+    List<WebElement> activedates = S.findElements(By.tagName("td"));
+
+    for (WebElement dates : activedates) {
+
+      String date = dates.getText();
+      if (date.equals(day)) {
+        dates.click();
+        break;
+      }
+    }
+
+
+  }
 
 
   @Step("Check checkbox to add a spouse ")
@@ -78,8 +663,7 @@ public class AdditionalMembers extends PageObject {
   @Step("select spouse Title")
   public void selectTitle(String title) {
     WebElement STitle = $(By.xpath(TitleXpath));
-    selectFromDropdown(STitle,title);
-
+    selectFromDropdown(STitle, title);
 
 
   }
@@ -123,9 +707,9 @@ public class AdditionalMembers extends PageObject {
 
 
     //  enter the year eg 1990,1991,1992. etc
-    selectFromDropdown(YRR,Year);
+    selectFromDropdown(YRR, Year);
     // enter the month eg Jan,Feb,Mar,April,etc
-    selectFromDropdown(months,Month);
+    selectFromDropdown(months, Month);
     WebElement S = $(By.xpath(activedatesXpath));
 
     List<WebElement> activedates = S.findElements(By.tagName("td"));
@@ -142,115 +726,128 @@ public class AdditionalMembers extends PageObject {
   }
 
   @Step("Save spouse details ")
-  public void saveSpousedtls(){
+  public void saveSpousedtls() {
     $(By.xpath(SaveBtnXpath)).click();
 
   }
 
-@Step("Delete created spouse details")
-public void DeleteSpouse(){
-  Assert.assertTrue($(By.xpath(DeleteBtnXpath)).isDisplayed());
-  $(By.xpath(DeleteBtnXpath)).click();
+  @Step("Delete created spouse details")
+  public void DeleteSpouse() {
+    Assert.assertTrue($(By.xpath(DeleteBtnXpath)).isDisplayed());
+    $(By.xpath(DeleteBtnXpath)).click();
 
-}
+  }
 
-@Step(" Edit spouse details ")
- public void EditSpouseDetails(){
+  @Step(" Edit spouse details ")
+  public void EditSpouseDetails() {
     $(By.xpath(EditBtnXpath)).click();
 
 
-}
-@Step("click on Continue to proceed to beneficiaries Details page")
-public void clickContinue(){
+  }
+
+  @Step("click on Continue to proceed to beneficiaries Details page")
+  public void clickContinue() {
     Assert.assertTrue($(By.xpath(ContinueBtnXpath)).isClickable());
     $(By.xpath(ContinueBtnXpath)).click();
 
-}
-@Step("Click back button to see member details page")
-public void clickBackBtn(){
+  }
+
+  @Step("Click back button to see member details page")
+  public void clickBackBtn() {
     Assert.assertTrue($(By.xpath(ContinueBtnXpath)).isClickable());
     $(By.xpath(BackBtnXpath)).click();
 
-}
-@Step("Add a child name")
-  public void EnterChild2Name (String Childname){
+  }
+
+  @Step("Add a child name")
+  public void EnterChild2Name(String Childname) {
     $(By.xpath(Child2NameXpath)).sendKeys(Childname);
-}
-@Step("Add a child surname")
-  public void EnterChild2Surname(String childSurname){
+  }
+
+  @Step("Add a child surname")
+  public void EnterChild2Surname(String childSurname) {
     $(By.xpath(Child2SurnameNameXpath)).sendKeys(childSurname);
 
-}
-@Step("Select child gender")
-  public void selectChild2Gender(String gender){
+  }
+
+  @Step("Select child gender")
+  public void selectChild2Gender(String gender) {
     WebElement g = $(By.xpath(Child2GenderXpath));
     selectFromDropdown(g, gender);
-}
-@Step("Select if  the child  is a student or not ")
-  public void IsChild2StudentOrNot(String isStudent_or_Not){
-    WebElement isStudent = $(By.xpath(Child2IsStudenteXpath));
-    selectFromDropdown(isStudent,isStudent_or_Not);
+  }
 
-}
-@Step("Enter the child ID number")
-  public void child2IDNUM (String childIDNo){
+  @Step("Select if  the child  is a student or not ")
+  public void IsChild2StudentOrNot(String isStudent_or_Not) {
+    WebElement isStudent = $(By.xpath(Child2IsStudenteXpath));
+    selectFromDropdown(isStudent, isStudent_or_Not);
+
+  }
+
+  @Step("Enter the child ID number")
+  public void child2IDNUM(String childIDNo) {
 
     $(By.xpath(ChildID2numXpath)).sendKeys(childIDNo);
 
-}
-@Step("Enter the child date of birth")
+  }
+
+  @Step("Enter the child date of birth")
   public void childDateOfBirth(String year, String month, String day) {
 
-  String calenderMonthXpath = "//select[@class=\"ui-datepicker-month\"]";
-  String calenderYear = "//select[@class=\"ui-datepicker-year\"]";
-  String dates = "//*[@id=\"ui-datepicker-div\"]/table";
+    String calenderMonthXpath = "//select[@class=\"ui-datepicker-month\"]";
+    String calenderYear = "//select[@class=\"ui-datepicker-year\"]";
+    String dates = "//*[@id=\"ui-datepicker-div\"]/table";
 
-  WebElement calenderMn = $(By.xpath(calenderMonthXpath));
-  WebElement calendeYr = $(By.xpath(calenderYear));
+    WebElement calenderMn = $(By.xpath(calenderMonthXpath));
+    WebElement calendeYr = $(By.xpath(calenderYear));
 
-  $(By.xpath(ChildDOBXpath)).click();
-  selectFromDropdown(calendeYr, year);
-  selectFromDropdown(calenderMn, month);
+    $(By.xpath(ChildDOBXpath)).click();
+    selectFromDropdown(calendeYr, year);
+    selectFromDropdown(calenderMn, month);
 
-  WebElement dats = $(By.xpath(dates));
-  List<WebElement> activedates = dats.findElements(By.tagName("td"));
+    WebElement dats = $(By.xpath(dates));
+    List<WebElement> activedates = dats.findElements(By.tagName("td"));
 
-  for (WebElement datess : activedates) {
-    String date = datess.getText();
-    if (date.equals(day)) {
-      datess.click();
-      break;
+    for (WebElement datess : activedates) {
+      String date = datess.getText();
+      if (date.equals(day)) {
+        datess.click();
+        break;
+      }
     }
   }
-}
 
 
   @Step("Add a child name")
-  public void EnterChildName (String Childname){
+  public void EnterChildName(String Childname) {
     $(By.xpath(ChildNameXpath)).sendKeys(Childname);
   }
+
   @Step("Add a child surname")
-  public void EnterChildSurname(String childSurname){
+  public void EnterChildSurname(String childSurname) {
     $(By.xpath(ChildSurnameNameXpath)).sendKeys(childSurname);
 
   }
+
   @Step("Select child gender")
-  public void selectChildGender(String gender){
+  public void selectChildGender(String gender) {
     WebElement g = $(By.xpath(ChildGenderXpath));
     selectFromDropdown(g, gender);
   }
+
   @Step("Select if  the child  is a student or not ")
-  public void IsChildStudentOrNot(String isStudent_or_Not){
+  public void IsChildStudentOrNot(String isStudent_or_Not) {
     WebElement isStudent = $(By.xpath(ChildIsStudenteXpath));
-    selectFromDropdown(isStudent,isStudent_or_Not);
+    selectFromDropdown(isStudent, isStudent_or_Not);
 
   }
+
   @Step("Enter the child ID number")
-  public void childIDNUM (String childIDNo){
+  public void childIDNUM(String childIDNo) {
 
     $(By.xpath(ChildIDnumXpath)).sendKeys(childIDNo);
 
   }
+
   @Step("Enter the child date of birth")
   public void child2DateOfBirth(String year, String month, String day) {
 
@@ -279,36 +876,36 @@ public void clickBackBtn(){
   }
 
 
-
-
-
-
-@Step("Click add another child button to add multiple children")
-  public  void addAnotherCh(){
+  @Step("Click add another child button to add multiple children")
+  public void addAnotherCh() {
     $(By.xpath(AddAnotherChild)).click();
 
-}
-@Step("Click save details button to save captured child details")
-  public void SaveChildDetails(){
+  }
+
+  @Step("Click save details button to save captured child details")
+  public void SaveChildDetails() {
     $(By.xpath(ChildSaveDetails)).click();
-}
-@Step("Check the add child(ren) checkbox")
-  public void addChildrencheckBox(){
+  }
+
+  @Step("Check the add child(ren) checkbox")
+  public void addChildrencheckBox() {
     $(By.xpath(AddChildrenCheckBoxXpath)).click();
-}
-@Step("select add optional clientele blue rewards")
-  public void SelectBlueRewards(){
+  }
+
+  @Step("select add optional clientele blue rewards")
+  public void SelectBlueRewards() {
     $(By.xpath(AddOptionalClienteleBlueRewardsXpath)).click();
 
-}
-@Step("select add optional silver rewards")
-    public void SelectSilverRewards(){
-      $(By.xpath(AddOptionalClienteleSilverRewardXpath)).click();
+  }
+
+  @Step("select add optional silver rewards")
+  public void SelectSilverRewards() {
+    $(By.xpath(AddOptionalClienteleSilverRewardXpath)).click();
   }
 
 
   @Step(" verify that Main member can see the total premium amount")
-public String GetTotalPremium (){
+  public String GetTotalPremium() {
     String TotalPremium = "";
 
     Assert.assertTrue($(By.xpath(TotalPremiumXpath)).isDisplayed());
@@ -318,9 +915,38 @@ public String GetTotalPremium (){
     return TotalPremium;
 
   }
+
+  @Step("Verify that page is additional members page")
+  public void VerifyadditionalMembersPage() {
+    String pageTitle = getTitle();
+    String ExpectedTitle = "Online Sales";
+
+    Assert.assertEquals(ExpectedTitle, pageTitle);
+  }
+
+
+  @Step("Click Save extended member details ")
+  public void SaveExtendedMemberDetails() {
+
+    Assert.assertTrue($(By.xpath(SaveExtendedMemberBtnXpath)).isClickable());
+    $(By.xpath(SaveExtendedMemberBtnXpath)).click();
+
+  }
+
+  @Step("Add another member ")
+  public void AddAnotherMember() {
+
+    Assert.assertTrue($(By.xpath(AddAnotherExtendedMmeberBtnXpath)).isClickable());
+    $(By.xpath(AddAnotherExtendedMmeberBtnXpath)).click();
+
+  }
+
+  @Step("Remove created Extended member ")
+  public void removeExtendedMember() {
+    Assert.assertTrue($(By.xpath(RemoveExtendedMmemberXpath)).isClickable());
+    $(By.xpath(RemoveExtendedMmemberXpath)).click();
+
+
+  }
+
 }
-
-
-
-
-

@@ -1,8 +1,5 @@
 Feature: Funeral dignity plan
 
-
-
-
   @RegressionTest
   Scenario Outline: Main member adding a spouse amd two people as beneficiaries with 50 percent each.
 
@@ -17,15 +14,9 @@ Feature: Funeral dignity plan
     Then user should land on the Payer details page
 
 
-    Examples:   #Member details
-      | email                | Title | Names   | Surname | IDnumber      | mobileNumber |  | PostalAddress | PostalCode | MonthlyIncome     | Occupation          | education                            | FicaDeclaration1 | FicaDeclaration2 |  | spouseTitle | spouseNames | spouseSurname | spouseDOB | spouseGender | Beneficiary1Title | Beneficiary1Name | Beneficiary1Relationship | Beneficiary1PercantageAllocation | Beneficiary1Surname |  | Beneficiary2Title | Beneficiary2Name | Beneficiary2Relationship | Beneficiary2PercantageAllocation |  | Beneficiary2Surname |
-      | mwelaseMadoda@gmail.com | Mr    | Lwandle | Duma    | 8001015178080 | 0832002639   |  | 12345 Test    | 1205       | R15,000 - R18,000 | Skilled agriculture | Post-graduate (Honours, Masters etc) | Yes              | Yes              |  | Dr          | David       | Dlamina       |           | Male         | Thami             | Mr               | Child                    | 50%                              | Xuma                |  | Thuli             | Mr               | Child                    | 50%                              |  | Xuma                |
-=======
-
-    Examples:   #Member details
+    Examples:
       | email                   | Title | Names  | Surname | IDnumber      | mobileNumber |  | PostalAddress | PostalCode | MonthlyIncome     | Occupation          | education                            | FicaDeclaration1 | FicaDeclaration2 |  | spouseTitle | spouseNames | spouseSurname | spouseDOB | spouseGender | Beneficiary1Title | Beneficiary1Name | Beneficiary1Relationship | Beneficiary1PercantageAllocation | Beneficiary1Surname |  | Beneficiary2Title | Beneficiary2Name | Beneficiary2Relationship | Beneficiary2PercantageAllocation |  | Beneficiary2Surname |
       | mwelaseNzima1@gmail.com | Mr    | Mandla | Dumas   | 9101017798080 | 0832002639   |  | 12345 Test    | 1205       | R15,000 - R18,000 | Skilled agriculture | Post-graduate (Honours, Masters etc) | Yes              | Yes              |  | Dr          | David       | Dlamina       |           | Male         | Thami             | Mr               | Child                    | 50%                              | Xuma                |  | Thuli             | Mr               | Child                    | 50%                              |  | Xuma                |
-
 
 
   @NegativeTest
@@ -42,24 +33,6 @@ Feature: Funeral dignity plan
     Then policy number shouldn't be generated due to age of children
 
     Examples:
-
-      | email                 | Title | Names   | Surname | IDnumber      | mobileNumber | PostalAddress | PostalCode | MonthlyIncome     | Occupation          | education                            | FicaDeclaration1 | FicaDeclaration2 | Chidl1Names | Child1Surname | Child1Gende | Child1IsStudent | Child1Dob | Chidl2Names | Child2Surname | Child2Gende | Child2IsStudent | Child2Dob | Beneficiary1Title | Beneficiary1Name | Beneficiary1Surname | Beneficiary1Relationship | Beneficiary1PercantageAllocation | bankName                  | accountType     | accountNumber | debitDate | Debicheck |
-      | Mwelase819@gmail.com | Mr    | Lwandle | Duma    | 8001019310085 | 0832002639   | 12345 Test    | 1205       | R15,000 - R18,000 | Skilled agriculture | Post-graduate (Honours, Masters etc) | Yes              | Yes              | David       | Zulu          | Male        | No              |           | Mlandeli    | Zulu          | Male        | No              |           | Mr                | Mandla           | Zulu                | Brother                  | 100%                             | STANDARD BANK OF S.A. LTD | Savings Account | 1234          | 25        | No        |
-
-Feature: Payer Details Page
-  @Tests
-  Scenario Outline: Capture information on Payer Details, Bank Details, Debit Check and Authorization
-    Given User complete Member detail, Additional details and Beneficiary details
-    And User shoould be able to capture Payer Banking Details
-    And User should be able to confirm Debit check
-    And User should be able to Authorise the debit check
-
-    Examples:
-      | Title|Names|Surname|IDnumber|mobileNumber|bankName|accountType|accountNumber|debitDate|Debicheck|
-      | Dr|Monna|Skoko|9406257185579|0832002639| STANDARD BANK OF S.A. LTD|Savings Account|1234| 25| No|
-
-
-
       | email                | Title | Names  | Surname | IDnumber      | mobileNumber | PostalAddress | PostalCode | MonthlyIncome     | Occupation          | education                            | FicaDeclaration1 | FicaDeclaration2 | Chidl1Names | Child1Surname | Child1Gende | Child1IsStudent | Child1Dob | Chidl2Names | Child2Surname | Child2Gende | Child2IsStudent | Child2Dob | Beneficiary1Title | Beneficiary1Name | Beneficiary1Surname | Beneficiary1Relationship | Beneficiary1PercantageAllocation | bankName                  | accountType     | accountNumber | debitDate | Debicheck |
       | MwelaseNI1@gmail.com | Mr    | Sphiwe | Dumaa   | 9101015006080 | 0832002639   | 12345 Test    | 1205       | R15,000 - R18,000 | Skilled agriculture | Post-graduate (Honours, Masters etc) | Yes              | Yes              | David       | Zulu          | Male        | No              |           | Mlandeli    | Zulu          | Male        | No              |           | Mr                | Mandla           | Zulu                | Brother                  | 100%                             | STANDARD BANK OF S.A. LTD | Savings Account | 1234          | 25        | No        |
 
@@ -80,4 +53,3 @@ Feature: Payer Details Page
     Examples:
       | email                  | Title | Names    | Surname | IDnumber      | mobileNumber | PostalAddress | PostalCode | MonthlyIncome     | Occupation          | education                            | FicaDeclaration1 | FicaDeclaration2 | Chidl1Names | Child1Surname | Child1Gende | Child1IsStudent | Child1Dob | Chidl2Names | Child2Surname | Child2Gende | Child2IsStudent | Child2Dob | Beneficiary1Title | Beneficiary1Name | Beneficiary1Surname | Beneficiary1Relationship | Beneficiary1PercantageAllocation | bankName                  | accountType     | accountNumber | debitDate | Debicheck |
       | MwelaseNzia1@gmail.com | Mr    | Simphiwe | Dumas   | 9101018896081 | 0832002539   | 12345 Test    | 1205       | R15,000 - R18,000 | Skilled agriculture | Post-graduate (Honours, Masters etc) | Yes              | Yes              | David       | Zulu          | Male        | Yes             |           | Mlandeli    | Zulu          | Male        | Yes             |           | Mr                | Mandla           | Zulu                | Brother                  | 100%                             | STANDARD BANK OF S.A. LTD | Savings Account | 1234          | 25        | No        |
-

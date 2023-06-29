@@ -25,7 +25,7 @@ public class MemberWithTwoChildrenAbove18ButNotStudents {
     @Given("User adds the first child {string},{string},{string},{string},{string} that is above eighteen years old")
     public void user_adds_the_first_child_that_is_above_eighteen_years_old(String child1Name, String child1Surname, String child1Gender, String child1IsStudent, String childDOB) throws InterruptedException {
 
-        Thread.sleep(5000);
+        Thread.sleep(300);
         additionalMembers.addChildrencheckBox();
         additionalMembers.EnterChildName(child1Name);
         additionalMembers.EnterChildSurname(child1Surname);
@@ -51,7 +51,7 @@ public class MemberWithTwoChildrenAbove18ButNotStudents {
         additionalMembers.SaveChildDetails();
 
         additionalMembers.clickContinue();
-        Thread.sleep(5000);
+        Thread.sleep(3000);
 
     }
 
@@ -80,7 +80,7 @@ public class MemberWithTwoChildrenAbove18ButNotStudents {
         payerDetails.Cellphone_on_hand(Debicheck);
         payerDetails.debitBankAcc();
         payerDetails.clickContinueBtn();
-        Thread.sleep(5000);
+        Thread.sleep(3000);
     }
 
     @And("user confirms captured policy information.")
@@ -92,7 +92,7 @@ public class MemberWithTwoChildrenAbove18ButNotStudents {
         confirmationPage.AnnualIncrease();
         confirmationPage.clickTermsAndConditions();
         confirmationPage.ClickConfirmBtn();
-        Thread.sleep(5000);
+        Thread.sleep(3000);
     }
 
     @Then("policy number shouldn't be generated due to age of children")

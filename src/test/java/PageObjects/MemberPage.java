@@ -9,13 +9,14 @@ import org.openqa.selenium.WebElement;
 public class MemberPage extends PageObject {
 
 
-    //member page webElements
-
-
-    String EmailXpath = "//input[@id=\"introEmail\"]";
     // element will be used when intro email is required
+    String EmailXpath = "//input[@id=\"introEmail\"]";
 
-//     WebElement selectTitle = $(By.xpath("//select[@id=\"onTtl\"]"));
+    // elements for selecting Funeral dignity plan or ultimate dignity plan.
+    String UltimateDignityPlanXpath = "//a[@href=\"?sale=OU\"]";
+    String FuneralDignityPlanXpath = "//a[@href=\"?sale=OR\"]";
+    String HighestAmountXpath = "//*[@id=\"priceSliderTrack\"]/div[5]";
+
 
     String TitleXpath = "//select[@name=\"onTtl\"]";
 
@@ -41,11 +42,50 @@ public class MemberPage extends PageObject {
     String FicDecl02Xpath = "//select[@name=\"fica02\" ]";
     String ContinueBtnXpath = "//div[@onclick=\"loader();step('1','no');\"]";
 
+    String FuneralDignityPlanOptionXpath = "//*[@id=\"inline-landing\"]/table/tbody/tr[2]/td[1]";
+    String UltimateDignityPlanOptionXpath = "//*[@id=\"inline-landing\"]/table/tbody/tr[3]/td[1]";
+
+    String IDNumberValidation = "//*[@id=\"onlineSaleForm\"]/div/div[1]/div[1]/fieldset[1]/p[4]/span";
+
+
+    @Step("Confirm that Funeral dignity plan is visible")
+    public void FuneraldignityPlanOption() {
+        Assert.assertTrue($(By.xpath(FuneralDignityPlanOptionXpath)).isDisplayed());
+        Assert.assertTrue($(By.xpath(FuneralDignityPlanOptionXpath)).isVisible());
+
+
+    }
+
+    @Step("Confirm that Ultimate dignity plan is visible")
+    public void FuneralUltimatePlanOption() {
+        Assert.assertTrue($(By.xpath(UltimateDignityPlanOptionXpath)).isDisplayed());
+        Assert.assertTrue($(By.xpath(UltimateDignityPlanOptionXpath)).isVisible());
+
+
+    }
+
+
+    @Step(" check if 50000 is showing for selection")
+    public void Is50000Avaliable() {
+
+        Assert.assertTrue($(By.xpath(HighestAmountXpath)).isDisplayed());
+
+    }
+
     @Step("Enter email ")
     public void EnterEmail(String email) {
 
         $(By.xpath(EmailXpath)).sendKeys(email);
 
+
+    }
+
+    @Step("Select ultimate dignity plan")
+    public void selectUltimatePlan() {
+
+        Assert.assertTrue($(By.xpath(UltimateDignityPlanXpath)).isDisplayed());
+        Assert.assertTrue($(By.xpath(UltimateDignityPlanXpath)).isClickable());
+        $(By.xpath(UltimateDignityPlanXpath)).click();
 
     }
 
@@ -160,4 +200,13 @@ public class MemberPage extends PageObject {
             System.out.println("Button not clickable");
         }
     }
+
+    @Step("Verify that field is  validated and marked as red ")
+    public void IDNumfieldValidated() {
+
+        Assert.assertTrue($(By.xpath(IDNumberValidation)).isDisplayed());
+
+    }
+
+
 }

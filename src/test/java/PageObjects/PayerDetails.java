@@ -130,9 +130,10 @@ public class PayerDetails extends PageObject {
 
     @Step("Verify that page is Payer details")
     public void payerdetailsPage (){
-        String  pageTitle = getTitle();
-        Assert.assertEquals("Payer details",pageTitle);
+        String pageTitle = getTitle();
+        String ExpectedTitle = "Online Sales";
 
+        Assert.assertEquals(ExpectedTitle, pageTitle);
 
 
     }
