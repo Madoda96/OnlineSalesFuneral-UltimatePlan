@@ -10,9 +10,10 @@ import java.util.List;
 public class BeneficiaryDetails extends PageObject {
 
     String TitleXpath = "//select[@id=\"onTtlB1\"]";
+    //String TitleXpath = "//*[@id=\"onTtlB3\"]";
     String BeneficiaryNameXpath = "//input[@id=\"onNameB1\"]";
     String BeneficiarySurnameXpath = "//input[@id=\"onSurnameB1\"]";
-    String BeneficiaryIDnumberXpath = "id=\"onIdB1\"";
+    String BeneficiaryIDnumberXpath = "//input[@id=\"onIdB1\"]";
     String BeneficiaryDOBXpath = "//input[@id=\"onDobB1\" ]";
     String MonthXPATH = "//select[@class=\"ui-datepicker-month\"]";
 
@@ -24,16 +25,15 @@ public class BeneficiaryDetails extends PageObject {
     String TitleXpath2 = "//select[@id=\"onTtlB2\"]";
     String BeneficiaryNameXpath2 = "//input[@id=\"onNameB2\"]";
     String BeneficiarySurnameXpath2 = "//input[@id=\"onSurnameB2\"]";
-    String BeneficiaryIDnumberXpath2 = "id=\"onIdB2\"";
+    //String BeneficiaryIDnumberXpath2 = "//id=\"onIdB2\"]";
+    String BeneficiaryIDnumberXpath2 = "//input[@id=\"onIdB2\"]";
     String BeneficiaryDOBXpath2 = "//input[@id=\"onDobB2\" ]";
     String MonthXPATH2 = "//select[@class=\"ui-datepicker-month\"]";
 
-    String YearXpath2 = "//select[@class=\"ui-datepicker-year\"]";
+    //String YearXpath2 = "//select[@class=\"ui-datepicker-year\"]";
+    String YearXPATH2 = "//select[@class=\"ui-datepicker-year\"]";
     String BeneficiaryRelationshipXpath2 = "//select[@id=\"onRelationB2\"]";
     String AllocatedPercentageXpath2 = "//select[@id=\"allocationSlider2\"]";
-
-
-
 
 
     String saveBtnXpath = "//div[@id=\"SaveBeneficiary\"]";
@@ -87,8 +87,8 @@ public class BeneficiaryDetails extends PageObject {
         String activedatesXpath = "//*[@id=\"ui-datepicker-div\"]/table/tbody";
 
         $(By.xpath(BeneficiaryDOBXpath)).click();
-        WebElement Year = $(By.xpath(YearXpath));
-        WebElement months = $(By.xpath(MonthXPATH));
+        WebElement Year = $(By.xpath(YearXPATH2));
+        WebElement months = $(By.xpath(MonthXPATH2));
 
 
         selectFromDropdown(Year, year);

@@ -8,7 +8,8 @@ import net.thucydides.core.annotations.Steps;
 public class MemberWithSpouseTwoAdditinalMembers {
 
     @Steps
-    PayerDetails payerDetails;
+    PageObjects.PayerDetails details;
+    //PayerDetails payerDetails;
     @Steps
     HomePage homePage;
     @Steps
@@ -105,7 +106,9 @@ public class MemberWithSpouseTwoAdditinalMembers {
 
     @Then("user should land on the Payer details page")
     public void user_should_land_on_the_payer_details_page() {
-        payerDetails.payerdetailsPage();
+        //payerDetails.payerdetailsPage();
+        details.payerdetailsPage();
+
 
     }
 }
