@@ -1,10 +1,13 @@
 package stepsDefinition;
 
 import PageObjects.*;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.thucydides.core.annotations.Steps;
+import org.junit.Assert;
+import org.openqa.selenium.By;
 
 public class MainMemberAt81Years {
 
@@ -28,7 +31,7 @@ public class MainMemberAt81Years {
         homePage.clickContinueBtn();
     }
 
-    @When(": User captures age above restriction")
+    @And(": User captures age above restriction")
     public void user_captures_age_above_restriction() {
         memberPage.SelectTitle("Dr");
         memberPage.EnterName("SOLA");
@@ -46,9 +49,16 @@ public class MainMemberAt81Years {
 
     }
 
-    @Then(": User should get error message.")
+    @And(": User should get error message.")
     public void user_should_get_error_message() {
+
         memberPage.clickContinueBt();
+
+
+    }
+    @Then(": confirm that error message is displayed")
+    public void confirm_that_error_message_is_displayed() {
+        memberPage.confirm_that_error_message_is_displayed();
     }
 
 }
