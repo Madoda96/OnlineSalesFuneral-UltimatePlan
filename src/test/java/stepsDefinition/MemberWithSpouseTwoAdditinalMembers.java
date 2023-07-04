@@ -22,11 +22,11 @@ public class MemberWithSpouseTwoAdditinalMembers {
     @Steps
     BeneficiaryDetails beneficiaryDetails;
 
-    @Given("User is on the dignity plan page and they enter {string}")
-    public void user_is_on_the_dignity_plan_page_and_they_enter(String email) {
+    @Given("User is on the dignity plan page and they enter email")
+    public void user_is_on_the_dignity_plan_page_and_they_enter() {
         homePage.open();
         homePage.ClickBuyNowFuneralPlans();
-        memberPage.EnterEmail(email);
+        memberPage.EnterEmail(memberPage.GeneratedEmailAddress());
         homePage.clickContinueBtn();
     }
 
@@ -108,6 +108,20 @@ public class MemberWithSpouseTwoAdditinalMembers {
     public void user_should_land_on_the_payer_details_page() {
         //payerDetails.payerdetailsPage();
         details.payerdetailsPage();
+    }
+
+    @Then("User User adds the third child {string},{string},{string},{string},{string} that above eighteen years old")
+    public void user_user_adds_the_third_child_that_above_eighteen_years_old(String child3name, String child3Surname, String child3Gender, String child3IsStudent, String string5) throws InterruptedException {
+
+        additionalMembers.addAnotherCh();
+        additionalMembers.EnterChild3Name(child3name);
+        additionalMembers.EnterChild3Surname(child3Surname);
+        additionalMembers.selectChild3Gender(child3Gender);
+        additionalMembers.IsChild3StudentOrNot(child3IsStudent);
+        additionalMembers.child3DateOfBirth("2003", "Dec", "1");
+        additionalMembers.SaveChildDetails();
+        additionalMembers.clickContinue();
+        Thread.sleep(3000);
 
 
     }

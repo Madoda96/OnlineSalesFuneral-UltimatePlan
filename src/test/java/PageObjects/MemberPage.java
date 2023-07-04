@@ -6,6 +6,8 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import java.util.Random;
+
 public class MemberPage extends PageObject {
 
 
@@ -34,6 +36,8 @@ public class MemberPage extends PageObject {
     String PostalAddressXpath = "//input[@name=\"onAddress1\"]";
     String PostalCodeXpath = "//*[@id=\"onPostal\"]";
 
+    String MaximumCoverXpath = "//*[@id=\"priceSliderTrack\"]/div[3]";
+
 
     String MonthlIncomeXpath = "//select[@name=\"onIncome\" ]";
     String OccupationXpath = "//select[@name=\"onOccupation\" ]";
@@ -47,6 +51,23 @@ public class MemberPage extends PageObject {
 
     String IDNumberValidation = "//*[@id=\"onlineSaleForm\"]/div/div[1]/div[1]/fieldset[1]/p[4]/span";
 
+
+    @Step("Generate random email address")
+    public String GeneratedEmailAddress() {
+        Random randomGenerator = new Random();
+        int randomInt = randomGenerator.nextInt(1000);
+        return "Address" + randomInt + "@gmail.com";
+
+
+    }
+
+    @Step("Check maximum cover to equal to R50000")
+    public void MaximumCover() {
+        Assert.assertTrue($(By.xpath(MaximumCoverXpath)).isDisplayed());
+        Assert.assertTrue($(By.xpath(MaximumCoverXpath)).containsText("R50,000"));
+
+
+    }
 
     @Step("Confirm that Funeral dignity plan is visible")
     public void FuneraldignityPlanOption() {
