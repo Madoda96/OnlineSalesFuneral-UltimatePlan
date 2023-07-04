@@ -1,5 +1,6 @@
 package PageObjects;
 
+import io.cucumber.java.en.Then;
 import net.serenitybdd.core.pages.PageObject;
 import net.thucydides.core.annotations.Step;
 import org.junit.Assert;
@@ -46,7 +47,7 @@ public class MemberPage extends PageObject {
     String UltimateDignityPlanOptionXpath = "//*[@id=\"inline-landing\"]/table/tbody/tr[3]/td[1]";
 
     String IDNumberValidation = "//*[@id=\"onlineSaleForm\"]/div/div[1]/div[1]/fieldset[1]/p[4]/span";
-
+     String ErrorXpath ="//*[@id=\"onlineSaleForm\"]/div/div[1]/div[1]/fieldset[1]/p[4]/span";
 
     @Step("Confirm that Funeral dignity plan is visible")
     public void FuneraldignityPlanOption() {
@@ -208,5 +209,9 @@ public class MemberPage extends PageObject {
 
     }
 
+    @Step(": confirm that error message is displayed")
+     public void confirm_that_error_message_is_displayed() {
+        Assert.assertTrue($(By.xpath(ErrorXpath)).isDisplayed());
+}
 
 }
