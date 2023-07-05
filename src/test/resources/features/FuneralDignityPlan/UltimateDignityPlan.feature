@@ -9,6 +9,7 @@ Feature: Ultimate Dignity Plan
     And User enters '<PostalAddress>', '<PostalCode>', '<MonthlyIncome>','<Occupation>', '<education>'.
     And User completes '<FicaDeclaration1>' and '<FicaDeclaration2>' and clicks the continue button.
     And User adds a spouse '<spouseTitle>','<spouseNames>','<spouseSurname>','<spouseGender>','<spouseDOB>'.
+    And user clicks continue to beneficiary page
     And User adds first beneficiary '<Beneficiary1Title>', '<Beneficiary1Name>', '<Beneficiary1Surname>','<Beneficiary1Relationship>', '<Beneficiary1PercantageAllocation>'
 #    And User adds second beneficiary '<Beneficiary2Title>', '<Beneficiary2Name>', '<Beneficiary2Surname>','<Beneficiary2Relationship>', '<Beneficiary2PercantageAllocation>'
     And user clicks save details
@@ -43,6 +44,7 @@ Feature: Ultimate Dignity Plan
     And User enters '<PostalAddress>', '<PostalCode>', '<MonthlyIncome>','<Occupation>', '<education>'.
     And User completes '<FicaDeclaration1>' and '<FicaDeclaration2>' and clicks the continue button.
     And User adds a spouse '<spouseTitle>','<spouseNames>','<spouseSurname>','<spouseGender>','<spouseDOB>'.
+    And user clicks continue to beneficiary page
     And User adds first beneficiary '<Beneficiary1Title>', '<Beneficiary1Name>', '<Beneficiary1Surname>','<Beneficiary1Relationship>', '<Beneficiary1PercantageAllocation>'
     And User adds second beneficiary '<Beneficiary2Title>', '<Beneficiary2Name>', '<Beneficiary2Surname>','<Beneficiary2Relationship>', '<Beneficiary2PercantageAllocation>'
     And user clicks save details
@@ -50,7 +52,7 @@ Feature: Ultimate Dignity Plan
 
     Examples:
       | Title | Names | Surname | IDnumber      | mobileNumber | PostalAddress | PostalCode | MonthlyIncome     | Occupation          | education                            | FicaDeclaration1 | FicaDeclaration2 | spouseTitle | spouseNames | spouseSurname | spouseDOB | spouseGender | Beneficiary1Title | Beneficiary1Name | Beneficiary1Relationship | Beneficiary1PercantageAllocation | Beneficiary1Surname | Beneficiary2Title | Beneficiary2Name | Beneficiary2Relationship | Beneficiary2PercantageAllocation | Beneficiary2Surname |
-      | Mr    | Frik  | Botas   | 8904018078083 | 0832002639   | 12345 Test    | 1205       | R15,000 - R18,000 | Skilled agriculture | Post-graduate (Honours, Masters etc) | Yes              | Yes              | Dr          | David       | Dlamina       |           | Male         | Mr                | Thami            | Child                    | 50%                              | Xuma                | Mr                | Thami            | Child                    | 50%                              | Xuma                |
+      | Mr    | Frik  | Botas   | 9303129382189 | 0832002639   | 12345 Test    | 1205       | R15,000 - R18,000 | Skilled agriculture | Post-graduate (Honours, Masters etc) | Yes              | Yes              | Dr          | David       | Dlamina       |           | Male         | Mr                | Thami            | Child                    | 50%                              | Xuma                | Mr                | Mr               | Child                    | 50%                              | Xuma                |
 
 
   @Functional
@@ -99,12 +101,12 @@ Feature: Ultimate Dignity Plan
     Then user should see all available amounts on the slider.
     And User enters '<PostalAddress>', '<PostalCode>', '<MonthlyIncome>','<Occupation>', '<education>'.
     And User completes '<FicaDeclaration1>' and '<FicaDeclaration2>' and clicks the continue button.
-    And User adds first extended member '<ExtendedMemberTitle>','<ExtendedMemeberNames>','<ExtendedMemberSurname>','<ExtendedMemberGender>','<ExtendedMemberDOB>', '<Relation>'.
+    And User adds an extended member '<ExtendedMemberTitle>','<ExtendedMemeberNames>','<ExtendedMemberSurname>','<ExtendedMemberGender>','<ExtendedMemberDOB>', '<Relation>'.
     Then User should see minimum cover of five thousand for a new premium
 
     Examples:
       | Title | Names | Surname | IDnumber      | mobileNumber | PostalAddress | PostalCode | MonthlyIncome     | Occupation          | education                            | FicaDeclaration1 | FicaDeclaration2 | ExtendedMemberTitle | ExtendedMemeberNames | ExtendedMemberSurname | ExtendedMemberGender | ExtendedMemberDOB | Relation |
-      | Mr    | Frie  | Bothae  | 7410020795088 | 0832002639   | 12345 Test    | 1205       | R15,000 - R18,000 | Skilled agriculture | Post-graduate (Honours, Masters etc) | Yes              | Yes              | Dr                  | David                | Dlamina               | Male                 |                   | Brother  |
+      | Mr    | Frie  | Bothae  | 7410020795088 | 0832002639   | 12345 Test    | 1205       | R15,000 - R18,000 | Skilled agriculture | Post-graduate (Honours, Masters etc) | Yes              | Yes              | Mr                  | Brian                | Habana                | Male                 |                   | Sister   |
 
 
   Scenario Outline: Capture a member plan with VC Rider
@@ -116,6 +118,7 @@ Feature: Ultimate Dignity Plan
     And User completes '<FicaDeclaration1>' and '<FicaDeclaration2>' and clicks the continue button.
     And User adds a VC rewards and clicks the continue button
     And User adds first beneficiary '<Beneficiary1Title>', '<Beneficiary1Name>', '<Beneficiary1Surname>','<Beneficiary1Relationship>', '<Beneficiary1PercantageAllocation>'
+    And User clicks continue to payer details page
     And user enters payer details '<bankName>','<accountType>','<accountNumber>','<debitDate>','<Debicheck>'
     And user confirms captured policy information with VC rewards.
     Then user should get a generated policy number.
@@ -135,6 +138,7 @@ Feature: Ultimate Dignity Plan
     And User completes '<FicaDeclaration1>' and '<FicaDeclaration2>' and clicks the continue button.
     And User adds a VS rewards
     And User adds first beneficiary '<Beneficiary1Title>', '<Beneficiary1Name>', '<Beneficiary1Surname>','<Beneficiary1Relationship>', '<Beneficiary1PercantageAllocation>'
+    And User clicks continue to payer details page
     And user enters payer details '<bankName>','<accountType>','<accountNumber>','<debitDate>','<Debicheck>'
     And user confirms captured policy information with VS rewards.
     Then user should get a generated policy number.
@@ -154,6 +158,7 @@ Feature: Ultimate Dignity Plan
     And User enters '<PostalAddress>', '<PostalCode>', '<MonthlyIncome>','<Occupation>', '<education>'.
     And User completes '<FicaDeclaration1>' and '<FicaDeclaration2>' and clicks the continue button.
     And User adds a spouse '<spouseTitle>','<spouseNames>','<spouseSurname>','<spouseGender>','<spouseDOB>'.
+    And user clicks continue to beneficiary page
     And User adds first beneficiary '<Beneficiary1Title>', '<Beneficiary1Name>', '<Beneficiary1Surname>','<Beneficiary1Relationship>', '<Beneficiary1PercantageAllocation>'
     And user clicks save details
     Then user should land on the Payer details page
@@ -171,12 +176,13 @@ Feature: Ultimate Dignity Plan
     And User enters '<PostalAddress>', '<PostalCode>', '<MonthlyIncome>','<Occupation>', '<education>'.
     And User completes '<FicaDeclaration1>' and '<FicaDeclaration2>' and clicks the continue button.
     And User adds a spouse '<spouseTitle>','<spouseNames>','<spouseSurname>','<spouseGender>','<spouseDOB>'.
+    And user clicks continue to beneficiary page
     And User adds first beneficiary '<Beneficiary1Title>', '<Beneficiary1Name>', '<Beneficiary1Surname>','<Beneficiary1Relationship>', '<Beneficiary1PercantageAllocation>'
     And user clicks save details
     Then user should land on the Payer details page
     Examples:
       | Title | Names  | Surname | IDnumber      | mobileNumber | PostalAddress | PostalCode | MonthlyIncome     | Occupation          | education                            | FicaDeclaration1 | FicaDeclaration2 | spouseTitle | spouseNames | spouseSurname | spouseDOB | spouseGender | Beneficiary1Title | Beneficiary1Name | Beneficiary1Relationship | Beneficiary1PercantageAllocation | Beneficiary1Surname |
-      | Mr    | Pollen | Davies  | 9103267028085 | 0832002639   | 12345 Test    | 1205       | R15,000 - R18,000 | Skilled agriculture | Post-graduate (Honours, Masters etc) | Yes              | Yes              | Dr          | David       | Dlamina       |           | Male         | Mr                | Thami            | Member Estate            |                                  | Xuma                |
+      | Mr    | Pollen | Davies  | 9103267028085 | 0832002639   | 12345 Test    | 1205       | R15,000 - R18,000 | Skilled agriculture | Post-graduate (Honours, Masters etc) | Yes              | Yes              | Dr          | David       | Dlamina       |           | Male         | Mr                | Thami            | Member Estate            | 100%                             | Xuma                |
 
 
   Scenario Outline: Capture a member and family plan (FR03) with a spouse and children
@@ -186,6 +192,7 @@ Feature: Ultimate Dignity Plan
     And User enters '<PostalAddress>', '<PostalCode>', '<MonthlyIncome>','<Occupation>', '<education>'.
     And User completes '<FicaDeclaration1>' and '<FicaDeclaration2>' and clicks the continue button.
     And User adds a spouse '<spouseTitle>','<spouseNames>','<spouseSurname>','<spouseGender>','<spouseDOB>'.
+    And user clicks continue to beneficiary page
     And User adds the first child '<Chidl1Names>','<Child1Surname>','<Child1Gende>','<Child1IsStudent>','<Child1Dob>' that is above eighteen years old
     And User User adds the second child '<Chidl2Names>','<Child2Surname>','<Child2Gende>','<Child2IsStudent>','<Child2Dob>' that above eighteen years old
     And User User adds the third child '<Chidl3Names>','<Child3Surname>','<Child3Gende>','<Child3IsStudent>','<Child3Dob>' that above eighteen years old
@@ -205,7 +212,7 @@ Feature: Ultimate Dignity Plan
     When User completes the required  Member details information '<Title>', '<Names>', '<Surname>', '<IDnumber>', '<mobileNumber>'.
     And User enters '<PostalAddress>', '<PostalCode>', '<MonthlyIncome>','<Occupation>', '<education>'.
     And User completes '<FicaDeclaration1>' and '<FicaDeclaration2>' and clicks the continue button.
-    And User adds a spouse '<spouseTitle>','<spouseNames>','<spouseSurname>','<spouseGender>','<spouseDOB>'.
+    And User adds a spouse over maximum age '<spouseTitle>','<spouseNames>','<spouseSurname>','<spouseGender>','<spouseDOB>'.
     And user clicks continue to beneficiary page
     And User adds first beneficiary '<Beneficiary1Title>', '<Beneficiary1Name>', '<Beneficiary1Surname>','<Beneficiary1Relationship>', '<Beneficiary1PercantageAllocation>'
     And user clicks save details
