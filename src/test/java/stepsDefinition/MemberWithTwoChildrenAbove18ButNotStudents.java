@@ -33,7 +33,7 @@ public class MemberWithTwoChildrenAbove18ButNotStudents {
         additionalMembers.IsChildStudentOrNot(child1IsStudent);
         additionalMembers.childDateOfBirth("2003","Dec","1");
         additionalMembers.SaveChildDetails();
-        additionalMembers.addAnotherCh();
+
 
 
 
@@ -42,15 +42,13 @@ public class MemberWithTwoChildrenAbove18ButNotStudents {
     @Given("User User adds the second child {string},{string},{string},{string},{string} that above eighteen years old")
     public void user_user_adds_the_second_child_that_above_eighteen_years_old(String child2Name, String child2Surname, String child2Gender, String child2IsStudent, String childDOB) throws InterruptedException {
 
-
+        additionalMembers.addAnotherCh();
         additionalMembers.EnterChild2Name(child2Name);
         additionalMembers.EnterChild2Surname(child2Surname);
         additionalMembers.selectChild2Gender(child2Gender);
         additionalMembers.IsChild2StudentOrNot(child2IsStudent);
         additionalMembers.child2DateOfBirth("2003","Dec","1");
         additionalMembers.SaveChildDetails();
-
-        additionalMembers.clickContinue();
         Thread.sleep(3000);
 
     }
@@ -103,10 +101,10 @@ public class MemberWithTwoChildrenAbove18ButNotStudents {
 
     }
 
-
-
-
-
+    @Then("user clicks continue to beneficiary page")
+    public void user_clicks_continue_to_beneficiary_page() {
+        additionalMembers.clickContinue();
+    }
 
 
 }

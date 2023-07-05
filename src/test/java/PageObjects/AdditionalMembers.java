@@ -129,10 +129,106 @@ public class AdditionalMembers extends PageObject {
   String Child2DOBXpath = "//input[@id=\"onDobCh2\"]";
 
 
+  String Child3NameXpath = "//input[@id=\"onNameCh3\"]";
+  String Child3SurnameNameXpath = "//input[@id=\"onSurnameCh3\"]";
+  String Child3GenderXpath = "//select[@id=\"onGenderCh3\"]";
+  String Child3IsStudenteXpath = "//select[@id=\"onChIsStudent3\"]";
+  String ChildID3numXpath = "//input[@id=\"onIdNumCh3\"]";
+  String Child3DOBXpath = "//input[@id=\"onDobCh3\"]";
+
+
   String AddAnotherChild = "//button[@id=\"AddChild\"]";
   String ChildSaveDetails = "//div[@id=\"SaveChild\"]";
 
   String TotalPremiumXpath = "//div[@id=\"AllSumtotasl\"]";
+
+
+  String BlueRewardsXpath = "//*[@id=\"onlineSaleForm\"]/div/div[2]/div[1]/div[10]/fieldset/div[2]/div[1]/label/span";
+
+  String SilverRewardsXpath = "//*[@id=\"onlineSaleForm\"]/div/div[2]/div[1]/div[11]/fieldset/div[2]/div[1]/label/span";
+
+  String BlueRewardsInfoXpath = "//div[@id=\"RewardsFieldsGroup\"]";
+
+  String SilverRewardsInfoXpath = "//div[@id=\"RewardsFieldsGroup2\"]";
+
+  String MinimumAmountForMembersLessThan50Xpath = "//*[@id=\"priceSliderTrack1\"]/div[1]";
+
+  String MaximumAmountForMembersLessThan50Xpath = "//*[@id=\"priceSliderTrack1\"]/div[5]";
+
+  String MinimumAmountForMembersgreatherThan50Xpath = "//*[@id=\"priceSliderTrack1\"]/div[1]";
+
+  String MaximumAmountForMembersgreaterThan50Xpath = "//*[@id=\"priceSliderTrack1\"]/div[6]";
+
+
+  String CoverInfomation = "//div[@id=\"yuocovertext2\"]";
+
+
+  @Step("Check cover information with captured information")
+  public void CheckInformationWithAdditionalMembers() {
+    Assert.assertTrue($(By.xpath(CoverInfomation)).isVisible());
+    Assert.assertTrue($(By.xpath(CoverInfomation)).isDisplayed());
+    Assert.assertTrue($(By.xpath(CoverInfomation)).containsText("Reward"));
+
+  }
+
+
+  @Step("Verify that R30000 is the maximum cover amount for members between 0 and 50")
+  public void verifyMaximumCoverAmountForExtendedMembers0_and_50() {
+    Assert.assertTrue($(By.xpath(MaximumAmountForMembersLessThan50Xpath)).isDisplayed());
+    Assert.assertTrue($(By.xpath(MaximumAmountForMembersLessThan50Xpath)).containsText("R50,000"));
+
+  }
+
+  @Step("Verify that R10000 is the minimum cover amount for members between 0 and 50")
+  public void verifyMiniumCoverAmountForExtendedMembers0_and_50() {
+    Assert.assertTrue($(By.xpath(MinimumAmountForMembersLessThan50Xpath)).isDisplayed());
+    Assert.assertTrue($(By.xpath(MinimumAmountForMembersLessThan50Xpath)).containsText("R10,000"));
+
+
+  }
+
+  @Step("Verify that R10000 is the minimum cover amount for members between 0 and 50")
+  public void verifyMiniumCoverAmountForExtendedMembers51_and81() {
+    Assert.assertTrue($(By.xpath(MinimumAmountForMembersgreatherThan50Xpath)).isDisplayed());
+    Assert.assertTrue($(By.xpath(MinimumAmountForMembersgreatherThan50Xpath)).containsText("R5000"));
+
+
+  }
+
+  @Step("Verify that R30000 is the minimum cover amount for members between 0 and 50")
+  public void verifyMaximumCoverAmountForExtendedMembers51_and81() {
+    Assert.assertTrue($(By.xpath(MaximumAmountForMembersgreaterThan50Xpath)).isDisplayed());
+    Assert.assertTrue($(By.xpath(MaximumAmountForMembersgreaterThan50Xpath)).containsText("R30000"));
+
+
+  }
+
+
+  @Step(" Read blue rewards information")
+  public void ReadBlueRewardsInfo() {
+    Assert.assertTrue($(By.xpath(BlueRewardsInfoXpath)).isVisible());
+    Assert.assertTrue($(By.xpath(BlueRewardsInfoXpath)).isDisplayed());
+
+  }
+
+  @Step(" Read silver rewards information")
+  public void ReadSilverRewardsInfo() {
+    Assert.assertTrue($(By.xpath(SilverRewardsInfoXpath)).isVisible());
+    Assert.assertTrue($(By.xpath(SilverRewardsInfoXpath)).isDisplayed());
+
+  }
+
+  @Step("select non insurance blue rewards")
+  public void selectBlueReward() {
+    $(By.xpath(BlueRewardsXpath)).click();
+
+  }
+
+  @Step("Select non insurance silver rewards")
+  public void selectSilverRewards() {
+    $(By.xpath(SilverRewardsXpath)).click();
+
+  }
 
 
   @Step("Click additional member checkbox")
@@ -790,6 +886,39 @@ public class AdditionalMembers extends PageObject {
 
   }
 
+
+  @Step("Add a child name")
+  public void EnterChild3Name(String Childname) {
+    $(By.xpath(Child3NameXpath)).sendKeys(Childname);
+  }
+
+  @Step("Add a child surname")
+  public void EnterChild3Surname(String childSurname) {
+    $(By.xpath(Child3SurnameNameXpath)).sendKeys(childSurname);
+
+  }
+
+  @Step("Select child gender")
+  public void selectChild3Gender(String gender) {
+    WebElement g = $(By.xpath(Child3GenderXpath));
+    selectFromDropdown(g, gender);
+  }
+
+  @Step("Select if  the child  is a student or not ")
+  public void IsChild3StudentOrNot(String isStudent_or_Not) {
+    WebElement isStudent = $(By.xpath(Child3IsStudenteXpath));
+    selectFromDropdown(isStudent, isStudent_or_Not);
+
+  }
+
+  @Step("Enter the child ID number")
+  public void child3IDNUM(String childIDNo) {
+
+    $(By.xpath(ChildID3numXpath)).sendKeys(childIDNo);
+
+  }
+
+
   @Step("Enter the child date of birth")
   public void childDateOfBirth(String year, String month, String day) {
 
@@ -847,6 +976,35 @@ public class AdditionalMembers extends PageObject {
     $(By.xpath(ChildIDnumXpath)).sendKeys(childIDNo);
 
   }
+
+
+  @Step("Enter the child date of birth")
+  public void child3DateOfBirth(String year, String month, String day) {
+
+    String calenderMonthXpath = "//select[@class=\"ui-datepicker-month\"]";
+    String calenderYear = "//select[@class=\"ui-datepicker-year\"]";
+    String dates = "//*[@id=\"ui-datepicker-div\"]/table";
+
+    WebElement calenderMn = $(By.xpath(calenderMonthXpath));
+    WebElement calendeYr = $(By.xpath(calenderYear));
+
+    $(By.xpath(Child3DOBXpath)).click();
+    selectFromDropdown(calendeYr, year);
+    selectFromDropdown(calenderMn, month);
+
+    WebElement dats = $(By.xpath(dates));
+    List<WebElement> activedates = dats.findElements(By.tagName("td"));
+
+    for (WebElement datess : activedates) {
+      String date = datess.getText();
+      if (date.equals(day)) {
+        datess.click();
+        break;
+      }
+    }
+
+  }
+
 
   @Step("Enter the child date of birth")
   public void child2DateOfBirth(String year, String month, String day) {

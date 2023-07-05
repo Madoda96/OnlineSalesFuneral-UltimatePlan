@@ -15,12 +15,12 @@ public class UltimatePlanMemberOnly {
     MemberPage memberDetailsPage;
 
 
-    @Given("User has selected ultimate dignity plan and they enter {string}")
-    public void user_has_selected_ultimate_dignity_plan_and_they_enter(String email) throws InterruptedException {
+    @Given("User has selected ultimate dignity plan and they enter email")
+    public void user_has_selected_ultimate_dignity_plan_and_they_enter() throws InterruptedException {
         homePage.open();
         homePage.ClickBuyNowFuneralPlans();
         memberDetailsPage.selectUltimatePlan();
-        memberDetailsPage.EnterEmail(email);
+        memberDetailsPage.EnterEmail(memberDetailsPage.GeneratedEmailAddress());
         homePage.clickContinueBtn();
         Thread.sleep(3000);
 

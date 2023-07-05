@@ -22,7 +22,7 @@ public class MainMemberWithMaximumExtendedMembers {
     confirmationPage confirmationPage;
 
     @Then("User adds first extended member {string},{string},{string},{string},{string}, {string}.")
-    public void user_adds_first_extended_member(String ExtendedmemberTitle1, String ExtendedMemberName, String ExtendedMemberSurname, String ExtendedMemberGender, String ExtendedMmeberDOB, String ExtendedMemberRelation) {
+    public void user_adds_first_extended_member(String ExtendedmemberTitle1, String ExtendedMemberName, String ExtendedMemberSurname, String ExtendedMemberGender, String ExtendedMmeberDOB, String ExtendedMemberRelation) throws InterruptedException {
 
         additionalMembers.clickExtendedMemberCheckbx();
         additionalMembers.selectExtMemberTitle1(ExtendedmemberTitle1);
@@ -33,7 +33,9 @@ public class MainMemberWithMaximumExtendedMembers {
         // adding extended member that is 19,  modify year based on test case requirements
         additionalMembers.EnterExtendedMmemberDOB1("2003", "Sep", "14");
         additionalMembers.SelectExtendedMemberRelation1(ExtendedMemberRelation);
-        additionalMembers.SaveExtendedMemberDetails();
+        Thread.sleep(3000);
+
+        //       additionalMembers.SaveExtendedMemberDetails();
 
 
     }
@@ -99,7 +101,7 @@ public class MainMemberWithMaximumExtendedMembers {
     }
 
     @Then("User adds sixth extended member {string},{string},{string},{string},{string}, {string}.")
-    public void user_adds_sixth_extended_member(String Extendedmember6Title1, String ExtendedMember6Name, String ExtendedMember6Surname, String ExtendedMember6Gender, String ExtendedMmeber6DOB, String ExtendedMember6Relation) {
+    public void user_adds_sixth_extended_member(String Extendedmember6Title1, String ExtendedMember6Name, String ExtendedMember6Surname, String ExtendedMember6Gender, String ExtendedMmeber6DOB, String ExtendedMember6Relation) throws InterruptedException {
         additionalMembers.AddAnotherExtendedMember();
         additionalMembers.selectExtMemberTitle6(Extendedmember6Title1);
         additionalMembers.EnterExtendedMemberName6(ExtendedMember6Name);
@@ -109,7 +111,8 @@ public class MainMemberWithMaximumExtendedMembers {
         // adding extended member that is 60, modify year based on test case requirements
         additionalMembers.EnterExtendedMmemberDOB6("1963", "May", "30");
         additionalMembers.SelectExtendedMemberRelation6(ExtendedMember6Relation);
-        additionalMembers.SaveExtendedMemberDetails();
+        Thread.sleep(3000);
+        //       additionalMembers.SaveExtendedMemberDetails();
     }
 
     @Then("User adds seventh extended member {string},{string},{string},{string},{string}, {string}.")
@@ -181,6 +184,47 @@ public class MainMemberWithMaximumExtendedMembers {
         confirmationPage.finalPremiumMnth();
         confirmationPage.PolicyNumber();
 
+
+    }
+
+    @Then("User should see minimum cover of ten thousand for a new premium")
+    public void user_should_see_minimum_cover_of_ten_thousand_for_a_new_premium() throws InterruptedException {
+
+        additionalMembers.verifyMiniumCoverAmountForExtendedMembers0_and_50();
+
+
+    }
+
+    @Then("User should see minimum cover of five thousand for a new premium")
+    public void user_should_see_minimum_cover_of_five_thousand_for_a_new_premium() {
+        additionalMembers.verifyMiniumCoverAmountForExtendedMembers51_and81();
+    }
+
+    @Then("User adds a VC rewards and clicks the continue button")
+    public void user_adds_a_vc_rewards_and_clicks_the_continue_button() {
+        additionalMembers.selectBlueReward();
+
+    }
+
+    @Then("user confirms captured policy information with VC rewards.")
+    public void user_confirms_captured_policy_information_with_vc_rewards() throws InterruptedException {
+        additionalMembers.ReadBlueRewardsInfo();
+        additionalMembers.clickContinue();
+    }
+
+    @Then("User adds a VS rewards")
+    public void user_adds_a_vs_rewards() {
+
+        additionalMembers.selectSilverRewards();
+
+
+    }
+
+    @Then("user confirms captured policy information with VS rewards.")
+    public void user_confirms_captured_policy_information_with_vs_rewards() {
+
+        additionalMembers.ReadSilverRewardsInfo();
+        additionalMembers.clickContinue();
 
     }
 
