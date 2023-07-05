@@ -74,10 +74,11 @@ public class MemberWithSpouseTwoAdditinalMembers {
     }
 
     @Given("User adds first beneficiary {string}, {string}, {string},{string}, {string}")
-    public void user_adds_first_beneficiary(String Benef1Name, String Benef1Title, String Benef1Surname, String Benef1Relatiomship, String Benef1Allocation) throws InterruptedException {
-        Thread.sleep(3000);
-        beneficiaryDetails.SelectBeneficiaryTite(Benef1Title);
+    public void user_adds_first_beneficiary(String Benef1Title, String Benef1Name, String Benef1Surname, String Benef1Relatiomship, String Benef1Allocation) throws InterruptedException {
+        Thread.sleep(5000);
         beneficiaryDetails.EnterBeneficiaryName(Benef1Name);
+        beneficiaryDetails.SelectBeneficiaryTite(Benef1Title);
+
 
         beneficiaryDetails.EnterBeneficiarySurname(Benef1Surname);
 //        beneficiaryDetails.EnterDateOfBirth("1", "Dec", "2003");
@@ -88,6 +89,7 @@ public class MemberWithSpouseTwoAdditinalMembers {
 
     @Given("User adds second beneficiary {string}, {string}, {string},{string}, {string}")
     public void user_adds_second_beneficiary(String Benef2Name, String Benef2Title, String Benef2Surname, String Benef2Relatiomship, String Benef2Allocation) {
+
         beneficiaryDetails.EnterBeneficiaryName2(Benef2Name);
         beneficiaryDetails.SelectBeneficiaryTite2(Benef2Title);
 
@@ -125,4 +127,6 @@ public class MemberWithSpouseTwoAdditinalMembers {
 
 
     }
+
+
 }

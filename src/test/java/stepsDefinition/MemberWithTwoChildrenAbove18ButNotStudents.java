@@ -25,7 +25,7 @@ public class MemberWithTwoChildrenAbove18ButNotStudents {
     @Given("User adds the first child {string},{string},{string},{string},{string} that is above eighteen years old")
     public void user_adds_the_first_child_that_is_above_eighteen_years_old(String child1Name, String child1Surname, String child1Gender, String child1IsStudent, String childDOB) throws InterruptedException {
 
-        Thread.sleep(300);
+        Thread.sleep(3000);
         additionalMembers.addChildrencheckBox();
         additionalMembers.EnterChildName(child1Name);
         additionalMembers.EnterChildSurname(child1Surname);

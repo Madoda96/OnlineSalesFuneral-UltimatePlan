@@ -843,6 +843,7 @@ public class AdditionalMembers extends PageObject {
 
   @Step("click on Continue to proceed to beneficiaries Details page")
   public void clickContinue() {
+
     Assert.assertTrue($(By.xpath(ContinueBtnXpath)).isClickable());
     $(By.xpath(ContinueBtnXpath)).click();
 
