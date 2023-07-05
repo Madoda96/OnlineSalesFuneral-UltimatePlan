@@ -144,22 +144,24 @@ public class MainMemberWithMaximumExtendedMembers {
         additionalMembers.SelectExtendedMemberRelation8(ExtendedMember8Relation);
 
         additionalMembers.SaveExtendedMemberDetails();
+        Thread.sleep(3000);
         additionalMembers.clickContinue();
         Thread.sleep(3000);
 
     }
 
     @Then("User add a member estate beneficiary {string}, {string}, {string},{string}, {string}")
-    public void user_add_a_member_estate_beneficiary(String BeneficiaryTitle, String BeneficiaryName, String BeneficiarySurname, String BeneficiaryRelationship, String BeneficiaryAllocation) {
+    public void user_add_a_member_estate_beneficiary(String BeneficiaryTitle, String BeneficiaryName, String BeneficiarySurname, String BeneficiaryRelationship, String BeneficiaryAllocation) throws InterruptedException {
         beneficiaryDetails.SelectBeneficiaryTite(BeneficiaryTitle);
-        beneficiaryDetails.EnterBeneficiarySurname(BeneficiarySurname);
         beneficiaryDetails.EnterBeneficiaryName(BeneficiaryName);
+        beneficiaryDetails.EnterBeneficiarySurname(BeneficiarySurname);
         beneficiaryDetails.SelectBeneficiaryRelationship(BeneficiaryRelationship);
         beneficiaryDetails.clickContinueButtn();
+        Thread.sleep(3000);
     }
 
     @Then("user enters payer details {string},{string},{string},{string},{string}")
-    public void user_enters_payer_details(String BankName, String AccountType, String AccountNumber, String DebitDate, String DebiCheck) {
+    public void user_enters_payer_details(String BankName, String AccountType, String AccountNumber, String DebitDate, String DebiCheck) throws InterruptedException {
         payerDetails.SelectBankName(BankName);
         payerDetails.SelectAccountType(AccountType);
         payerDetails.EnterAccNumber(AccountNumber);
@@ -167,6 +169,7 @@ public class MainMemberWithMaximumExtendedMembers {
         payerDetails.Cellphone_on_hand(DebiCheck);
         payerDetails.debitBankAcc();
         payerDetails.clickContinueBtn();
+        Thread.sleep(5000);
 
 
     }
@@ -204,6 +207,7 @@ public class MainMemberWithMaximumExtendedMembers {
     @Then("User adds a VC rewards and clicks the continue button")
     public void user_adds_a_vc_rewards_and_clicks_the_continue_button() {
         additionalMembers.selectBlueReward();
+        additionalMembers.clickContinue();
 
     }
 
@@ -217,6 +221,7 @@ public class MainMemberWithMaximumExtendedMembers {
     public void user_adds_a_vs_rewards() {
 
         additionalMembers.selectSilverRewards();
+        additionalMembers.clickContinue();
 
 
     }
@@ -226,6 +231,24 @@ public class MainMemberWithMaximumExtendedMembers {
 
         additionalMembers.ReadSilverRewardsInfo();
         additionalMembers.clickContinue();
+
+    }
+
+    @Then("User adds an extended member {string},{string},{string},{string},{string}, {string}.")
+    public void User_adds_an_extended_member(String ExtendedmemberTitle1, String ExtendedMemberName, String ExtendedMemberSurname, String ExtendedMemberGender, String ExtendedMmeberDOB, String ExtendedMemberRelation) throws InterruptedException {
+
+        additionalMembers.clickExtendedMemberCheckbx();
+        additionalMembers.selectExtMemberTitle1(ExtendedmemberTitle1);
+        additionalMembers.EnterExtendedMemberName1(ExtendedMemberName);
+        additionalMembers.EnterExtendedMemberSurname(ExtendedMemberSurname);
+        additionalMembers.SelectExtendedMemberGender1(ExtendedMemberGender);
+
+        // adding extended member that is 19,  modify year based on test case requirements
+        additionalMembers.EnterExtendedMmemberDOB1("1966", "Sep", "14");
+        additionalMembers.SelectExtendedMemberRelation1(ExtendedMemberRelation);
+        Thread.sleep(3000);
+        additionalMembers.SaveExtendedMemberDetails();
+
 
     }
 

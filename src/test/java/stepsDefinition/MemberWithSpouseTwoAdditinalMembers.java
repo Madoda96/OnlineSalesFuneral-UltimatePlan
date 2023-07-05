@@ -69,13 +69,31 @@ public class MemberWithSpouseTwoAdditinalMembers {
         additionalMembers.enterSpouseDateOfBirth("2002", "Oct", "1");
         additionalMembers.saveSpousedtls();
 
+//        additionalMembers.clickContinue();
+
+    }
+
+
+    @Then("User adds a spouse over maximum age {string},{string},{string},{string},{string}.")
+    public void User_adds_a_spouse_over_maximum_age(String SpouseTitle, String spouseName, String spouseSurname, String spousegender, String spouseDOB) throws InterruptedException {
+        Thread.sleep(3000);
+        additionalMembers.addSpouse();
+        additionalMembers.selectTitle(SpouseTitle);
+        additionalMembers.enterSpouseName(spouseName);
+        additionalMembers.enterSpouseSurname(spouseSurname);
+        additionalMembers.selectSpouseGender(spousegender);
+        additionalMembers.enterSpouseDateOfBirth("1990", "Oct", "1");
+        additionalMembers.saveSpousedtls();
+
         additionalMembers.clickContinue();
 
     }
 
+
     @Given("User adds first beneficiary {string}, {string}, {string},{string}, {string}")
     public void user_adds_first_beneficiary(String Benef1Title, String Benef1Name, String Benef1Surname, String Benef1Relatiomship, String Benef1Allocation) throws InterruptedException {
         Thread.sleep(5000);
+
         beneficiaryDetails.EnterBeneficiaryName(Benef1Name);
         beneficiaryDetails.SelectBeneficiaryTite(Benef1Title);
 
@@ -89,6 +107,7 @@ public class MemberWithSpouseTwoAdditinalMembers {
 
     @Given("User adds second beneficiary {string}, {string}, {string},{string}, {string}")
     public void user_adds_second_beneficiary(String Benef2Name, String Benef2Title, String Benef2Surname, String Benef2Relatiomship, String Benef2Allocation) {
+        beneficiaryDetails.clickToaddBeneficiary();
 
         beneficiaryDetails.EnterBeneficiaryName2(Benef2Name);
         beneficiaryDetails.SelectBeneficiaryTite2(Benef2Title);
@@ -97,6 +116,7 @@ public class MemberWithSpouseTwoAdditinalMembers {
 //        beneficiaryDetails.EnterDateOfBirth("1", "Dec", "2003");
         beneficiaryDetails.SelectBeneficiaryRelationship2(Benef2Relatiomship);
         beneficiaryDetails.SelectPercentageAllocation2(Benef2Allocation);
+
     }
 
     @Given("user clicks save details")
