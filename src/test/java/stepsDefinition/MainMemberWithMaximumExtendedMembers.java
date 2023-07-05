@@ -112,7 +112,7 @@ public class MainMemberWithMaximumExtendedMembers {
         additionalMembers.EnterExtendedMmemberDOB6("1963", "May", "30");
         additionalMembers.SelectExtendedMemberRelation6(ExtendedMember6Relation);
         Thread.sleep(3000);
-        //       additionalMembers.SaveExtendedMemberDetails();
+        additionalMembers.SaveExtendedMemberDetails();
     }
 
     @Then("User adds seventh extended member {string},{string},{string},{string},{string}, {string}.")
@@ -131,7 +131,7 @@ public class MainMemberWithMaximumExtendedMembers {
     }
 
     @Then("User adds eighth extended member {string},{string},{string},{string},{string}, {string}.")
-    public void user_adds_eighth_extended_member(String Extendedmember8Title1, String ExtendedMember8Name, String ExtendedMember8Surname, String ExtendedMember8Gender, String ExtendedMmeber8DOB, String ExtendedMember8Relation) {
+    public void user_adds_eighth_extended_member(String Extendedmember8Title1, String ExtendedMember8Name, String ExtendedMember8Surname, String ExtendedMember8Gender, String ExtendedMmeber8DOB, String ExtendedMember8Relation) throws InterruptedException {
 
         additionalMembers.AddAnotherExtendedMember();
         additionalMembers.selectExtMemberTitle8(Extendedmember8Title1);
@@ -145,6 +145,7 @@ public class MainMemberWithMaximumExtendedMembers {
 
         additionalMembers.SaveExtendedMemberDetails();
         additionalMembers.clickContinue();
+        Thread.sleep(3000);
 
     }
 

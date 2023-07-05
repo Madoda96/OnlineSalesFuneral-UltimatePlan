@@ -56,7 +56,7 @@ public class MemberPage extends PageObject {
     @Step("Generate random email address")
     public String GeneratedEmailAddress() {
         Random randomGenerator = new Random();
-        int randomInt = randomGenerator.nextInt(1000);
+        int randomInt = randomGenerator.nextInt(100000);
         return "Address" + randomInt + "@gmail.com";
 
 
