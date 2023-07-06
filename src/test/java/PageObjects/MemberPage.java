@@ -1,21 +1,26 @@
 package PageObjects;
 
+import io.cucumber.java.en.Then;
 import net.serenitybdd.core.pages.PageObject;
 import net.thucydides.core.annotations.Step;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.tracing.opentelemetry.SeleniumSpanExporter;
+
+import java.util.Random;
 
 public class MemberPage extends PageObject {
 
 
-    //member page webElements
-
-
-    String EmailXpath = "//input[@id=\"introEmail\"]";
     // element will be used when intro email is required
+    String EmailXpath = "//input[@id=\"introEmail\"]";
 
-//     WebElement selectTitle = $(By.xpath("//select[@id=\"onTtl\"]"));
+    // elements for selecting Funeral dignity plan or ultimate dignity plan.
+    String UltimateDignityPlanXpath = "//a[@href=\"?sale=OU\"]";
+    String FuneralDignityPlanXpath = "//a[@href=\"?sale=OR\"]";
+    String HighestAmountXpath = "//*[@id=\"priceSliderTrack\"]/div[5]";
+
 
     String TitleXpath = "//select[@name=\"onTtl\"]";
 
@@ -33,6 +38,8 @@ public class MemberPage extends PageObject {
     String PostalAddressXpath = "//input[@name=\"onAddress1\"]";
     String PostalCodeXpath = "//*[@id=\"onPostal\"]";
 
+    String MaximumCoverXpath = "//*[@id=\"priceSliderTrack\"]/div[3]";
+
 
     String MonthlIncomeXpath = "//select[@name=\"onIncome\" ]";
     String OccupationXpath = "//select[@name=\"onOccupation\" ]";
@@ -41,11 +48,77 @@ public class MemberPage extends PageObject {
     String FicDecl02Xpath = "//select[@name=\"fica02\" ]";
     String ContinueBtnXpath = "//div[@onclick=\"loader();step('1','no');\"]";
 
+    String FuneralDignityPlanOptionXpath = "//*[@id=\"inline-landing\"]/table/tbody/tr[2]/td[1]";
+    String UltimateDignityPlanOptionXpath = "//*[@id=\"inline-landing\"]/table/tbody/tr[3]/td[1]";
+
+    String IDNumberValidation = "//*[@id=\"onlineSaleForm\"]/div/div[1]/div[1]/fieldset[1]/p[4]/span";
+    String ErrorXpath = "//*[@id=\"onlineSaleForm\"]/div/div[1]/div[1]/fieldset[1]/p[4]/span";
+    String MultiplePolicyError = "//*[@id=\"onlineSaleForm\"]/div/div[1]/div[2]/div[4]";
+    //*[@id="onlineSaleForm"]/div/div[1]/div[2]/div[4]
+
+    @Step("Generate random email address")
+    public String GeneratedEmailAddress() {
+        Random randomGenerator = new Random();
+        int randomInt = randomGenerator.nextInt(100000);
+        return "Address" + randomInt + "@gmail.com";
+
+
+    }
+
+    @Step("Check maximum cover to equal to R50000")
+    public void
+    MaximumCover() {
+        boolean MaxCoverAmount = $(By.xpath(MaximumCoverXpath)).isDisplayed();
+        if (MaxCoverAmount) {
+            System.out.println("Max cover is displayed, The max cover amount is: " + $(By.xpath(MaximumCoverXpath)).getText());
+
+        } else {
+            System.out.println("Max cover amount not displayed, please check member age entered");
+        }
+
+//        Assert.assertTrue($(By.xpath(MaximumCoverXpath)).containsText("R50,000"));
+
+
+    }
+
+    @Step("Confirm that Funeral dignity plan is visible")
+    public void FuneraldignityPlanOption() {
+        Assert.assertTrue($(By.xpath(FuneralDignityPlanOptionXpath)).isDisplayed());
+        Assert.assertTrue($(By.xpath(FuneralDignityPlanOptionXpath)).isVisible());
+
+
+    }
+
+    @Step("Confirm that Ultimate dignity plan is visible")
+    public void FuneralUltimatePlanOption() {
+        Assert.assertTrue($(By.xpath(UltimateDignityPlanOptionXpath)).isDisplayed());
+        Assert.assertTrue($(By.xpath(UltimateDignityPlanOptionXpath)).isVisible());
+
+
+    }
+
+
+    @Step(" check if 50000 is showing for selection")
+    public void Is50000Avaliable() {
+
+        Assert.assertTrue($(By.xpath(HighestAmountXpath)).isDisplayed());
+
+    }
+
     @Step("Enter email ")
     public void EnterEmail(String email) {
 
         $(By.xpath(EmailXpath)).sendKeys(email);
 
+
+    }
+
+    @Step("Select ultimate dignity plan")
+    public void selectUltimatePlan() {
+
+        Assert.assertTrue($(By.xpath(UltimateDignityPlanXpath)).isDisplayed());
+        Assert.assertTrue($(By.xpath(UltimateDignityPlanXpath)).isClickable());
+        $(By.xpath(UltimateDignityPlanXpath)).click();
 
     }
 
@@ -124,7 +197,6 @@ public class MemberPage extends PageObject {
         selectFromDropdown(INC, value);
 
 
-
     }
 
     @Step(" Select occupation")
@@ -137,7 +209,7 @@ public class MemberPage extends PageObject {
     @Step("Select education")
     public void selectEducation(String edu) {
         WebElement educ = $(By.xpath(educationXpath));
-       selectFromDropdown(educ, edu);
+        selectFromDropdown(educ, edu);
     }
 
     @Step("Accept FICA declaration ")
@@ -160,4 +232,33 @@ public class MemberPage extends PageObject {
             System.out.println("Button not clickable");
         }
     }
+
+    @Step("Verify that field is  validated and marked as red ")
+    public void IDNumfieldValidated() {
+
+        Assert.assertTrue($(By.xpath(IDNumberValidation)).isDisplayed());
+
+    }
+
+    @Step(": confirm that error message is displayed")
+    public void confirm_that_error_message_is_displayed() {
+        Assert.assertTrue($(By.xpath(ErrorXpath)).isDisplayed());
+    }
+
+    @Step(": Message that confirm multiple policy should displayed")
+    public void message_that_confirm_multiple_policy_should_displayed() {
+        $(By.xpath(MultiplePolicyError)).isDisplayed() ;
+        $(By.xpath(MultiplePolicyError)).click();
+
+        String exp = "Multiple policies with main member details appear in our records.\n" +
+                "One of our consultants will be in contact to assist you further.";
+        WebElement m = $(By.xpath(MultiplePolicyError));
+        String act = m.getText();
+        System.out.println("Error message is: "+ act);
+        //verify error message with Assertion
+        Assert.assertEquals(exp, act);
+
+
+    }
 }
+

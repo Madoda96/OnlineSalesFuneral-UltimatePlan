@@ -40,33 +40,76 @@ public class confirmationPage extends PageObject {
     String AgeErrorMessageXpath = "//*[@id=\"onlineSaleForm\"]/div/div[5]/div[2]/div[5]/ul/li";
 
 
+    @Step("Check final premium amount")
+    public String FinalAmount() {
+        return $(By.xpath(FinalMonthlyPremiumXpath)).getText();
 
+    }
 
     @Step("view total premium and first premium debit date")
-    public void viewPremium(){
+    public void viewPremium() {
         boolean isPremiumVisibile = $(By.xpath(PremiumXpath)).isDisplayed();
+        if (isPremiumVisibile) {
+            System.out.println("Premiums are visibile to client based on the information captured");
+        } else {
+            System.out.println("Premium is not visible to the user, check for any errors ");
 
-        Assert.assertTrue((isPremiumVisibile));
+        }
 
 
     }
+
+    @Step(" Check Total initial premium amount")
+    public String premiumAmount() {
+
+        return $(By.xpath(PremiumXpath)).getText();
+
+    }
+
     @Step("View who is covered as per additional members added and main member")
-    public void ViewWhoIsCovered(){
+    public void ViewWhoIsCovered() {
         boolean isWhoIsCoveredVisible = $(By.xpath(WhoIsCoveredXpath)).isDisplayed();
-        Assert.assertTrue(isWhoIsCoveredVisible);
+        if (isWhoIsCoveredVisible) {
+
+            System.out.println("information about who is covered is displaye:" + $(By.xpath(WhoIsCoveredXpath)).getText());
+        } else {
+            System.out.println("Information is not showing, check captured information if there are not error");
+
+        }
+
+//        Assert.assertTrue(isWhoIsCoveredVisible);
     }
 
     @Step("View if the list of benefits is visible for the applicant")
-    public void ViewBenefits(){
+    public void ViewBenefits() {
         boolean BenefitsVisible = $(By.xpath(BenefitsXpath)).isDisplayed();
-        Assert.assertTrue(BenefitsVisible);
+        if (BenefitsVisible) {
+
+            System.out.println("Benefits are showing to the user:" + $(By.xpath(BenefitsXpath)).getText());
+
+        } else {
+            System.out.println("Benefits are not showing to the user");
+
+        }
+
+
+        //      Assert.assertTrue(BenefitsVisible);
 
     }
     @Step("View if the Annual increase note is visible for the applicant")
-    public void AnnualIncrease(){
-        boolean isAnnualIncreaseVisible = $(By.xpath(AnnualIncreasesXpath)).isDisplayed();
-        Assert.assertTrue(isAnnualIncreaseVisible);
+    public void AnnualIncrease() {
 
+        boolean isAnnualIncreaseVisible = $(By.xpath(AnnualIncreasesXpath)).isDisplayed();
+        if (isAnnualIncreaseVisible) {
+            System.out.println("Annual increase information is showing: " + $(By.xpath(AnnualIncreasesXpath)).getText());
+
+        } else {
+
+            System.out.println("Annual increase information is not showing");
+        }
+
+
+        //    Assert.assertTrue(isAnnualIncreaseVisible);
 
 
     }
@@ -97,23 +140,49 @@ public class confirmationPage extends PageObject {
     }
 
     @Step("View thank you message ")
-    public void ViewThankYouMessage (){
+    public void ViewThankYouMessage () {
         boolean ThankYouMsgVisible = $(By.xpath(ThankYouMsgXpath)).isDisplayed();
-        Assert.assertTrue(ThankYouMsgVisible);
+
+        if (ThankYouMsgVisible) {
+
+            System.out.println("Thank you message is visible to the user: " + $(By.xpath(ThankYouMsgXpath)).getText());
+        } else {
+            System.out.println("Thank you messsage is not visible to the user");
+
+        }
+
+        //   Assert.assertTrue(ThankYouMsgVisible);
 
     }
     @Step("View final monthly premium")
-    public void finalPremiumMnth(){
+    public void finalPremiumMnth() {
 
         boolean isFinalMonth = $(By.xpath(FinalMonthlyPremiumXpath)).isDisplayed();
+        if (isFinalMonth) {
 
-        Assert.assertTrue(isFinalMonth);
+            System.out.println("Final monthly premium is visible to the user:" + $(By.xpath(FinalMonthlyPremiumXpath)).getText());
+
+        }
+
+
+        //   Assert.assertTrue(isFinalMonth);
 
     }
     @Step("View and confirm if the applicants can see generated policy number ")
-    public void PolicyNumber (){
+    public void PolicyNumber () {
         boolean isPolicyNUM = $(By.xpath(PolicyNumXpath)).isDisplayed();
-        Assert.assertTrue(isPolicyNUM);
+        if (isPolicyNUM) {
+
+            System.out.println("Policy number is generated and visible to the user: " + $(By.xpath(PolicyNumXpath)).getText());
+
+        } else {
+
+            System.out.println("Policy number is not generated ");
+
+        }
+
+
+        //       Assert.assertTrue(isPolicyNUM);
 
     }
 

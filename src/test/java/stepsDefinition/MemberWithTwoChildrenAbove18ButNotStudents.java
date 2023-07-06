@@ -24,7 +24,8 @@ public class MemberWithTwoChildrenAbove18ButNotStudents {
 
     @Given("User adds the first child {string},{string},{string},{string},{string} that is above eighteen years old")
     public void user_adds_the_first_child_that_is_above_eighteen_years_old(String child1Name, String child1Surname, String child1Gender, String child1IsStudent, String childDOB) throws InterruptedException {
-        Thread.sleep(5000);
+
+        Thread.sleep(3000);
         additionalMembers.addChildrencheckBox();
         additionalMembers.EnterChildName(child1Name);
         additionalMembers.EnterChildSurname(child1Surname);
@@ -32,7 +33,7 @@ public class MemberWithTwoChildrenAbove18ButNotStudents {
         additionalMembers.IsChildStudentOrNot(child1IsStudent);
         additionalMembers.childDateOfBirth("2003","Dec","1");
         additionalMembers.SaveChildDetails();
-        additionalMembers.addAnotherCh();
+
 
 
 
@@ -41,15 +42,14 @@ public class MemberWithTwoChildrenAbove18ButNotStudents {
     @Given("User User adds the second child {string},{string},{string},{string},{string} that above eighteen years old")
     public void user_user_adds_the_second_child_that_above_eighteen_years_old(String child2Name, String child2Surname, String child2Gender, String child2IsStudent, String childDOB) throws InterruptedException {
 
-
+        additionalMembers.addAnotherCh();
         additionalMembers.EnterChild2Name(child2Name);
         additionalMembers.EnterChild2Surname(child2Surname);
         additionalMembers.selectChild2Gender(child2Gender);
         additionalMembers.IsChild2StudentOrNot(child2IsStudent);
         additionalMembers.child2DateOfBirth("2003","Dec","1");
         additionalMembers.SaveChildDetails();
-        additionalMembers.clickContinue();
-        Thread.sleep(5000);
+        Thread.sleep(3000);
 
     }
 
@@ -79,7 +79,7 @@ public class MemberWithTwoChildrenAbove18ButNotStudents {
         payerDetails.Cellphone_on_hand(Debicheck);
         payerDetails.debitBankAcc();
         payerDetails.clickContinueBtn();
-        Thread.sleep(5000);
+        Thread.sleep(3000);
     }
 
     @And("user confirms captured policy information.")
@@ -91,7 +91,7 @@ public class MemberWithTwoChildrenAbove18ButNotStudents {
         confirmationPage.AnnualIncrease();
         confirmationPage.clickTermsAndConditions();
         confirmationPage.ClickConfirmBtn();
-        Thread.sleep(5000);
+        Thread.sleep(3000);
     }
 
     @Then("policy number shouldn't be generated due to age of children")
@@ -102,10 +102,10 @@ public class MemberWithTwoChildrenAbove18ButNotStudents {
 
     }
 
-
-
-
-
+    @Then("user clicks continue to beneficiary page")
+    public void user_clicks_continue_to_beneficiary_page() {
+        additionalMembers.clickContinue();
+    }
 
 
 }

@@ -19,6 +19,8 @@ public class PayerDetails extends PageObject {
     String PayerHomeNumXpath = "//input[@id=\"onHomeP\"]";
     String PayerEmailXpath = "//input[@name=\"onEmailP\"]";
 
+    String TotalPremiumXpath = "//span[@id=\"payerTotal\"]";
+
 
     //banking details xpaths
 
@@ -43,18 +45,25 @@ public class PayerDetails extends PageObject {
     String PayerContinueButtonXpath = "//div[@ onclick=\"loader();step('4','no');\"]";
 
 
+    @Step("Check Total Premium")
+    public String TotalPremium() {
+        String PremiumAmount = "";
+        Assert.assertTrue($(By.xpath(TotalPremiumXpath)).isDisplayed());
+        PremiumAmount = $(By.xpath(TotalPremiumXpath)).getText();
+        return PremiumAmount;
 
+    }
 
 
     @Step("Select payer title")
-    public void SelectPayerTitle (String PayerTitle){
+    public void SelectPayerTitle(String PayerTitle) {
         WebElement e = $(By.xpath(PayerTitleXpath));
         selectFromDropdown(e, PayerTitle);
 
     }
 
     @Step("Enter payer name")
-    public void EnterPayerName(String PayerName){
+    public void EnterPayerName(String PayerName) {
         $(By.xpath(PayerNameXpath)).sendKeys(PayerName);
 
     }
@@ -122,9 +131,10 @@ public class PayerDetails extends PageObject {
 
     @Step("Verify that page is Payer details")
     public void payerdetailsPage (){
-        String  pageTitle = getTitle();
-        Assert.assertEquals("Payer details",pageTitle);
+        String pageTitle = getTitle();
+        String ExpectedTitle = "Online Sales";
 
+        Assert.assertEquals(ExpectedTitle, pageTitle);
 
 
     }
