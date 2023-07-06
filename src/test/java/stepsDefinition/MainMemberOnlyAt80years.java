@@ -1,6 +1,7 @@
 package stepsDefinition;
 
 import PageObjects.*;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -23,6 +24,8 @@ public class MainMemberOnlyAt80years {
     BeneficiaryDetails beneficiaryDetails;
     @Steps
     PayerDetails payerDetails;
+    @Steps
+    confirmationPage confirmationPage;
 
     @Given(": Open browser and select funeral1")
     public void open_browser_and_select_funeral1() {
@@ -34,13 +37,13 @@ public class MainMemberOnlyAt80years {
         memberPage.EnterEmail("Address"+ randomInt +"@gmail.com");
         homePage.clickContinueBtn();
     }
-    @Given(": complete member details")
-    public void complete_member_details() {
+    @And(": complete member details")
+    public void complete_member_details() throws InterruptedException {
         memberPage.SelectTitle("Dr");
-        memberPage.EnterName("Lula");
-        memberPage.Entersurname("zuluuuu");
-        memberPage.enterMemberIDnum("8906255179921");
-        memberPage.enterMobileNum("0835698547");
+        memberPage.EnterName("Zwai");
+        memberPage.Entersurname("Mlungu");
+        memberPage.enterMemberIDnum("9107035183981");
+        memberPage.enterMobileNum("0835698501");
         memberPage.enterPostalAddress("21 Jump Street");
         memberPage.EnterPostalCode("0152");
         memberPage.selectIncome("R10,000 - R15,000");
@@ -49,56 +52,44 @@ public class MainMemberOnlyAt80years {
         memberPage.acceptFICAdecl("Yes");
         memberPage.acceptFicaDeclaration2("Yes");
         memberPage.clickContinueBt();
+        Thread.sleep(10000);
     }
-    @Then(": Complete Additioal member details")
+    @And(": Complete Additioal member details")
     public void complete_additioal_member_details() throws InterruptedException {
         additionalMembers.clickContinue();
         Thread.sleep(10000);
     }
 
-    @Given(":Select member estate on beneficiary")
+    @And(":Select member estate on beneficiary")
     public void select_member_estate_on_beneficiary() throws InterruptedException {
-
-//        beneficiaryDetails.SelectBeneficiaryTite("Dr");
-//        beneficiaryDetails.EnterBeneficiaryName("Mlandeli");
-//        beneficiaryDetails.EnterBeneficiarySurname("Madoda");
-//        beneficiaryDetails.EnterBenefiaryIDnum("84062551335070");
         beneficiaryDetails.SelectBeneficiaryRelationship("Member Estate");
         Thread.sleep(10000);
-//        beneficiaryDetails.SelectPercentageAllocation("100%");
-//        beneficiaryDetails.clickSaveDetails();
-        //beneficiaryDetails.clickContinueButtn();
-        //Thread.sleep(10000);
-
-//        beneficiaryDetails.SelectBeneficiaryTite("Prof");
-//        beneficiaryDetails.EnterBeneficiaryName("Zwai");
-//        beneficiaryDetails.EnterBeneficiarySurname("Bala");
-//        //beneficiaryDetails.EnterDateOfBirth("2002","Oct","4");
-//        beneficiaryDetails.EnterDateOfBirth("26", "Jun", "1980");
-//        beneficiaryDetails.SelectBeneficiaryRelationship("Cousin");
-//        Thread.sleep(6000);
-//        beneficiaryDetails.SelectPercentageAllocation("100%");
-       beneficiaryDetails.clickSaveDetails();
+        beneficiaryDetails.clickSaveDetails();
         beneficiaryDetails.clickContinueButtn();
         Thread.sleep(10000);
     }
 
-    @Given(": capture payer details")
+    @And(": capture payer details")
     public void capture_payer_details() throws InterruptedException {
-    payerDetails.SelectPayerTitle("Prof");
-    payerDetails.EnterPayerName("Malwaaaaaaaaa");
-    payerDetails.EnterPayerSurname("Zwinooooo");
-    payerDetails.EnterPayIDNumber("8006267714649");
-    payerDetails.EnterPayerMobileNumber("0832654785");
-    payerDetails.SelectPayerRelationshipwithMemebr("Aunt");
+
+    payerDetails.user_should_be_able_to_capture_payer_banking_details();
+    payerDetails.EnterDebitDate("25");
         Thread.sleep(10000);
-    payerDetails.SelectBankName("FIRSTRAND BANK");
-    payerDetails.selectBranchName("Universal Branch");
-    payerDetails.SelectAccountType("Cheque Account");
-    payerDetails.EnterAccNumber("1234");
-    payerDetails.EnterDebitDate("31");
-    //payerDetails.
-    //payerDetails.Cellphone_on_hand("yes");
+    payerDetails.user_should_be_able_to_authorise_the_debit_check();
+    payerDetails.user_should_be_able_to_confirm_debit_check();
+    payerDetails.user_should_be_able_to_click_continue_button_and_navigate_to_navigate_to_confirmations_page();
+
     }
 
+@Then(": client should confirm if policy information is correct")
+public void client_should_confirm_if_policy_information_is_correct() throws InterruptedException {
+        confirmationPage.premiumAmount();
+        confirmationPage.ViewWhoIsCovered();
+         confirmationPage.ViewBenefits();
+         confirmationPage.AnnualIncrease();
+        confirmationPage.clickTermsAndConditions();
+        Thread.sleep(10000);
+        confirmationPage.ClickConfirmBtn();
+        Thread.sleep(10000);
+}
 }
