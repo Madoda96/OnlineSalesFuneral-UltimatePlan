@@ -6,7 +6,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import net.thucydides.core.annotations.Steps;
 
-public class UltimatePlanMemberOnly {
+public class UltimatePlanMember {
 
     @Steps
     HomePage homePage;
