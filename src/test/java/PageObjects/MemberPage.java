@@ -1,10 +1,12 @@
 package PageObjects;
 
+import io.cucumber.java.en.Then;
 import net.serenitybdd.core.pages.PageObject;
 import net.thucydides.core.annotations.Step;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.tracing.opentelemetry.SeleniumSpanExporter;
 
 import java.util.Random;
 
@@ -50,7 +52,9 @@ public class MemberPage extends PageObject {
     String UltimateDignityPlanOptionXpath = "//*[@id=\"inline-landing\"]/table/tbody/tr[3]/td[1]";
 
     String IDNumberValidation = "//*[@id=\"onlineSaleForm\"]/div/div[1]/div[1]/fieldset[1]/p[4]/span";
-
+    String ErrorXpath = "//*[@id=\"onlineSaleForm\"]/div/div[1]/div[1]/fieldset[1]/p[4]/span";
+    String MultiplePolicyError = "//*[@id=\"onlineSaleForm\"]/div/div[1]/div[2]/div[4]";
+    //*[@id="onlineSaleForm"]/div/div[1]/div[2]/div[4]
 
     @Step("Generate random email address")
     public String GeneratedEmailAddress() {
@@ -201,7 +205,6 @@ public class MemberPage extends PageObject {
         selectFromDropdown(INC, value);
 
 
-
     }
 
     @Step(" Select occupation")
@@ -214,7 +217,7 @@ public class MemberPage extends PageObject {
     @Step("Select education")
     public void selectEducation(String edu) {
         WebElement educ = $(By.xpath(educationXpath));
-       selectFromDropdown(educ, edu);
+        selectFromDropdown(educ, edu);
     }
 
     @Step("Accept FICA declaration ")
@@ -245,5 +248,25 @@ public class MemberPage extends PageObject {
 
     }
 
+    @Step(": confirm that error message is displayed")
+    public void confirm_that_error_message_is_displayed() {
+        Assert.assertTrue($(By.xpath(ErrorXpath)).isDisplayed());
+    }
 
+    @Step(": Message that confirm multiple policy should displayed")
+    public void message_that_confirm_multiple_policy_should_displayed() {
+        $(By.xpath(MultiplePolicyError)).isDisplayed() ;
+        $(By.xpath(MultiplePolicyError)).click();
+
+        String exp = "Multiple policies with main member details appear in our records.\n" +
+                "One of our consultants will be in contact to assist you further.";
+        WebElement m = $(By.xpath(MultiplePolicyError));
+        String act = m.getText();
+        System.out.println("Error message is: "+ act);
+        //verify error message with Assertion
+        Assert.assertEquals(exp, act);
+
+
+    }
 }
+
