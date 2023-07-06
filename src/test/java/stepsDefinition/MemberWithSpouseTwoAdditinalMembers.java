@@ -85,7 +85,7 @@ public class MemberWithSpouseTwoAdditinalMembers {
         additionalMembers.enterSpouseDateOfBirth("1990", "Oct", "1");
         additionalMembers.saveSpousedtls();
 
-        additionalMembers.clickContinue();
+  //      additionalMembers.clickContinue();
 
     }
 
