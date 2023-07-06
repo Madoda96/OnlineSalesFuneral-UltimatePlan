@@ -4,9 +4,7 @@ import PageObjects.*;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 import net.thucydides.core.annotations.Steps;
-import java.util.Random;
 
 import java.util.Random;
 
@@ -72,12 +70,13 @@ public class MainMemberOnlyAt80years {
     @And(": capture payer details")
     public void capture_payer_details() throws InterruptedException {
 
-    payerDetails.user_should_be_able_to_capture_payer_banking_details();
-    payerDetails.EnterDebitDate("25");
+        payerDetails.user_should_be_able_to_capture_payer_banking_details();
+
+//    payerDetails.EnterDebitDate("25");
         Thread.sleep(10000);
-    payerDetails.user_should_be_able_to_authorise_the_debit_check();
-    payerDetails.user_should_be_able_to_confirm_debit_check();
-    payerDetails.user_should_be_able_to_click_continue_button_and_navigate_to_navigate_to_confirmations_page();
+        payerDetails.user_should_be_able_to_authorise_the_debit_check();
+        payerDetails.user_should_be_able_to_confirm_debit_check();
+        payerDetails.user_should_be_able_to_click_continue_button_and_navigate_to_navigate_to_confirmations_page();
 
     }
 

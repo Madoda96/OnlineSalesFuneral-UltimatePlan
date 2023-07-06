@@ -35,7 +35,6 @@ public class MainMemberWithMaximumExtendedMembers {
         additionalMembers.SelectExtendedMemberRelation1(ExtendedMemberRelation);
         Thread.sleep(3000);
 
-        additionalMembers.SaveExtendedMemberDetails();
 
 
     }
@@ -202,6 +201,7 @@ public class MainMemberWithMaximumExtendedMembers {
     public void user_should_see_minimum_cover_of_ten_thousand_for_a_new_premium() throws InterruptedException {
 
         additionalMembers.verifyMiniumCoverAmountForExtendedMembers0_and_50();
+        additionalMembers.SaveExtendedMemberDetails();
 
 
     }
@@ -209,6 +209,7 @@ public class MainMemberWithMaximumExtendedMembers {
     @Then("User should see minimum cover of five thousand for a new premium")
     public void user_should_see_minimum_cover_of_five_thousand_for_a_new_premium() {
         additionalMembers.verifyMiniumCoverAmountForExtendedMembers51_and81();
+        additionalMembers.verifyMaximumCoverAmountForExtendedMembers51_and81();
     }
 
     @Then("User adds a VC rewards and clicks the continue button")
@@ -271,9 +272,6 @@ public class MainMemberWithMaximumExtendedMembers {
         additionalMembers.EnterExtendedMmemberDOB1("1966", "Sep", "14");
         additionalMembers.SelectExtendedMemberRelation1(ExtendedMemberRelation);
         Thread.sleep(3000);
-
-
-        additionalMembers.SaveExtendedMemberDetails();
 
 
     }

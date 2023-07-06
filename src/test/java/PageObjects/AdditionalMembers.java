@@ -203,8 +203,8 @@ public class AdditionalMembers extends PageObject {
 
   @Step("Verify that R10000 is the minimum cover amount for members between 0 and 50")
   public void verifyMiniumCoverAmountForExtendedMembers0_and_50() {
-    Boolean minimumAmntForMembersLessThan50 = $(By.xpath(MinimumAmountForMembersLessThan50Xpath)).isDisplayed();
-    Boolean ContainsAmount = $(By.xpath(MinimumAmountForMembersLessThan50Xpath)).containsText("R10,000");
+    Boolean minimumAmntForMembersLessThan50 = $(By.xpath(CoverInfomation)).isDisplayed();
+    Boolean ContainsAmount = $(By.xpath(CoverInfomation)).containsText("R10,000");
     if (minimumAmntForMembersLessThan50 && ContainsAmount) {
       System.out.println("minimum amount is displayed to user: " + $(By.xpath(MinimumAmountForMembersLessThan50Xpath)).getText());
 
