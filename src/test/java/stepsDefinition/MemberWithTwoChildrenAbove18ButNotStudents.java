@@ -81,9 +81,9 @@ public class MemberWithTwoChildrenAbove18ButNotStudents {
         Thread.sleep(3000);
     }
 
-    @And("user confirms captured policy information.")
-    public void user_confirms_captured_policy_information() throws InterruptedException {
-
+    @And("user confirms captured policy information and get a policy number.")
+    public void user_confirms_captured_policy_information_and_get_a_policy_number() throws InterruptedException {
+        // duplicating ac
         confirmationPage.viewPremium();
         confirmationPage.ViewWhoIsCovered();
         confirmationPage.ViewBenefits();
@@ -91,6 +91,12 @@ public class MemberWithTwoChildrenAbove18ButNotStudents {
         confirmationPage.clickTermsAndConditions();
         confirmationPage.ClickConfirmBtn();
         Thread.sleep(3000);
+
+        confirmationPage.ViewThankYouMessage();
+        confirmationPage.finalPremiumMnth();
+        confirmationPage.PolicyNumber();
+
+
     }
 
     @Then("policy number shouldn't be generated due to age of children")

@@ -1,11 +1,10 @@
 package stepsDefinition;
 
+import PageObjects.PayerDetails;
 import PageObjects.*;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 import net.thucydides.core.annotations.Steps;
-import java.util.Random;
 
 import java.util.Random;
 
@@ -85,12 +84,13 @@ public class MainMemberOnlyAt80years {
 
     @Given(": capture payer details")
     public void capture_payer_details() throws InterruptedException {
+
     payerDetails.SelectPayerTitle("Prof");
     payerDetails.EnterPayerName("Malwaaaaaaaaa");
     payerDetails.EnterPayerSurname("Zwinooooo");
     payerDetails.EnterPayIDNumber("8006267714649");
     payerDetails.EnterPayerMobileNumber("0832654785");
-    payerDetails.SelectPayerRelationshipwithMemebr("Aunt");
+        //   payerDetails.SelectPayerRelationshipwithMemebr("Aunt");
         Thread.sleep(10000);
     payerDetails.SelectBankName("FIRSTRAND BANK");
     payerDetails.selectBranchName("Universal Branch");

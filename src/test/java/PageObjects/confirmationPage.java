@@ -27,6 +27,8 @@ public class confirmationPage extends PageObject {
 
     String ConfirmBtn = "//div[@onclick=\"loader();step('5','no');\"]";
 
+    String NonInsuranceXpath = "//*[@id=\"AdditionalBenefitsCnt\"]";
+
 
     //Policy page that contain Policy number and Monthly premium.Will be doing confirmations
 
@@ -43,6 +45,23 @@ public class confirmationPage extends PageObject {
     @Step("Check final premium amount")
     public String FinalAmount() {
         return $(By.xpath(FinalMonthlyPremiumXpath)).getText();
+
+    }
+
+    @Step("Check Non-Insurance information")
+    public void NonInsuranceInfo() {
+        boolean nonInsuranceInfo = $(By.xpath(NonInsuranceXpath)).isDisplayed();
+
+        if (nonInsuranceInfo) {
+            System.out.println("Non-insurance information is showing: " + $(By.xpath(NonInsuranceXpath)).getText());
+
+        } else {
+            System.out.println("Non-insurance information is not showing ");
+            Assert.fail();
+
+
+        }
+
 
     }
 
