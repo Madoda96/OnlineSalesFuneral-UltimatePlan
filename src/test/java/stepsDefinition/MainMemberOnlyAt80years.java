@@ -5,7 +5,9 @@ import PageObjects.PayerDetails;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import net.thucydides.core.annotations.Steps;
+import java.util.Random;
 
 import java.util.Random;
 
@@ -71,6 +73,19 @@ public class MainMemberOnlyAt80years {
     @And(": capture payer details")
     public void capture_payer_details() throws InterruptedException {
 
+        details.payerdetailsPage();
+        details.SelectBankName("ABSA BANK");
+        details.selectBranchName("Universal Branch");
+        details.SelectAccountType("Savings Account");
+        details.EnterAccNumber("1234");
+        details.EnterDebitDate("30");
+        details.Cellphone_on_hand("Yes");
+        details.debitBankAcc();
+        details.clickContinueBtn();
+        Thread.sleep(5000);
+
+
+
 
         payerDetails.user_should_be_able_to_capture_payer_banking_details();
 
@@ -92,6 +107,7 @@ public class MainMemberOnlyAt80years {
         Thread.sleep(5000);
 
   
+
 
 
     }
