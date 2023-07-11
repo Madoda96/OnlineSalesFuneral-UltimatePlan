@@ -72,6 +72,7 @@ public class MainMemberOnlyAt80years {
 
     @And(": capture payer details")
     public void capture_payer_details() throws InterruptedException {
+
         details.payerdetailsPage();
         details.SelectBankName("ABSA BANK");
         details.selectBranchName("Universal Branch");
@@ -82,6 +83,32 @@ public class MainMemberOnlyAt80years {
         details.debitBankAcc();
         details.clickContinueBtn();
         Thread.sleep(5000);
+
+
+
+
+        payerDetails.user_should_be_able_to_capture_payer_banking_details();
+
+//    payerDetails.EnterDebitDate("25");
+        Thread.sleep(10000);
+        payerDetails.user_should_be_able_to_authorise_the_debit_check();
+        payerDetails.user_should_be_able_to_confirm_debit_check();
+        payerDetails.user_should_be_able_to_click_continue_button_and_navigate_to_navigate_to_confirmations_page();
+
+        details.payerdetailsPage();
+        details.SelectBankName("ABSA BANK");
+        details.selectBranchName("Universal Branch");
+        details.SelectAccountType("Savings Account");
+        details.EnterAccNumber("1234");
+        details.EnterDebitDate("30");
+        details.Cellphone_on_hand("Yes");
+        details.debitBankAcc();
+        details.clickContinueBtn();
+        Thread.sleep(5000);
+
+  
+
+
 
     }
 @Then(": client should confirm if policy information is correct")
