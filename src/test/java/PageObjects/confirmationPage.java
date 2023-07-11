@@ -27,6 +27,8 @@ public class confirmationPage extends PageObject {
 
     String ConfirmBtn = "//div[@onclick=\"loader();step('5','no');\"]";
 
+    String NonInsuranceXpath = "//*[@id=\"AdditionalBenefitsCnt\"]";
+
 
     //Policy page that contain Policy number and Monthly premium.Will be doing confirmations
 
@@ -46,6 +48,23 @@ public class confirmationPage extends PageObject {
 
     }
 
+    @Step("Check Non-Insurance information")
+    public void NonInsuranceInfo() {
+        boolean nonInsuranceInfo = $(By.xpath(NonInsuranceXpath)).isDisplayed();
+
+        if (nonInsuranceInfo) {
+            System.out.println("Non-insurance information is showing: " + $(By.xpath(NonInsuranceXpath)).getText());
+
+        } else {
+            System.out.println("Non-insurance information is not showing ");
+            Assert.fail();
+
+
+        }
+
+
+    }
+
     @Step("view total premium and first premium debit date")
     public void viewPremium() {
         boolean isPremiumVisibile = $(By.xpath(PremiumXpath)).isDisplayed();
@@ -53,6 +72,7 @@ public class confirmationPage extends PageObject {
             System.out.println("Premiums are visibile to client based on the information captured");
         } else {
             System.out.println("Premium is not visible to the user, check for any errors ");
+            Assert.fail();
 
         }
 
@@ -74,6 +94,7 @@ public class confirmationPage extends PageObject {
             System.out.println("information about who is covered is displaye:" + $(By.xpath(WhoIsCoveredXpath)).getText());
         } else {
             System.out.println("Information is not showing, check captured information if there are not error");
+            Assert.fail();
 
         }
 
@@ -89,6 +110,7 @@ public class confirmationPage extends PageObject {
 
         } else {
             System.out.println("Benefits are not showing to the user");
+            Assert.fail();
 
         }
 
@@ -106,6 +128,7 @@ public class confirmationPage extends PageObject {
         } else {
 
             System.out.println("Annual increase information is not showing");
+            Assert.fail();
         }
 
 
@@ -148,6 +171,7 @@ public class confirmationPage extends PageObject {
             System.out.println("Thank you message is visible to the user: " + $(By.xpath(ThankYouMsgXpath)).getText());
         } else {
             System.out.println("Thank you messsage is not visible to the user");
+            Assert.fail();
 
         }
 
@@ -161,6 +185,10 @@ public class confirmationPage extends PageObject {
         if (isFinalMonth) {
 
             System.out.println("Final monthly premium is visible to the user:" + $(By.xpath(FinalMonthlyPremiumXpath)).getText());
+        } else {
+
+            System.out.println("Final premium is not visible to the user");
+            Assert.fail();
 
         }
 
@@ -178,6 +206,7 @@ public class confirmationPage extends PageObject {
         } else {
 
             System.out.println("Policy number is not generated ");
+            Assert.fail();
 
         }
 
