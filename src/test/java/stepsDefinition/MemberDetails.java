@@ -46,7 +46,6 @@ public class MemberDetails {
         memberDetailsPage.acceptFicaDeclaration2("Yes");
         memberDetailsPage.clickContinueBt();
 
-
     }
     @Then("User should be able to click Continue button, and Navigate to Additional Page.")
     public void user_should_be_able_to_click_continue_button_and_navigate_to_additional_page(){
