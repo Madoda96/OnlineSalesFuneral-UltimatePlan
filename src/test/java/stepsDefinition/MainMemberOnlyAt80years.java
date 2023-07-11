@@ -1,10 +1,13 @@
 package stepsDefinition;
 
 import PageObjects.*;
+import PageObjects.PayerDetails;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import net.thucydides.core.annotations.Steps;
+import java.util.Random;
 
 import java.util.Random;
 
@@ -21,7 +24,7 @@ public class MainMemberOnlyAt80years {
     @Steps
     BeneficiaryDetails beneficiaryDetails;
     @Steps
-    PayerDetails payerDetails;
+    PayerDetails details;
     @Steps
     confirmationPage confirmationPage;
 
@@ -37,11 +40,11 @@ public class MainMemberOnlyAt80years {
     }
     @And(": complete member details")
     public void complete_member_details() throws InterruptedException {
-        memberPage.SelectTitle("Dr");
-        memberPage.EnterName("Zwai");
-        memberPage.Entersurname("Mlungu");
-        memberPage.enterMemberIDnum("9107035183981");
-        memberPage.enterMobileNum("0835698501");
+        memberPage.SelectTitle("Mr");
+        memberPage.EnterName("wele");
+        memberPage.Entersurname("Zaid");
+        memberPage.enterMemberIDnum("7307106754239");
+        memberPage.enterMobileNum("0835898501");
         memberPage.enterPostalAddress("21 Jump Street");
         memberPage.EnterPostalCode("0152");
         memberPage.selectIncome("R10,000 - R15,000");
@@ -69,17 +72,18 @@ public class MainMemberOnlyAt80years {
 
     @And(": capture payer details")
     public void capture_payer_details() throws InterruptedException {
-
-        payerDetails.user_should_be_able_to_capture_payer_banking_details();
-
-//    payerDetails.EnterDebitDate("25");
-        Thread.sleep(10000);
-        payerDetails.user_should_be_able_to_authorise_the_debit_check();
-        payerDetails.user_should_be_able_to_confirm_debit_check();
-        payerDetails.user_should_be_able_to_click_continue_button_and_navigate_to_navigate_to_confirmations_page();
+        details.payerdetailsPage();
+        details.SelectBankName("ABSA BANK");
+        details.selectBranchName("Universal Branch");
+        details.SelectAccountType("Savings Account");
+        details.EnterAccNumber("1234");
+        details.EnterDebitDate("30");
+        details.Cellphone_on_hand("Yes");
+        details.debitBankAcc();
+        details.clickContinueBtn();
+        Thread.sleep(5000);
 
     }
-
 @Then(": client should confirm if policy information is correct")
 public void client_should_confirm_if_policy_information_is_correct() throws InterruptedException {
         confirmationPage.premiumAmount();
