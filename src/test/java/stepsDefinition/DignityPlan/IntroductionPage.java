@@ -1,4 +1,4 @@
-package stepsDefinition;
+package stepsDefinition.DignityPlan;
 
 import PageObjects.HomePage;
 import PageObjects.MemberPage;
@@ -25,4 +25,17 @@ public class IntroductionPage {
         memberPage.FuneralUltimatePlanOption();
 
     }
+
+    @Given("User is on the Funeral dignity plan page and they enter email")
+    public void user_has_selected_Funeral_dignity_plan_and_they_enter() throws InterruptedException {
+        homePage.open();
+        homePage.ClickBuyNowFuneralPlans();
+        memberPage.FuneraldignityPlanOption();
+        memberPage.EnterEmail(memberPage.GeneratedEmailAddress());
+        homePage.clickContinueBtn();
+        Thread.sleep(3000);
+
+    }
+
+
 }

@@ -1,4 +1,4 @@
-package stepsDefinition;
+package stepsDefinition.DignityPlan;
 
 import PageObjects.*;
 import io.cucumber.java.en.And;

@@ -1,4 +1,4 @@
-package stepsDefinition;
+package stepsDefinition.UltimateDignityPlan;
 
 import PageObjects.BeneficiaryDetails;
 import io.cucumber.java.en.Then;

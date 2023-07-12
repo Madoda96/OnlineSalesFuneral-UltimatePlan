@@ -1,4 +1,4 @@
-package stepsDefinition;
+package stepsDefinition.UltimateDignityPlan;
 
 import PageObjects.confirmationPage;
 import io.cucumber.java.en.Then;

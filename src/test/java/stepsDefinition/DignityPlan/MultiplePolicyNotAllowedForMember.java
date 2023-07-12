@@ -1,10 +1,11 @@
-package stepsDefinition;
+package stepsDefinition.DignityPlan;
 
 import PageObjects.HomePage;
 import PageObjects.MemberPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import net.thucydides.core.annotations.Steps;
+import stepsDefinition.DignityPlan.MemberDetails;
 
 import java.util.Random;
 
@@ -16,7 +17,7 @@ public class MultiplePolicyNotAllowedForMember {
     MemberPage memberPage;
 
     @Steps
-   MemberDetails memberDetails;
+    MemberDetails memberDetails;
     @Given(": Member whom have policy for same products")
     public void member_whom_have_policy_for_same_products() throws InterruptedException {
             homePage.open();

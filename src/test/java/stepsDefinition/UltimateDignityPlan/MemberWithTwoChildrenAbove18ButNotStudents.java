@@ -1,4 +1,4 @@
-package stepsDefinition;
+package stepsDefinition.UltimateDignityPlan;
 
 import PageObjects.AdditionalMembers;
 import PageObjects.BeneficiaryDetails;

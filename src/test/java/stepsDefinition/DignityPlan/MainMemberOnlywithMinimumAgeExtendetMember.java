@@ -1,4 +1,4 @@
-package stepsDefinition;
+package stepsDefinition.DignityPlan;
 
 import PageObjects.*;
 import PageObjects.PayerDetails;

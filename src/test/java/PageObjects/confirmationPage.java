@@ -49,7 +49,9 @@ public class confirmationPage extends PageObject {
     }
 
     @Step("Check Non-Insurance information")
-    public void NonInsuranceInfo() {
+    public void NonInsuranceInfo() throws InterruptedException {
+
+       Thread.sleep(10000);
         boolean nonInsuranceInfo = $(By.xpath(NonInsuranceXpath)).isDisplayed();
 
         if (nonInsuranceInfo) {
@@ -80,9 +82,9 @@ public class confirmationPage extends PageObject {
     }
 
     @Step(" Check Total initial premium amount")
-    public String premiumAmount() {
+    public void premiumAmount() {
 
-        return $(By.xpath(PremiumXpath)).getText();
+        $(By.xpath(PremiumXpath)).getText();
 
     }
 

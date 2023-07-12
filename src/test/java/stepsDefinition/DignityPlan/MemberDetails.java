@@ -1,4 +1,4 @@
-package stepsDefinition;
+package stepsDefinition.DignityPlan;
 
 import PageObjects.HomePage;
 import PageObjects.MemberPage;

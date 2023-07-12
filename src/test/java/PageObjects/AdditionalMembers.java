@@ -300,9 +300,11 @@ public class AdditionalMembers extends PageObject {
 
 
   @Step("Click additional member checkbox")
-  public void clickExtendedMemberCheckbx() {
+  public void clickExtendedMemberCheckbx() throws InterruptedException {
 
     boolean addExtendedMember = $(By.xpath(AddExtendedMemberCheckBoxXpath)).isDisplayed();
+
+    Thread.sleep(5000);
     if (addExtendedMember) {
 
       System.out.println("CheckBox is displayed");
