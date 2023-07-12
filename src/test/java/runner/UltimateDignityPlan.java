@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features/Ultimate Dignity Plan",
         glue = "stepsDefinition",
         monochrome = true,
-        dryRun = true)
+        dryRun = false)
   //       tags = "Functional"  )
 public class UltimateDignityPlan {
 }
