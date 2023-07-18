@@ -6,11 +6,10 @@ import net.serenitybdd.cucumber.CucumberWithSerenity;
 import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
-@CucumberOptions(plugin = {"pretty", "html:target/cucumber-reports"},
-        features = "src/test/resources/features/Ultimate Dignity Plan",
+@CucumberOptions(plugin = {"pretty"},
+        features = "src/test/resources/features/FuneralDignityPlan/MemberWithTwoChildrenAbove18ButNotStudents.feature",
         glue = "stepsDefinition",
-        monochrome = true,
         dryRun = false)
-  //       tags = "Functional"  )
-public class UltimateDignityPlan {
+
+public class TestMemberWithTwoChildrenAbove18ButNotStudent {
 }

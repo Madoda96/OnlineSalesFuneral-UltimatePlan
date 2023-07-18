@@ -12,7 +12,7 @@ package runner;
         glue = "stepsDefinition")
 
 
-public class MainMemberOnlywithMinimumAgeExtendetMemberRunner {
+public class TestMainMemberOnlywithMinimumAgeExtendetMember {
 
 
 }

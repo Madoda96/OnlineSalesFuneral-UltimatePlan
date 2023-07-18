@@ -1,6 +1,6 @@
 Feature: Funeral dignity plan
 
-  @NegativeTest
+
   Scenario Outline: Main member adding two children that are above 18 but are not students to a policy.
     Given User is on the dignity plan page and they enter email
     And User completes the required  Member details information '<Title>', '<Names>', '<Surname>', '<IDnumber>', '<mobileNumber>'.

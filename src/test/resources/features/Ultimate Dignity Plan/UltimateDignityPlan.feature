@@ -55,7 +55,7 @@ Feature: Ultimate Dignity Plan
       | Mr    | Poppie | Ndlovus | 9302109391087 | 0832002639   | 12345 Test    | 1205       | R15,000 - R18,000 | Skilled agriculture | Post-graduate (Honours, Masters etc) | Yes              | Yes              | Dr          | David       | Dlamina       |           | Male         | Mr                | Thami            | Child                    | 50%                              | Xuma                | Mr                | Mr               | Child                    | 50%                              | Xuma                |
 
 
-  @Functional
+
   Scenario Outline: Capture maximum extended family members with different cover amounts
     Given User has selected ultimate dignity plan and they enter email
     When User completes the required  Member details information '<Title>', '<Names>', '<Surname>', '<IDnumber>', '<mobileNumber>'.
@@ -149,7 +149,7 @@ Feature: Ultimate Dignity Plan
       | Mr    | Mark R | Hall | 9208222097081 | 0832002639   | 12345 Test    | 1205       | R15,000 - R18,000 | Skilled agriculture | Post-graduate (Honours, Masters etc) | Yes              | Yes              | Dr          | David       | Dlamina       |           | Male         | Mr                | Thami            | Member Estate            | 100%                             | Xuma                | STANDARD BANK OF S.A. LTD | Savings Account | 1234          | 25        | No        |
 
 
-  @RegressionTest
+
   Scenario Outline:  Access Online platform and select OR product to generate a quotation
 
     Given User has selected ultimate dignity plan and they enter email
@@ -168,7 +168,7 @@ Feature: Ultimate Dignity Plan
       | Mr    | Bakies | Boths   | 9207253071080 | 0832002639   | 12345 Test    | 1205       | R15,000 - R18,000 | Skilled agriculture | Post-graduate (Honours, Masters etc) | Yes              | Yes              | Dr          | David       | Dlamina       |           | Male         | Mr                | Thami            | Member Estate            | 100%                             | Xuma                |
 
 
-  @FunctionalTest
+
   Scenario Outline: Capture a maximum cover member only OR plan
     Given User has selected ultimate dignity plan and they enter email
     When User completes the required  Member details information '<Title>', '<Names>', '<Surname>', '<IDnumber>', '<mobileNumber>'.
@@ -184,7 +184,7 @@ Feature: Ultimate Dignity Plan
       | Title | Names  | Surname | IDnumber      | mobileNumber | PostalAddress | PostalCode | MonthlyIncome     | Occupation          | education                            | FicaDeclaration1 | FicaDeclaration2 | spouseTitle | spouseNames | spouseSurname | spouseDOB | spouseGender | Beneficiary1Title | Beneficiary1Name | Beneficiary1Relationship | Beneficiary1PercantageAllocation | Beneficiary1Surname |
       | Mr    | Pollen | Davie   | 8909057810180 | 0832002639   | 12345 Test    | 1205       | R15,000 - R18,000 | Skilled agriculture | Post-graduate (Honours, Masters etc) | Yes              | Yes              | Dr          | David       | Dlamina       |           | Male         | Mr                | Thami            | Member Estate            | 100%                             | Xuma                |
 
-
+  @Zippy
   Scenario Outline: Capture a member and family plan (FR03) with a spouse and children
     Given User has selected ultimate dignity plan and they enter email
     When User completes the required  Member details information '<Title>', '<Names>', '<Surname>', '<IDnumber>', '<mobileNumber>'.

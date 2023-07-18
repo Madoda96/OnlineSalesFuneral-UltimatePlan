@@ -58,7 +58,7 @@ Feature: Funeral dignity plan
       | Mr    | Modesto J  | Ayers   | 9110292287081 | 0832002639   | 12345 Test    | 1205       | R15,000 - R18,000 | Skilled agriculture | Post-graduate (Honours, Masters etc) | Yes              | Yes              | Dr          | David       | Dlamina       |           | Male         | Mr                | Thami            | Child                    | 50%                              | Xuma                | Mr                | Mr               | Child                    | 50%                              | Xuma                |
 
 
-  @Functional
+
   Scenario Outline: Capture maximum extended family members with different cover amounts
     Given User is on the Funeral dignity plan page and they enter email
     When User completes the required  Member details information '<Title>', '<Names>', '<Surname>', '<IDnumber>', '<mobileNumber>'.
@@ -152,7 +152,7 @@ Feature: Funeral dignity plan
       | Mr    | Charlie |  Moody    | 9708309097086 | 0832002639   | 12345 Test    | 1205       | R15,000 - R18,000 | Skilled agriculture | Post-graduate (Honours, Masters etc) | Yes              | Yes              | Dr          | David       | Dlamina       |           | Male         | Mr                | Thami            | Member Estate            | 100%                             | Xuma                | STANDARD BANK OF S.A. LTD | Savings Account | 1234          | 25        | No        |
 
 
-  @RegressionTest
+
   Scenario Outline:  Access Online platform and select OR product to generate a quotation
 
     Given User is on the Funeral dignity plan page and they enter email
@@ -171,7 +171,7 @@ Feature: Funeral dignity plan
       | Mr    | Shellie H | Murray    | 9110290135084 | 0832002639   | 12345 Test    | 1205       | R15,000 - R18,000 | Skilled agriculture | Post-graduate (Honours, Masters etc) | Yes              | Yes              | Dr          | David       | Dlamina       |           | Male         | Mr                | Thami            | Member Estate            | 100%                             | Xuma                |
 
 
-  @FunctionalTest
+
   Scenario Outline: Capture a maximum cover member only OR plan
     Given User is on the Funeral dignity plan page and they enter email
     When User completes the required  Member details information '<Title>', '<Names>', '<Surname>', '<IDnumber>', '<mobileNumber>'.

@@ -7,9 +7,9 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(plugin = {"pretty"},
-        features = "src/test/resources/features/PayerDetails.feature",
+        features = "src/test/resources/features/AdditionalMember.feature",
         glue = "stepsDefinition")
 //
 
-public class PayerDetailsRunner {
+public class TestAdditionalMember {
 }

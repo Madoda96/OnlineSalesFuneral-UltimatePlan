@@ -1,6 +1,6 @@
 Feature: Funeral dignity plan
 
-@RegressionTest
+
 Scenario Outline: Main member adding a spouse amd two people as beneficiaries with 50 percent each.
 
 Given User is on the dignity plan page and they enter email
