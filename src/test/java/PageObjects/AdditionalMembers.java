@@ -304,15 +304,14 @@ public class AdditionalMembers extends PageObject {
 
     boolean addExtendedMember = $(By.xpath(AddExtendedMemberCheckBoxXpath)).isDisplayed();
 
-    Thread.sleep(5000);
-    if (addExtendedMember) {
+     if (addExtendedMember) {
 
       System.out.println("CheckBox is displayed");
       $(By.xpath(AddExtendedMemberCheckBoxXpath)).click();
 
     } else {
       System.out.println("Checkbox not displayed");
-//      Assert.fail();
+      Assert.fail();
 
     }
 

@@ -51,7 +51,7 @@ public class MemberPage extends PageObject {
     String FuneralDignityPlanOptionXpath = "//*[@id=\"inline-landing\"]/table/tbody/tr[2]/td[1]";
     String UltimateDignityPlanOptionXpath = "//*[@id=\"inline-landing\"]/table/tbody/tr[3]/td[1]";
 
-    String IDNumberValidation = "//*[@id=\"onlineSaleForm\"]/div/div[1]/div[1]/fieldset[1]/p[4]/span";
+    String IDNumberValidation = "//span[@class=\"error nosuccess\"]";
     String ErrorXpath = "//*[@id=\"onlineSaleForm\"]/div/div[1]/div[1]/fieldset[1]/p[4]/span";
     String MultiplePolicyError = "//*[@id=\"onlineSaleForm\"]/div/div[1]/div[2]/div[4]";
     //*[@id="onlineSaleForm"]/div/div[1]/div[2]/div[4]
@@ -108,6 +108,7 @@ public class MemberPage extends PageObject {
 
         } else {
             System.out.println("R50000 is not showing to the user");
+            Assert.fail();
 
         }
 
@@ -238,13 +239,22 @@ public class MemberPage extends PageObject {
             $(By.xpath(ContinueBtnXpath)).click();
         } else {
             System.out.println("Button not clickable");
+            Assert.fail();
         }
     }
 
     @Step("Verify that field is  validated and marked as red ")
     public void IDNumfieldValidated() {
 
-        Assert.assertTrue($(By.xpath(IDNumberValidation)).isDisplayed());
+        boolean IDValidationdisplayed = $(By.xpath(IDNumberValidation)).isDisplayed();
+
+        if (IDValidationdisplayed){
+            System.out.println("ID number validation is showing ");
+        }else {
+            System.out.println("ID number validation is not showing");
+            Assert.fail();
+
+        }
 
     }
 

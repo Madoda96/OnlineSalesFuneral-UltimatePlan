@@ -187,7 +187,7 @@ public class MainMemberWithMaximumExtendedMembers {
         confirmationPage.clickTermsAndConditions();
 
         confirmationPage.ClickConfirmBtn();
-        Thread.sleep(3000);
+        Thread.sleep(8000);
 
 
         confirmationPage.ViewThankYouMessage();
@@ -261,8 +261,9 @@ public class MainMemberWithMaximumExtendedMembers {
 
     @Then("User adds an extended member above 51 but less than 81 {string},{string},{string},{string},{string}, {string}.")
     public void User_adds_an_extended_member_above_51_but_less_than_81(String ExtendedmemberTitle1, String ExtendedMemberName, String ExtendedMemberSurname, String ExtendedMemberGender, String ExtendedMmeberDOB, String ExtendedMemberRelation) throws InterruptedException {
-
+        Thread.sleep(3000);
         additionalMembers.clickExtendedMemberCheckbx();
+
         additionalMembers.selectExtMemberTitle1(ExtendedmemberTitle1);
         additionalMembers.EnterExtendedMemberName1(ExtendedMemberName);
         additionalMembers.EnterExtendedMemberSurname(ExtendedMemberSurname);

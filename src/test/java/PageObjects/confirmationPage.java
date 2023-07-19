@@ -51,7 +51,7 @@ public class confirmationPage extends PageObject {
     @Step("Check Non-Insurance information")
     public void NonInsuranceInfo() throws InterruptedException {
 
-       Thread.sleep(10000);
+       Thread.sleep(5000);
         boolean nonInsuranceInfo = $(By.xpath(NonInsuranceXpath)).isDisplayed();
 
         if (nonInsuranceInfo) {

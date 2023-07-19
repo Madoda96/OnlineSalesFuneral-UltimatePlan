@@ -133,7 +133,16 @@ public class PayerDetails extends PageObject {
         String pageTitle = getTitle();
         String ExpectedTitle = "Online Sales";
 
-        Assert.assertEquals(ExpectedTitle, pageTitle);
+        if (pageTitle.equals(ExpectedTitle)){
+
+            System.out.println("User is on the the payer details page");
+        }else {
+
+            System.out.println("User did not land on the payer details page");
+            Assert.fail();
+        }
+
+
 
 
     }
