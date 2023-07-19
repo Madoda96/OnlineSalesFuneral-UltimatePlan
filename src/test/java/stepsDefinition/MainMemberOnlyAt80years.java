@@ -34,7 +34,7 @@ public class MainMemberOnlyAt80years {
         homePage.ClickBuyNowFuneralPlans();
        // memberPage.EnterEmail("21mjhnbgh09@gmail.com");
         Random randomGenerator = new Random();
-        int randomInt = randomGenerator.nextInt(1000);
+        int randomInt = randomGenerator.nextInt(10000);
         memberPage.EnterEmail("Address"+ randomInt +"@gmail.com");
         homePage.clickContinueBtn();
     }
@@ -43,7 +43,7 @@ public class MainMemberOnlyAt80years {
         memberPage.SelectTitle("Mr");
         memberPage.EnterName("wele");
         memberPage.Entersurname("Zaid");
-        memberPage.enterMemberIDnum("7307106754239");
+        memberPage.enterMemberIDnum("5307187137280");
         memberPage.enterMobileNum("0835898501");
         memberPage.enterPostalAddress("21 Jump Street");
         memberPage.EnterPostalCode("0152");
@@ -94,5 +94,6 @@ public void client_should_confirm_if_policy_information_is_correct() throws Inte
         Thread.sleep(10000);
         confirmationPage.ClickConfirmBtn();
         Thread.sleep(10000);
+        confirmationPage.PolicyNumber();
 }
 }
