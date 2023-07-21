@@ -103,7 +103,7 @@ public class MainMemberOnlywithMinimumAgeExtendetMember {
         confirmationPage.ViewWhoIsCovered();
         confirmationPage.ViewBenefits();
         confirmationPage.AnnualIncrease();
-        confirmationPage.clickTermsAndConditions();
+        confirmationPage.AcceptTermsAndConditions();
         confirmationPage.ClickConfirmBtn();
         confirmationPage.ViewThankYouMessage();
 

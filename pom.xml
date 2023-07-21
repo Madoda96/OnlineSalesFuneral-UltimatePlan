@@ -13,6 +13,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <serenity.version>3.6.21</serenity.version>
         <encoding>UTF-8</encoding>
+        <tags></tags>
         <webdriver.base.url>https://portals.freshive.co.za/clienteleonlinesales/</webdriver.base.url>
     </properties>
     <dependencies>
@@ -83,7 +84,6 @@
             <version>1.9.2</version>
             <scope>test</scope>
         </dependency>
-
     </dependencies>
     <build>
         <plugins>
@@ -93,7 +93,9 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M5</version>
                 <configuration>
-                    <skip>true</skip>
+                    <parallel>methods</parallel>
+                    <threadCount>10</threadCount>
+                    <skip>false</skip>
                 </configuration>
             </plugin>
 
@@ -123,6 +125,8 @@
                     </execution>
                 </executions>
             </plugin>
+
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>

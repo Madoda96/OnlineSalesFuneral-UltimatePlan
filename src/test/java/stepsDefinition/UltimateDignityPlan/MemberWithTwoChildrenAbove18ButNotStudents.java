@@ -88,7 +88,7 @@ public class MemberWithTwoChildrenAbove18ButNotStudents {
         confirmationPage.ViewWhoIsCovered();
         confirmationPage.ViewBenefits();
         confirmationPage.AnnualIncrease();
-        confirmationPage.clickTermsAndConditions();
+        confirmationPage.AcceptTermsAndConditions();
         confirmationPage.ClickConfirmBtn();
         Thread.sleep(3000);
 

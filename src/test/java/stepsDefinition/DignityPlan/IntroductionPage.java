@@ -1,9 +1,11 @@
 package stepsDefinition.DignityPlan;
 
+import PageObjects.GetQoutationPage;
 import PageObjects.HomePage;
 import PageObjects.MemberPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import net.thucydides.core.annotations.Steps;
 
 public class IntroductionPage {
@@ -12,6 +14,9 @@ public class IntroductionPage {
     HomePage homePage;
     @Steps
     MemberPage memberPage;
+
+    @Steps
+    GetQoutationPage getQoutationPage;
 
     @Given("User is on the introduction page")
     public void user_is_on_the_introduction_page() {
@@ -36,6 +41,70 @@ public class IntroductionPage {
         Thread.sleep(3000);
 
     }
+
+
+//    @Given("User is on the Funeral dignity plan page and they enter email")
+//    public void user_has_selected_Funerala_dignity_plan_and_they_enter() throws InterruptedException {
+//        homePage.open();
+//        homePage.GetAQuoteFuneralPlans();
+//        Thread.sleep(3000);
+
+
+    @Given("User is on the online sales home page")
+    public void user_is_on_the_online_sales_home_page() throws InterruptedException {
+        homePage.open();
+        Thread.sleep(3000);
+    }
+    @When("user clicks the get quote button.")
+    public void user_clicks_the_get_quote_button() {
+        homePage.GetAQuoteFuneralPlans();
+    }
+    @When("enters {string} , {string} ,{string}, {string} , {string} , {string}.")
+    public void enters(String Fullname, String Contactnumber, String EmailAddress, String dayOfDob, String MonthofDob, String YearofDob) throws InterruptedException {
+
+        getQoutationPage.switchToFrame();
+        getQoutationPage.EnterFullName(Fullname);
+        getQoutationPage.EnterContactNumber(Contactnumber);
+        getQoutationPage.EnterEmailAddress(EmailAddress);
+        getQoutationPage.dayOfDOB(dayOfDob);
+        getQoutationPage.monthOfDOB(MonthofDob);
+        getQoutationPage.YearOfDOB(YearofDob);
+        Thread.sleep(3000);
+    }
+    @When("user chooses a plan {string} and cover type {string}.")
+    public void user_chooses_a_plan_and_cover_type(String ChooseYourPlan, String CoverType) {
+       getQoutationPage.SelectPlanType(ChooseYourPlan);
+       getQoutationPage.SelectCoverType(CoverType);
+    }
+    @When("user chooses the cover amount and adds two additional members {string}, {string}")
+    public void user_chooses_the_cover_amount_and_adds_two_additional_members(String Coveramnt, String additionalmem) {
+        getQoutationPage.SelectCoverAmount(Coveramnt);
+        getQoutationPage.SelectAddAnExtendedFamilyMember(additionalmem);
+    }
+
+    @When("user selects age of {string} and {string}.")
+    public void user_selects_age_of_and(String member1Age, String memeber2Age) {
+        getQoutationPage.selectAddMem1Age(member1Age);
+        getQoutationPage.AddAnotherFamMem();
+        getQoutationPage.selectAddMem2Age(memeber2Age);
+    }
+
+    @When("user clicks the submit button.")
+    public void user_clicks_the_submit_button() throws InterruptedException {
+        getQoutationPage.clickSubmit();
+        Thread.sleep(4000);
+    }
+    @Then("user should be able to see a quotation.")
+    public void user_should_be_able_to_see_a_quotation() {
+       getQoutationPage.CoverInformation();
+    }
+
+
+
+
+
+
+
 
 
 }

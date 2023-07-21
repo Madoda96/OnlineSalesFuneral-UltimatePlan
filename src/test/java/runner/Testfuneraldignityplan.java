@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(plugin = {"pretty"},
         features = "src/test/resources/features/Ultimate Dignity Plan/FuneralDignityPlan.feature",
         glue = "stepsDefinition",
-        tags = "@Test1",
+        tags = "@Test20",
         dryRun = false)
 
 public class Testfuneraldignityplan {

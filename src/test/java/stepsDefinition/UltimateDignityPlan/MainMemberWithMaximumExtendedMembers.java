@@ -184,7 +184,7 @@ public class MainMemberWithMaximumExtendedMembers {
         confirmationPage.ViewWhoIsCovered();
         confirmationPage.ViewBenefits();
         confirmationPage.AnnualIncrease();
-        confirmationPage.clickTermsAndConditions();
+        confirmationPage.AcceptTermsAndConditions();
 
         confirmationPage.ClickConfirmBtn();
         Thread.sleep(8000);

@@ -98,7 +98,7 @@ public void client_should_confirm_if_policy_information_is_correct() throws Inte
         confirmationPage.ViewWhoIsCovered();
          confirmationPage.ViewBenefits();
          confirmationPage.AnnualIncrease();
-        confirmationPage.clickTermsAndConditions();
+        confirmationPage.AcceptTermsAndConditions();
         Thread.sleep(10000);
         confirmationPage.ClickConfirmBtn();
         Thread.sleep(10000);

@@ -149,7 +149,10 @@ public class confirmationPage extends PageObject {
         driver.switchTo().parentFrame();
     }
     @Step("Click the checkbox to agree to terms and conditions")
-    public void clickTermsAndConditions (){
+    public void AcceptTermsAndConditions (){
+
+
+
         $(By.xpath(ReadTermsAndConditions)).click();
 
     }
