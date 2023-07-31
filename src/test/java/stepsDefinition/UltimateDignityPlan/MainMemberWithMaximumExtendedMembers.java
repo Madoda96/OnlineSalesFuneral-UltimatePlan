@@ -1,9 +1,9 @@
 package stepsDefinition.UltimateDignityPlan;
 
-import PageObjects.AdditionalMembers;
-import PageObjects.BeneficiaryDetails;
-import PageObjects.PayerDetails;
-import PageObjects.confirmationPage;
+import PageObjects.FuneralPlans.AdditionalMembers;
+import PageObjects.FuneralPlans.BeneficiaryDetails;
+import PageObjects.FuneralPlans.PayerDetails;
+import PageObjects.FuneralPlans.confirmationPage;
 import io.cucumber.java.en.Then;
 import net.thucydides.core.annotations.Steps;
 
@@ -33,6 +33,7 @@ public class MainMemberWithMaximumExtendedMembers {
         // adding extended member that is 19,  modify year based on test case requirements
         additionalMembers.EnterExtendedMmemberDOB1("2003", "Sep", "14");
         additionalMembers.SelectExtendedMemberRelation1(ExtendedMemberRelation);
+        additionalMembers.selectDifferentAmnt();
         Thread.sleep(3000);
 
 
@@ -184,7 +185,7 @@ public class MainMemberWithMaximumExtendedMembers {
         confirmationPage.ViewWhoIsCovered();
         confirmationPage.ViewBenefits();
         confirmationPage.AnnualIncrease();
-        confirmationPage.clickTermsAndConditions();
+        confirmationPage.AcceptTermsAndConditions();
 
         confirmationPage.ClickConfirmBtn();
         Thread.sleep(8000);

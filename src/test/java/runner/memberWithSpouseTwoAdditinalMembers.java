@@ -7,10 +7,9 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(plugin = {"pretty"},
-        features = "src/test/resources/features/Ultimate Dignity Plan/FuneralDignityPlan.feature",
+        features = "src/test/resources/features/FuneralDignityPlan/MemberWithSpouseTwoAdditionalMembers.feature",
         glue = "stepsDefinition",
-        tags = "@Test1",
         dryRun = false)
 
-public class Testfuneraldignityplan {
+public class memberWithSpouseTwoAdditinalMembers {
 }

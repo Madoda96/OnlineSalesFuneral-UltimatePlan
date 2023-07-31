@@ -11,5 +11,5 @@ import org.junit.runner.RunWith;
         glue = "stepsDefinition")
 //
 
-public class TestAdditionalMember {
+public class AdditionalMember {
 }

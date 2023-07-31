@@ -1,7 +1,7 @@
 package stepsDefinition.DignityPlan;
 
-import PageObjects.HomePage;
-import PageObjects.MemberPage;
+import PageObjects.HomePage.HomePage;
+import PageObjects.FuneralPlans.MemberPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;

@@ -8,11 +8,9 @@ package runner;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(plugin = {"pretty"},
-        features = "src/test/resources/features/FuneralDignityPlan/MainMemberOnlywithMinimumAgeExtendetMember.feature",  //funeralDignityPlan.feature
+        features = "src/test/resources/features/FuneralDignityPlan/MainMemberAt81Years.feature",  //funeralDignityPlan.feature
         glue = "stepsDefinition")
 
-
-public class TestMainMemberOnlywithMinimumAgeExtendetMember {
-
+public class MainMemberAt81Years {
 
 }

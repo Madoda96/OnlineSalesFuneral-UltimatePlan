@@ -11,5 +11,5 @@ import org.junit.runner.RunWith;
         glue = "stepsDefinition")
 //
 
-public class TestPayerDetails {
+public class PayerDetails {
 }

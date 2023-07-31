@@ -1,4 +1,4 @@
-package PageObjects;
+package PageObjects.HomePage;
 
 import net.serenitybdd.core.pages.PageObject;
 import net.thucydides.core.annotations.Step;
@@ -22,7 +22,15 @@ public class HomePage extends PageObject {
 
     String ContinueBtnXpath = "//*[@id=\"onlinego\"]";
 
+    String URL ="https://portals.freshive.co.za/clienteleonlinesales/";
 
+
+    public void OpenWebsite(){
+
+        getDriver().get(URL);
+
+
+    }
 
     @Step("Click Buy Now on Funeral Plan")
     public void ClickBuyNowFuneralPlans(){

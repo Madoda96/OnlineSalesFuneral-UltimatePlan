@@ -1,6 +1,6 @@
 package stepsDefinition.UltimateDignityPlan;
 
-import PageObjects.confirmationPage;
+import PageObjects.FuneralPlans.confirmationPage;
 import io.cucumber.java.en.Then;
 import net.thucydides.core.annotations.Steps;
 
@@ -17,7 +17,7 @@ public class MemberWithTwoChildrenAbove18AndAreStudents {
         confirmationPage.ViewWhoIsCovered();
         confirmationPage.ViewBenefits();
         confirmationPage.AnnualIncrease();
-        confirmationPage.clickTermsAndConditions();
+        confirmationPage.AcceptTermsAndConditions();
         confirmationPage.ClickConfirmBtn();
         Thread.sleep(3000);
         confirmationPage.ViewThankYouMessage();

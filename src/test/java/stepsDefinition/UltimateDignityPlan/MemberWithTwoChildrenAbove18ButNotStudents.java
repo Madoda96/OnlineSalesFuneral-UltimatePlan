@@ -1,9 +1,9 @@
 package stepsDefinition.UltimateDignityPlan;
 
-import PageObjects.AdditionalMembers;
-import PageObjects.BeneficiaryDetails;
-import PageObjects.PayerDetails;
-import PageObjects.confirmationPage;
+import PageObjects.FuneralPlans.AdditionalMembers;
+import PageObjects.FuneralPlans.BeneficiaryDetails;
+import PageObjects.FuneralPlans.PayerDetails;
+import PageObjects.FuneralPlans.confirmationPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -88,7 +88,7 @@ public class MemberWithTwoChildrenAbove18ButNotStudents {
         confirmationPage.ViewWhoIsCovered();
         confirmationPage.ViewBenefits();
         confirmationPage.AnnualIncrease();
-        confirmationPage.clickTermsAndConditions();
+        confirmationPage.AcceptTermsAndConditions();
         confirmationPage.ClickConfirmBtn();
         Thread.sleep(3000);
 
