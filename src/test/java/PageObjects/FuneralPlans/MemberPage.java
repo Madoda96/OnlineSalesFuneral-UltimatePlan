@@ -185,9 +185,9 @@ public class MemberPage extends PageObject {
     @Step(" check if 50000 is showing for selection")
     public void Is50000Avaliable() {
 
-        boolean is50000 = $(By.xpath(HighestAmountXpath)).isDisplayed();
+        boolean isR50000 = $(By.xpath(HighestAmountXpath)).isDisplayed();
 
-        if (is50000) {
+        if (isR50000) {
             System.out.println("R50000 is available for selection");
 
         } else {

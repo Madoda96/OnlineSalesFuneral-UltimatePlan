@@ -52,7 +52,6 @@ public class GetQoutationPage extends PageObject {
 
     String CoverInformationXpath = "//*[@id=\"emailwrap\"]/div[2]";
 
-    String IframeName = "1689923657254";
 
 
 
@@ -85,11 +84,7 @@ public class GetQoutationPage extends PageObject {
 
             Assert.fail("Cover information is not showing");
         }
-
-
-
-
-    }
+   }
 
 
 

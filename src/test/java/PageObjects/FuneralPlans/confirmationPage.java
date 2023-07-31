@@ -133,10 +133,6 @@ public class confirmationPage extends PageObject {
             Assert.fail("Annual increase information is not showing");
         }
 
-
-        //    Assert.assertTrue(isAnnualIncreaseVisible);
-
-
     }
     @Step("View if disclaimer is available for applicant to read ")
     public void disclaimer(){
@@ -180,8 +176,6 @@ public class confirmationPage extends PageObject {
 
         }
 
-        //   Assert.assertTrue(ThankYouMsgVisible);
-
     }
     @Step("View final monthly premium")
     public void finalPremiumMnth() {
@@ -198,8 +192,6 @@ public class confirmationPage extends PageObject {
         }
 
 
-        //   Assert.assertTrue(isFinalMonth);
-
     }
     @Step("View and confirm if the applicants can see generated policy number ")
     public void PolicyNumber () {
@@ -215,9 +207,6 @@ public class confirmationPage extends PageObject {
 
         }
 
-
-        //       Assert.assertTrue(isPolicyNUM);
-
     }
 
     @Step("Check Age error message ")
@@ -227,7 +216,7 @@ public class confirmationPage extends PageObject {
 
         Assert.assertTrue($(By.xpath(AgeErrorMessageXpath)).isDisplayed());
         if (errorMessage.equalsIgnoreCase(ExpectedErrorMessage)){
-            System.out.println(" Test Passed");
+            System.out.println("Age error message is shown to the user");
         }else {
 
             Assert.fail("Age error message is not showing");

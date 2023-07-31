@@ -232,8 +232,6 @@ public class AdditionalMembers extends PageObject {
 
         }
 
-//    Assert.assertTrue($(By.xpath(MinimumAmountForMembersgreatherThan50Xpath)).containsText("R5000"));
-
 
     }
 
@@ -248,8 +246,6 @@ public class AdditionalMembers extends PageObject {
             Assert.fail("Maximum amount not showing to users, check the age of extended member(s)");
 
         }
-
-//    Assert.assertTrue($(By.xpath(MaximumAmountForMembersgreaterThan50Xpath)).containsText("R30000"));
 
 
     }
@@ -267,7 +263,7 @@ public class AdditionalMembers extends PageObject {
 
         }
 
-//    Assert.assertTrue($(By.xpath(BlueRewardsInfoXpath)).isDisplayed());
+
 
     }
 
@@ -282,8 +278,6 @@ public class AdditionalMembers extends PageObject {
             Assert.fail("Silver rewards information is not showing ");
 
         }
-
-//    Assert.assertTrue($(By.xpath(SilverRewardsInfoXpath)).isDisplayed());
 
     }
 
@@ -307,7 +301,6 @@ public class AdditionalMembers extends PageObject {
 
         if (addExtendedMember) {
 
-            System.out.println("CheckBox is displayed");
             $(By.xpath(AddExtendedMemberCheckBoxXpath)).click();
 
         } else {
