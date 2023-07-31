@@ -1,4 +1,4 @@
-package PageObjects;
+package PageObjects.FuneralPlans;
 
 import net.serenitybdd.core.pages.PageObject;
 import net.thucydides.core.annotations.Step;
@@ -115,6 +115,7 @@ public class BeneficiaryDetails extends PageObject {
     @Step("Save captured beneficiary details")
     public void clickSaveDetails() {
         $(By.xpath(saveBtnXpath)).click();
+
     }
 
     @Step("Click continue button to land on the Payer details page ")

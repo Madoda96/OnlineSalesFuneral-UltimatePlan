@@ -1,7 +1,7 @@
 package stepsDefinition.UltimateDignityPlan;
 
-import PageObjects.AdditionalMembers;
-import PageObjects.MemberPage;
+import PageObjects.FuneralPlans.AdditionalMembers;
+import PageObjects.FuneralPlans.MemberPage;
 import io.cucumber.java.en.Then;
 import net.thucydides.core.annotations.Steps;
 

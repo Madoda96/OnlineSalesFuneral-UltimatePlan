@@ -1,6 +1,7 @@
 package stepsDefinition.UltimateDignityPlan;
 
-import PageObjects.*;
+import PageObjects.FuneralPlans.*;
+import PageObjects.HomePage.HomePage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import net.thucydides.core.annotations.Steps;
@@ -8,12 +9,12 @@ import net.thucydides.core.annotations.Steps;
 public class MemberWithSpouseTwoAdditinalMembers {
 
     @Steps
-    PageObjects.PayerDetails details;
+    PayerDetails details;
     //PayerDetails payerDetails;
     @Steps
     HomePage homePage;
     @Steps
-    confirmationPage confirmationPage;
+    PageObjects.FuneralPlans.confirmationPage confirmationPage;
     @Steps
     MemberPage memberPage;
 
@@ -24,20 +25,21 @@ public class MemberWithSpouseTwoAdditinalMembers {
 
     @Given("User is on the dignity plan page and they enter email")
     public void user_is_on_the_dignity_plan_page_and_they_enter() {
-        homePage.open();
+        homePage.OpenWebsite();
         homePage.ClickBuyNowFuneralPlans();
         memberPage.EnterEmail(memberPage.GeneratedEmailAddress());
         homePage.clickContinueBtn();
     }
 
     @Given("User completes the required  Member details information {string}, {string}, {string}, {string}, {string}.")
-    public void user_completes_the_required_member_details_information(String title, String memberName, String memberSurname, String IDNumber, String memberMobileNum) {
+    public void user_completes_the_required_member_details_information(String title, String memberName, String memberSurname, String IDNumber, String memberMobileNum) throws InterruptedException {
 
         memberPage.SelectTitle(title);
         memberPage.EnterName(memberName);
         memberPage.Entersurname(memberSurname);
         memberPage.enterMemberIDnum(IDNumber);
         memberPage.enterMobileNum(memberMobileNum);
+        memberPage.SelectDifferentAmnt();
 
     }
 

@@ -1,7 +1,8 @@
 package stepsDefinition.DignityPlan;
 
-import PageObjects.*;
-import PageObjects.PayerDetails;
+import PageObjects.FuneralPlans.*;
+import PageObjects.FuneralPlans.PayerDetails;
+import PageObjects.HomePage.HomePage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import net.thucydides.core.annotations.Steps;
@@ -21,10 +22,10 @@ public class MainMemberOnlywithMinimumAgeExtendetMember {
     @Steps
     PayerDetails payerDetails;
     @Steps
-    PageObjects.PayerDetails details;
+    PayerDetails details;
 
     @Steps
-    confirmationPage confirmationPage;
+    PageObjects.FuneralPlans.confirmationPage confirmationPage;
     @Given("User complete Member detail")
     public void user_complete_member_detail() throws InterruptedException {
         homePage.open();

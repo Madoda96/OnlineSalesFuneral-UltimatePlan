@@ -1,8 +1,8 @@
 package stepsDefinition.DignityPlan;
 
-import PageObjects.GetQoutationPage;
-import PageObjects.HomePage;
-import PageObjects.MemberPage;
+import PageObjects.FuneralPlans.GetQoutationPage;
+import PageObjects.HomePage.HomePage;
+import PageObjects.FuneralPlans.MemberPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -20,7 +20,7 @@ public class IntroductionPage {
 
     @Given("User is on the introduction page")
     public void user_is_on_the_introduction_page() {
-        homePage.open();
+        homePage.OpenWebsite();
         homePage.ClickBuyNowFuneralPlans();
     }
 
@@ -33,7 +33,7 @@ public class IntroductionPage {
 
     @Given("User is on the Funeral dignity plan page and they enter email")
     public void user_has_selected_Funeral_dignity_plan_and_they_enter() throws InterruptedException {
-        homePage.open();
+        homePage.OpenWebsite();
         homePage.ClickBuyNowFuneralPlans();
         memberPage.FuneraldignityPlanOption();
         memberPage.EnterEmail(memberPage.GeneratedEmailAddress());
@@ -52,7 +52,7 @@ public class IntroductionPage {
 
     @Given("User is on the online sales home page")
     public void user_is_on_the_online_sales_home_page() throws InterruptedException {
-        homePage.open();
+        homePage.OpenWebsite();
         Thread.sleep(3000);
     }
     @When("user clicks the get quote button.")

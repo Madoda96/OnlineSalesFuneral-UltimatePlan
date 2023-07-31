@@ -1,4 +1,4 @@
-package PageObjects;
+package PageObjects.FuneralPlans;
 
 import net.serenitybdd.core.pages.PageObject;
 import net.thucydides.core.annotations.Step;
@@ -136,10 +136,10 @@ public class PayerDetails extends PageObject {
         if (pageTitle.equals(ExpectedTitle)){
 
             System.out.println("User is on the the payer details page");
+
         }else {
 
-            System.out.println("User did not land on the payer details page");
-            Assert.fail();
+            Assert.fail("User did not land on the payer details page");
         }
 
 

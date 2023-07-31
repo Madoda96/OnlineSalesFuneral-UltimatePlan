@@ -1,11 +1,10 @@
 package stepsDefinition.DignityPlan;
 
-import PageObjects.HomePage;
-import PageObjects.MemberPage;
+import PageObjects.HomePage.HomePage;
+import PageObjects.FuneralPlans.MemberPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import net.thucydides.core.annotations.Steps;
-import stepsDefinition.DignityPlan.MemberDetails;
 
 import java.util.Random;
 

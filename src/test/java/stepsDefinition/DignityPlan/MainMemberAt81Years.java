@@ -1,13 +1,12 @@
 package stepsDefinition.DignityPlan;
 
-import PageObjects.*;
+import PageObjects.FuneralPlans.AdditionalMembers;
+import PageObjects.HomePage.HomePage;
+import PageObjects.FuneralPlans.MemberPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 import net.thucydides.core.annotations.Steps;
-import org.junit.Assert;
-import org.openqa.selenium.By;
 
 public class MainMemberAt81Years {
 
@@ -18,7 +17,7 @@ public class MainMemberAt81Years {
     MemberPage memberPage;
 
     @Steps
-  AdditionalMembers additionalMembers;
+    AdditionalMembers additionalMembers;
 
 
 

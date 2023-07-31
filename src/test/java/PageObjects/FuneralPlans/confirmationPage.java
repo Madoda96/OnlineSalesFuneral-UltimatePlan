@@ -1,4 +1,4 @@
-package PageObjects;
+package PageObjects.FuneralPlans;
 
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.pages.PageObject;
@@ -58,8 +58,8 @@ public class confirmationPage extends PageObject {
             System.out.println("Non-insurance information is showing: " + $(By.xpath(NonInsuranceXpath)).getText());
 
         } else {
-            System.out.println("Non-insurance information is not showing ");
-            Assert.fail();
+
+            Assert.fail("Non-insurance information is not showing ");
 
 
         }
@@ -73,8 +73,8 @@ public class confirmationPage extends PageObject {
         if (isPremiumVisibile) {
             System.out.println("Premiums are visibile to client based on the information captured");
         } else {
-            System.out.println("Premium is not visible to the user, check for any errors ");
-            Assert.fail();
+
+            Assert.fail("Premium is not visible to the user, check for any errors ");
 
         }
 
@@ -95,8 +95,8 @@ public class confirmationPage extends PageObject {
 
             System.out.println("information about who is covered is displaye:" + $(By.xpath(WhoIsCoveredXpath)).getText());
         } else {
-            System.out.println("Information is not showing, check captured information if there are not error");
-            Assert.fail();
+
+            Assert.fail("Information is not showing, check captured information if there are not error");
 
         }
 
@@ -111,8 +111,8 @@ public class confirmationPage extends PageObject {
             System.out.println("Benefits are showing to the user:" + $(By.xpath(BenefitsXpath)).getText());
 
         } else {
-            System.out.println("Benefits are not showing to the user");
-            Assert.fail();
+
+            Assert.fail("Benefits are not showing to the user");
 
         }
 
@@ -129,8 +129,8 @@ public class confirmationPage extends PageObject {
 
         } else {
 
-            System.out.println("Annual increase information is not showing");
-            Assert.fail();
+
+            Assert.fail("Annual increase information is not showing");
         }
 
 
@@ -175,8 +175,8 @@ public class confirmationPage extends PageObject {
 
             System.out.println("Thank you message is visible to the user: " + $(By.xpath(ThankYouMsgXpath)).getText());
         } else {
-            System.out.println("Thank you messsage is not visible to the user");
-            Assert.fail();
+
+            Assert.fail("Thank you messsage is not visible to the user");
 
         }
 
@@ -192,8 +192,8 @@ public class confirmationPage extends PageObject {
             System.out.println("Final monthly premium is visible to the user:" + $(By.xpath(FinalMonthlyPremiumXpath)).getText());
         } else {
 
-            System.out.println("Final premium is not visible to the user");
-            Assert.fail();
+
+            Assert.fail("Final premium is not visible to the user");
 
         }
 
@@ -210,8 +210,8 @@ public class confirmationPage extends PageObject {
 
         } else {
 
-            System.out.println("Policy number is not generated ");
-            Assert.fail();
+
+            Assert.fail("Policy number is not generated ");
 
         }
 
@@ -229,7 +229,8 @@ public class confirmationPage extends PageObject {
         if (errorMessage.equalsIgnoreCase(ExpectedErrorMessage)){
             System.out.println(" Test Passed");
         }else {
-            System.out.println("Test Failed, The error message is: " + errorMessage);
+
+            Assert.fail("Age error message is not showing");
 
         }
 

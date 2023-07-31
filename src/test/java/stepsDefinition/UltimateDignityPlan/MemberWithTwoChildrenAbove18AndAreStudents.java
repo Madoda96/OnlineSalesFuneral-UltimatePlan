@@ -1,6 +1,6 @@
 package stepsDefinition.UltimateDignityPlan;
 
-import PageObjects.confirmationPage;
+import PageObjects.FuneralPlans.confirmationPage;
 import io.cucumber.java.en.Then;
 import net.thucydides.core.annotations.Steps;
 

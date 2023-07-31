@@ -1,14 +1,12 @@
 package stepsDefinition.DignityPlan;
 
-import PageObjects.*;
-import PageObjects.PayerDetails;
+import PageObjects.FuneralPlans.*;
+import PageObjects.FuneralPlans.PayerDetails;
+import PageObjects.HomePage.HomePage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 import net.thucydides.core.annotations.Steps;
-import java.util.Random;
-
 import java.util.Random;
 
 
@@ -26,7 +24,7 @@ public class MainMemberOnlyAt80years {
     @Steps
     PayerDetails details;
     @Steps
-    confirmationPage confirmationPage;
+    PageObjects.FuneralPlans.confirmationPage confirmationPage;
 
     @Given(": Open browser and select funeral1")
     public void open_browser_and_select_funeral1() {

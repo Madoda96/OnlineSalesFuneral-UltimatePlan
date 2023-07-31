@@ -1,7 +1,7 @@
 package stepsDefinition.UltimateDignityPlan;
 
-import PageObjects.HomePage;
-import PageObjects.MemberPage;
+import PageObjects.HomePage.HomePage;
+import PageObjects.FuneralPlans.MemberPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import net.thucydides.core.annotations.Steps;
@@ -17,7 +17,7 @@ public class UltimatePlanMember {
 
     @Given("User has selected ultimate dignity plan and they enter email")
     public void user_has_selected_ultimate_dignity_plan_and_they_enter() throws InterruptedException {
-        homePage.open();
+        homePage.OpenWebsite();
         homePage.ClickBuyNowFuneralPlans();
         memberDetailsPage.selectUltimatePlan();
         memberDetailsPage.EnterEmail(memberDetailsPage.GeneratedEmailAddress());

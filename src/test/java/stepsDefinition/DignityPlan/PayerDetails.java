@@ -1,9 +1,9 @@
 package stepsDefinition.DignityPlan;
 
-import PageObjects.AdditionalMembers;
-import PageObjects.BeneficiaryDetails;
-import PageObjects.HomePage;
-import PageObjects.MemberPage;
+import PageObjects.FuneralPlans.AdditionalMembers;
+import PageObjects.FuneralPlans.BeneficiaryDetails;
+import PageObjects.HomePage.HomePage;
+import PageObjects.FuneralPlans.MemberPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import net.thucydides.core.annotations.Steps;
@@ -19,7 +19,7 @@ public class PayerDetails {
     BeneficiaryDetails beneficiaryDetails;
 
     @Steps
-    PageObjects.PayerDetails details;
+    PageObjects.FuneralPlans.PayerDetails details;
     //PayerDetails payerDetails;
 
 

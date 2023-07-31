@@ -1,14 +1,14 @@
-package PageObjects;
+package PageObjects.FuneralPlans;
 
-import io.cucumber.java.en.Then;
+import groovy.transform.Final;
 import net.serenitybdd.core.pages.PageObject;
 import net.thucydides.core.annotations.Step;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.tracing.opentelemetry.SeleniumSpanExporter;
+import org.openqa.selenium.interactions.Actions;
 
-import java.util.Random;
+import java.util.*;
 
 public class MemberPage extends PageObject {
 
@@ -39,13 +39,13 @@ public class MemberPage extends PageObject {
     String PostalCodeXpath = "//*[@id=\"onPostal\"]";
 
     String MaximumCoverXpath = "//*[@id=\"priceSliderTrack\"]/div[3]";
-
-
     String MonthlIncomeXpath = "//select[@name=\"onIncome\" ]";
     String OccupationXpath = "//select[@name=\"onOccupation\" ]";
     String educationXpath = "//select[@name=\"onEducation\"]";
     String FicDecl01Xpath = "//select[@name=\"fica01\" ]";
     String FicDecl02Xpath = "//select[@name=\"fica02\" ]";
+
+    String sliderAmount = "//div[@class=\"fl trsm\"]";
     String ContinueBtnXpath = "//div[@onclick=\"loader();step('1','no');\"]";
 
     String FuneralDignityPlanOptionXpath = "//*[@id=\"inline-landing\"]/table/tbody/tr[2]/td[1]";
@@ -55,6 +55,89 @@ public class MemberPage extends PageObject {
     String ErrorXpath = "//*[@id=\"onlineSaleForm\"]/div/div[1]/div[1]/fieldset[1]/p[4]/span";
     String MultiplePolicyError = "//*[@id=\"onlineSaleForm\"]/div/div[1]/div[2]/div[4]";
     //*[@id="onlineSaleForm"]/div/div[1]/div[2]/div[4]
+
+
+    @Step("Verify slider amounts and select different amount")
+    public void SelectDifferentAmnt() throws InterruptedException {
+
+
+        List<WebElement> amounts = getDriver().findElements(By.xpath(sliderAmount));
+
+        List<String> amountsAvailible = new ArrayList<>();
+
+        amountsAvailible.add(amounts.get(0).getText());
+
+        amountsAvailible.add(amounts.get(1).getText());
+
+
+        amountsAvailible.add(amounts.get(2).getText());
+
+
+        amountsAvailible.add(amounts.get(3).getText());
+
+        amountsAvailible.add(amounts.get(4).getText());
+
+
+        for (String s : amountsAvailible) {
+            if (s.equalsIgnoreCase("R30,000") || s.equalsIgnoreCase("R35,000") || s.equalsIgnoreCase("R40,000") || s.equalsIgnoreCase("R45,000") || s.equalsIgnoreCase("R50,000")) {
+                System.out.println("Amounts are available for selection");
+            } else {
+
+                System.out.println("amount are  not available for selection");
+                Assert.fail("Some amounts are not visible to the user");
+
+            }
+
+        }
+    }
+
+    @Step("Select R35000")
+        public void selectR35000() throws InterruptedException {
+
+            Actions actions = new Actions(getDriver());
+
+            WebElement elem_slider = getDriver().findElement(By.xpath("//*[@id=\"priceSlider\"]/span"));
+            Thread.sleep(2000);
+
+            actions.clickAndHold(elem_slider).moveByOffset(344,0).release().perform();
+
+        }
+
+    @Step("Select R40000")
+    public void selectR40000() throws InterruptedException {
+
+        Actions actions = new Actions(getDriver());
+
+        WebElement elem_slider = getDriver().findElement(By.xpath("//*[@id=\"priceSlider\"]/span"));
+        Thread.sleep(2000);
+
+        actions.clickAndHold(elem_slider).moveByOffset(497,0).release().perform();
+
+    }
+
+    @Step("Select R45000")
+    public void selectR45000() throws InterruptedException {
+
+        Actions actions = new Actions(getDriver());
+
+        WebElement elem_slider = getDriver().findElement(By.xpath("//*[@id=\"priceSlider\"]/span"));
+        Thread.sleep(2000);
+
+        actions.clickAndHold(elem_slider).moveByOffset(651,0).release().perform();
+
+    }
+
+    @Step("Select R50000")
+    public void selectR50000() throws InterruptedException {
+
+        Actions actions = new Actions(getDriver());
+
+        WebElement elem_slider = getDriver().findElement(By.xpath("//*[@id=\"priceSlider\"]/span"));
+        Thread.sleep(2000);
+
+        actions.clickAndHold(elem_slider).moveByOffset(804,0).release().perform();
+
+    }
 
     @Step("Generate random email address")
     public String GeneratedEmailAddress() {
@@ -73,7 +156,8 @@ public class MemberPage extends PageObject {
             System.out.println("Max cover is displayed, The max cover amount is: " + $(By.xpath(MaximumCoverXpath)).getText());
 
         } else {
-            System.out.println("Max cover amount not displayed, please check member age entered");
+            Assert.fail("Max cover amount not displayed, please check member age entered");
+
         }
 
 //        Assert.assertTrue($(By.xpath(MaximumCoverXpath)).containsText("R50,000"));
@@ -107,8 +191,8 @@ public class MemberPage extends PageObject {
             System.out.println("R50000 is available for selection");
 
         } else {
-            System.out.println("R50000 is not showing to the user");
-            Assert.fail();
+
+            Assert.fail("R50000 is not showing to the user");
 
         }
 
@@ -238,8 +322,8 @@ public class MemberPage extends PageObject {
         if ($(By.xpath(ContinueBtnXpath)).isClickable()) {
             $(By.xpath(ContinueBtnXpath)).click();
         } else {
-            System.out.println("Button not clickable");
-            Assert.fail();
+
+            Assert.fail("Button not clickable");
         }
     }
 
@@ -251,8 +335,8 @@ public class MemberPage extends PageObject {
         if (IDValidationdisplayed){
             System.out.println("ID number validation is showing ");
         }else {
-            System.out.println("ID number validation is not showing");
-            Assert.fail();
+
+            Assert.fail("ID number validation is not showing");
 
         }
 

@@ -1,4 +1,4 @@
-package PageObjects;
+package PageObjects.FuneralPlans;
 
 import net.serenitybdd.core.pages.PageObject;
 import net.thucydides.core.annotations.Step;
@@ -66,9 +66,8 @@ public class GetQoutationPage extends PageObject {
 
 
         WebElement frame = $(By.tagName("iframe"));
-
         getDriver().switchTo().frame(frame);
-        //getDriver().switchTo().frame(IframeName);
+
 
     }
 
@@ -83,8 +82,8 @@ public class GetQoutationPage extends PageObject {
             System.out.println("Cover information is captured : " + $(By.xpath(CoverInformationXpath)).getText() );
         }else
         {
-            System.out.println("Cover information is not showing");
-            Assert.fail();
+
+            Assert.fail("Cover information is not showing");
         }
 
 
