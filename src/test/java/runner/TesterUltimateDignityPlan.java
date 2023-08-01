@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
 
 
 @RunWith(CucumberWithSerenity.class)
-@CucumberOptions(plugin = {"pretty","html:test-output"},
+@CucumberOptions(plugin = {"pretty","json:target/cucumber.json" },
         features = "src/test/resources/features/Ultimate Dignity Plan",
         glue = "stepsDefinition",
         monochrome = true,
