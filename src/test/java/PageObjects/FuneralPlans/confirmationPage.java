@@ -37,7 +37,7 @@ public class confirmationPage extends PageObject {
 
     String PolicyNumXpath = "//span[@id=\"PolicyNumber\"]";
 
-    // error message
+
 
     String AgeErrorMessageXpath = "//*[@id=\"onlineSaleForm\"]/div/div[5]/div[2]/div[5]/ul/li";
 
@@ -100,7 +100,7 @@ public class confirmationPage extends PageObject {
 
         }
 
-//        Assert.assertTrue(isWhoIsCoveredVisible);
+
     }
 
     @Step("View if the list of benefits is visible for the applicant")
@@ -117,7 +117,7 @@ public class confirmationPage extends PageObject {
         }
 
 
-        //      Assert.assertTrue(BenefitsVisible);
+
 
     }
     @Step("View if the Annual increase note is visible for the applicant")

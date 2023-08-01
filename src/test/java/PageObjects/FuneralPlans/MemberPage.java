@@ -54,7 +54,7 @@ public class MemberPage extends PageObject {
     String IDNumberValidation = "//span[@class=\"error nosuccess\"]";
     String ErrorXpath = "//*[@id=\"onlineSaleForm\"]/div/div[1]/div[1]/fieldset[1]/p[4]/span";
     String MultiplePolicyError = "//*[@id=\"onlineSaleForm\"]/div/div[1]/div[2]/div[4]";
-    //*[@id="onlineSaleForm"]/div/div[1]/div[2]/div[4]
+
 
 
     @Step("Verify slider amounts and select different amount")
@@ -277,7 +277,9 @@ public class MemberPage extends PageObject {
             System.out.println("Email address not populated");
 
         } else {
-            System.out.println("Email address is populated");
+
+            Assert.fail("Email address is populated");
+
 
         }
 

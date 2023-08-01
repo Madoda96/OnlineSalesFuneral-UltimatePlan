@@ -72,7 +72,7 @@ Feature: Funeral dignity plan
     And User adds eighth extended member '<ExtendedMember8Title>','<ExtendedMemeber8Names>','<ExtendedMember8Surname>','<ExtendedMember8Gender>','<ExtendedMember8DOB>', '<Relation8>'.
     And User add a member estate beneficiary '<Beneficiary1Title>', '<Beneficiary1Name>', '<Beneficiary1Surname>','<Beneficiary1Relationship>', '<Beneficiary1PercantageAllocation>'
     And user enters payer details '<bankName>','<accountType>','<accountNumber>','<debitDate>','<Debicheck>'
-#    And user confirms captured policy information.
+
     Then user should get a generated policy number.
 
     Examples:
