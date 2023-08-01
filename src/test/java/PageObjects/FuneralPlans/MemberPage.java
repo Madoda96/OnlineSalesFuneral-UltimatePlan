@@ -349,7 +349,7 @@ public class MemberPage extends PageObject {
         Assert.assertTrue($(By.xpath(ErrorXpath)).isDisplayed());
     }
 
-    @Step(": Message that confirm multiple policy should displayed")
+    @Step(" Message that confirm multiple policy should displayed")
     public void message_that_confirm_multiple_policy_should_displayed() {
         $(By.xpath(MultiplePolicyError)).isDisplayed() ;
         $(By.xpath(MultiplePolicyError)).click();

@@ -51,7 +51,13 @@ public class MemberDetails {
     public void user_should_be_able_to_click_continue_button_and_navigate_to_additional_page(){
 ////
         System.out.println("Test");
+
     }
+    @Then("user should not be able to proceed with the application.")
+    public void user_should_not_be_able_to_proceed_with_the_application() {
+
+    }
+
 
 
 
