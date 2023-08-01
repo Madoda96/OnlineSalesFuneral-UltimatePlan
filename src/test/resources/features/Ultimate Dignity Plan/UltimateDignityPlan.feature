@@ -271,3 +271,18 @@ Feature: Ultimate Dignity Plan
       | Title | Names | Surname  | IDnumber      | mobileNumber | PostalAddress | PostalCode | MonthlyIncome     | Occupation          | education                            | FicaDeclaration1 | FicaDeclaration2 | Beneficiary1Title | Beneficiary1Name | Beneficiary1Surname | Beneficiary1Relationship | Beneficiary1PercantageAllocation | bankName                  | accountType     | accountNumber | debitDate | Debicheck | spouseTitle | spouseNames | spouseSurname | spouseDOB | spouseGender |
       | Mr    | lihle | Dumakude | 9301302749083 | 0832002639   | 12345 Test    | 1205       | R15,000 - R18,000 | Skilled agriculture | Post-graduate (Honours, Masters etc) | Yes              | Yes              | Mr                | Mandla           | Zulu                | Member Estate            | 100%                             | STANDARD BANK OF S.A. LTD | Savings Account | 1234          | 25        | No        | Dr          | David       | Dlamina       |           | Male         |
 
+
+    @NegativTest
+    Scenario Outline: Capture a Funeral Dignity Dignity for a person who has an active Ultimate Dignity plan
+
+      Given User has selected ultimate dignity plan and they enter email
+      When User completes the required  Member details information '<Title>', '<Names>', '<Surname>', '<IDnumber>', '<mobileNumber>'.
+      And User enters '<PostalAddress>', '<PostalCode>', '<MonthlyIncome>','<Occupation>', '<education>'.
+      And User completes '<FicaDeclaration1>' and '<FicaDeclaration2>' and clicks the continue button.
+      Then Message that confirm multiple policy should displayed
+
+
+      Examples:
+        | Title | Names | Surname  | IDnumber      | mobileNumber | PostalAddress | PostalCode | MonthlyIncome     | Occupation          | education                            | FicaDeclaration1 | FicaDeclaration2 |
+        | Mr    | lihle | Dumakude | 9301302749083 | 0832002639   | 12345 Test    | 1205       | R15,000 - R18,000 | Skilled agriculture | Post-graduate (Honours, Masters etc) | Yes              | Yes              |
+

@@ -44,7 +44,7 @@ public class MultiplePolicyNotAllowedForMember {
             memberPage.acceptFicaDeclaration2("Yes");
             memberPage.clickContinueBt();
     }
-    @Then(": Message that confirm multiple policy should displayed")
+    @Then("Message that confirm multiple policy should displayed")
     public void message_that_confirm_multiple_policy_should_displayed() {
 
         memberPage.message_that_confirm_multiple_policy_should_displayed();
