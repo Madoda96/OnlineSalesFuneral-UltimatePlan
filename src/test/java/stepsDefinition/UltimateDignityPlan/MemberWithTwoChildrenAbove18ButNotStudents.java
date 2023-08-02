@@ -31,7 +31,7 @@ public class MemberWithTwoChildrenAbove18ButNotStudents {
         additionalMembers.EnterChildSurname(child1Surname);
         additionalMembers.selectChildGender(child1Gender);
         additionalMembers.IsChildStudentOrNot(child1IsStudent);
-        additionalMembers.childDateOfBirth("2003","Dec","1");
+        additionalMembers.childDateOfBirth("2002","Dec","1");
         additionalMembers.SaveChildDetails();
 
 
@@ -47,7 +47,7 @@ public class MemberWithTwoChildrenAbove18ButNotStudents {
         additionalMembers.EnterChild2Surname(child2Surname);
         additionalMembers.selectChild2Gender(child2Gender);
         additionalMembers.IsChild2StudentOrNot(child2IsStudent);
-        additionalMembers.child2DateOfBirth("2003","Dec","1");
+        additionalMembers.child2DateOfBirth("2002","Dec","1");
         additionalMembers.SaveChildDetails();
         Thread.sleep(3000);
 
@@ -82,7 +82,7 @@ public class MemberWithTwoChildrenAbove18ButNotStudents {
     }
 
     @And("user confirms captured policy information and get a policy number.")
-    public void user_confirms_captured_policy_information_and_get_a_policy_number() throws InterruptedException {
+    public void user_confirms_captured_policy_information_and_get_a_policy_number(String coverAmount) throws InterruptedException {
         // duplicating ac
         confirmationPage.viewPremium();
         confirmationPage.ViewWhoIsCovered();
@@ -93,7 +93,7 @@ public class MemberWithTwoChildrenAbove18ButNotStudents {
         Thread.sleep(3000);
 
         confirmationPage.ViewThankYouMessage();
-        confirmationPage.finalPremiumMnth();
+        confirmationPage.finalPremiumMnth(coverAmount);
         confirmationPage.PolicyNumber();
 
 

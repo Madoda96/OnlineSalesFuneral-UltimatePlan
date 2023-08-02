@@ -39,7 +39,7 @@ public class MemberWithSpouseTwoAdditinalMembers {
         memberPage.Entersurname(memberSurname);
         memberPage.enterMemberIDnum(IDNumber);
         memberPage.enterMobileNum(memberMobileNum);
-        memberPage.SelectDifferentAmnt();
+//       memberPage.SelectDifferentAmnt();
 
     }
 
@@ -143,7 +143,7 @@ public class MemberWithSpouseTwoAdditinalMembers {
         additionalMembers.EnterChild3Surname(child3Surname);
         additionalMembers.selectChild3Gender(child3Gender);
         additionalMembers.IsChild3StudentOrNot(child3IsStudent);
-        additionalMembers.child3DateOfBirth("2003", "Dec", "1");
+        additionalMembers.child3DateOfBirth("2002", "Dec", "1");
         additionalMembers.SaveChildDetails();
         additionalMembers.clickContinue();
         Thread.sleep(3000);

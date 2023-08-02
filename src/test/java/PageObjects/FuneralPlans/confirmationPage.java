@@ -178,16 +178,22 @@ public class confirmationPage extends PageObject {
 
     }
     @Step("View final monthly premium")
-    public void finalPremiumMnth() {
+    public void finalPremiumMnth(String CoverAmount) {
 
         boolean isFinalMonth = $(By.xpath(FinalMonthlyPremiumXpath)).isDisplayed();
         if (isFinalMonth) {
 
-            System.out.println("Final monthly premium is visible to the user:" + $(By.xpath(FinalMonthlyPremiumXpath)).getText());
+            String CoverPremium = $(By.xpath(FinalMonthlyPremiumXpath)).getText();
+
+
+            System.out.println("Final monthly premium is visible to the user:" + CoverPremium );
+            Assert.assertEquals(CoverPremium, CoverAmount );
+
+
         } else {
 
 
-            Assert.fail("Final premium is not visible to the user");
+            Assert.fail("Final premium is not visible to the user /  Final premium is not the same ");
 
         }
 
