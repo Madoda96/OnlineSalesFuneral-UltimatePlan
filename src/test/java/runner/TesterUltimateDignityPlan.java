@@ -11,11 +11,11 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(plugin = {"pretty","json:target/cucumber.json" },
-        features = "src/test/resources/features/Ultimate Dignity Plan",
+        features = "src/test/resources/features/Ultimate Dignity Plan/UltimateDignityPlan.feature",
         glue = "stepsDefinition",
         monochrome = true,
         dryRun = false,
-        tags = "@NegativTest"
+        tags = "@Test"
 
 )
  //        tags = "@Regressionz"  )

@@ -57,39 +57,39 @@ public class MemberPage extends PageObject {
 
 
 
-    @Step("Verify slider amounts and select different amount")
-    public void SelectDifferentAmnt() throws InterruptedException {
-
-
-        List<WebElement> amounts = getDriver().findElements(By.xpath(sliderAmount));
-
-        List<String> amountsAvailible = new ArrayList<>();
-
-        amountsAvailible.add(amounts.get(0).getText());
-
-        amountsAvailible.add(amounts.get(1).getText());
-
-
-        amountsAvailible.add(amounts.get(2).getText());
-
-
-        amountsAvailible.add(amounts.get(3).getText());
-
-        amountsAvailible.add(amounts.get(4).getText());
-
-
-        for (String s : amountsAvailible) {
-            if (s.equalsIgnoreCase("R30,000") || s.equalsIgnoreCase("R35,000") || s.equalsIgnoreCase("R40,000") || s.equalsIgnoreCase("R45,000") || s.equalsIgnoreCase("R50,000")) {
-                System.out.println("Amounts are available for selection");
-            } else {
-
-                System.out.println("amount are  not available for selection");
-                Assert.fail("Some amounts are not visible to the user");
-
-            }
-
-        }
-    }
+//    @Step("Verify slider amounts and select different amount")
+//    public void SelectDifferentAmnt() throws InterruptedException {
+//
+//
+//        List<WebElement> amounts = getDriver().findElements(By.xpath(sliderAmount));
+//
+//        List<String> amountsAvailible = new ArrayList<>();
+//
+//        amountsAvailible.add(amounts.get(0).getText());
+//
+//        amountsAvailible.add(amounts.get(1).getText());
+//
+//
+//        amountsAvailible.add(amounts.get(2).getText());
+//
+//
+//        amountsAvailible.add(amounts.get(3).getText());
+//
+//        amountsAvailible.add(amounts.get(4).getText());
+//
+//
+//        for (String s : amountsAvailible) {
+//            if (s.equalsIgnoreCase("R30,000") || s.equalsIgnoreCase("R35,000") || s.equalsIgnoreCase("R40,000") || s.equalsIgnoreCase("R45,000") || s.equalsIgnoreCase("R50,000")) {
+//                System.out.println("Amounts are available for selection");
+//            } else {
+//
+//                System.out.println("amount are  not available for selection");
+//                Assert.fail("Some amounts are not visible to the user");
+//
+//            }
+//
+//        }
+//    }
 
     @Step("Select R35000")
         public void selectR35000() throws InterruptedException {

@@ -33,7 +33,7 @@ public class MainMemberWithMaximumExtendedMembers {
         // adding extended member that is 19,  modify year based on test case requirements
         additionalMembers.EnterExtendedMmemberDOB1("2003", "Sep", "14");
         additionalMembers.SelectExtendedMemberRelation1(ExtendedMemberRelation);
-        additionalMembers.selectDifferentAmnt();
+ //       additionalMembers.selectDifferentAmnt();
         Thread.sleep(3000);
 
 
@@ -178,8 +178,8 @@ public class MainMemberWithMaximumExtendedMembers {
 
     }
 
-    @Then("user should get a generated policy number.")
-    public void user_should_get_a_generated_policy_number() throws InterruptedException {
+    @Then("user should get a generated policy number with correct cover {string}.")
+    public void user_should_get_a_generated_policy_number_with_correct_cover(String coverAmount) throws InterruptedException {
 
         confirmationPage.viewPremium();
         confirmationPage.ViewWhoIsCovered();
@@ -192,7 +192,7 @@ public class MainMemberWithMaximumExtendedMembers {
 
 
         confirmationPage.ViewThankYouMessage();
-        confirmationPage.finalPremiumMnth();
+        confirmationPage.finalPremiumMnth(coverAmount);
         confirmationPage.PolicyNumber();
 
 

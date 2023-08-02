@@ -12,7 +12,7 @@ public class MemberWithTwoChildrenAbove18AndAreStudents {
 
 
     @Then("policy number should be generated with children added")
-    public void policy_number_should_be_generated_due_to_age_of_children() throws InterruptedException {
+    public void policy_number_should_be_generated_due_to_age_of_children( String coverAmount) throws InterruptedException {
         confirmationPage.viewPremium();
         confirmationPage.ViewWhoIsCovered();
         confirmationPage.ViewBenefits();
@@ -21,7 +21,7 @@ public class MemberWithTwoChildrenAbove18AndAreStudents {
         confirmationPage.ClickConfirmBtn();
         Thread.sleep(3000);
         confirmationPage.ViewThankYouMessage();
-        confirmationPage.finalPremiumMnth();
+        confirmationPage.finalPremiumMnth(coverAmount);
         confirmationPage.PolicyNumber();
 
 

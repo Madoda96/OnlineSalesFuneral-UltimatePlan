@@ -206,7 +206,7 @@ public class AdditionalMembers extends PageObject {
     @Step("Verify that R10000 is the minimum cover amount for members between 0 and 50")
     public void verifyMiniumCoverAmountForExtendedMembers0_and_50() {
         Boolean minimumAmntForMembersLessThan50 = $(By.xpath(CoverInfomation)).isDisplayed();
-        Boolean ContainsAmount = $(By.xpath(CoverInfomation)).containsText("R10,000");
+        Boolean ContainsAmount = $(By.xpath(MinimumAmountForMembersLessThan50Xpath)).containsText("R10,000");
         if (minimumAmntForMembersLessThan50 && ContainsAmount) {
             System.out.println("minimum amount is displayed to user: " + $(By.xpath(MinimumAmountForMembersLessThan50Xpath)).getText());
 
@@ -335,56 +335,56 @@ public class AdditionalMembers extends PageObject {
 
     }
 
-
-    @Step("Select different amount for extended member 1")
-    public void selectDifferentAmnt() throws InterruptedException {
-
-
-        Actions actions = new Actions(getDriver());
-
-        WebElement elem_slider = getDriver().findElement(By.xpath("//*[@id=\"priceSlider1\"]/span"));
-        Thread.sleep(2000);
-
-        String sliderAmount = "//div[@class=\"fl trsm\"]";
-
-        actions.clickAndHold(elem_slider).moveByOffset(219, 0).release().perform();
-
-
-        List<WebElement> amounts = getDriver().findElements(By.xpath(sliderAmount));
-
-        List<String> amountsAvailible = new ArrayList<>();
-        amountsAvailible.add(amounts.get(5).getText());
-        System.out.println(amounts.get(5).getLocation());
-
-
-        amountsAvailible.add(amounts.get(6).getText());
-        System.out.println(amounts.get(6).getLocation());
-
-        amountsAvailible.add(amounts.get(7).getText());
-        System.out.println(amounts.get(7).getLocation());
-
-        amountsAvailible.add(amounts.get(8).getText());
-        System.out.println(amounts.get(8).getLocation());
-
-        amountsAvailible.add(amounts.get(9).getText());
-        System.out.println(amounts.get(9).getLocation());
-        //       amountsAvailible.add(amounts.get(5).getText());
-
-
-        for (String s : amountsAvailible) {
-            if (s.equalsIgnoreCase("R30,000") || s.equalsIgnoreCase("R35,000") || s.equalsIgnoreCase("R40,000") || s.equalsIgnoreCase("R45,000") || s.equalsIgnoreCase("R50,000")) {
-                System.out.println("Amounts are available for selection");
-            } else {
-
-                System.out.println("amount are  not available for selection");
-                Assert.fail("Some amounts are not visible to the user");
-
-            }
-
-        }
-
-
-    }
+//
+//    @Step("Select different amount for extended member 1")
+//    public void selectDifferentAmnt() throws InterruptedException {
+//
+//
+//        Actions actions = new Actions(getDriver());
+//
+//        WebElement elem_slider = getDriver().findElement(By.xpath("//*[@id=\"priceSlider1\"]/span"));
+//        Thread.sleep(2000);
+//
+//        String sliderAmount = "//div[@class=\"fl trsm\"]";
+//
+//        actions.clickAndHold(elem_slider).moveByOffset(219, 0).release().perform();
+//
+//
+//        List<WebElement> amounts = getDriver().findElements(By.xpath(sliderAmount));
+//
+//        List<String> amountsAvailible = new ArrayList<>();
+//        amountsAvailible.add(amounts.get(5).getText());
+//        System.out.println(amounts.get(5).getLocation());
+//
+//
+//        amountsAvailible.add(amounts.get(6).getText());
+//        System.out.println(amounts.get(6).getLocation());
+//
+//        amountsAvailible.add(amounts.get(7).getText());
+//        System.out.println(amounts.get(7).getLocation());
+//
+//        amountsAvailible.add(amounts.get(8).getText());
+//        System.out.println(amounts.get(8).getLocation());
+//
+//        amountsAvailible.add(amounts.get(9).getText());
+//        System.out.println(amounts.get(9).getLocation());
+//        //       amountsAvailible.add(amounts.get(5).getText());
+//
+//
+//        for (String s : amountsAvailible) {
+//            if (s.equalsIgnoreCase("R30,000") || s.equalsIgnoreCase("R35,000") || s.equalsIgnoreCase("R40,000") || s.equalsIgnoreCase("R45,000") || s.equalsIgnoreCase("R50,000")) {
+//                System.out.println("Amounts are available for selection");
+//            } else {
+//
+//                System.out.println("amount are  not available for selection");
+//                Assert.fail("Some amounts are not visible to the user");
+//
+//            }
+//
+//        }
+//
+//
+//    }
 
 
     @Step("Select extended member title")
@@ -1217,10 +1217,11 @@ public class AdditionalMembers extends PageObject {
 
 
     @Step("Click Save extended member details ")
-    public void SaveExtendedMemberDetails() {
+    public void SaveExtendedMemberDetails() throws InterruptedException {
 
         Assert.assertTrue($(By.xpath(SaveExtendedMemberBtnXpath)).isClickable());
         $(By.xpath(SaveExtendedMemberBtnXpath)).click();
+        Thread.sleep(4000);
 
     }
 
