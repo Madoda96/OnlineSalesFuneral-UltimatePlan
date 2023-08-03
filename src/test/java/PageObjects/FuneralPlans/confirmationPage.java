@@ -41,6 +41,38 @@ public class confirmationPage extends PageObject {
 
     String AgeErrorMessageXpath = "//*[@id=\"onlineSaleForm\"]/div/div[5]/div[2]/div[5]/ul/li";
 
+    String staffDiscountPopUpXpath = "//div[@id=\"inline-payer-staff\"]";
+
+    String staffDiscountPopupOkBtnXpath = "//*[@id=\"onlinepayerstaff\"]";
+
+    String perksInformationXpath = "//*[@id=\"yuocovertextDiscountMsg\"]";
+
+
+
+    @Step("Verify user view employee discounted amount and click okay button")
+    public void discountAmnt(){
+
+        boolean employeeDiscount = $(By.xpath(staffDiscountPopUpXpath)).isDisplayed();
+        String employeeDiscountDescription = $(By.xpath(staffDiscountPopUpXpath)).getText();
+
+        if(employeeDiscount){
+
+            System.out.println("staff discount is visible to the user " + employeeDiscountDescription );
+            $(By.xpath(staffDiscountPopupOkBtnXpath)).click();
+        }else {
+            Assert.fail("staff discount not displayed to user ");
+
+        }
+    }
+
+
+
+
+
+
+
+
+
 
     @Step("Check final premium amount")
     public String FinalAmount() {
