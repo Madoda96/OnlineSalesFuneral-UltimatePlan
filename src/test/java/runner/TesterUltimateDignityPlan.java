@@ -13,9 +13,8 @@ import org.junit.runner.RunWith;
 @CucumberOptions(plugin = {"pretty","json:target/cucumber.json" },
         features = "src/test/resources/features/Ultimate Dignity Plan/UltimateDignityPlan.feature",
         glue = "stepsDefinition",
-        monochrome = true,
-        dryRun = false,
-        tags = "@Test"
+        monochrome = true
+        ,tags = " @TestNegat"
 
 )
  //        tags = "@Regressionz"  )
