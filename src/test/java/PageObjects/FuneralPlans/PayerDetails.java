@@ -44,6 +44,9 @@ public class PayerDetails extends PageObject {
     String PayerContinueButtonXpath = "//div[@ onclick=\"loader();step('4','no');\"]";
 
 
+
+
+
     @Step("Check Total Premium")
     public String TotalPremium() {
         String PremiumAmount = "";

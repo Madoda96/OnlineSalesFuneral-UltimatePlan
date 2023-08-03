@@ -271,7 +271,7 @@ Feature: Ultimate Dignity Plan
       | Mr    | lihle | Dumakude | 9301306948087 | 0832002639   | 12345 Test    | 1205       | R15,000 - R18,000 | Skilled agriculture | Post-graduate (Honours, Masters etc) | Yes              | Yes              | Mr                | Mandla           | Zulu                | Member Estate            | 100%                             | STANDARD BANK OF S.A. LTD | Savings Account | 1234          | 25        | No        | Dr          | David       | Dlamina       |           | Male         |  R365.00 per month           |
 
 
-  @NegativTest
+  @NegativeTest
   Scenario Outline: Capture a Funeral Dignity Dignity for a person who has an active Ultimate Dignity plan
 
     Given User has selected ultimate dignity plan and they enter email
@@ -284,4 +284,23 @@ Feature: Ultimate Dignity Plan
     Examples:
       | Title | Names | Surname  | IDnumber      | mobileNumber | PostalAddress | PostalCode | MonthlyIncome     | Occupation          | education                            | FicaDeclaration1 | FicaDeclaration2 |
       | Mr    | lihle | Dumakude | 9301302749083 | 0832002639   | 12345 Test    | 1205       | R15,000 - R18,000 | Skilled agriculture | Post-graduate (Honours, Masters etc) | Yes              | Yes              |
+
+
+    @TestNegat
+    Scenario Outline:Capture a Funeral Dignity/Ultimate Dignity for a staff member.
+      Given User has selected ultimate dignity plan and they enter email
+      When User completes the required  Member details information and they are a clientele employee '<Title>', '<Names>', '<Surname>', '<IDnumber>', '<mobileNumber>'.
+      And User enters '<PostalAddress>', '<PostalCode>', '<MonthlyIncome>','<Occupation>', '<education>'.
+      And User completes '<FicaDeclaration1>' and '<FicaDeclaration2>' and clicks the continue button.
+      And users confirms whether they have perks discount or not.
+      And User adds a spouse over maximum age '<spouseTitle>','<spouseNames>','<spouseSurname>','<spouseGender>','<spouseDOB>'.
+      And user clicks continue to beneficiary page
+      And User adds first beneficiary '<Beneficiary1Title>', '<Beneficiary1Name>', '<Beneficiary1Surname>','<Beneficiary1Relationship>', '<Beneficiary1PercantageAllocation>'
+      And user clicks save details
+      And user enters payer details '<bankName>','<accountType>','<accountNumber>','<debitDate>','<Debicheck>'
+      Then user should get a generated policy number with discounted premium '<coverAmount>'.
+
+      Examples:
+        | Title | Names | Surname | IDnumber      | mobileNumber | PostalAddress | PostalCode | MonthlyIncome     | Occupation          | education                            | FicaDeclaration1 | FicaDeclaration2 | Chidl1Names | Child1Surname | Child1Gende | Child1IsStudent | Child1Dob | Chidl2Names | Child2Surname | Child2Gende | Child2IsStudent | Child2Dob | Beneficiary1Title | Beneficiary1Name | Beneficiary1Surname | Beneficiary1Relationship | Beneficiary1PercantageAllocation | bankName                  | accountType     | accountNumber | debitDate | Debicheck | spouseTitle | spouseNames | spouseSurname | spouseDOB | spouseGender | Chidl3Names | Child3Surname | Child3Gende | Child3IsStudent | Child3Dob | coverAmount |
+        | Mr    | Nhlanhla |   Maduma| 8211195630087| 0832002639   | 12345 Test    | 1205       | R15,000 - R18,000 | Skilled agriculture | Post-graduate (Honours, Masters etc) | Yes              | Yes              | David       | Zulu          | Male        | No              |           | Mlandeli    | Zulu          | Male        | No              |           | Mr                | Mandla           | Zulu                | Brother                  | 100%                             | STANDARD BANK OF S.A. LTD | Savings Account | 1234          | 25        | No        | Dr          | David       | Dlamina       |           | Male         | Sizwe       | Mazibuko      | Male        | Yes             |           |  R866.00 per month           |
 

@@ -6,9 +6,11 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Wait;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
 
 public class AdditionalMembers extends PageObject {
 
@@ -168,10 +170,31 @@ public class AdditionalMembers extends PageObject {
     String MinimumAmountForMembersgreatherThan50Xpath = "//*[@id=\"priceSliderTrack1\"]/div[1]";
 
     String MaximumAmountForMembersgreaterThan50Xpath = "//*[@id=\"priceSliderTrack1\"]/div[6]";
-
-
     String CoverInfomation = "//div[@id=\"yuocovertext2\"]";
 
+   String PerksPopUp = "//div[@class=\"overlayDiscountMsgBox\"]";
+
+    String ClosePerksPopUpXpath = "//*[@id=\"overlayDiscount\"]/div/div[1]/img";
+
+
+
+    @Step("Verify that employee receives 20% for perks")
+    public void employeePerks() throws InterruptedException {
+
+        Thread.sleep(5000);
+        boolean PerksPopupDisplayed = $(By.xpath(PerksPopUp)).isDisplayed();
+
+        if(PerksPopupDisplayed){
+
+            System.out.println("Perks discount is available for employee and they have received 20%");
+            $(By.xpath(ClosePerksPopUpXpath)).click();
+
+        }else {
+
+            System.out.println("Employee doesn't have perks and they will not be receiving 20%");
+
+        }
+    }
 
     @Step("select that you have access to andriod/IOS device for silver rewards")
     public void checkAccessToDeviceForSilver() {
