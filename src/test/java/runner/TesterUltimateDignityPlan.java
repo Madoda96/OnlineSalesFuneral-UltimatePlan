@@ -14,7 +14,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features/Ultimate Dignity Plan/UltimateDignityPlan.feature",
         glue = "stepsDefinition",
         monochrome = true
-        ,tags = " @TestNegat"
+        ,tags = "@StaffMemberTest"
 
 )
  //        tags = "@Regressionz"  )
