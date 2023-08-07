@@ -1,5 +1,4 @@
 Feature: Member only With Minimum Age Extended Member
-
   Scenario: Capture Member Information,Additional Member, Beneficiary,payer details and confirm policy
     Given User complete Member detail
     And  User to complete Additional details

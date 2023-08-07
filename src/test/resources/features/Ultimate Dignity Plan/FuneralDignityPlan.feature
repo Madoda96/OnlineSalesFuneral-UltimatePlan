@@ -268,6 +268,7 @@ Feature: Funeral dignity plan
       | Title | Names   | Surname   | IDnumber      | mobileNumber | PostalAddress | PostalCode | MonthlyIncome     | Occupation          | education                            | FicaDeclaration1 | FicaDeclaration2 | Beneficiary1Title | Beneficiary1Name | Beneficiary1Surname | Beneficiary1Relationship | Beneficiary1PercantageAllocation | bankName                  | accountType     | accountNumber | debitDate | Debicheck | spouseTitle | spouseNames | spouseSurname | spouseDOB   | spouseGender | coverAmount       |
       | Mr    | Lwandle | Hernandez | 9101307920089 | 0832002639   | 12345 Test    | 1205       | R15,000 - R18,000 | Skilled agriculture | Post-graduate (Honours, Masters etc) | Yes              | Yes              | Mr                | Mandla           | Zulu                | Member Estate            | 100%                             | STANDARD BANK OF S.A. LTD | Savings Account | 1234          | 25        | No        | Dr          | David       | Dlamina       | 1952,Sep,05 | Male         | R341.00 per month |
 
+
   @StaffMemberTest
   Scenario Outline:Capture a Funeral Dignity Dignity for a staff member.
     Given User is on the Funeral dignity plan page and they enter email

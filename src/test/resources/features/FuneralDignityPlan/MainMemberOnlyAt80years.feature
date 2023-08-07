@@ -1,5 +1,3 @@
-
-
 Feature: Member Details Page
   Scenario: Main life at age 80
     Given : Open browser and select funeral1

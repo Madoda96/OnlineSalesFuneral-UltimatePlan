@@ -282,6 +282,7 @@ Feature: Ultimate Dignity Plan
       | Mr    | lihle | Dumakude | 9301302749083 | 0832002639   | 12345 Test    | 1205       | R15,000 - R18,000 | Skilled agriculture | Post-graduate (Honours, Masters etc) | Yes              | Yes              |
 
 
+
   @StaffMemberTest
   Scenario Outline:Capture a Funeral Dignity/Ultimate Dignity for a staff member.
     Given User has selected ultimate dignity plan and they enter email
