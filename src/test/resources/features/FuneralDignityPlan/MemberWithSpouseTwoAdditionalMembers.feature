@@ -1,10 +1,8 @@
 Feature: Funeral dignity plan
 
-
 Scenario Outline: Main member adding a spouse amd two people as beneficiaries with 50 percent each.
-
 Given User is on the dignity plan page and they enter email
-  And User completes the required  Member details information '<Title>', '<Names>', '<Surname>', '<IDnumber>', '<mobileNumber>'.
+And User completes the required  Member details information '<Title>', '<Names>', '<Surname>', '<IDnumber>', '<mobileNumber>'.
 And User enters '<PostalAddress>', '<PostalCode>', '<MonthlyIncome>','<Occupation>', '<education>'.
 And User completes '<FicaDeclaration1>' and '<FicaDeclaration2>' and clicks the continue button.
 And User adds a spouse '<spouseTitle>','<spouseNames>','<spouseSurname>','<spouseGender>','<spouseDOB>'.
