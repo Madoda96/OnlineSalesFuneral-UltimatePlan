@@ -14,7 +14,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features/Ultimate Dignity Plan",
         glue = "stepsDefinition",
         monochrome = true
-        ,tags = "@StaffMemberTest"
+
 
 )
 
