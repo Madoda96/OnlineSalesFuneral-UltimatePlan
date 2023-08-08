@@ -191,7 +191,8 @@ public class AdditionalMembers extends PageObject {
 
         }else {
 
-            System.out.println("Employee doesn't have perks and they will not be receiving 20%");
+            Assert.fail("Employee doesn't have perks and they will not be receiving 20%");
+
 
         }
     }
