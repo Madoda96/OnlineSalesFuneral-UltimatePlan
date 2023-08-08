@@ -10,7 +10,6 @@ import java.util.List;
 public class BeneficiaryDetails extends PageObject {
 
     String TitleXpath = "//select[@id=\"onTtlB1\"]";
-    //String TitleXpath = "//*[@id=\"onTtlB3\"]";
     String BeneficiaryNameXpath = "//input[@id=\"onNameB1\"]";
     String BeneficiarySurnameXpath = "//input[@id=\"onSurnameB1\"]";
     String BeneficiaryIDnumberXpath = "//input[@id=\"onIdB1\"]";
