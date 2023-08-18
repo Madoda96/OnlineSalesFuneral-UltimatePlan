@@ -1,5 +1,6 @@
 package PageObjects.FuneralPlans;
 
+import PageObjects.ID_Number;
 import groovy.transform.Final;
 import net.serenitybdd.core.pages.PageObject;
 import net.thucydides.core.annotations.Step;
@@ -13,11 +14,15 @@ import java.util.*;
 public class MemberPage extends PageObject {
 
 
+
+    ID_Number idNumber;
+
     // element will be used when intro email is required
     String EmailXpath = "//input[@id=\"introEmail\"]";
 
     // elements for selecting Funeral dignity plan or ultimate dignity plan.
     String UltimateDignityPlanXpath = "//a[@href=\"?sale=OU\"]";
+    String UltimateDignityPlanXpathHELP = "//a[@href=\"?sale=OG\"]";
     String FuneralDignityPlanXpath = "//a[@href=\"?sale=OR\"]";
     String HighestAmountXpath = "//*[@id=\"priceSliderTrack\"]/div[5]";
 
@@ -57,39 +62,39 @@ public class MemberPage extends PageObject {
 
 
 
-//    @Step("Verify slider amounts and select different amount")
-//    public void SelectDifferentAmnt() throws InterruptedException {
-//
-//
-//        List<WebElement> amounts = getDriver().findElements(By.xpath(sliderAmount));
-//
-//        List<String> amountsAvailible = new ArrayList<>();
-//
-//        amountsAvailible.add(amounts.get(0).getText());
-//
-//        amountsAvailible.add(amounts.get(1).getText());
-//
-//
-//        amountsAvailible.add(amounts.get(2).getText());
-//
-//
-//        amountsAvailible.add(amounts.get(3).getText());
-//
-//        amountsAvailible.add(amounts.get(4).getText());
-//
-//
-//        for (String s : amountsAvailible) {
-//            if (s.equalsIgnoreCase("R30,000") || s.equalsIgnoreCase("R35,000") || s.equalsIgnoreCase("R40,000") || s.equalsIgnoreCase("R45,000") || s.equalsIgnoreCase("R50,000")) {
-//                System.out.println("Amounts are available for selection");
-//            } else {
-//
-//                System.out.println("amount are  not available for selection");
-//                Assert.fail("Some amounts are not visible to the user");
-//
-//            }
-//
-//        }
-//    }
+    @Step("Verify slider amounts and select different amount")
+    public void DifferentAmnt() throws InterruptedException {
+
+
+        List<WebElement> amounts = getDriver().findElements(By.xpath(sliderAmount));
+
+        List<String> amountsAvailible = new ArrayList<>();
+
+        amountsAvailible.add(amounts.get(0).getText());
+
+        amountsAvailible.add(amounts.get(1).getText());
+
+
+        amountsAvailible.add(amounts.get(2).getText());
+
+
+        amountsAvailible.add(amounts.get(3).getText());
+
+ //       amountsAvailible.add(amounts.get(4).getText());
+
+
+        for (String s : amountsAvailible) {
+            if (s.equalsIgnoreCase("R125,000") || s.equalsIgnoreCase("R150,000") || s.equalsIgnoreCase("R200,000") || s.equalsIgnoreCase("R250,000")){
+                System.out.println("Amounts are available for selection");
+            } else {
+
+
+                Assert.fail("amount have been changed");
+
+            }
+
+        }
+    }
 
     @Step("Select R35000")
         public void selectR35000() throws InterruptedException {
@@ -215,6 +220,18 @@ public class MemberPage extends PageObject {
 
     }
 
+
+
+    @Step("Select ultimate dignity plan for H.E.L.P ")
+    public void selectUltimatePlanforHelp() {
+
+        Assert.assertTrue($(By.xpath(UltimateDignityPlanXpathHELP)).isDisplayed());
+        Assert.assertTrue($(By.xpath(UltimateDignityPlanXpathHELP)).isClickable());
+        $(By.xpath(UltimateDignityPlanXpathHELP)).click();
+
+    }
+
+
     @Step("Select Title")
     public void SelectTitle(String Title) {
 
@@ -244,7 +261,11 @@ public class MemberPage extends PageObject {
     @Step("enter member ID number ")
     public void enterMemberIDnum(String IDNUMBER) {
 
+
+
         $(By.xpath(IDnumXpath)).sendKeys(IDNUMBER);
+
+
 
 
     }

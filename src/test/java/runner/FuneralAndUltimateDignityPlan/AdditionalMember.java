@@ -1,4 +1,4 @@
-package runner;
+package runner.FuneralAndUltimateDignityPlan;
 
 
 import io.cucumber.junit.CucumberOptions;
@@ -7,9 +7,9 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(plugin = {"pretty"},
-        features = "src/test/resources/features/PayerDetails.feature",
+        features = "src/test/resources/features/FuneralDignityPlan/AdditionalMember.feature",
         glue = "stepsDefinition")
 //
 
-public class PayerDetails {
+public class AdditionalMember {
 }

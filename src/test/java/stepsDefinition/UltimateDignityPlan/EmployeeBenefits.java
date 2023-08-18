@@ -23,7 +23,7 @@ public class EmployeeBenefits {
         memberPage.SelectTitle(title);
         memberPage.EnterName(name);
         memberPage.Entersurname(surname);
-        memberPage.enterMemberIDnum(IDnumber);
+ //       memberPage.enterMemberIDnum(IDnumber);
         memberPage.enterMobileNum(mobileNum);
 //       memberPage.SelectDifferentAmnt();
 

@@ -35,7 +35,7 @@ public class MemberDetails {
         memberDetailsPage.EnterName("Skhaventure");
         memberDetailsPage.Entersurname("Skavi");
         memberDetailsPage.Entersurname("SUPERMAN");
-        memberDetailsPage.enterMemberIDnum("8705076328083");
+   //     memberDetailsPage.enterMemberIDnum("8705076328083");
         memberDetailsPage.enterMobileNum("0728712953");
         memberDetailsPage.enterPostalAddress("21 Jump Street");
         memberDetailsPage.EnterPostalCode("0152");

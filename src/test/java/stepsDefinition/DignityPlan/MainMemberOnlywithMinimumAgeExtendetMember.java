@@ -40,7 +40,7 @@ public class MainMemberOnlywithMinimumAgeExtendetMember {
         memberPage.SelectTitle("Mr");
         memberPage.EnterName("Lundi");
         memberPage.Entersurname("Zulu");
-        memberPage.enterMemberIDnum("8807047037866");
+      //  memberPage.enterMemberIDnum("8807047037866");
         memberPage.enterMobileNum("0832523001");
         memberPage.enterPostalAddress("21 Jump Street");
         memberPage.EnterPostalCode("0152");

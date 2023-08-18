@@ -3,7 +3,7 @@ package PageObjects.HomePage;
 import net.serenitybdd.core.pages.PageObject;
 import net.thucydides.core.annotations.Step;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.WindowType;
 
 public class HomePage extends PageObject {
 
@@ -22,12 +22,16 @@ public class HomePage extends PageObject {
 
     String ContinueBtnXpath = "//*[@id=\"onlinego\"]";
 
+
+
     String URL ="https://portals.freshive.co.za/clienteleonlinesales/";
 
 
-    public void OpenWebsite(){
+    public String OpenWebsite(){
 
         getDriver().get(URL);
+
+        return getDriver().getWindowHandle();
 
 
     }

@@ -33,7 +33,7 @@ public class MultiplePolicyNotAllowedForMember {
             memberPage.SelectTitle("Dr");
             memberPage.EnterName("SOLA");
             memberPage.Entersurname("SALA");
-            memberPage.enterMemberIDnum("9707025755977");
+    //        memberPage.enterMemberIDnum("9707025755977");
             memberPage.enterMobileNum("0825698547");
             memberPage.enterPostalAddress("21 Jump Street");
             memberPage.EnterPostalCode("0152");

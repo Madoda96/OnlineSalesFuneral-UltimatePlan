@@ -38,7 +38,7 @@ public class PayerDetails {
         memberPage.SelectTitle("Dr");
         memberPage.EnterName("Opelong");
         memberPage.Entersurname("Direro");
-        memberPage.enterMemberIDnum("8406258689000");
+      //  memberPage.enterMemberIDnum("8406258689000");
         memberPage.enterMobileNum("0728406258");
         memberPage.enterPostalAddress("21 jump street");
         memberPage.EnterPostalCode("0152");
