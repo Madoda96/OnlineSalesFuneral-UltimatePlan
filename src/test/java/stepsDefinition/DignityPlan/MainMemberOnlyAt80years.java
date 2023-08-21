@@ -41,7 +41,7 @@ public class MainMemberOnlyAt80years {
         memberPage.SelectTitle("Mr");
         memberPage.EnterName("wele");
         memberPage.Entersurname("Zaid");
-        memberPage.enterMemberIDnum("7307106754239");
+ //       memberPage.enterMemberIDnum("7307106754239");
         memberPage.enterMobileNum("0835898501");
         memberPage.enterPostalAddress("21 Jump Street");
         memberPage.EnterPostalCode("0152");

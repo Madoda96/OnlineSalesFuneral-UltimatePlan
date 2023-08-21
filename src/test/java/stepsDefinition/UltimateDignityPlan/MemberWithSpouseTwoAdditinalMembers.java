@@ -2,9 +2,13 @@ package stepsDefinition.UltimateDignityPlan;
 
 import PageObjects.FuneralPlans.*;
 import PageObjects.HomePage.HomePage;
+import PageObjects.ID_Number;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import net.thucydides.core.annotations.Steps;
+
+import java.io.IOException;
+
 
 public class MemberWithSpouseTwoAdditinalMembers {
 
@@ -23,6 +27,8 @@ public class MemberWithSpouseTwoAdditinalMembers {
     @Steps
     BeneficiaryDetails beneficiaryDetails;
 
+    ID_Number idNumber;
+
     @Given("User is on the dignity plan page and they enter email")
     public void user_is_on_the_dignity_plan_page_and_they_enter() {
         homePage.OpenWebsite();
@@ -31,14 +37,14 @@ public class MemberWithSpouseTwoAdditinalMembers {
         homePage.clickContinueBtn();
     }
 
-    @Given("User completes the required  Member details information {string}, {string}, {string}, {string}, {string}.")
-    public void user_completes_the_required_member_details_information(String title, String memberName, String memberSurname, String IDNumber, String memberMobileNum) throws InterruptedException {
+    @Given("User completes the required  Member details information {string}, {string}, {string}, {string}.")
+    public void user_completes_the_required_member_details_information(String title, String memberName, String memberSurname, String memberMobileNum) throws InterruptedException, IOException {
 
         memberPage.SelectTitle(title);
         memberPage.EnterName(memberName);
         memberPage.Entersurname(memberSurname);
-        memberPage.enterMemberIDnum(IDNumber);
         memberPage.enterMobileNum(memberMobileNum);
+        memberPage.enterMemberIDnum(idNumber.IDNomber());
 //       memberPage.SelectDifferentAmnt();
 
     }
@@ -52,6 +58,7 @@ public class MemberWithSpouseTwoAdditinalMembers {
         memberPage.selectEducation(MemberEducation);
 
     }
+
 
     @Given("User completes {string} and {string} and clicks the continue button.")
     public void user_completes_and_and_clicks_the_continue_button(String FICA1, String FICA2) {
@@ -85,7 +92,7 @@ public class MemberWithSpouseTwoAdditinalMembers {
         additionalMembers.enterSpouseName(spouseName);
         additionalMembers.enterSpouseSurname(spouseSurname);
         additionalMembers.selectSpouseGender(spousegender);
-        additionalMembers.enterSpouseDateOfBirth("1955", "Oct", "1");
+        additionalMembers.enterSpouseDateOfBirth("1970", "Oct", "1");
         additionalMembers.saveSpousedtls();
 
   //      additionalMembers.clickContinue();

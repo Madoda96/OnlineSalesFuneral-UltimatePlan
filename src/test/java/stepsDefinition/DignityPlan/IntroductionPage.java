@@ -3,10 +3,13 @@ package stepsDefinition.DignityPlan;
 import PageObjects.FuneralPlans.GetQoutationPage;
 import PageObjects.HomePage.HomePage;
 import PageObjects.FuneralPlans.MemberPage;
+import PageObjects.ID_Number;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.thucydides.core.annotations.Steps;
+
+import java.io.IOException;
 
 public class IntroductionPage {
 
@@ -17,6 +20,8 @@ public class IntroductionPage {
 
     @Steps
     GetQoutationPage getQoutationPage;
+    @Steps
+    ID_Number idNumber;
 
     @Given("User is on the introduction page")
     public void user_is_on_the_introduction_page() {
@@ -33,6 +38,9 @@ public class IntroductionPage {
 
     @Given("User is on the Funeral dignity plan page and they enter email")
     public void user_has_selected_Funeral_dignity_plan_and_they_enter() throws InterruptedException {
+
+
+
         homePage.OpenWebsite();
         homePage.ClickBuyNowFuneralPlans();
         memberPage.FuneraldignityPlanOption();
@@ -43,11 +51,21 @@ public class IntroductionPage {
     }
 
 
-//    @Given("User is on the Funeral dignity plan page and they enter email")
-//    public void user_has_selected_Funerala_dignity_plan_and_they_enter() throws InterruptedException {
-//        homePage.open();
-//        homePage.GetAQuoteFuneralPlans();
-//        Thread.sleep(3000);
+    @Given("User is on the Funeral dignity plan page they enter email and they are of age {string}")
+    public void user_is_on_the_funeral_dignity_plan_page_they_enter_email_and_they_are(String age) throws InterruptedException, IOException {
+
+
+
+        idNumber.OpenIDnumberGeneratorWebsite();
+        idNumber.enterAge(age);
+
+        homePage.OpenWebsite();
+        homePage.ClickBuyNowFuneralPlans();
+        memberPage.FuneraldignityPlanOption();
+        memberPage.EnterEmail(memberPage.GeneratedEmailAddress());
+        homePage.clickContinueBtn();
+        Thread.sleep(3000);
+    }
 
 
     @Given("User is on the online sales home page")

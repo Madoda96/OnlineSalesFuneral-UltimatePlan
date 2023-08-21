@@ -1,4 +1,4 @@
-package runner;
+package runner.FuneralAndUltimateDignityPlan;
 
 
 import io.cucumber.junit.Cucumber;
@@ -10,19 +10,16 @@ import org.junit.runner.RunWith;
 
 
 @RunWith(CucumberWithSerenity.class)
-@CucumberOptions(plugin = {"pretty","json:target/cucumber.json" },
-        features = "src/test/resources/features/Ultimate Dignity Plan",
+@CucumberOptions(plugin = {"json:target/cucumber.json" },
+        features = "src/test/resources/features/Ultimate Dignity Plan/FuneralDignityPlan.feature",
         glue = "stepsDefinition",
-        monochrome = true
+        monochrome = true,
+        tags = "@ID",
+        dryRun = false
 
 
 )
-
 public class TesterUltimateDignityPlan {
-
-
-
-
 
 
 }

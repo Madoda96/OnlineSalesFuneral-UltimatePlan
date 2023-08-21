@@ -19,6 +19,8 @@ public class confirmationPage extends PageObject {
 
     String AnnualIncreasesXpath = "//*[@id=\"PremiumIncreases\"]/table/tbody/tr[1]";
 
+    String AnnualIncreaseForHelpXpath = "//*[@id=\"PremiumIncreases2\"]/table/tbody/tr/td[2]";
+
     String DisclosureXpath = "//iframe[@id=\"Disclaimer\"]";
 
     String ReadTermsAndConditions = "//*[@id=\"onlineSaleForm\"]/div/div[5]/div[1]/div[6]/div[2]/div/div[1]/table/tbody/tr/td[2]/label/span"; // redefine this xpath because it's too long
@@ -152,6 +154,23 @@ public class confirmationPage extends PageObject {
 
 
     }
+
+    @Step("View if the Annual increase note for H.E.L.P is visible for the applicant")
+    public void AnnualIncreaseForHelp() {
+
+        boolean isAnnualIncreaseVisible = $(By.xpath(AnnualIncreaseForHelpXpath)).isDisplayed();
+        if (isAnnualIncreaseVisible) {
+            System.out.println("Annual increase information is showing: " + $(By.xpath(AnnualIncreaseForHelpXpath)).getText());
+
+        } else {
+
+
+            Assert.fail("Annual increase information is not showing");
+        }
+
+    }
+
+
     @Step("View if the Annual increase note is visible for the applicant")
     public void AnnualIncrease() {
 

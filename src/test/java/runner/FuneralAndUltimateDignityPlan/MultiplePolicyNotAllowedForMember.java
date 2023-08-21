@@ -1,5 +1,5 @@
 
-package runner;
+package runner.FuneralAndUltimateDignityPlan;
 
 
         import io.cucumber.junit.CucumberOptions;
@@ -8,11 +8,9 @@ package runner;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(plugin = {"pretty"},
-        features = "src/test/resources/features/FuneralDignityPlan/MainMemberOnlywithMinimumAgeExtendetMember.feature",  //funeralDignityPlan.feature
+        features = "src/test/resources/features/FuneralDignityPlan/MultiplePolicyNotAllowedForMember.feature",  //funeralDignityPlan.feature
         glue = "stepsDefinition")
 
-
-public class MainMemberOnlywithMinimumAgeExtendetMember {
-
+public class MultiplePolicyNotAllowedForMember {
 
 }

@@ -1,5 +1,5 @@
 
-package runner;
+package runner.FuneralAndUltimateDignityPlan;
 
 
         import io.cucumber.junit.CucumberOptions;
