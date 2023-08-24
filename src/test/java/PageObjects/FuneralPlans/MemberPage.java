@@ -144,6 +144,51 @@ public class MemberPage extends PageObject {
 
     }
 
+    @Step("Select R200,000 H.E.L.P cover amount")
+    public void selectR200000() throws InterruptedException {
+        Actions actions = new Actions(getDriver());
+
+        WebElement elem_slider = getDriver().findElement(By.xpath("//*[@id=\"priceSlider\"]/span"));
+        Thread.sleep(2000);
+
+        actions.clickAndHold(elem_slider).moveByOffset(426,0).release().perform();
+
+
+
+
+
+    }
+
+    @Step("Select R150,000 H.E.L.P cover amount")
+    public void selectR150000() throws InterruptedException {
+        Actions actions = new Actions(getDriver());
+
+        WebElement elem_slider = getDriver().findElement(By.xpath("//*[@id=\"priceSlider\"]/span"));
+        Thread.sleep(2000);
+
+        actions.clickAndHold(elem_slider).moveByOffset(290,0).release().perform();
+
+
+
+
+
+    }
+
+    @Step("Select R250,000 H.E.L.P cover amount")
+    public void selectR250000() throws InterruptedException {
+        Actions actions = new Actions(getDriver());
+
+        WebElement elem_slider = getDriver().findElement(By.xpath("//*[@id=\"priceSlider\"]/span"));
+        Thread.sleep(2000);
+
+        actions.clickAndHold(elem_slider).moveByOffset(859,0).release().perform();
+
+
+
+
+
+    }
+
     @Step("Generate random email address")
     public String GeneratedEmailAddress() {
         Random randomGenerator = new Random();

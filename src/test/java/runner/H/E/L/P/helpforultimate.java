@@ -7,11 +7,11 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(plugin = {"json:target/cucumber.json" },
-        features = "src/test/resources/features/HELP/Clientele_Standard_H.E.L.P_Plan.feature",
+        features = "src/test/resources/features/HELP",
         glue = "stepsDefinition",
         monochrome = true,
         dryRun = false,
-        tags = "@Test"
+        tags = "@test1"
 
 
 )

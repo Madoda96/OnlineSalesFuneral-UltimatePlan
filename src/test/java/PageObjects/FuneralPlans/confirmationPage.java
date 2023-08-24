@@ -5,6 +5,10 @@ import net.thucydides.core.pages.PageObject;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class confirmationPage extends PageObject {
 
@@ -216,16 +220,23 @@ public class confirmationPage extends PageObject {
 
     @Step("View thank you message ")
     public void ViewThankYouMessage () {
-        boolean ThankYouMsgVisible = $(By.xpath(ThankYouMsgXpath)).isDisplayed();
 
-        if (ThankYouMsgVisible) {
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(30));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(ThankYouMsgXpath)));
 
-            System.out.println("Thank you message is visible to the user: " + $(By.xpath(ThankYouMsgXpath)).getText());
-        } else {
 
-            Assert.fail("Thank you messsage is not visible to the user");
 
-        }
+
+//        boolean ThankYouMsgVisible = $(By.xpath(ThankYouMsgXpath)).isDisplayed();
+//
+//        if (ThankYouMsgVisible) {
+//
+//            System.out.println("Thank you message is visible to the user: " + $(By.xpath(ThankYouMsgXpath)).getText());
+//        } else {
+//
+//            Assert.fail("Thank you messsage is not visible to the user");
+//
+//        }
 
     }
     @Step("View final monthly premium")

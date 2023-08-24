@@ -929,8 +929,7 @@ public class AdditionalMembers extends PageObject {
         WebElement seleGend = $(By.xpath(Spouse_GenderXpath));
         selectFromDropdown(seleGend, Gender);
 
-//    Select gender = $(By.xpath(Spouse_GenderXpath));
-//    gender.selectByValue(Gender);
+
 
     }
 
@@ -1267,5 +1266,44 @@ public class AdditionalMembers extends PageObject {
         $(By.xpath(RemoveExtendedMmemberXpath)).click();
 
     }
+    @Step("Select R100000 for a family cover")
+    public void SelectR100000HELPUltimate() throws InterruptedException {
+
+        Actions actions = new Actions(getDriver());
+
+        WebElement elem_slider = getDriver().findElement(By.xpath("/html/body/section/div/div/div/form/div/div[7]/div[3]/div[3]/div[2]/div[1]/div/span"));
+        Thread.sleep(2000);
+
+        actions.clickAndHold(elem_slider).moveByOffset(200,0).release().perform();
+
+    }
+
+    @Step("Select R150,000 for family cover ")
+    public void SelectR150000HELPUltimate() throws InterruptedException {
+        Actions actions = new Actions(getDriver());
+
+        WebElement elem_slider = getDriver().findElement(By.xpath("//*[@id=\"priceSliderNew\"]/span"));
+        Thread.sleep(2000);
+
+        actions.clickAndHold(elem_slider).moveByOffset(300,0).release().perform();
+
+
+
+
+    }
+    @Step("Select R200,000 for family")
+    public void SelectR200000HELPUltimate() throws InterruptedException {
+        Actions actions = new Actions(getDriver());
+
+        WebElement elem_slider = getDriver().findElement(By.xpath("//*[@id=\"priceSliderNew\"]/span"));
+        Thread.sleep(2000);
+
+        actions.clickAndHold(elem_slider).moveByOffset(400,0).release().perform();
+
+
+
+
+    }
+
 
 }
