@@ -2,6 +2,7 @@ package PageObjects.FuneralPlans;
 
 import net.serenitybdd.core.pages.PageObject;
 import net.thucydides.core.annotations.Step;
+import org.junit.jupiter.api.AfterAll;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -166,10 +167,6 @@ public class BeneficiaryDetails extends PageObject {
     public void EnterBeneficiarySurname2(String Bsurname) {
         $(By.xpath(BeneficiarySurnameXpath2)).sendKeys(Bsurname);
     }
-
-
-
-
 
 
 
