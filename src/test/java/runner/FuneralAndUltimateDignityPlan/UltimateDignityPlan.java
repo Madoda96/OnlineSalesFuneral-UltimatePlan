@@ -1,7 +1,6 @@
 package runner.FuneralAndUltimateDignityPlan;
 
 
-import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import net.serenitybdd.cucumber.CucumberWithSerenity;
 import org.junit.runner.RunWith;
@@ -19,7 +18,7 @@ import org.junit.runner.RunWith;
 
 
 )
-public class TesterUltimateDignityPlan {
+public class UltimateDignityPlan {
 
 
 }

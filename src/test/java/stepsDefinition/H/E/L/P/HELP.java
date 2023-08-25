@@ -52,12 +52,10 @@ public class HELP {
         confirmationPage.ViewWhoIsCovered();
         confirmationPage.ViewBenefits();
         confirmationPage.AnnualIncreaseForHelp();
+        Thread.sleep(3000);
         confirmationPage.AcceptTermsAndConditions();
 
         confirmationPage.ClickConfirmBtn();
-        Thread.sleep(12000);
-
-
         confirmationPage.ViewThankYouMessage();
         confirmationPage.finalPremiumMnth(coverAmount);
         confirmationPage.PolicyNumber();
