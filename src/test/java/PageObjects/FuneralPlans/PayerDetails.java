@@ -47,7 +47,7 @@ public class PayerDetails extends PageObject {
 
     String PayerContinueButtonXpath = "//div[@ onclick=\"loader();step('4','no');\"]";
 
-    WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(60));
+
 
 
 
@@ -91,7 +91,7 @@ public class PayerDetails extends PageObject {
     @Step("Select bank name")
     public void SelectBankName (String bankName){
 
-
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(60));
        WebElement e = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(PayerBankNameXpath)));
         selectFromDropdown(e, bankName);
 

@@ -179,13 +179,13 @@ public class AdditionalMembers extends PageObject {
 
     String ClosePerksPopUpXpath = "//*[@id=\"overlayDiscount\"]/div/div[1]/img";
 
-    WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(60));
+
 
 
 
     @Step("Verify that employee receives 20% for perks")
     public void employeePerks() throws InterruptedException {
-
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(60));
         boolean PerksPopupDisplayed = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(PerksPopUp))).isDisplayed();
 
 

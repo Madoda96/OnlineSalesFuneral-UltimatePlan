@@ -53,7 +53,7 @@ public class confirmationPage extends PageObject {
 
     String perksInformationXpath = "//*[@id=\"yuocovertextDiscountMsg\"]";
 
-    WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(60));
+
 
     @Step("Verify user view employee discounted amount and click okay button")
     public void discountAmnt(){
@@ -88,7 +88,7 @@ public class confirmationPage extends PageObject {
 
     @Step("Check Non-Insurance information")
     public void NonInsuranceInfo(){
-
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(60));
         boolean nonInsuranceInfo =  wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(NonInsuranceXpath))).isDisplayed();
 
 
@@ -202,7 +202,7 @@ public class confirmationPage extends PageObject {
     @Step("Click the checkbox to agree to terms and conditions")
     public void AcceptTermsAndConditions (){
 
-
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(60));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(ReadTermsAndConditions))).click();
         //$(By.xpath(ReadTermsAndConditions)).click();
 
@@ -215,7 +215,7 @@ public class confirmationPage extends PageObject {
     @Step("Click confirm button ")
     public void ClickConfirmBtn (){
 
-
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(60));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(ConfirmBtn))).click();
         //$(By.xpath(ConfirmBtn)).click();
 
@@ -224,7 +224,7 @@ public class confirmationPage extends PageObject {
     @Step("View thank you message ")
     public void ViewThankYouMessage () {
 
-
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(60));
        boolean ThankYouMsgVisible =  wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(ThankYouMsgXpath))).isDisplayed();
 
           if (ThankYouMsgVisible) {
@@ -240,7 +240,7 @@ public class confirmationPage extends PageObject {
     @Step("View final monthly premium")
     public void finalPremiumMnth(String CoverAmount) {
 
-
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(60));
         boolean isFinalMonth =  wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(FinalMonthlyPremiumXpath))).isDisplayed();
          if (isFinalMonth) {
 
