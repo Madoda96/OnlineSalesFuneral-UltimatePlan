@@ -1,0 +1,6 @@
+{
+  "id": "funeral-dignity-plan;capture-an-extended-family-member-with-the-age-band-to-show-the-minimum-cover-amount",
+  "name": "Capture an extended family member with the age band to show the minimum cover amount",
+  "result": "FAILURE",
+  "testFailureSummary": "FAILURE;java.lang.AssertionError;Undefined default URL for page object HomePage;IntroductionPage.java"
+}
