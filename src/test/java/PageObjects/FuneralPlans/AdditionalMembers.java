@@ -6,8 +6,11 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
@@ -178,11 +181,13 @@ public class AdditionalMembers extends PageObject {
 
 
 
+
+
     @Step("Verify that employee receives 20% for perks")
     public void employeePerks() throws InterruptedException {
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(60));
+        boolean PerksPopupDisplayed = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(PerksPopUp))).isDisplayed();
 
-        Thread.sleep(5000);
-        boolean PerksPopupDisplayed = $(By.xpath(PerksPopUp)).isDisplayed();
 
         if(PerksPopupDisplayed){
 

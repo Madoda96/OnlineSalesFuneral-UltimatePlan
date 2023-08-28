@@ -87,10 +87,10 @@ public class confirmationPage extends PageObject {
     }
 
     @Step("Check Non-Insurance information")
-    public void NonInsuranceInfo() throws InterruptedException {
+    public void NonInsuranceInfo(){
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(60));
+        boolean nonInsuranceInfo =  wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(NonInsuranceXpath))).isDisplayed();
 
-       Thread.sleep(5000);
-        boolean nonInsuranceInfo = $(By.xpath(NonInsuranceXpath)).isDisplayed();
 
         if (nonInsuranceInfo) {
             System.out.println("Non-insurance information is showing: " + $(By.xpath(NonInsuranceXpath)).getText());
@@ -202,9 +202,9 @@ public class confirmationPage extends PageObject {
     @Step("Click the checkbox to agree to terms and conditions")
     public void AcceptTermsAndConditions (){
 
-
-
-        $(By.xpath(ReadTermsAndConditions)).click();
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(60));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(ReadTermsAndConditions))).click();
+        //$(By.xpath(ReadTermsAndConditions)).click();
 
     }
     @Step("Click back button to navigate to payer details page")
@@ -214,49 +214,41 @@ public class confirmationPage extends PageObject {
     }
     @Step("Click confirm button ")
     public void ClickConfirmBtn (){
-        $(By.xpath(ConfirmBtn)).click();
+
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(60));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(ConfirmBtn))).click();
+        //$(By.xpath(ConfirmBtn)).click();
 
     }
 
     @Step("View thank you message ")
     public void ViewThankYouMessage () {
 
-        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(30));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(ThankYouMsgXpath)));
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(60));
+       boolean ThankYouMsgVisible =  wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(ThankYouMsgXpath))).isDisplayed();
 
+          if (ThankYouMsgVisible) {
 
+            System.out.println("Thank you message is visible to the user: " + $(By.xpath(ThankYouMsgXpath)).getText());
+        } else {
 
+            Assert.fail("Thank you messsage is not visible to the user");
 
-//        boolean ThankYouMsgVisible = $(By.xpath(ThankYouMsgXpath)).isDisplayed();
-//
-//        if (ThankYouMsgVisible) {
-//
-//            System.out.println("Thank you message is visible to the user: " + $(By.xpath(ThankYouMsgXpath)).getText());
-//        } else {
-//
-//            Assert.fail("Thank you messsage is not visible to the user");
-//
-//        }
+        }
 
     }
     @Step("View final monthly premium")
     public void finalPremiumMnth(String CoverAmount) {
 
-        boolean isFinalMonth = $(By.xpath(FinalMonthlyPremiumXpath)).isDisplayed();
-        if (isFinalMonth) {
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(60));
+        boolean isFinalMonth =  wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(FinalMonthlyPremiumXpath))).isDisplayed();
+         if (isFinalMonth) {
 
             String CoverPremium = $(By.xpath(FinalMonthlyPremiumXpath)).getText();
-
-
             System.out.println("Final monthly premium is visible to the user:" + CoverPremium );
             Assert.assertEquals(CoverPremium, CoverAmount );
-
-
         } else {
-
-
             Assert.fail("Final premium is not visible to the user /  Final premium is not the same ");
-
         }
 
 
