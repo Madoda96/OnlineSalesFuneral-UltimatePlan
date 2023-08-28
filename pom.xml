@@ -13,7 +13,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <serenity.version>3.6.21</serenity.version>
         <encoding>UTF-8</encoding>
-        <tags> @StaffMemberTest</tags>
+        <tags></tags>
         <webdriver.base.url>https://portals.freshive.co.za/clienteleonlinesales/</webdriver.base.url>
     </properties>
     <dependencies>
