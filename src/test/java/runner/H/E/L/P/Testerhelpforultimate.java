@@ -10,9 +10,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features/HELP",
         glue = "stepsDefinition",
         monochrome = true,
-        dryRun = false,
-        tags = "@test1"
-
+        dryRun = false
 
 )
 
