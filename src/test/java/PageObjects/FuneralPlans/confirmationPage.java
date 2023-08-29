@@ -107,7 +107,12 @@ public class confirmationPage extends PageObject {
 
     @Step("view total premium and first premium debit date")
     public void viewPremium() {
-        boolean isPremiumVisibile = $(By.xpath(PremiumXpath)).isDisplayed();
+
+
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(60));
+        boolean isPremiumVisibile =  wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(PremiumXpath))).isDisplayed();
+
+
         if (isPremiumVisibile) {
             System.out.println("Premiums are visibile to client based on the information captured");
         } else {
@@ -128,7 +133,12 @@ public class confirmationPage extends PageObject {
 
     @Step("View who is covered as per additional members added and main member")
     public void ViewWhoIsCovered() {
-        boolean isWhoIsCoveredVisible = $(By.xpath(WhoIsCoveredXpath)).isDisplayed();
+
+
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(60));
+        boolean isWhoIsCoveredVisible =   wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(WhoIsCoveredXpath))).isDisplayed();
+
+
         if (isWhoIsCoveredVisible) {
 
             System.out.println("information about who is covered is displaye:" + $(By.xpath(WhoIsCoveredXpath)).getText());
@@ -143,7 +153,10 @@ public class confirmationPage extends PageObject {
 
     @Step("View if the list of benefits is visible for the applicant")
     public void ViewBenefits() {
-        boolean BenefitsVisible = $(By.xpath(BenefitsXpath)).isDisplayed();
+
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(60));
+        boolean BenefitsVisible =   wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(BenefitsXpath))).isDisplayed();
+
         if (BenefitsVisible) {
 
             System.out.println("Benefits are showing to the user:" + $(By.xpath(BenefitsXpath)).getText());
