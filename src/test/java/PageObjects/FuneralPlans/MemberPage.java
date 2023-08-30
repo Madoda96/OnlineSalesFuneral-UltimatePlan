@@ -6,6 +6,8 @@ import net.serenitybdd.core.pages.PageObject;
 import net.thucydides.core.annotations.Step;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
@@ -151,6 +153,13 @@ public class MemberPage extends PageObject {
         WebElement elem_slider = getDriver().findElement(By.xpath("//*[@id=\"priceSlider\"]/span"));
         Thread.sleep(2000);
 
+
+
+      // $(By.xpath(ContinueBtnXpath)).sendKeys(Keys.DOWN);
+        WebElement a = $(By.xpath(ContinueBtnXpath));
+        ((JavascriptExecutor)getDriver()).executeScript("arguments[0].scrollIntoView();", a);
+
+        Thread.sleep(2000);
         actions.clickAndHold(elem_slider).moveByOffset(426,0).release().perform();
 
 
@@ -166,6 +175,10 @@ public class MemberPage extends PageObject {
         WebElement elem_slider = getDriver().findElement(By.xpath("//*[@id=\"priceSlider\"]/span"));
         Thread.sleep(2000);
 
+        WebElement a = $(By.xpath(ContinueBtnXpath));
+        ((JavascriptExecutor)getDriver()).executeScript("arguments[0].scrollIntoView();", a);
+
+        Thread.sleep(2000);
         actions.clickAndHold(elem_slider).moveByOffset(290,0).release().perform();
 
 
@@ -180,7 +193,10 @@ public class MemberPage extends PageObject {
 
         WebElement elem_slider = getDriver().findElement(By.xpath("//*[@id=\"priceSlider\"]/span"));
         Thread.sleep(2000);
+        WebElement a = $(By.xpath(ContinueBtnXpath));
+        ((JavascriptExecutor)getDriver()).executeScript("arguments[0].scrollIntoView();", a);
 
+        Thread.sleep(2000);
         actions.clickAndHold(elem_slider).moveByOffset(859,0).release().perform();
 
 
