@@ -193,6 +193,7 @@ public class MemberPage extends PageObject {
 
         WebElement elem_slider = getDriver().findElement(By.xpath("//*[@id=\"priceSlider\"]/span"));
         Thread.sleep(2000);
+
         WebElement a = $(By.xpath(ContinueBtnXpath));
         ((JavascriptExecutor)getDriver()).executeScript("arguments[0].scrollIntoView();", a);
 

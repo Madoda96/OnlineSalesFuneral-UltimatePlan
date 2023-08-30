@@ -10,8 +10,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features/HELP/Clientele_Ultimate_H.E.L.P_Plan.feature",
         glue = "stepsDefinition",
         monochrome = true,
-        dryRun = false,
-        tags = "@Test"
+        dryRun = false
 
 
 )
