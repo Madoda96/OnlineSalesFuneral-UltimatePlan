@@ -1,7 +1,9 @@
 package PageObjects.FuneralPlans;
 
+
 import net.serenitybdd.core.pages.PageObject;
 import net.thucydides.core.annotations.Step;
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -222,6 +224,8 @@ public class AdditionalMembers extends PageObject {
         Assert.assertTrue($(By.xpath(CoverInfomation)).isVisible());
         Assert.assertTrue($(By.xpath(CoverInfomation)).isDisplayed());
         Assert.assertTrue($(By.xpath(CoverInfomation)).containsText("Reward"));
+
+
 
     }
 
