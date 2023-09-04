@@ -36,7 +36,7 @@ Feature: Funeral dignity plan
       | Title | Names     | Surname | Age | mobileNumber |
       | Mr    | Jessica J | Damico  |  15  | 0832002639   |
 
-  @ID
+
   Scenario Outline: Capture the member only plan with the minimum cover amount for main life assured
     Given User is on the Funeral dignity plan page they enter email and they are of age '<Age>'
     When User completes the required  Member details information '<Title>', '<Names>', '<Surname>', '<mobileNumber>'.
