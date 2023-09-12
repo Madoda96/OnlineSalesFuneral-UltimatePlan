@@ -10,10 +10,9 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(plugin = {"json:target/cucumber.json" },
-        features = "src/test/resources/features/Ultimate Dignity Plan/FuneralDignityPlan.feature",
+        features = "src/test/resources/features/Ultimate Dignity Plan",
         glue = "stepsDefinition",
         monochrome = true,
-        tags = "@ID",
         dryRun = false
 
 

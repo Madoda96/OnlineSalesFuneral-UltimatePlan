@@ -1,7 +1,8 @@
 package PageObjects.FuneralPlans;
 
-import net.serenitybdd.core.pages.PageObject;
 import net.thucydides.core.annotations.Step;
+import net.serenitybdd.core.pages.PageObject;
+
 import org.junit.jupiter.api.AfterAll;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;

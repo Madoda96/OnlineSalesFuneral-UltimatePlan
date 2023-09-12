@@ -6,7 +6,6 @@ import PageObjects.HomePage.HomePage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import net.thucydides.core.annotations.Steps;
-
 import java.util.Random;
 
 public class MainMemberOnlywithMinimumAgeExtendetMember {

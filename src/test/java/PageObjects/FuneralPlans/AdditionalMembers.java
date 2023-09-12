@@ -1,22 +1,20 @@
 package PageObjects.FuneralPlans;
 
 
-import net.serenitybdd.core.pages.PageObject;
-import net.thucydides.core.annotations.Step;
 
+import net.serenitybdd.core.pages.PageObject;
+
+import net.thucydides.core.annotations.Step;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Function;
 
 public class AdditionalMembers extends PageObject {
 
