@@ -27,7 +27,7 @@ public class confirmationPage extends PageObject {
 
     String DisclosureXpath = "//iframe[@id=\"Disclaimer\"]";
 
-    String ReadTermsAndConditions = "//*[@id=\"onlineSaleForm\"]/div/div[5]/div[1]/div[6]/div[2]/div/div[1]/table/tbody/tr/td[2]/label/span"; // redefine this xpath because it's too long
+    String ReadTermsAndConditions = "/html/body/section/div/div/div/form/div/div[5]/div[1]/div[6]/div[2]/div/div[1]/table/tbody/tr/td[2]/label/span"; // redefine this xpath because it's too long
 
     String BackBtnXpath = "//div[@onclick=\"stepback('3');\"]";
 
@@ -70,14 +70,6 @@ public class confirmationPage extends PageObject {
 
         }
     }
-
-
-
-
-
-
-
-
 
 
     @Step("Check final premium amount")
@@ -215,11 +207,14 @@ public class confirmationPage extends PageObject {
     @Step("Click the checkbox to agree to terms and conditions")
     public void AcceptTermsAndConditions (){
 
+
         WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(60));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(ReadTermsAndConditions))).click();
         //$(By.xpath(ReadTermsAndConditions)).click();
 
+
     }
+
     @Step("Click back button to navigate to payer details page")
     public void ClickBackBtn (){
         $(By.xpath(BackBtnXpath)).click();
@@ -229,7 +224,9 @@ public class confirmationPage extends PageObject {
     public void ClickConfirmBtn (){
 
         WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(60));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(ConfirmBtn))).click();
+
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(ConfirmBtn))).click();
+
         //$(By.xpath(ConfirmBtn)).click();
 
     }
@@ -269,6 +266,8 @@ public class confirmationPage extends PageObject {
     @Step("View and confirm if the applicants can see generated policy number ")
     public void PolicyNumber () {
         boolean isPolicyNUM = $(By.xpath(PolicyNumXpath)).isDisplayed();
+
+
         if (isPolicyNUM) {
 
             System.out.println("Policy number is generated and visible to the user: " + $(By.xpath(PolicyNumXpath)).getText());

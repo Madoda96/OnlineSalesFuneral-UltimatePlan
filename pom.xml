@@ -17,7 +17,6 @@
         <webdriver.base.url>https://portals.freshive.co.za/clienteleonlinesales/</webdriver.base.url>
     </properties>
     <dependencies>
-
         <dependency>
             <groupId>net.serenity-bdd</groupId>
             <artifactId>serenity-cucumber</artifactId>
@@ -123,19 +122,19 @@
 
     <build>
         <plugins>
-<!--            <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-surefire-plugin</artifactId>-->
-<!--                <version>3.0.0-M5</version>-->
-<!--                <configuration>-->
-<!--                    <includes>-->
-<!--                        <include>**/*Test.java</include>-->
-<!--                        <include>**/Test*.java</include>-->
-<!--                        <include>**/*TestSuite.java</include>-->
-<!--                        <include>**/When*.java</include>-->
-<!--                    </includes>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
+            <!--            <plugin>-->
+            <!--                <groupId>org.apache.maven.plugins</groupId>-->
+            <!--                <artifactId>maven-surefire-plugin</artifactId>-->
+            <!--                <version>3.0.0-M5</version>-->
+            <!--                <configuration>-->
+            <!--                    <includes>-->
+            <!--                        <include>**/*Test.java</include>-->
+            <!--                        <include>**/Test*.java</include>-->
+            <!--                        <include>**/*TestSuite.java</include>-->
+            <!--                        <include>**/When*.java</include>-->
+            <!--                    </includes>-->
+            <!--                </configuration>-->
+            <!--            </plugin>-->
             <plugin>
                 <artifactId>maven-failsafe-plugin</artifactId>
                 <version>3.0.0-M5</version>

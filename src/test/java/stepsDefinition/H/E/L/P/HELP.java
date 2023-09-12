@@ -49,12 +49,12 @@ public class HELP {
     }
     @Then("user should get a generated policy number for H.E.L.P with correct cover {string}.")
     public void user_should_get_a_generated_policy_number_for_h_e_l_p_with_correct_cover(String coverAmount) throws InterruptedException {
-       Thread.sleep(5000);
+        Thread.sleep(10000);
         confirmationPage.viewPremium();
         confirmationPage.ViewWhoIsCovered();
         confirmationPage.ViewBenefits();
         confirmationPage.AnnualIncreaseForHelp();
-        Thread.sleep(3000);
+
         confirmationPage.AcceptTermsAndConditions();
 
         confirmationPage.ClickConfirmBtn();
