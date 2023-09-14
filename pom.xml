@@ -122,6 +122,11 @@
             <artifactId>maven-cucumber-reporting</artifactId>
             <version>5.7.5</version>
         </dependency>
+        <dependency>
+            <groupId>net.masterthought</groupId>
+            <artifactId>cucumber-reporting</artifactId>
+            <version>5.7.6</version>
+        </dependency>
     </dependencies>
 
 
