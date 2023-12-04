@@ -148,10 +148,11 @@ public class MemberPage extends PageObject {
 
     @Step("Select R200,000 H.E.L.P cover amount")
     public void selectR200000() throws InterruptedException {
+        Thread.sleep(2000);
         Actions actions = new Actions(getDriver());
 
         WebElement elem_slider = getDriver().findElement(By.xpath("//*[@id=\"priceSlider\"]/span"));
-        Thread.sleep(2000);
+
 
 
 
@@ -170,6 +171,7 @@ public class MemberPage extends PageObject {
 
     @Step("Select R150,000 H.E.L.P cover amount")
     public void selectR150000() throws InterruptedException {
+        Thread.sleep(2000);
         Actions actions = new Actions(getDriver());
 
         WebElement elem_slider = getDriver().findElement(By.xpath("//*[@id=\"priceSlider\"]/span"));
@@ -233,6 +235,7 @@ public class MemberPage extends PageObject {
     }
 
     @Step("Confirm that Funeral dignity plan is visible")
+
     public void FuneraldignityPlanOption() {
         Assert.assertTrue($(By.xpath(FuneralDignityPlanOptionXpath)).isDisplayed());
         Assert.assertTrue($(By.xpath(FuneralDignityPlanOptionXpath)).isVisible());
@@ -295,7 +298,8 @@ public class MemberPage extends PageObject {
 
 
     @Step("Select Title")
-    public void SelectTitle(String Title) {
+    public void SelectTitle(String Title) throws InterruptedException {
+        Thread.sleep(20000);
 
         if ($(By.xpath("//*[@id=\"inline-cont\"]")).isDisplayed()) {
 
@@ -351,6 +355,7 @@ public class MemberPage extends PageObject {
     }
 
     @Step("Verify that Email address is populated to email field")
+
     public void EmailAdresPopulated() {
         WebElement Email = $(By.xpath(EmailXPATH));
 
@@ -413,6 +418,7 @@ public class MemberPage extends PageObject {
     }
 
     @Step("Verify that field is  validated and marked as red ")
+
     public void IDNumfieldValidated() {
 
         boolean IDValidationdisplayed = $(By.xpath(IDNumberValidation)).isDisplayed();

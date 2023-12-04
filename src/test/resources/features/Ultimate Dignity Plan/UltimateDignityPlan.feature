@@ -1,5 +1,7 @@
 Feature: Ultimate Dignity Plan
 
+
+
   Scenario Outline: Access Online platform and select OU product to generate a quotation.
 
     Given User is on the online sales home page
@@ -17,14 +19,15 @@ Feature: Ultimate Dignity Plan
       | Mlandeli | 0832002639 | ClienteleTest1@test.co.za | 25        | 05         | 1992      | Ultimate Funeral Dignity Plan | Family    | R60 000     | Yes            | 19 years old      | 33 years old      |
 
 
+  @Test1
   Scenario:Click on buy now, and select the product
-
     Given User is on the introduction page
     Then user should be able to see the OR and OU options.
 
 
-  Scenario Outline: Capture the member only plan with the minimum cover amount for main life assured
 
+  @Test2
+  Scenario Outline: Capture the member only plan with the minimum cover amount for main life assured
 
     Given User is on the Funeral dignity plan page they enter email and they are of age '<Age>'
     When User completes the required  Member details information '<Title>', '<Names>', '<Surname>', '<mobileNumber>'.
@@ -43,7 +46,7 @@ Feature: Ultimate Dignity Plan
   ##  And User adds a spouse '<spouseTitle>','<spouseNames>','<spouseSurname>','<spouseGender>','<spouseDOB>'.
     And user clicks continue to beneficiary page
     And User adds first beneficiary '<Beneficiary1Title>', '<Beneficiary1Name>', '<Beneficiary1Surname>','<Beneficiary1Relationship>', '<Beneficiary1PercantageAllocation>'
-    And User adds second beneficiary '<Beneficiary2Title>', '<Beneficiary2Name>', '<Beneficiary2Surname>','<Beneficiary2Relationship>', '<Beneficiary2PercantageAllocation>'
+#    And User adds second beneficiary '<Beneficiary2Title>', '<Beneficiary2Name>', '<Beneficiary2Surname>','<Beneficiary2Relationship>', '<Beneficiary2PercantageAllocation>'
     And user clicks save details
     And user enters payer details '<bankName>','<accountType>','<accountNumber>','<debitDate>','<Debicheck>'
     Then user should get a generated policy number with correct cover '<coverAmount>'.

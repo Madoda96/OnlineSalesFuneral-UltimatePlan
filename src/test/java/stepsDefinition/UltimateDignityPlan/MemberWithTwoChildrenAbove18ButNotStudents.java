@@ -31,7 +31,7 @@ public class MemberWithTwoChildrenAbove18ButNotStudents {
         additionalMembers.EnterChildSurname(child1Surname);
         additionalMembers.selectChildGender(child1Gender);
         additionalMembers.IsChildStudentOrNot(child1IsStudent);
-        additionalMembers.childDateOfBirth("2002","Dec","1");
+        additionalMembers.childDateOfBirth("2004","Dec","1");
         additionalMembers.SaveChildDetails();
 
 
@@ -41,13 +41,13 @@ public class MemberWithTwoChildrenAbove18ButNotStudents {
 
     @Given("User User adds the second child {string},{string},{string},{string},{string} that above eighteen years old")
     public void user_user_adds_the_second_child_that_above_eighteen_years_old(String child2Name, String child2Surname, String child2Gender, String child2IsStudent, String childDOB) throws InterruptedException {
-
+        Thread.sleep(3000);
         additionalMembers.addAnotherCh();
         additionalMembers.EnterChild2Name(child2Name);
         additionalMembers.EnterChild2Surname(child2Surname);
         additionalMembers.selectChild2Gender(child2Gender);
         additionalMembers.IsChild2StudentOrNot(child2IsStudent);
-        additionalMembers.child2DateOfBirth("2002","Dec","1");
+        additionalMembers.child2DateOfBirth("2004","Dec","15");
         additionalMembers.SaveChildDetails();
         Thread.sleep(3000);
 

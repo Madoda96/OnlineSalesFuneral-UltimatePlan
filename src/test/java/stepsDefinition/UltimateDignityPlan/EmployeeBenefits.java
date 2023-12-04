@@ -17,8 +17,8 @@ public class EmployeeBenefits {
     @Steps
     AdditionalMembers additionalMembers;
 
-    @When("User completes the required  Member details information and they are a clientele employee {string}, {string}, {string}, {string}, {string}.")
-    public void user_completes_the_required_member_details_information_and_they_are_a_clientele_employee(String title, String name, String surname, String IDnumber, String mobileNum) {
+    @When("User completes the required  Member details information {string}, {string}, {string}, {string}.")
+    public void user_completes_the_required_member_details_information(String title, String name, String surname, String mobileNum) throws InterruptedException {
 
         memberPage.SelectTitle(title);
         memberPage.EnterName(name);

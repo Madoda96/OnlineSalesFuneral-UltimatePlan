@@ -31,7 +31,7 @@ public class MainMemberAt81Years {
     }
 
     @And(": User captures age above restriction")
-    public void user_captures_age_above_restriction() {
+    public void user_captures_age_above_restriction() throws InterruptedException {
         memberPage.SelectTitle("Dr");
         memberPage.EnterName("SOLA");
         memberPage.Entersurname("SALA");

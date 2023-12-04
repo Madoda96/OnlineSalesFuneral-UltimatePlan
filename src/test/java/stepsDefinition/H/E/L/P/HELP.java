@@ -8,11 +8,12 @@ import PageObjects.ID_Number;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import net.serenitybdd.core.pages.PageObject;
 import net.thucydides.core.annotations.Steps;
 
 import java.io.IOException;
 
-public class HELP {
+public class HELP extends PageObject {
 
 
 
@@ -95,20 +96,21 @@ public class HELP {
     }
     @Then("User selects R50000 family cover")
     public void user_selects_r50000_family_cover() throws InterruptedException {
+
  //      additionalMembers.SelectR50000HELPUltimate();
     }
     @Then("User selects R100000 family cover")
     public void user_selects_r100000_family_cover() throws InterruptedException {
-       additionalMembers.SelectR100000HELPUltimate();
+       //additionalMembers.sele;
            }
 
     @Then("User selects R150000 family cover")
     public void user_selects_r150000_family_cover() throws InterruptedException {
-      additionalMembers.SelectR150000HELPUltimate();
+      //additionalMembers.SelectR150000HELPUltimate();
     }
     @Then("User selects R200000 family cover")
     public void user_selects_r200000_family_cover() throws InterruptedException {
-        additionalMembers.SelectR200000HELPUltimate();
+        //additionalMembers.SelectR200000HELPUltimate();
     }
 
 

@@ -13,6 +13,7 @@ public class BeneficiaryDetails extends PageObject {
 
     String TitleXpath = "//select[@id=\"onTtlB1\"]";
     String BeneficiaryNameXpath = "//input[@id=\"onNameB1\"]";
+    String BeneficiaryName1Xpath = "//*[@id=\"onNameB1\"]";
     String BeneficiarySurnameXpath = "//input[@id=\"onSurnameB1\"]";
     String BeneficiaryIDnumberXpath = "//input[@id=\"onIdB1\"]";
     String BeneficiaryDOBXpath = "//input[@id=\"onDobB1\" ]";
@@ -45,6 +46,47 @@ public class BeneficiaryDetails extends PageObject {
     String AddAnotherBeneficiaryXpath = "//button[@id=\"AddBeneficiary\"]";
 
 
+//    @Step("Select beneficial relationship")
+//    public void SelectBeneficiaryRelationship(String BeneficiaryRelationship) {
+//
+//        WebElement benefiTitle = $(By.xpath(BeneficiaryRelationshipXpath));
+//        selectFromDropdown(benefiTitle, BeneficiaryRelationship);
+//
+//    }
+
+//    @Step("Select percentage allocation")
+//    public void SelectPercentageAllocation(String PercentageAllocation) {
+//
+//        WebElement Allocation = $(By.xpath(AllocatedPercentageXpath));
+//        selectFromDropdown(Allocation, PercentageAllocation);
+//    }
+
+    @Step("Select beneficiary Title")
+
+
+    public void SelectBeneficiaryTite(String Title) {
+        WebElement benefiTitle = $(By.xpath(TitleXpath));
+        selectFromDropdown(benefiTitle, Title);
+    }
+
+    @Step(" Enter the name of the beneficiary")
+
+    public void EnterBeneficiaryName(String name) throws InterruptedException {
+
+        Thread.sleep(1000);
+        $(By.xpath(BeneficiaryName1Xpath)).sendKeys(name);
+    }
+
+    @Step("Enter the surname of the beneficiary")
+    public void EnterBeneficiarySurname(String Bsurname) {
+        $(By.xpath(BeneficiarySurnameXpath)).sendKeys(Bsurname);
+    }
+
+    @Step("Enter the beneficiary ID number")
+    public void EnterBenefiaryIDnum(String IDnum) {
+        $(By.xpath(BeneficiaryIDnumberXpath)).sendKeys(IDnum);
+    }
+
     @Step("Select beneficial relationship")
     public void SelectBeneficiaryRelationship(String BeneficiaryRelationship) {
 
@@ -60,55 +102,37 @@ public class BeneficiaryDetails extends PageObject {
         selectFromDropdown(Allocation, PercentageAllocation);
     }
 
-    @Step("Select beneficiary Title")
-    public void SelectBeneficiaryTite(String Title) {
-        WebElement benefiTitle = $(By.xpath(TitleXpath));
-        selectFromDropdown(benefiTitle, Title);
-    }
-
-    @Step(" Enter the name of the beneficiary")
-    public void EnterBeneficiaryName(String name) {
-        $(By.xpath(BeneficiaryNameXpath)).sendKeys(name);
-    }
-
-    @Step("Enter the surname of the beneficiary")
-    public void EnterBeneficiarySurname(String Bsurname) {
-        $(By.xpath(BeneficiarySurnameXpath)).sendKeys(Bsurname);
-    }
-
-    @Step("Enter the beneficiary ID number")
-    public void EnterBenefiaryIDnum(String IDnum) {
-        $(By.xpath(BeneficiaryIDnumberXpath)).sendKeys(IDnum);
-    }
 
 
-    @Step(" Enter beneficiary date of birth")
-    public void EnterDateOfBirth(String day, String month, String year) {
 
-        String activedatesXpath = "//*[@id=\"ui-datepicker-div\"]/table/tbody";
-
-        $(By.xpath(BeneficiaryDOBXpath)).click();
-        WebElement Year = $(By.xpath(YearXPATH2));
-        WebElement months = $(By.xpath(MonthXPATH2));
-
-
-        selectFromDropdown(Year, year);
-
-
-        // enter the month eg Jan,Feb,Mar,April,etc
-        selectFromDropdown(months, month);
-
-        WebElement dts = $(By.xpath(activedatesXpath));
-        List<WebElement> activedates = dts.findElements(By.tagName("td"));
-
-        for (WebElement dates : activedates) {
-            String date = dates.getText();
-            if (date.equals(day)) {
-                dates.click();
-                break;
-            }
-        }
-    }
+//    @Step(" Enter beneficiary date of birth")
+//
+//    public void EnterDateOfBirth(String day, String month, String year) {
+//
+//        String activedatesXpath = "//*[@id=\"ui-datepicker-div\"]/table/tbody";
+//
+//        $(By.xpath(BeneficiaryDOBXpath)).click();
+//        WebElement Year = $(By.xpath(YearXPATH2));
+//        WebElement months = $(By.xpath(MonthXPATH2));
+//
+//
+//        selectFromDropdown(Year, year);
+//
+//
+//        // enter the month eg Jan,Feb,Mar,April,etc
+//        selectFromDropdown(months, month);
+//
+//        WebElement dts = $(By.xpath(activedatesXpath));
+//        List<WebElement> activedates = dts.findElements(By.tagName("td"));
+//
+//        for (WebElement dates : activedates) {
+//            String date = dates.getText();
+//            if (date.equals(day)) {
+//                dates.click();
+//                break;
+//            }
+//        }
+//    }
 
 
 

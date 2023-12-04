@@ -88,6 +88,7 @@ public class AdditionalMembers extends PageObject {
     String ExtendedMemberRelationXpath8 = "//select[@id=\"onRelationMem8\"]";
 
     String SaveExtendedMemberBtnXpath = "//div[@id=\"SaveMember\"]";
+    String ERXpath = "//input[@id=\"onNameB1\"]";
 
     String AddAnotherExtendedMmeberBtnXpath = "//button[@id=\"AddMember\"]";
 
@@ -110,6 +111,7 @@ public class AdditionalMembers extends PageObject {
     String Spouse_IDXpath = "//input[@name=\"onIdNumSp\"]";
 
     String Spouse_DoBXpath = "//input[@name=\"onDob\"]";
+    String Spouse_DoBXpathh = "//*[@id=\"onDob\"]";
     String CalenderYear = "//select[@class=\"ui-datepicker-year\"]";
 
     String CalenderMonth = "//select[@class=\"ui-datepicker-month\"]";
@@ -130,14 +132,17 @@ public class AdditionalMembers extends PageObject {
     String ChildDOBXpath = "//input[@id=\"onDobCh1\"]";
 
     String Child2NameXpath = "//input[@id=\"onNameCh2\"]";
+    String Child2Xpath = "//*[@id=\"onNameCh2\"]";
     String Child2SurnameNameXpath = "//input[@id=\"onSurnameCh2\"]";
     String Child2GenderXpath = "//select[@id=\"onGenderCh2\"]";
     String Child2IsStudenteXpath = "//select[@id=\"onChIsStudent2\"]";
     String ChildID2numXpath = "//input[@id=\"onIdNumCh2\"]";
+
     String Child2DOBXpath = "//input[@id=\"onDobCh2\"]";
 
 
     String Child3NameXpath = "//input[@id=\"onNameCh3\"]";
+    String Child3Xpath = "//*[@id=\"onNameCh3\"]";
     String Child3SurnameNameXpath = "//input[@id=\"onSurnameCh3\"]";
     String Child3GenderXpath = "//select[@id=\"onGenderCh3\"]";
     String Child3IsStudenteXpath = "//select[@id=\"onChIsStudent3\"]";
@@ -906,6 +911,7 @@ public class AdditionalMembers extends PageObject {
 
 
     @Step("Check checkbox to add a spouse ")
+
     public void addSpouse() {
         $(By.xpath(AddSpouseCheckbxXpath)).click();
 
@@ -942,17 +948,30 @@ public class AdditionalMembers extends PageObject {
     }
 
     @Step(" Enter spouse ID number")
+
     public void EnterSpouseIDNo(String IdNum) {
         $(By.xpath(Spouse_IDXpath)).sendKeys(IdNum);
     }
 
     @Step("enter spouse date of birth")
     public void enterSpouseDateOfBirth(String Year, String Month, String day) {
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
+
 
         String activedatesXpath = "//*[@id=\"ui-datepicker-div\"]/table";
 
-        $(By.xpath(Spouse_DoBXpath)).click();
+//        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(Spouse_DoBXpathh)));
+//        element.click();
+
+        $(By.xpath(Spouse_DoBXpathh)).click();
+
+//        WebElement YRR = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(CalenderYear)));
+
+
         WebElement YRR = $(By.xpath(CalenderYear));
+
+//        WebElement months = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(CalenderMonth)));
+
         WebElement months = $(By.xpath(CalenderMonth));
 
 
@@ -1013,6 +1032,7 @@ public class AdditionalMembers extends PageObject {
     }
 
     @Step("Click back button to see member details page")
+
     public void clickBackBtn() {
         Assert.assertTrue($(By.xpath(ContinueBtnXpath)).isClickable());
         $(By.xpath(BackBtnXpath)).click();
@@ -1021,7 +1041,7 @@ public class AdditionalMembers extends PageObject {
 
     @Step("Add a child name")
     public void EnterChild2Name(String Childname) {
-        $(By.xpath(Child2NameXpath)).sendKeys(Childname);
+        $(By.xpath(Child2Xpath)).sendKeys(Childname);
     }
 
     @Step("Add a child surname")
@@ -1045,15 +1065,12 @@ public class AdditionalMembers extends PageObject {
 
     @Step("Enter the child ID number")
     public void child2IDNUM(String childIDNo) {
-
         $(By.xpath(ChildID2numXpath)).sendKeys(childIDNo);
 
     }
-
-
     @Step("Add a child name")
     public void EnterChild3Name(String Childname) {
-        $(By.xpath(Child3NameXpath)).sendKeys(Childname);
+        $(By.xpath(Child3Xpath)).sendKeys(Childname);
     }
 
     @Step("Add a child surname")
@@ -1274,54 +1291,7 @@ public class AdditionalMembers extends PageObject {
         $(By.xpath(RemoveExtendedMmemberXpath)).click();
 
     }
-    @Step("Select R100000 for a family cover")
-    public void SelectR100000HELPUltimate() throws InterruptedException {
 
-        Actions actions = new Actions(getDriver());
-
-        WebElement elem_slider = getDriver().findElement(By.xpath("/html/body/section/div/div/div/form/div/div[7]/div[3]/div[3]/div[2]/div[1]/div/span"));
-        Thread.sleep(2000);
-
-        WebElement a = $(By.xpath(ContinueBtnXpath));
-        ((JavascriptExecutor)getDriver()).executeScript("arguments[0].scrollIntoView();", a);
-
-        actions.clickAndHold(elem_slider).moveByOffset(200,0).release().perform();
-
-    }
-
-    @Step("Select R150,000 for family cover ")
-    public void SelectR150000HELPUltimate() throws InterruptedException {
-        Actions actions = new Actions(getDriver());
-
-        WebElement elem_slider = getDriver().findElement(By.xpath("//*[@id=\"priceSliderNew\"]/span"));
-        Thread.sleep(2000);
-
-        WebElement a = $(By.xpath(ContinueBtnXpath));
-        ((JavascriptExecutor)getDriver()).executeScript("arguments[0].scrollIntoView();", a);
-
-        actions.clickAndHold(elem_slider).moveByOffset(300,0).release().perform();
-
-
-
-
-    }
-    @Step("Select R200,000 for family")
-    public void SelectR200000HELPUltimate() throws InterruptedException {
-        Actions actions = new Actions(getDriver());
-
-        WebElement elem_slider = getDriver().findElement(By.xpath("//*[@id=\"priceSliderNew\"]/span"));
-        Thread.sleep(2000);
-
-
-        WebElement a = $(By.xpath(ContinueBtnXpath));
-        ((JavascriptExecutor)getDriver()).executeScript("arguments[0].scrollIntoView();", a);
-
-        actions.clickAndHold(elem_slider).moveByOffset(400,0).release().perform();
-
-
-
-
-    }
 
 
 }

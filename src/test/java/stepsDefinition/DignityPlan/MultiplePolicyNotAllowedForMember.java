@@ -29,7 +29,7 @@ public class MultiplePolicyNotAllowedForMember {
 
     }
     @Given(": Open Browser and capture member details")
-    public void open_browser_and_capture_member_details() {
+    public void open_browser_and_capture_member_details() throws InterruptedException {
             memberPage.SelectTitle("Dr");
             memberPage.EnterName("SOLA");
             memberPage.Entersurname("SALA");

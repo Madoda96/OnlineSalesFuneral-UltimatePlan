@@ -76,7 +76,8 @@ public class IntroductionPage {
         Thread.sleep(3000);
     }
     @When("user clicks the get quote button.")
-    public void user_clicks_the_get_quote_button() {
+    public void user_clicks_the_get_quote_button() throws InterruptedException {
+        Thread.sleep(5000);
         homePage.GetAQuoteFuneralPlans();
     }
     @When("enters {string} , {string} ,{string}, {string} , {string} , {string}.")

@@ -10,8 +10,10 @@ import org.junit.runner.RunWith;
 @CucumberOptions(plugin = {"pretty"},
         features = "src/test/resources/features/Ultimate Dignity Plan/FuneralDignityPlan.feature",
         glue = "stepsDefinition",
-        tags = "@Test1",
-         dryRun = false)
+        //tags = "@",
+
+         dryRun = false
+)
 
 public class funeraldignityplan {
 }

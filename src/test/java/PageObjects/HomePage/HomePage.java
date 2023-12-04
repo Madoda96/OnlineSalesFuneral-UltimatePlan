@@ -3,13 +3,19 @@ package PageObjects.HomePage;
 import net.serenitybdd.core.pages.PageObject;
 import net.thucydides.core.annotations.Step;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WindowType;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class HomePage extends PageObject {
 
     //Funeral Plan WebElements
+
     String FuneralBuyNowXpath = "//a[@class=\"btn funeral\"]";
     String GetQuoteFuneralXpath = "//a[@class=\"btn funeral call-me-quote cboxElement\"]";
+
+    String QuoteFuneralXpath = "//a[@class='btn product-bottom-button FuneralQuoteBottom waves-effect waves-light']";
+    String QFXpath = "(//a[@class='btn product-bottom-button FuneralQuoteBottom waves-effect waves-light'])[1]";
 
     // Legal Plan WebElements
 
@@ -17,6 +23,7 @@ public class HomePage extends PageObject {
     String LegalGetQuoteXpath = "//a[@class=\"btn legal call-me-quote cboxElement\"]";
 
     // Hospital Plans WebElements
+
     String HospitalPlanBuyNowXpath = "//a[@class=\"btn hospital\"]";
     String HospitalPlanGetQuoteXpath = "//a[@class=\"btn hospital call-me-quote cboxElement\"]";
 
@@ -27,11 +34,11 @@ public class HomePage extends PageObject {
     String URL ="https://portals.freshive.co.za/clienteleonlinesales/";
 
 
-    public String OpenWebsite(){
+    public void OpenWebsite(){
 
         getDriver().get(URL);
 
-        return getDriver().getWindowHandle();
+        getDriver().getWindowHandle();
 
 
     }
@@ -50,17 +57,22 @@ public class HomePage extends PageObject {
 
     }
     @Step("Click Get a Quote on Funeral Plan")
+
     public void GetAQuoteFuneralPlans(){
-        $(By.xpath(GetQuoteFuneralXpath)).click();
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
+
+        $(By.xpath(QFXpath)).click();
 
     }
     @Step("Click Buy Now on legal Plan")
+
     public void ClickBuyNowLegalPlans(){
         $(By.xpath(LegalBuyNowXpath)).click();
 
     }
 
     @Step("Click Get Quote on legal Plan")
+
     public void ClickGetQuoteLegalPlans(){
         $(By.xpath(LegalGetQuoteXpath)).click();
 

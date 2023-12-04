@@ -30,7 +30,7 @@ public class MemberDetails {
     }
 
     @When("User should be able to complete required information")
-    public void user_should_be_able_to_complete_required_information() {
+    public void user_should_be_able_to_complete_required_information() throws InterruptedException {
         memberDetailsPage.SelectTitle("Dr");
         memberDetailsPage.EnterName("Skhaventure");
         memberDetailsPage.Entersurname("Skavi");

@@ -37,14 +37,14 @@ public class MemberWithSpouseTwoAdditinalMembers {
         homePage.clickContinueBtn();
     }
 
-    @Given("User completes the required  Member details information {string}, {string}, {string}, {string}.")
-    public void user_completes_the_required_member_details_information(String title, String memberName, String memberSurname, String memberMobileNum) throws InterruptedException, IOException {
+    @Given("User completes the required  Member details information {string}, {string}, {string}, {string}, {string}.")
+    public void user_completes_the_required_member_details_information(String title, String memberName, String memberSurname, String memberMobileNum, String IDNomber) throws InterruptedException {
 
         memberPage.SelectTitle(title);
         memberPage.EnterName(memberName);
         memberPage.Entersurname(memberSurname);
         memberPage.enterMobileNum(memberMobileNum);
-        memberPage.enterMemberIDnum(idNumber.IDNomber());
+        memberPage.enterMemberIDnum(IDNomber);
 //       memberPage.SelectDifferentAmnt();
 
     }
