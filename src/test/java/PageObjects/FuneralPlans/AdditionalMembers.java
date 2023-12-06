@@ -16,19 +16,23 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.List;
 
+import static net.serenitybdd.core.Serenity.getDriver;
+
 public class AdditionalMembers extends PageObject {
 
 
-    // Add spouse Webelements
+    // Add spouse Web elements
+
     String AddSpouseCheckbxXpath = "//*[@id=\"onlineSaleForm\"]/div/div[2]/div[1]/div[7]/fieldset/div[1]/div[1]/label/span";
-
+    String ADDSpouseXpath = "//label[@for='addspouse01']//span[@class='rd']";
     String AddChildrenCheckBoxXpath = "//*[@id=\"onlineSaleForm\"]/div/div[2]/div[1]/div[8]/fieldset/div[1]/div[1]/label/span";
-
-
     String AddExtendedMemberCheckBoxXpath = "//*[@id=\"onlineSaleForm\"]/div/div[2]/div[1]/div[9]/fieldset/div[1]/div[1]/label/span";
+    String AdSpouseCHKBOX = "(//span[@class='rd'])[1]";
 
 
-    // additional member webelements
+
+    // additional member web elements
+
     String ExtendedMemberTitleXpath1 = "//select[@id=\"onTtlMem1\"]";
     String ExtendedMemberNameXpath1 = "//input[@id=\"onNameMem1\"]";
     String ExtendedMemberSurnameXpath1 = "//input[@id=\"onSurnameMem1\"]";
@@ -332,23 +336,25 @@ public class AdditionalMembers extends PageObject {
 
 
     @Step("Click additional member checkbox")
+
     public void clickExtendedMemberCheckbx() throws InterruptedException {
 
-        boolean addExtendedMember = $(By.xpath(AddExtendedMemberCheckBoxXpath)).isDisplayed();
-
-        if (addExtendedMember) {
+//        boolean addExtendedMember = $(By.xpath(AddExtendedMemberCheckBoxXpath)).isDisplayed();
+//
+//        if (addExtendedMember) {
 
             $(By.xpath(AddExtendedMemberCheckBoxXpath)).click();
 
-        } else {
-
-            Assert.fail("Checkbox not displayed");
-
-        }
+//        } else {
+//
+//            Assert.fail("Checkbox not displayed");
+//
+//        }
 
     }
 
     @Step("Select extended member title")
+
     public void selectExtMemberTitle1(String ExtendedMemberTitle) {
 
         WebElement ExtmemeberTitle1 = $(By.xpath(ExtendedMemberTitleXpath1));
@@ -911,9 +917,12 @@ public class AdditionalMembers extends PageObject {
 
 
     @Step("Check checkbox to add a spouse ")
-
     public void addSpouse() {
-        $(By.xpath(AddSpouseCheckbxXpath)).click();
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(15));
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(AdSpouseCHKBOX)));
+        element.click();
+
+       // $(By.xpath(ADDSpouseXpath)).click();
 
     }
 

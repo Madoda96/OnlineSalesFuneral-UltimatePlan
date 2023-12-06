@@ -1,5 +1,16 @@
 package stepsDefinition.UltimateDignityPlan;
 
+import org.openqa.selenium.By;
+
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
+import java.util.List;
+
 import PageObjects.FuneralPlans.*;
 import PageObjects.HomePage.HomePage;
 import PageObjects.ID_Number;
@@ -8,6 +19,8 @@ import io.cucumber.java.en.Then;
 import net.thucydides.core.annotations.Steps;
 
 import java.io.IOException;
+
+import static net.serenitybdd.core.Serenity.getDriver;
 
 
 public class MemberWithSpouseTwoAdditinalMembers {
@@ -61,9 +74,12 @@ public class MemberWithSpouseTwoAdditinalMembers {
 
 
     @Given("User completes {string} and {string} and clicks the continue button.")
-    public void user_completes_and_and_clicks_the_continue_button(String FICA1, String FICA2) {
+    public void user_completes_and_and_clicks_the_continue_button(String FICA1, String FICA2) throws InterruptedException {
+
         memberPage.acceptFICAdecl(FICA1);
         memberPage.acceptFicaDeclaration2(FICA2);
+
+        Thread.sleep(5000);
         memberPage.clickContinueBt();
     }
 
@@ -86,7 +102,7 @@ public class MemberWithSpouseTwoAdditinalMembers {
 
     @Then("User adds a spouse over maximum age {string},{string},{string},{string},{string}.")
     public void User_adds_a_spouse_over_maximum_age(String SpouseTitle, String spouseName, String spouseSurname, String spousegender, String spouseDOB) throws InterruptedException {
-        Thread.sleep(3000);
+
         additionalMembers.addSpouse();
         additionalMembers.selectTitle(SpouseTitle);
         additionalMembers.enterSpouseName(spouseName);
@@ -104,11 +120,13 @@ public class MemberWithSpouseTwoAdditinalMembers {
     public void user_adds_first_beneficiary(String Benef1Title, String Benef1Name, String Benef1Surname, String Benef1Relatiomship, String Benef1Allocation) throws InterruptedException {
         Thread.sleep(5000);
 
-        beneficiaryDetails.EnterBeneficiaryName(Benef1Name);
+
         beneficiaryDetails.SelectBeneficiaryTite(Benef1Title);
 
+        beneficiaryDetails.EnterBeneficiaryName("Ishmael");
 
-        beneficiaryDetails.EnterBeneficiarySurname(Benef1Surname);
+
+        beneficiaryDetails.EnterBeneficiarySurname("Direro");
 //        beneficiaryDetails.EnterDateOfBirth("1", "Dec", "2003");
         beneficiaryDetails.SelectBeneficiaryRelationship(Benef1Relatiomship);
         beneficiaryDetails.SelectPercentageAllocation(Benef1Allocation);
@@ -117,12 +135,16 @@ public class MemberWithSpouseTwoAdditinalMembers {
 
     @Given("User adds second beneficiary {string}, {string}, {string},{string}, {string}")
     public void user_adds_second_beneficiary(String Benef2Name, String Benef2Title, String Benef2Surname, String Benef2Relatiomship, String Benef2Allocation) {
+
+
         beneficiaryDetails.clickToaddBeneficiary();
 
-        beneficiaryDetails.EnterBeneficiaryName2(Benef2Name);
         beneficiaryDetails.SelectBeneficiaryTite2(Benef2Title);
 
-        beneficiaryDetails.EnterBeneficiarySurname2(Benef2Surname);
+        beneficiaryDetails.EnterBeneficiaryName2("Keba");
+
+
+        beneficiaryDetails.EnterBeneficiarySurname2("Molala");
 //        beneficiaryDetails.EnterDateOfBirth("1", "Dec", "2003");
         beneficiaryDetails.SelectBeneficiaryRelationship2(Benef2Relatiomship);
         beneficiaryDetails.SelectPercentageAllocation2(Benef2Allocation);

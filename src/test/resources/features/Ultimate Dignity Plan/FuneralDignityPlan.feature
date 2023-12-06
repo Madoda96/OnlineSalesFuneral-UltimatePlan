@@ -22,14 +22,13 @@ Feature: Funeral dignity plan
 #      | Mlandeli | 0832002639 | ClienteleTest1@test.co.za | 25        | 05         | 1992      | Funeral Dignity Plan | Family    | R60 000     | Yes            | 19 years old      | 33 years old      |
 
 
+    # This is Working as Expected
+
 
   Scenario:Click on buy now, and select the product
 
     Given User is on the introduction page
     Then user should be able to see the OR and OU options.
-
-
-
 
   Scenario Outline: Capture the member only plan with the minimum cover amount for main life assured
     Given User is on the Funeral dignity plan page they enter email and they are of age '<Age>'
@@ -42,14 +41,14 @@ Feature: Funeral dignity plan
 
 
 
-
+  @Test10
   Scenario Outline: Capture the member only plan with the minimum cover amount for main life assured
     Given User is on the Funeral dignity plan page they enter email and they are of age '<Age>'
     When User completes the required  Member details information '<Title>', '<Names>', '<Surname>', '<mobileNumber>'.
     Then User should be able to proceed to with application if they are above eighteen.
     And User enters '<PostalAddress>', '<PostalCode>', '<MonthlyIncome>','<Occupation>', '<education>'.
     And User completes '<FicaDeclaration1>' and '<FicaDeclaration2>' and clicks the continue button.
-#    And User adds a spouse '<spouseTitle>','<spouseNames>','<spouseSurname>','<spouseGender>','<spouseDOB>'.
+    And User adds a spouse '<spouseTitle>','<spouseNames>','<spouseSurname>','<spouseGender>','<spouseDOB>'.
     And user clicks continue to beneficiary page
     And User adds first beneficiary '<BeneficiaryTitle>', '<BeneficiaryName>', '<BeneficiarySurname>','<BeneficiaryRelationship>', '<Beneficiary1PercantageAllocation>'
 #    And User adds second beneficiary '<Beneficiary2Title>', '<Beneficiary2Name>', '<Beneficiary2Surname>','<Beneficiary2Relationship>', '<Beneficiary2PercantageAllocation>'
@@ -59,11 +58,15 @@ Feature: Funeral dignity plan
 
     Examples:
       | Title | Names     | Surname | Age | mobileNumber | PostalAddress | PostalCode | MonthlyIncome     | Occupation          | education                            | FicaDeclaration1 | FicaDeclaration2 | spouseTitle | spouseNames | spouseSurname | spouseDOB | spouseGender | BeneficiaryTitle | BeneficiaryName | BeneficiaryRelationship | Beneficiary1PercantageAllocation | BeneficiarySurname | Beneficiary2Title | Beneficiary2Name | Beneficiary2Relationship | Beneficiary2PercantageAllocation | Beneficiary2Surname | bankName                  | accountType     | accountNumber | debitDate | Debicheck | coverAmount       |
-      | Mr    | Modesto J | Ayers   | 29  | 0832002639   | 12345 Test    | 1205       | R15,000 - R18,000 | Skilled agriculture | Post-graduate (Honours, Masters etc) | Yes              | Yes              | Dr          | David       | Dlamina       |           | Male         | Mr                | Thami            | Child                    | 50%                              | Xuma                | Mr                | Mr               | Child                    | 50%                              | Xuma                | STANDARD BANK OF S.A. LTD | Savings Account | 1234          | 25        | No        | R341.00 per month |
+      | Mr    | Micky J | Bayers   | 25  | 0722620991   | 0152 Test    | 1205       | R15,000 - R18,000 | Skilled agriculture | Post-graduate (Honours, Masters etc) | Yes              | Yes              | Dr          | David       | Dlamina       |           | Male         | Mr                | Thami            | Child                    | 100%                              | Xuma                | Mr                | Mr               | Child                    | 50%                              | Xuma                | STANDARD BANK OF S.A. LTD | Savings Account | 1234          | 25        | No        | R341.00 per month |
 
 
 
 
+    #Update test data when running test cases
+
+
+  @Test20
   Scenario Outline: Capture maximum extended family members with different cover amounts
     Given User is on the Funeral dignity plan page they enter email and they are of age '<Age>'
     When User completes the required  Member details information '<Title>', '<Names>', '<Surname>', '<mobileNumber>'.
@@ -84,9 +87,20 @@ Feature: Funeral dignity plan
 
     Examples:
       | Title | Names    | Surname | Age | mobileNumber | PostalAddress | PostalCode | MonthlyIncome     | Occupation          | education                            | FicaDeclaration1 | FicaDeclaration2 | ExtendedMemberTitle | ExtendedMemeberNames | ExtendedMemberSurname | ExtendedMemberGender | ExtendedMemberDOB | Relation | ExtendedMember2Title | ExtendedMemeber2Names | ExtendedMember2Surname | ExtendedMember2Gender | ExtendedMember2DOB | Relation2 | ExtendedMember3Title | ExtendedMemeber3Names | ExtendedMember3Surname | ExtendedMember3Gender | ExtendedMember3DOB | Relation3 | ExtendedMember4Title | ExtendedMemeber4Names | ExtendedMember4Surname | ExtendedMember4Gender | ExtendedMember4DOB | Relation4 | ExtendedMember5Title | ExtendedMemeber5Names | ExtendedMember5Surname | ExtendedMember5Gender | ExtendedMember5DOB | Relation5 | ExtendedMember6Title | ExtendedMemeber6Names | ExtendedMember6Surname | ExtendedMember6Gender | ExtendedMember6DOB | Relation6 | ExtendedMember7Title | ExtendedMemeber7Names | ExtendedMember7Surname | ExtendedMember7Gender | ExtendedMember7DOB | Relation7 | ExtendedMember8Title | ExtendedMemeber8Names | ExtendedMember8Surname | ExtendedMember8Gender | ExtendedMember8DOB | Relation8 | Beneficiary1Title | Beneficiary1Name | Beneficiary1Surname | Beneficiary1Relationship | Beneficiary1PercantageAllocation | bankName                  | accountType     | accountNumber | debitDate | Debicheck | coverAmount         |
-      | Mr    | Steven J | Woods   | 32  | 0832002639   | 12345 Test    | 1205       | R15,000 - R18,000 | Skilled agriculture | Post-graduate (Honours, Masters etc) | Yes              | Yes              | Dr                  | David                | Dlamina               | Male                 |                   | Brother  | Mr                   | Adam                  | Thygesen               | Male                  |                    | Brother   | Mr                   | Nicolai               | Olsen                  | Male                  |                    | Aunt      | Mr                   | Peter                 | Middleton              | Male                  |                    | Cousin    | Mr                   | John                  | Smith                  | Male                  |                    | Cousin    | Mr                   | Brian                 | Habana                 | Male                  |                    | Sister    | Mr                   | Damian                | De klerk               | Male                  |                    | Brother   | Dr                   | Chelsin               | Kobe                   | Male                  |                    | Brother   | Mr                | Mandla           | Zulu                | Member Estate            | 100%                             | STANDARD BANK OF S.A. LTD | Savings Account | 1234          | 25        | No        | R3,326.00 per month |
+      | Mr    | Zobby J | Toods   | 35  | 0728712955   | 12345 Test    | 1205       | R15,000 - R18,000 | Skilled agriculture | Post-graduate (Honours, Masters etc) | Yes              | Yes              | Dr                  | David                | Dlamina               | Male                 |                   | Brother  | Mr                   | Adam                  | Thygesen               | Male                  |                    | Brother   | Mr                   | Nicolai               | Olsen                  | Male                  |                    | Aunt      | Mr                   | Peter                 | Middleton              | Male                  |                    | Cousin    | Mr                   | John                  | Smith                  | Male                  |                    | Cousin    | Mr                   | Brian                 | Habana                 | Male                  |                    | Sister    | Mr                   | Damian                | De klerk               | Male                  |                    | Brother   | Dr                   | Chelsin               | Kobe                   | Male                  |                    | Brother   | Mr                | Mandla           | Zulu                | Member Estate            | 100%                             | STANDARD BANK OF S.A. LTD | Savings Account | 1234          | 25        | No        | R3,326.00 per month |
 
 
+
+
+
+
+    #Update test data when running test cases
+
+
+
+
+
+  @Test30
   Scenario Outline: Capture an extended family member with the age band to show the minimum cover amount
     Given User is on the Funeral dignity plan page they enter email and they are of age '<Age>'
     When User completes the required  Member details information '<Title>', '<Names>', '<Surname>', '<mobileNumber>'.
@@ -103,9 +117,16 @@ Feature: Funeral dignity plan
 
     Examples:
       | Title | Names     | Surname | Age | mobileNumber | PostalAddress | PostalCode | MonthlyIncome     | Occupation          | education                            | FicaDeclaration1 | FicaDeclaration2 | ExtendedMemberTitle | ExtendedMemeberNames | ExtendedMemberSurname | ExtendedMemberGender | ExtendedMemberDOB | Relation | Beneficiary1Title | Beneficiary1Name | Beneficiary1Surname | Beneficiary1Relationship | Beneficiary1PercantageAllocation | bankName                  | accountType     | accountNumber | debitDate | Debicheck | coverAmount       |
-      | Mr    | Winfred A | Hill    | 33  | 0832002639   | 12345 Test    | 1205       | R15,000 - R18,000 | Skilled agriculture | Post-graduate (Honours, Masters etc) | Yes              | Yes              | Dr                  | David                | Dlamina               | Male                 |                   | Brother  | Mr                | Thami            | Xuma                | Member Estate            | 100%                             | STANDARD BANK OF S.A. LTD | Savings Account | 1234          | 25        | No        | R384.00 per month |
+      | Mr    | Winfred A | Hill    | 30  | 0832002639   | 12345 Test    | 1205       | R15,000 - R18,000 | Skilled agriculture | Post-graduate (Honours, Masters etc) | Yes              | Yes              | Dr                  | David                | Dlamina               | Male                 |                   | Brother  | Mr                | Thami            | Xuma                | Member Estate            | 100%                             | STANDARD BANK OF S.A. LTD | Savings Account | 1234          | 25        | No        | R384.00 per month |
 
 
+
+
+    #Update test data when running test cases
+
+
+
+  @Test40
   Scenario Outline: Capture an extended family member with the age band above 51 to show the minimum cover amount
 
     Given User is on the Funeral dignity plan page they enter email and they are of age '<Age>'
@@ -126,6 +147,15 @@ Feature: Funeral dignity plan
       | Mr    | Michael L | Hunter  | 24  | 0832002639   | 12345 Test    | 1205       | R15,000 - R18,000 | Skilled agriculture | Post-graduate (Honours, Masters etc) | Yes              | Yes              | Mr                  | Brian                | Habana                | Male                 |                   | Sister   | Mr                | Thami            | Member Estate            | 100%                             | Xuma                | STANDARD BANK OF S.A. LTD | Savings Account | 1234          | 25        | No        | R683.00 per month |
 
 
+
+
+
+    #Update test data when running test cases
+
+
+
+
+  @Test50
   Scenario Outline: Capture a member plan with VC Rider
 
     Given User is on the Funeral dignity plan page they enter email and they are of age '<Age>'
@@ -146,6 +176,15 @@ Feature: Funeral dignity plan
       | Mr    | Johnny K | Broder  | 35  | 0832002639   | 12345 Test    | 1205       | R15,000 - R18,000 | Skilled agriculture | Post-graduate (Honours, Masters etc) | Yes              | Yes              | Dr          | David       | Dlamina       |           | Male         | Mr                | Thamie           | Xulus               | Member Estate            | 100%                             | STANDARD BANK OF S.A. LTD | Savings Account | 1234          | 25        | No        | R339.00 per month |
 
 
+
+
+
+
+    #Update test data when running test cases
+
+
+
+  @Test60
   Scenario Outline: Capture a member plan with VS Rider
 
     Given User is on the Funeral dignity plan page they enter email and they are of age '<Age>'
@@ -166,6 +205,13 @@ Feature: Funeral dignity plan
       | Mr    | Charlie | Moody   | 26  | 0832002639   | 12345 Test    | 1205       | R15,000 - R18,000 | Skilled agriculture | Post-graduate (Honours, Masters etc) | Yes              | Yes              | Dr          | David       | Dlamina       |           | Male         | Mr                | Thami            | Member Estate            | 100%                             | Xuma                | STANDARD BANK OF S.A. LTD | Savings Account | 1234          | 25        | No        | R373.00 per month |
 
 
+
+
+
+    #Update test data when running test cases
+
+
+  @Test70
   Scenario Outline:  Access Online platform and select OR product to generate a quotation
 
     Given User is on the Funeral dignity plan page they enter email and they are of age '<Age>'
@@ -185,6 +231,7 @@ Feature: Funeral dignity plan
       | Mr    | Shellie H | Murray  | 36  | 0832002639   | 12345 Test    | 1205       | R15,000 - R18,000 | Skilled agriculture | Post-graduate (Honours, Masters etc) | Yes              | Yes              | Dr          | David       | Dlamina       |           | Male         | Mr                | Thami            | Member Estate            | 100%                             | Xuma                | STANDARD BANK OF S.A. LTD | Savings Account | 1234          | 25        | No        | R341.00 per month |
 
 
+  @Test80
   Scenario Outline: Capture a maximum cover member only OR plan
     Given User is on the Funeral dignity plan page they enter email and they are of age '<Age>'
     When User completes the required  Member details information '<Title>', '<Names>', '<Surname>', '<mobileNumber>'.
@@ -201,7 +248,7 @@ Feature: Funeral dignity plan
       | Title | Names  | Surname | Age | mobileNumber | PostalAddress | PostalCode | MonthlyIncome     | Occupation          | education                            | FicaDeclaration1 | FicaDeclaration2 | spouseTitle | spouseNames | spouseSurname | spouseDOB | spouseGender | Beneficiary1Title | Beneficiary1Name | Beneficiary1Relationship | Beneficiary1PercantageAllocation | Beneficiary1Surname | bankName                  | accountType     | accountNumber | debitDate | Debicheck | coverAmount       |
       | Mr    | Pollen | Wiseman | 36  | 0832002639   | 12345 Test    | 1205       | R15,000 - R18,000 | Skilled agriculture | Post-graduate (Honours, Masters etc) | Yes              | Yes              | Dr          | David       | Dlamina       |           | Male         | Mr                | Thami            | Member Estate            | 100%                             | Xuma                | STANDARD BANK OF S.A. LTD | Savings Account | 1234          | 25        | No        | R341.00 per month |
 
-  @Test1
+  @Test90
   Scenario Outline: Capture a member and family plan (FR03) with a spouse and children
     Given User is on the Funeral dignity plan page they enter email and they are of age '<Age>'
     When User completes the required  Member details information '<Title>', '<Names>', '<Surname>', '<mobileNumber>'.
@@ -224,6 +271,7 @@ Feature: Funeral dignity plan
       | Mr    | Lwandle | Luther  | 36  | 0832002639   | 12345 Test    | 1205       | R15,000 - R18,000 | Skilled agriculture | Post-graduate (Honours, Masters etc) | Yes              | Yes              | David       | Zulu          | Male        | Yes             |           | Mlandeli    | Zulu          | Male        | Yes             |           | Mr                | Mandla           | Zulu                | Brother                  | 100%                             | STANDARD BANK OF S.A. LTD | Savings Account | 1234          | 25        | No        | Dr          | David       | Dlamina       |           | Male         | Sizwe       | Mazibuko      | Male        | Yes             |           | R341.00 per month |
 
 
+  @Test100
   Scenario Outline: Try to Capture spouse over the maximum age allowed on the policy
     Given User is on the Funeral dignity plan page they enter email and they are of age '<Age>'
     When User completes the required  Member details information '<Title>', '<Names>', '<Surname>', '<mobileNumber>'.
@@ -241,6 +289,8 @@ Feature: Funeral dignity plan
       | Mr    | Lwandle | Wurster | 37  | 0832002639   | 12345 Test    | 1205       | R15,000 - R18,000 | Skilled agriculture | Post-graduate (Honours, Masters etc) | Yes              | Yes              | David       | Zulu          | Male        | No              |           | Mlandeli    | Zulu          | Male        | No              |           | Mr                | Mandla           | Zulu                | Brother                  | 100%                             | STANDARD BANK OF S.A. LTD | Savings Account | 1234          | 25        | No        | Dr          | David       | Dlamina       |           | Male         | R738.00 per month |
 
 
+
+  @Test110
   Scenario Outline: Beneficiary must equal 100%
     Given User is on the Funeral dignity plan page they enter email and they are of age '<Age>'
     When User completes the required  Member details information '<Title>', '<Names>', '<Surname>', '<mobileNumber>'.
@@ -258,6 +308,8 @@ Feature: Funeral dignity plan
       | Mr    | Lwandle | Leblanc | 9101305926088 | 0832002639   | 12345 Test    | 1205       | R15,000 - R18,000 | Skilled agriculture | Post-graduate (Honours, Masters etc) | Yes              | Yes              | David       | Zulu          | Male        | No              |           | Mlandeli    | Zulu          | Male        | No              |           | Mr                | Mandla           | Zulu                | Member Estate            | 100%                             | STANDARD BANK OF S.A. LTD | Savings Account | 1234          | 25        | No        | Dr          | David       | Dlamina       | 1952,Sep,05 | Male         | R341.00 per month |
 
 
+
+  @Test120
   Scenario Outline: Payer details can be the main life assured or another individual
     Given User is on the Funeral dignity plan page they enter email and they are of age '<Age>'
     When User completes the required  Member details information '<Title>', '<Names>', '<Surname>', '<mobileNumber>'.

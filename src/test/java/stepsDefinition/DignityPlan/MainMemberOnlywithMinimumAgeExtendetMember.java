@@ -49,10 +49,11 @@ public class MainMemberOnlywithMinimumAgeExtendetMember {
         memberPage.acceptFICAdecl("Yes");
         memberPage.acceptFicaDeclaration2("Yes");
         memberPage.clickContinueBt();
-        Thread.sleep(10000);
+        Thread.sleep(1000);
     }
     @Given("User to complete Additional details")
     public void user_to_complete_additional_details() throws InterruptedException {
+        Thread.sleep(1000);
         additionalMembers.clickExtendedMemberCheckbx();
         additionalMembers.selectExtMemberTitle1("Dr");
         additionalMembers.EnterExtendedMemberName1("Zizo");
@@ -60,11 +61,12 @@ public class MainMemberOnlywithMinimumAgeExtendetMember {
         additionalMembers.SelectExtendedMemberGender1("Female");
 
         // adding extended member that is 19,  modify year based on test case requirements
+
         additionalMembers.EnterExtendedMmemberDOB1("2003", "Sep", "14");
         additionalMembers.SelectExtendedMemberRelation1("Child");
         additionalMembers.SaveExtendedMemberDetails();
         additionalMembers.clickContinue();
-        Thread.sleep(10000);
+        Thread.sleep(1000);
 
     }
     @Given("User to complete Beneficiary details")
@@ -77,7 +79,7 @@ public class MainMemberOnlywithMinimumAgeExtendetMember {
     beneficiaryDetails.SelectPercentageAllocation("100%");
     beneficiaryDetails.clickSaveDetails();
     beneficiaryDetails.clickContinueButtn();
-        Thread.sleep(10000);
+        Thread.sleep(1000);
 
     }
     @Given("User to complete payer details")
@@ -91,7 +93,7 @@ public class MainMemberOnlywithMinimumAgeExtendetMember {
         payerDetails.Cellphone_on_hand("Yes");
         payerDetails.debitBankAcc();
        payerDetails.clickContinueBtn();
-        Thread.sleep(5000);
+        Thread.sleep(10000);
 
 
 

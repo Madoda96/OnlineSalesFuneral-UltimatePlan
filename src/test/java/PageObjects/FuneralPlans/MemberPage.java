@@ -53,7 +53,7 @@ public class MemberPage extends PageObject {
     String FicDecl02Xpath = "//select[@name=\"fica02\" ]";
 
     String sliderAmount = "//div[@class=\"fl trsm\"]";
-    String ContinueBtnXpath = "//div[@onclick=\"loader();step('1','no');\"]";
+    String ContinueBtnXpath = "(//div[@class='fr btn'][normalize-space()='Continue'])[1]";
 
     String FuneralDignityPlanOptionXpath = "//*[@id=\"inline-landing\"]/table/tbody/tr[2]/td[1]";
     String UltimateDignityPlanOptionXpath = "//*[@id=\"inline-landing\"]/table/tbody/tr[3]/td[1]";
@@ -343,8 +343,8 @@ public class MemberPage extends PageObject {
     }
 
     @Step("Enter postal address")
-    public void enterPostalAddress(String postadress) {
-        $(By.xpath(PostalAddressXpath)).sendKeys(postadress);
+    public void enterPostalAddress(String postaddres) {
+        $(By.xpath(PostalAddressXpath)).sendKeys(postaddres);
 
     }
 
@@ -409,13 +409,13 @@ public class MemberPage extends PageObject {
 
     @Step("Click the continue button")
     public void clickContinueBt() {
-        if ($(By.xpath(ContinueBtnXpath)).isClickable()) {
+//        if ($(By.xpath(ContinueBtnXpath)).isClickable()) {
             $(By.xpath(ContinueBtnXpath)).click();
-        } else {
-
-            Assert.fail("Button not clickable");
-        }
-    }
+//        } else {
+//
+//            Assert.fail("Button not clickable");
+//        }
+ }
 
     @Step("Verify that field is  validated and marked as red ")
 

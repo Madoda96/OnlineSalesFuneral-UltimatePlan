@@ -57,7 +57,7 @@ public class PayerDetails {
         additionalMembers.enterSpouseName("Elizabeth");
         additionalMembers.enterSpouseSurname("Soap");
         additionalMembers.selectSpouseGender("Female");
-        additionalMembers.EnterSpouseIDNo("8406255130792");
+        additionalMembers.EnterSpouseIDNo("8812047823851");
         additionalMembers.enterSpouseDateOfBirth("1984", "Dec", "10");
         additionalMembers.saveSpousedtls();
         additionalMembers.clickContinue();
@@ -69,7 +69,7 @@ public class PayerDetails {
         beneficiaryDetails.SelectBeneficiaryTite("Dr");
         beneficiaryDetails.EnterBeneficiaryName("Mlandeli");
         beneficiaryDetails.EnterBeneficiarySurname("Madoda");
-        beneficiaryDetails.EnterBenefiaryIDnum("84062551335070");
+        beneficiaryDetails.EnterBenefiaryIDnum("8912046238687");
         beneficiaryDetails.SelectBeneficiaryRelationship("Friend");
         beneficiaryDetails.SelectPercentageAllocation("100%");
         beneficiaryDetails.clickSaveDetails();
