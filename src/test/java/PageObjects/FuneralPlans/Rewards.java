@@ -1,9 +1,7 @@
 package PageObjects.FuneralPlans;
 
-
-
+import PageObjects.ID_Number;
 import net.serenitybdd.core.pages.PageObject;
-
 import net.thucydides.core.annotations.Step;
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -14,15 +12,63 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import static net.serenitybdd.core.Serenity.getDriver;
 
-public class AdditionalMembers extends PageObject {
+public class Rewards extends PageObject {
+
+    ID_Number idNumber;
+
+    // element will be used when intro email is required
+    String EmailXpath = "//input[@id=\"introEmail\"]";
+
+    // elements for selecting Funeral dignity plan or ultimate dignity plan.
+    String UltimateDignityPlanXpath = "//a[@href=\"?sale=OU\"]";
+    String UltimateDignityPlanXpathHELP = "//a[@href=\"?sale=OG\"]";
+    String FuneralDignityPlanXpath = "//a[@href=\"?sale=OR\"]";
+    String HighestAmountXpath = "//*[@id=\"priceSliderTrack\"]/div[5]";
 
 
-    // Add spouse Web elements
+    String TitleXpath = "//select[@name=\"onTtl\"]";
 
+    String NameXpath = "//input[@name=\"onName\"]";
+
+    String SurnameXpath = "//input[@name=\"onSurname\"]";
+
+    String IDnumXpath = "//input[@name=\"onID\"]";
+
+
+    String EmailXPATH = "//*[@id=\"onEmail\"]";  // Email field on the members page
+    String MobileNuXpath = "//input[@name=\"onMobile\"]";
+
+
+    String PostalAddressXpath = "//input[@name=\"onAddress1\"]";
+    String PostalCodeXpath = "//*[@id=\"onPostal\"]";
+
+    String MaximumCoverXpath = "//*[@id=\"priceSliderTrack\"]/div[3]";
+    String MonthlIncomeXpath = "//select[@name=\"onIncome\" ]";
+    String OccupationXpath = "//select[@name=\"onOccupation\" ]";
+    String educationXpath = "//select[@name=\"onEducation\"]";
+    String FicDecl01Xpath = "//select[@name=\"fica01\" ]";
+    String FicDecl02Xpath = "//select[@name=\"fica02\" ]";
+
+    String sliderAmount = "//div[@class=\"fl trsm\"]";
+
+    String ContinueBtnXpath = "(//div[@class='fr btn'][normalize-space()='Continue'])[1]";
+
+    String CintXpath = "//*[@id=\"onlineSaleForm\"]/div/div[1]/div[2]/div[2]";
+
+    String FuneralDignityPlanOptionXpath = "//*[@id=\"inline-landing\"]/table/tbody/tr[2]/td[1]";
+    String UltimateDignityPlanOptionXpath = "//*[@id=\"inline-landing\"]/table/tbody/tr[3]/td[1]";
+
+    String IDNumberValidation = "//span[@class=\"error nosuccess\"]";
+    String ErrorXpath = "//*[@id=\"onlineSaleForm\"]/div/div[1]/div[1]/fieldset[1]/p[4]/span";
+    String MultiplePolicyError = "//*[@id=\"onlineSaleForm\"]/div/div[1]/div[2]/div[4]";
+
+    //Additional Members
     String AddSpouseCheckbxXpath = "//*[@id=\"onlineSaleForm\"]/div/div[2]/div[1]/div[7]/fieldset/div[1]/div[1]/label/span";
     String ADDSpouseXpath = "//label[@for='addspouse01']//span[@class='rd']";
     String AddChildrenCheckBoxXpath = "//*[@id=\"onlineSaleForm\"]/div/div[2]/div[1]/div[8]/fieldset/div[1]/div[1]/label/span";
@@ -104,7 +150,7 @@ public class AdditionalMembers extends PageObject {
 
     String AddOptionalClienteleSilverRewardXpath = "//*[@id=\"onlineSaleForm\"]/div/div[2]/div[1]/div[11]/fieldset/div[2]/div[1]/label/span";
 
-    String TitleXpath = "//select[@id=\"onTtlSp\"]"; //select[@id="onTtlSp"]
+    String TitleAddXpath = "//select[@id=\"onTtlSp\"]"; //select[@id="onTtlSp"]
 
     String Spouse_NameXpath = "//input[@name=\"onNameSp\"]";
 
@@ -126,7 +172,7 @@ public class AdditionalMembers extends PageObject {
 
     String EditBtnXpath = "//div[@class=\"butEdit\"]";
 
-    String ContinueBtnXpath = "//div[@onclick=\"loader();step('2','no');\"]";
+    String ContinueBtnAddXpath = "//div[@onclick=\"loader();step('2','no');\"]";
     String BackBtnXpath = "//div[@onclick=\"stepback('0');\"]";
     String ChildNameXpath = "//input[@id=\"onNameCh1\"]";
     String ChildSurnameNameXpath = "//input[@id=\"onSurnameCh1\"]";
@@ -185,11 +231,478 @@ public class AdditionalMembers extends PageObject {
     String MaximumAmountForMembersgreaterThan50Xpath = "//*[@id=\"priceSliderTrack1\"]/div[6]";
     String CoverInfomation = "//div[@id=\"yuocovertext2\"]";
 
-   String PerksPopUp = "//div[@class=\"overlayDiscountMsgBox\"]";
+    String PerksPopUp = "//div[@class=\"overlayDiscountMsgBox\"]";
 
     String ClosePerksPopUpXpath = "//*[@id=\"overlayDiscount\"]/div/div[1]/img";
 
 
+    //Beneficiary
+    String TitleBenXpath = "//select[@id=\"onTtlB1\"]";
+    String BeneficiaryNameXpath = "//input[@id=\"onNameB1\"]";
+    String BeneficiaryName1Xpath = "//*[@id=\"onNameB1\"]";
+    String BeneficiarySurnameXpath = "//input[@id=\"onSurnameB1\"]";
+    String BeneficiaryIDnumberXpath = "//input[@id=\"onIdB1\"]";
+    String BeneficiaryDOBXpath = "//input[@id=\"onDobB1\" ]";
+    String MonthXPATH = "//select[@class=\"ui-datepicker-month\"]";
+
+    String YearXpath = "//select[@class=\"ui-datepicker-year\"]";
+    String BeneficiaryRelationshipXpath = "//select[@id=\"onRelationB1\"]";
+    String AllocatedPercentageXpath = "//select[@id=\"allocationSlider1\"]";
+
+
+    String TitleXpath2 = "//select[@id=\"onTtlB2\"]";
+    String BeneficiaryNameXpath2 = "//input[@id=\"onNameB2\"]";
+    String BeneficiarySurnameXpath2 = "//input[@id=\"onSurnameB2\"]";
+    //String BeneficiaryIDnumberXpath2 = "//id=\"onIdB2\"]";
+    String BeneficiaryIDnumberXpath2 = "//input[@id=\"onIdB2\"]";
+    String BeneficiaryDOBXpath2 = "//input[@id=\"onDobB2\" ]";
+    String MonthXPATH2 = "//select[@class=\"ui-datepicker-month\"]";
+
+    //String YearXpath2 = "//select[@class=\"ui-datepicker-year\"]";
+    String YearXPATH2 = "//select[@class=\"ui-datepicker-year\"]";
+    String BeneficiaryRelationshipXpath2 = "//select[@id=\"onRelationB2\"]";
+    String AllocatedPercentageXpath2 = "//select[@id=\"allocationSlider2\"]";
+
+
+    String saveBtnXpath = "//div[@id=\"SaveBeneficiary\"]";
+
+    String continueBtnXpath = "//div[@onclick=\"loader();step('3','no');\"]";
+    String backBtnXpath = "//div[@onclick=\"stepback('1');\"]";
+
+    String AddAnotherBeneficiaryXpath = "//button[@id=\"AddBeneficiary\"]";
+
+
+//PayerDetails
+
+    String PayerTitleXpath = "//select[@name=\"onTtlP\"]";
+    String PayerNameXpath = "//input[@name=\"onNameP\"]";
+    String PayerSurnameXpath = "//input[@name=\"onSurnameP\"]";
+    String PayerIDXpath = "//input[@name=\"onIDP\"]";
+    String PayerMobileNumberXpath = "//input[@id=\"onMobileP\"]";
+    String PayerWorkNumbXpath = "//input[@id=\"onWorkP\"]";
+    String PayerHomeNumXpath = "//input[@id=\"onHomeP\"]";
+    String PayerEmailXpath = "//input[@name=\"onEmailP\"]";
+
+    String TotalPremiumPayXpath = "//span[@id=\"payerTotal\"]";
+
+
+    //banking details xpaths
+
+    String PayerBankNameXpath = "//select[@id=\"bankbankname\"]";
+    String PayerBranchNameXpath = "//select[@name=\"bankbranchname\"]";
+    String PayerAccountTypeXpath = "//select[@name=\"acctype\"]";
+    String PayerAccountNumberXpath = "//input[@name=\"accnumber\" ]";
+    String PayerDebitDateXpath = "//select[@name=\"debitdate\"]";
+
+
+    // Debicheck Xpath
+
+    String PayerCellphoneInHandXpath = "//select[@name=\"debicheck\"]";
+
+    // Authorize
+    String PayerDebitBankAccountXpath = "//*[@id=\"StripBank\"]/div[2]/div[4]/div/div[1]/table/tbody/tr/td[2]/label/span";
+
+
+    // Back and Continue button
+    String PayerBackButtonXpath = "//div[@onclick=\"stepbackFromPayment('2');\"]";
+
+    String PayerContinueButtonXpath = "//div[@ onclick=\"loader();step('4','no');\"]";
+
+
+
+
+
+    @Step("Verify slider amounts and select different amount")
+    public void DifferentAmnt() throws InterruptedException {
+
+
+        List<WebElement> amounts = getDriver().findElements(By.xpath(sliderAmount));
+
+        List<String> amountsAvailible = new ArrayList<>();
+
+        amountsAvailible.add(amounts.get(0).getText());
+
+        amountsAvailible.add(amounts.get(1).getText());
+
+
+        amountsAvailible.add(amounts.get(2).getText());
+
+
+        amountsAvailible.add(amounts.get(3).getText());
+
+        //       amountsAvailible.add(amounts.get(4).getText());
+
+
+        for (String s : amountsAvailible) {
+            if (s.equalsIgnoreCase("R125,000") || s.equalsIgnoreCase("R150,000") || s.equalsIgnoreCase("R200,000") || s.equalsIgnoreCase("R250,000")){
+                System.out.println("Amounts are available for selection");
+            } else {
+
+
+                Assert.fail("amount have been changed");
+
+            }
+
+        }
+    }
+
+    @Step("Select R35000")
+    public void selectR35000() throws InterruptedException {
+
+        Actions actions = new Actions(getDriver());
+
+        WebElement elem_slider = getDriver().findElement(By.xpath("//*[@id=\"priceSlider\"]/span"));
+        Thread.sleep(2000);
+
+        actions.clickAndHold(elem_slider).moveByOffset(344,0).release().perform();
+
+    }
+
+    @Step("Select R40000")
+    public void selectR40000() throws InterruptedException {
+
+        Actions actions = new Actions(getDriver());
+
+        WebElement elem_slider = getDriver().findElement(By.xpath("//*[@id=\"priceSlider\"]/span"));
+        Thread.sleep(2000);
+
+        actions.clickAndHold(elem_slider).moveByOffset(497,0).release().perform();
+
+    }
+
+    @Step("Select R45000")
+    public void selectR45000() throws InterruptedException {
+
+        Actions actions = new Actions(getDriver());
+
+        WebElement elem_slider = getDriver().findElement(By.xpath("//*[@id=\"priceSlider\"]/span"));
+        Thread.sleep(2000);
+
+        actions.clickAndHold(elem_slider).moveByOffset(651,0).release().perform();
+
+    }
+
+    @Step("Select R50000")
+    public void selectR50000() throws InterruptedException {
+
+        Actions actions = new Actions(getDriver());
+
+        WebElement elem_slider = getDriver().findElement(By.xpath("//*[@id=\"priceSlider\"]/span"));
+        Thread.sleep(2000);
+
+        actions.clickAndHold(elem_slider).moveByOffset(804,0).release().perform();
+
+    }
+
+    @Step("Select R200,000 H.E.L.P cover amount")
+    public void selectR200000() throws InterruptedException {
+        Thread.sleep(2000);
+        Actions actions = new Actions(getDriver());
+
+        WebElement elem_slider = getDriver().findElement(By.xpath("//*[@id=\"priceSlider\"]/span"));
+
+
+
+
+        // $(By.xpath(ContinueBtnXpath)).sendKeys(Keys.DOWN);
+        WebElement a = $(By.xpath(ContinueBtnXpath));
+        ((JavascriptExecutor)getDriver()).executeScript("arguments[0].scrollIntoView();", a);
+
+        Thread.sleep(2000);
+        actions.clickAndHold(elem_slider).moveByOffset(426,0).release().perform();
+
+
+
+
+
+    }
+
+    @Step("Select R150,000 H.E.L.P cover amount")
+    public void selectR150000() throws InterruptedException {
+        Thread.sleep(2000);
+        Actions actions = new Actions(getDriver());
+
+        WebElement elem_slider = getDriver().findElement(By.xpath("//*[@id=\"priceSlider\"]/span"));
+        Thread.sleep(2000);
+
+        WebElement a = $(By.xpath(ContinueBtnXpath));
+        ((JavascriptExecutor)getDriver()).executeScript("arguments[0].scrollIntoView();", a);
+
+        Thread.sleep(2000);
+        actions.clickAndHold(elem_slider).moveByOffset(290,0).release().perform();
+
+
+
+
+
+    }
+
+    @Step("Select R250,000 H.E.L.P cover amount")
+    public void selectR250000() throws InterruptedException {
+        Actions actions = new Actions(getDriver());
+
+        WebElement elem_slider = getDriver().findElement(By.xpath("//*[@id=\"priceSlider\"]/span"));
+        Thread.sleep(2000);
+
+        WebElement a = $(By.xpath(ContinueBtnXpath));
+        ((JavascriptExecutor)getDriver()).executeScript("arguments[0].scrollIntoView();", a);
+
+        Thread.sleep(2000);
+        actions.clickAndHold(elem_slider).moveByOffset(859,0).release().perform();
+
+
+
+
+
+    }
+
+    @Step("Generate random email address")
+    public String GeneratedEmailAddress() {
+        Random randomGenerator = new Random();
+        int randomInt = randomGenerator.nextInt(100000);
+        return "Address" + randomInt + "@gmail.com";
+
+
+    }
+
+    @Step("Check maximum cover to equal to R50000")
+    public void
+    MaximumCover() {
+        boolean MaxCoverAmount = $(By.xpath(MaximumCoverXpath)).isDisplayed();
+        if (MaxCoverAmount) {
+            System.out.println("Max cover is displayed, The max cover amount is: " + $(By.xpath(MaximumCoverXpath)).getText());
+
+        } else {
+            Assert.fail("Max cover amount not displayed, please check member age entered");
+
+        }
+
+//        Assert.assertTrue($(By.xpath(MaximumCoverXpath)).containsText("R50,000"));
+
+
+    }
+
+    @Step("Confirm that Funeral dignity plan is visible")
+
+    public void FuneraldignityPlanOption() {
+        Assert.assertTrue($(By.xpath(FuneralDignityPlanOptionXpath)).isDisplayed());
+        Assert.assertTrue($(By.xpath(FuneralDignityPlanOptionXpath)).isVisible());
+
+
+    }
+
+    @Step("Confirm that Ultimate dignity plan is visible")
+    public void FuneralUltimatePlanOption() {
+        Assert.assertTrue($(By.xpath(UltimateDignityPlanOptionXpath)).isDisplayed());
+        Assert.assertTrue($(By.xpath(UltimateDignityPlanOptionXpath)).isVisible());
+
+
+    }
+
+
+    @Step(" check if 50000 is showing for selection")
+    public void Is50000Avaliable() {
+
+        boolean isR50000 = $(By.xpath(HighestAmountXpath)).isDisplayed();
+
+        if (isR50000) {
+            System.out.println("R50000 is available for selection");
+
+        } else {
+
+            Assert.fail("R50000 is not showing to the user");
+
+        }
+
+    }
+
+    @Step("Enter email ")
+    public void EnterEmail(String email) {
+
+        $(By.xpath(EmailXpath)).sendKeys(email);
+
+
+    }
+
+    @Step("Select ultimate dignity plan")
+    public void selectUltimatePlan() {
+
+        Assert.assertTrue($(By.xpath(UltimateDignityPlanXpath)).isDisplayed());
+        Assert.assertTrue($(By.xpath(UltimateDignityPlanXpath)).isClickable());
+        $(By.xpath(UltimateDignityPlanXpath)).click();
+
+    }
+
+
+
+    @Step("Select ultimate dignity plan for H.E.L.P ")
+    public void selectUltimatePlanforHelp() {
+
+        Assert.assertTrue($(By.xpath(UltimateDignityPlanXpathHELP)).isDisplayed());
+        Assert.assertTrue($(By.xpath(UltimateDignityPlanXpathHELP)).isClickable());
+        $(By.xpath(UltimateDignityPlanXpathHELP)).click();
+
+    }
+
+
+    @Step("Select Title")
+    public void SelectTitle(String Title) throws InterruptedException {
+        Thread.sleep(20000);
+
+        if ($(By.xpath("//*[@id=\"inline-cont\"]")).isDisplayed()) {
+
+            $(By.xpath("//*[@id=\"contsale\"]")).click();
+        }
+
+        WebElement e = $(By.xpath(TitleXpath));
+        selectFromDropdown(e, Title);
+
+    }
+
+    @Step("Enter name")
+    public void EnterName(String name) {
+        $(By.xpath(NameXpath)).sendKeys(name);
+
+    }
+
+    @Step("enter surname")
+    public void Entersurname(String surname) {
+
+        $(By.xpath(SurnameXpath)).sendKeys(surname);
+
+    }
+
+    @Step("enter member ID number ")
+    public void enterMemberIDnum(String IDNUMBER) {
+
+
+
+        $(By.xpath(IDnumXpath)).sendKeys(IDNUMBER);
+
+
+
+
+    }
+
+    @Step("Enter mobile Number")
+    public void enterMobileNum(String MOBNo) {
+        $(By.xpath(MobileNuXpath)).sendKeys(MOBNo);
+
+    }
+
+    @Step("Enter postal address")
+    public void enterPostalAddress(String postaddres) {
+        $(By.xpath(PostalAddressXpath)).sendKeys(postaddres);
+
+    }
+
+    @Step("Enter postal code")
+    public void EnterPostalCode(String postcode) {
+        $(By.xpath(PostalCodeXpath)).sendKeys(postcode);
+
+    }
+
+    @Step("Verify that Email address is populated to email field")
+
+    public void EmailAdresPopulated() {
+        WebElement Email = $(By.xpath(EmailXPATH));
+
+        Assert.assertTrue(Email.isDisplayed());
+        String emailTxt = Email.getText();
+        if (emailTxt.isEmpty()) {
+            System.out.println("Email address not populated");
+
+        } else {
+
+            Assert.fail("Email address is populated");
+
+
+        }
+
+    }
+
+    @Step(" Select Monthly income")
+    public void selectIncome(String value) {
+        WebElement INC = $(By.xpath(MonthlIncomeXpath));
+        INC.click();
+        selectFromDropdown(INC, value);
+
+
+    }
+
+    @Step(" Select occupation")
+    public void selectOccupation(String occupation) {
+        WebElement occu = $(By.xpath(OccupationXpath));
+        selectFromDropdown(occu, occupation);
+
+    }
+
+    @Step("Select education")
+    public void selectEducation(String edu) {
+        WebElement educ = $(By.xpath(educationXpath));
+        selectFromDropdown(educ, edu);
+    }
+
+    @Step("Accept FICA declaration ")
+    public void acceptFICAdecl(String Yes_No) {
+        WebElement FD1 = $(By.xpath(FicDecl01Xpath));
+        selectFromDropdown(FD1, Yes_No);
+    }
+
+    @Step("Accept FICA declaration ")
+    public void acceptFicaDeclaration2(String YES_NO) {
+        WebElement FD2 = $(By.xpath(FicDecl02Xpath));
+        selectFromDropdown(FD2, YES_NO);
+    }
+
+    @Step("Click the continue button")
+    public void clickContinueBtMember() throws InterruptedException {
+        Thread.sleep(5000);
+
+//        if ($(By.xpath(ContinueBtnXpath)).isClickable()) {
+        $(By.xpath(CintXpath)).click();
+//        } else {
+//
+//            Assert.fail("Button not clickable");
+//        }
+    }
+
+    @Step("Verify that field is  validated and marked as red ")
+
+    public void IDNumfieldValidated() {
+
+        boolean IDValidationdisplayed = $(By.xpath(IDNumberValidation)).isDisplayed();
+
+        if (IDValidationdisplayed){
+            System.out.println("ID number validation is showing ");
+        }else {
+
+            Assert.fail("ID number validation is not showing");
+
+        }
+
+    }
+
+    @Step(": confirm that error message is displayed")
+    public void confirm_that_error_message_is_displayed() {
+        Assert.assertTrue($(By.xpath(ErrorXpath)).isDisplayed());
+    }
+
+    @Step(" Message that confirm multiple policy should displayed")
+    public void message_that_confirm_multiple_policy_should_displayed() {
+        $(By.xpath(MultiplePolicyError)).isDisplayed() ;
+        $(By.xpath(MultiplePolicyError)).click();
+
+        String exp = "Multiple policies with main member details appear in our records.\n" +
+                "One of our consultants will be in contact to assist you further.";
+        WebElement m = $(By.xpath(MultiplePolicyError));
+        String act = m.getText();
+        System.out.println("Error message is: "+ act);
+        //verify error message with Assertion
+        Assert.assertEquals(exp, act);
+
+
+    }
 
 
 
@@ -345,7 +858,7 @@ public class AdditionalMembers extends PageObject {
 //
 //        if (addExtendedMember) {
 
-            $(By.xpath(AddExtendedMemberCheckBoxXpath)).click();
+        $(By.xpath(AddExtendedMemberCheckBoxXpath)).click();
 
 //        } else {
 //
@@ -924,7 +1437,7 @@ public class AdditionalMembers extends PageObject {
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(AdSpouseCHKBOX)));
         element.click();
 
-       // $(By.xpath(ADDSpouseXpath)).click();
+        // $(By.xpath(ADDSpouseXpath)).click();
 
     }
 
@@ -1303,6 +1816,249 @@ public class AdditionalMembers extends PageObject {
 
     }
 
+    @Step("Select beneficiary Title")
+
+
+    public void SelectBeneficiaryTite(String Title) {
+        WebElement benefiTitle = $(By.xpath(TitleXpath));
+        selectFromDropdown(benefiTitle, Title);
+    }
+
+    @Step(" Enter the name of the beneficiary")
+
+    public void EnterBeneficiaryName(String name) throws InterruptedException {
+
+        Thread.sleep(1000);
+        $(By.xpath(BeneficiaryName1Xpath)).sendKeys(name);
+    }
+
+    @Step("Enter the surname of the beneficiary")
+    public void EnterBeneficiarySurname(String Bsurname) {
+        $(By.xpath(BeneficiarySurnameXpath)).sendKeys(Bsurname);
+    }
+
+    @Step("Enter the beneficiary ID number")
+    public void EnterBenefiaryIDnum(String IDnum) {
+        $(By.xpath(BeneficiaryIDnumberXpath)).sendKeys(IDnum);
+    }
+
+    @Step("Select beneficial relationship")
+    public void SelectBeneficiaryRelationship(String BeneficiaryRelationship) {
+
+        WebElement benefiTitle = $(By.xpath(BeneficiaryRelationshipXpath));
+        selectFromDropdown(benefiTitle, BeneficiaryRelationship);
+
+    }
+
+    @Step("Select percentage allocation")
+    public void SelectPercentageAllocation(String PercentageAllocation) {
+
+        WebElement Allocation = $(By.xpath(AllocatedPercentageXpath));
+        selectFromDropdown(Allocation, PercentageAllocation);
+    }
+
+
+
+
+//    @Step(" Enter beneficiary date of birth")
+//
+//    public void EnterDateOfBirth(String day, String month, String year) {
+//
+//        String activedatesXpath = "//*[@id=\"ui-datepicker-div\"]/table/tbody";
+//
+//        $(By.xpath(BeneficiaryDOBXpath)).click();
+//        WebElement Year = $(By.xpath(YearXPATH2));
+//        WebElement months = $(By.xpath(MonthXPATH2));
+//
+//
+//        selectFromDropdown(Year, year);
+//
+//
+//        // enter the month eg Jan,Feb,Mar,April,etc
+//        selectFromDropdown(months, month);
+//
+//        WebElement dts = $(By.xpath(activedatesXpath));
+//        List<WebElement> activedates = dts.findElements(By.tagName("td"));
+//
+//        for (WebElement dates : activedates) {
+//            String date = dates.getText();
+//            if (date.equals(day)) {
+//                dates.click();
+//                break;
+//            }
+//        }
+//    }
+
+
+
+    //Just a capture
+    @Step("Save captured beneficiary details")
+    public void clickSaveDetails() {
+        $(By.xpath(saveBtnXpath)).click();
+
+    }
+
+    @Step("Click continue button to land on the Payer details page ")
+    public void clickContinueButtn() {
+        $(By.xpath(continueBtnXpath)).click();
+
+    }
+
+    @Step("click back button to land on the additional members page")
+    public void clickBackButton() {
+        $(By.xpath(backBtnXpath)).click();
+
+
+    }
+
+    @Step("Click to add another beneficiary")
+    public void clickToaddBeneficiary() {
+        $(By.xpath(AddAnotherBeneficiaryXpath)).click();
+
+    }
+
+    @Step("Select beneficial relationship")
+    public void SelectBeneficiaryRelationship2(String BeneficiaryRelationship) {
+
+        WebElement benefiTitle = $(By.xpath(BeneficiaryRelationshipXpath2));
+        selectFromDropdown(benefiTitle, BeneficiaryRelationship);
+
+    }
+
+    @Step("Select percentage allocation")
+    public void SelectPercentageAllocation2(String PercentageAllocation) {
+
+        WebElement Allocation = $(By.xpath(AllocatedPercentageXpath2));
+        selectFromDropdown(Allocation, PercentageAllocation);
+    }
+
+    @Step("Select beneficiary Title")
+    public void SelectBeneficiaryTite2(String Title) {
+        WebElement benefiTitle = $(By.xpath(TitleXpath2));
+        selectFromDropdown(benefiTitle, Title);
+    }
+
+    @Step(" Enter the name of the beneficiary")
+    public void EnterBeneficiaryName2(String name) {
+        $(By.xpath(BeneficiaryNameXpath2)).sendKeys(name);
+    }
+
+    @Step("Enter the surname of the beneficiary")
+    public void EnterBeneficiarySurname2(String Bsurname) {
+        $(By.xpath(BeneficiarySurnameXpath2)).sendKeys(Bsurname);
+    }
+
+
+
+    @Step("Check Total Premium")
+    public String TotalPremium() {
+        String PremiumAmount = "";
+        Assert.assertTrue($(By.xpath(TotalPremiumXpath)).isDisplayed());
+        PremiumAmount = $(By.xpath(TotalPremiumXpath)).getText();
+        return PremiumAmount;
+
+    }
+
+
+    @Step("Select payer title")
+    public void SelectPayerTitle(String PayerTitle) {
+        WebElement e = $(By.xpath(PayerTitleXpath));
+        selectFromDropdown(e, PayerTitle);
+
+    }
+
+    @Step("Enter payer name")
+    public void EnterPayerName(String PayerName) {
+        $(By.xpath(PayerNameXpath)).sendKeys(PayerName);
+
+    }
+    @Step("Enter payer surname")
+    public void EnterPayerSurname(String PayerSurname){
+        $(By.xpath(PayerSurnameXpath)).sendKeys(PayerSurname);
+    }
+
+    @Step("Enter Payer ID number")
+    public void EnterPayIDNumber (String PayerIDnum){
+        $(By.xpath(PayerIDXpath)).sendKeys(PayerIDnum);
+
+
+    }
+    @Step("Enter payer mobile number")
+    public void EnterPayerMobileNumber(String PayerMobileNum){
+        $(By.xpath(PayerMobileNumberXpath)).sendKeys(PayerMobileNum);
+    }
+    @Step("Select bank name")
+    public void SelectBankName (String bankName){
+
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(60));
+        WebElement e = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(PayerBankNameXpath)));
+        selectFromDropdown(e, bankName);
+
+    }
+    @Step("Select branch name")
+    public void selectBranchName (String BranchName){
+        WebElement e = $(By.xpath(PayerBranchNameXpath));
+        selectFromDropdown(e, BranchName);
+
+    }
+    @Step("Select payer account number")
+    public void SelectAccountType(String AccountType){
+
+        WebElement e = $(By.xpath(PayerAccountTypeXpath));
+        selectFromDropdown(e, AccountType);
+
+    }
+
+    @Step("Enter account number")
+    public void EnterAccNumber (String AccountNumber){
+        $(By.xpath(PayerAccountNumberXpath)).sendKeys(AccountNumber);
+    }
+    @Step("Select debit date")
+    public void EnterDebitDate (String DebitDate){
+        WebElement e = $(By.xpath(PayerDebitDateXpath));
+        selectFromDropdown(e, DebitDate);
+    }
+
+    @Step("Select Yes or No on cellphone on hand")
+    public void Cellphone_on_hand(String Yes_No){
+        WebElement e = $(By.xpath(PayerCellphoneInHandXpath));
+        selectFromDropdown(e, Yes_No);
+    }
+    @Step("Authorize clientele to debit bank account")
+    public void debitBankAcc (){
+
+        $(By.xpath(PayerDebitBankAccountXpath)).click();
+
+    }
+
+    @Step("Click continue to see navigate to payer details page")
+    public void clickContinueBtn(){
+        $(By.xpath(PayerContinueButtonXpath)).click();
+    }
+
+    @Step("Verify that page is Payer details")
+    public void payerdetailsPage (){
+        String pageTitle = getTitle();
+        String ExpectedTitle = "Online Sales";
+
+        if (pageTitle.equals(ExpectedTitle)){
+
+            System.out.println("User is on the the payer details page");
+
+        }else {
+
+            Assert.fail("User did not land on the payer details page");
+        }
+
+    }
+
+
 
 
 }
+
+
+
+
+
+

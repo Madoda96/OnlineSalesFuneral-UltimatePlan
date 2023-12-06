@@ -53,7 +53,10 @@ public class MemberPage extends PageObject {
     String FicDecl02Xpath = "//select[@name=\"fica02\" ]";
 
     String sliderAmount = "//div[@class=\"fl trsm\"]";
+
     String ContinueBtnXpath = "(//div[@class='fr btn'][normalize-space()='Continue'])[1]";
+
+    String CintXpath = "//*[@id=\"onlineSaleForm\"]/div/div[1]/div[2]/div[2]";
 
     String FuneralDignityPlanOptionXpath = "//*[@id=\"inline-landing\"]/table/tbody/tr[2]/td[1]";
     String UltimateDignityPlanOptionXpath = "//*[@id=\"inline-landing\"]/table/tbody/tr[3]/td[1]";
@@ -408,9 +411,11 @@ public class MemberPage extends PageObject {
     }
 
     @Step("Click the continue button")
-    public void clickContinueBt() {
+    public void clickContinueBtMember() throws InterruptedException {
+        Thread.sleep(5000);
+
 //        if ($(By.xpath(ContinueBtnXpath)).isClickable()) {
-            $(By.xpath(ContinueBtnXpath)).click();
+            $(By.xpath(CintXpath)).click();
 //        } else {
 //
 //            Assert.fail("Button not clickable");

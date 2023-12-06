@@ -229,7 +229,7 @@ public class MainMemberWithMaximumExtendedMembers {
     @Then("User adds a VS rewards")
     public void user_adds_a_vs_rewards() throws InterruptedException {
 
-        additionalMembers.selectSilverRewards();
+        additionalMembers.selectSilverRewards10();
         additionalMembers.checkAccessToDeviceForSilver();
         additionalMembers.clickContinue();
         Thread.sleep(3000);

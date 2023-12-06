@@ -78,9 +78,7 @@ public class MemberWithSpouseTwoAdditinalMembers {
 
         memberPage.acceptFICAdecl(FICA1);
         memberPage.acceptFicaDeclaration2(FICA2);
-
-        Thread.sleep(5000);
-        memberPage.clickContinueBt();
+        memberPage.clickContinueBtMember();
     }
 
     @Given("User adds a spouse {string},{string},{string},{string},{string}.")

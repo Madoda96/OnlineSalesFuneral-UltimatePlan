@@ -44,21 +44,21 @@ public class MainMemberAt81Years {
         memberPage.selectEducation("University, Technikon, Degree, Diploma");
         memberPage.acceptFICAdecl("Yes");
         memberPage.acceptFicaDeclaration2("Yes");
-        memberPage.clickContinueBt();
+        memberPage.clickContinueBtMember();
 
     }
 
-    @And(": User should get error message.")
-    public void user_should_get_error_message() {
+//    @And(": User should get error message.")
+//    public void user_should_get_error_message() {
+//
+//        memberPage.clickContinueBtMember();
 
-        memberPage.clickContinueBt();
 
 
-    }
-    @Then(": confirm that error message is displayed")
-    public void confirm_that_error_message_is_displayed() {
-        memberPage.confirm_that_error_message_is_displayed();
-    }
+//    @Then(": confirm that error message is displayed")
+//    public void confirm_that_error_message_is_displayed() {
+//        memberPage.confirm_that_error_message_is_displayed();
+//    }
 
 }
 

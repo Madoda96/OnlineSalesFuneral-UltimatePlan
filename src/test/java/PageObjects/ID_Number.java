@@ -34,6 +34,7 @@ public class ID_Number extends PageObject {
 
 
     public void OpenIDnumberGeneratorWebsite() {
+
         getDriver().switchTo().newWindow(WindowType.TAB).get(IDnumberGeneratorUrl);
         getDriver().manage().window().maximize();
 
